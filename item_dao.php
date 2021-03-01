@@ -163,6 +163,38 @@
             }
         } 
         
-       
+        public static function validate($item){
+                // public $name;
+                // public $image;
+                // public $price;
+                // public $stock;
+                // public $description;
+                
+            // 空の配列
+            $error = array();
+            // 名前を入力しない場合のメッセージ
+            if($item->name === ''){
+                $error[] = '商品名を入力してください';
+            }
+            // 写真を選択しない場合のメッセージ
+            if($item->image === ''){
+                $error[] = '写真を選択してください';
+            }
+            // 価格を入力しない場合のメッセージ
+            if($item->price === ''){
+                $error[] = '金額を入力してください';
+            }
+            // 個数を入力しない場合のメッセージ
+            if($item->stock === ''){
+                $error[] = '個数を入力してください';
+            }
+            // 説明文を入力しない場合のメッセージ
+            if($item->description === ''){
+                $error[] = '説明文を入力してください';
+            }
+            
+            return $error;
+            
+        }
     }
 ?>

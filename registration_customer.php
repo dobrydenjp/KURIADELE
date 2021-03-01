@@ -1,20 +1,8 @@
 <?php
     // var_dump($_POST);
-    // インスタンス
-    require_once 'customer_dao.php';
-    $name = $_POST['name'];
-    $kana_name = $_POST['kana_name'];
-    $postal_code = $_POST['postal_code'];
-    $address = $_POST['address'];
-    $tel = $_POST['tel'];
-    $email_address = $_POST['email_address'];
-    $password = $_POST['password'];
     
-    $customer = new Customer($name, $kana_name, $postal_code, $address, $tel, $email_address, $password);
-    // var_dump($customer);
-    CustomerDAO::insert($customer);
-
-
+    session_start();
+    
 ?>
 <!doctype html>
 <thml lang='ja'>

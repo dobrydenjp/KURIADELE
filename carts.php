@@ -9,7 +9,7 @@
     
     $my_carts = CartDAO::get_my_carts($login_customer->id);
     // var_dump($my_carts);
-
+    // カート・入力内容確認・最終確認　個数変更できるようにする
 ?>
 <!doctype html>
 <thml lang='ja'>
@@ -56,7 +56,15 @@
             <p>商品番号: <?= $cart->get_item()->id ?></p>
             <img src='upload/items/<?= $cart->get_item()->image ?>' class='product_2'></img>
             <div class='product_3'><?= $cart->get_item()->name  ?>          ￥<?= $cart->get_item()->price ?></div>
-            <p>個数: <?= $cart->number ?></p>
+            <select class='select_box' name="number">
+                <!--buy.phpで選択した個数をそのまま引き継ぐ-->
+                <!--更に個数numberを選択できるようにする-->
+                
+                <?php for($i = 1; $i <= $cart->item_stock; $i++): ?>
+                <option value='<?= $i ?>'><?= $i ?></option>
+                <?php endfor; ?>
+            個</select>
+            <!--<p>個数: <?= $cart->number ?></p>-->
             <p>小計: ￥<?= $cart->number * $cart->get_item()->price ?></p>
         </div>
         <?php endforeach; ?>

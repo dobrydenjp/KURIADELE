@@ -16,7 +16,7 @@
             $this->postal_code = $postal_code;
             $this->address = $address;
             $this->tel = $tel;
-            $this->mail_address = $email_address;
+            $this->email_address = $email_address;
             $this->password = $password;
         }
         

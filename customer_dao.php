@@ -117,5 +117,57 @@
             }
         }
         
+        // registration_new.phpへ送る
+        // 入力値チェック
+        public static function validate($customer){
+            // Customer クラスのプロパティ
+            // public $name;
+            // public $kana_name;
+            // public $postal_code;
+            // public $address;
+            // public $tel;
+            // public $email_address;
+            // public $password;
+            
+            // 空のエラー配列を準備
+            $errors = array();
+            
+            // 名前のチェック
+            if($customer->name === ''){
+                $errors[] = 'お名前を入力してください';
+            }
+            // フリガナチェック
+            if($customer->kana_name === ''){
+                $errors[] = 'フリガナを入力してください';
+            }
+            // 郵便番号チェック
+            if($customer->postal_code === ''){
+                $errors[] = '郵便番号を入力してください';
+            }else if(!preg_match('/^[0-9]{3}-[0-9]{4}$/', $customer->postal_code)){
+                $errors[] = '郵便番号は所定の書式をお守りください';
+            }
+            // 住所チェック
+            if($customer->address === ''){
+                $errors[] = '住所を入力してください';
+            }
+            // 電話番号チェック
+            if($customer->tel === ''){
+                $errors[] = '電話番号を入力してください';
+            }else if(!preg_match('/^[0-9]{2,4}-[0-9]{2,4}-[0-9]{3,4}$/', $customer->tel)){
+                $errors[] = '電話番号は所定の書式をお守りください';
+            }
+            // メールアドレスチェック
+            if($customer->email_address === ''){
+                $errors[] = 'メールアドレスを入力してください';
+            }elseif(!preg_match('/^[a-zA-Z0-9_.+-]+[@][a-zA-Z0-9.-]+$/', $customer->email_address)){
+                $errors[] = 'メールアドレスは所定の書式をお守りください';
+            }
+            // パスワードチェック
+            if(strlen($customer->password) < 5){
+                $errors[] = 'パスワードは5文字以上で入力してください';
+            }
+            // k完成したエラー配列を返す registration_new.phpへ
+            return $errors;
+        }
         
     }

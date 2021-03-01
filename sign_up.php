@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    // registration_new.phpのセッション情報取得
+    $errors = $_SESSION['errors'];
+    
+    $_SESSION['errors'] = null;
+
+?>
+
 <!doctype html>
 <thml lang='ja'>
     <head>
@@ -42,9 +51,13 @@
             
             新規会員登録
         </div>
-        
+        <?php if($errors !== null): ?>
+                <?php foreach($errors as $error): ?>
+                    <p><?= $error ?></p>
+                <?php endforeach; ?>
+            <?php endif ?>
             
-        <form method='POST' action='registration_customer.php'>
+        <form method='POST' action='registration_new.php'>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>お名前</label>
                     <div class="col-lg-4 col-12">

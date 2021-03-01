@@ -1,7 +1,8 @@
 <?php
     session_start();
-    $error = $_SESSION['error'];
-    $_SESSION['error'] = null;
+    // registration_new.phpのセッション　フラッシュメッセージ取得
+    $flash_message = $_SESSION['flash_message'];
+    $_SESSION['flash_message'] = null;
 ?>
 
 <!doctype html>
@@ -49,6 +50,12 @@
         </div>
         <br>
         <br>
+        <!--新規登録成功のメッセージ表示-->
+        
+        <?php if($flash_message !== null): ?>
+            <p><?= $flash_message ?></p>
+        <?php endif; ?>
+        
         
         <div class='login_1'>ＭＹページログイン</div>
         <p><?= $error ?></p>

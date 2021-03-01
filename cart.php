@@ -5,12 +5,14 @@
         public $id;
         public $customer_id;
         public $item_id;
+        public $item_stock;
         public $number;
         public $created_at;
         
-        public function __construct($customer_id="", $item_id="", $number=""){
+        public function __construct($customer_id="", $item_id="",$item_stock="", $number=""){
             $this->customer_id = $customer_id;
             $this->item_id = $item_id;
+            $this->item_stock = $item_stock;
             $this->number = $number;
         }
         

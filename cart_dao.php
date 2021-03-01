@@ -38,10 +38,11 @@
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
                 // INSERT文を実行する準備（名前、年齢はわざとあやふやにしておく）
-                $stmt = $pdo -> prepare("INSERT INTO carts(customer_id, item_id, number) VALUES(:customer_id, :item_id, :number)");
+                $stmt = $pdo -> prepare("INSERT INTO carts(customer_id, item_id, item_stock, number) VALUES(:customer_id, :item_id, :item_stock, :number)");
                 // バインド処理（あやふやだった箇所を実データで埋める）
                 $stmt->bindParam(':customer_id', $cart->customer_id, PDO::PARAM_INT);
                 $stmt->bindParam(':item_id', $cart->item_id, PDO::PARAM_INT);
+                $stmt->bindParam(':item_stock', $cart->item_id, PDO::PARAM_INT);
                 $stmt->bindParam(':number', $cart->number, PDO::PARAM_INT);
                 
                 // INSERT文本番実行
@@ -95,7 +96,29 @@
             }
             return $total;
         }
-        
+        // 購入時該当商品の在庫を 減らす
+        public static function decrement_stock($cart){
+            try{
+                // データベースに接続する神様取得
+                $pdo = self::get_connection();
+                // INSERT文を実行する準備（データはわざとあやふやにしておく）
+                $stmt = $pdo -> prepare("UPDATE carts SET item_stock=(item_stock - :number) WHERE customer_id=:customer_id");
+                
+                // バインド処理（あやふやだった箇所実データで埋める）
+                $stmt->bindParam(':number', $cart->number, PDO::PARAM_INT);
+                $stmt->bindParam(':customer_id', $cart->item_id, PDO::PARAM_INT);
+                
+                // UPDATE文本番実行
+                $stmt->execute();
+    
+            }catch(PDOException $e){
+                
+                return "問題が発生しました<br>" . $e->getMessage();
+                
+            }finally{
+               self::close_connection($pdo, $stmp); 
+            }
+        } 
         
         // 指定した番号のカート情報を削除するメソッド
         public static function delete_cart($id){
