@@ -8,25 +8,49 @@
     
     // print $email_address;
     // print $password
-    
-    // 入力されたメールアドレスとパスワードを持っている人をデータベースから抜き出す
-    // そんな顧客がいるかチェック  2つの情報を探し出すメソッド
-   $customer = CustomerDAO::get_customer($email_address, $password);
-//   var_dump($customer);
-    // そんな顧客がいるかいないかで場合分け
-    // いれば 　　ではない
-    if($customer !== false){
-                    // セッション情報　login_customerというニックネームを保存
-        $_SESSION['login_customer'] = $customer;
-        header('Location: mypage.php');
-        exit;
+    // if($customer !== false){
         
-    }else{ // いなければ
+        
+    //     header('Location: index.php');
+    //     exit;
+//     // 入力されたメールアドレスとパスワードを持っている人をデータベースから抜き出す
+//     // そんな顧客がいるかチェック  2つの情報を探し出すメソッド
+    // }else{ // いなければ
+       
     
-        $_SESSION['error'] = 'ログインできません';
+    if($customer[0] !== 0){
+        $customer = CustomerDAO::get_customer($email_address, $password);
+        $_SESSION['login_customer'] = $customer->name . '様　こんにちは';
+        header('Location: index.php');
+        exit;
+    }else{
+        $error = CustomerDAO::check($customer);
+        $_SESSION['login_error'] = $error;
         header('Location: login.php');
         exit;
     }
+    
+    // }
+    // if(!isset($_SESSION['login_customer'])){
+        
+    // }
+    // var_dump($customer);
+//     // 入力されたメールアドレス・パスワードが違う場合
+//     // エラーメッセージ表示する
+//     // データベースには接続しない
+//     // $login_errorにはエラーメッセージ表示するメソッドが入る　DAO
+    
+// //     // check($customer)のDAOに対して
+// //     // そんな顧客がいるかいないかで場合分け
+// //     // いれば 　　ではない
+//     // if(strcmp( $customer, "" ) === 0){
+    
+        // var_dump($customer);
+       
+//     
+        
+        
+    
    
    
 ?>

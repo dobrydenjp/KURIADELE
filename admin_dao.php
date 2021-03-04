@@ -7,7 +7,7 @@
         private static function get_connection(){
             
             // データベース接続情報      
-            $dsn = "mysql:host=localhost;dbname=KURIADELE_1";
+            $dsn = "mysql:host=localhost;dbname=KURIADELE";
             $db_username = "root";
             $db_password = "";
         

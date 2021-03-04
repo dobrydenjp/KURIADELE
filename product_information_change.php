@@ -1,4 +1,13 @@
 <?php
+    session_start();
+    // 間違いがあった場合一度だけエラーメッセージ表示
+    $errors = $_SESSION['errors'];
+    $_SESSION['errors'] = null;
+    var_dump($errors);
+    
+    
+    $flash_message = $_SESSION['flash_message'];
+    $_SESSION['flash_message'] = null;
     
 ?>
 
@@ -41,7 +50,12 @@
         <div >
             <p class=customer>商品情報登録</p>
         </div>
-        
+        <?php if($errors !== null): ?>
+            <?php foreach($errors as $error): ?>
+                <p><?= $error ?></p>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        <?= $flash_message?>
         <form method='POST' action='item_new.php' enctype="multipart/form-data">
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>商品名</label>
@@ -52,13 +66,11 @@
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>商品画像</label>
                     <div class='col-lg-4 col-12'>
-                        
-                        
                         <input type='file' name='image'>
                     </div>
             </div>
             <div class='customer_information form-group row'>
-                <label class='col-lg-4 col-form-label'>単価</label>
+                <label class='col-lg-4 col-form-label'>金額</label>
                     <div class="col-lg-4 col-12">
                         <input type='text' name='price' class='form-control'/>
                     </div>

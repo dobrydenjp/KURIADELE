@@ -9,8 +9,7 @@
         public $description;
         public $created_at;
         
-        public function __construct($id='', $name='', $image='', $price='', $stock='', $description=""){
-            $this->id = $id;
+        public function __construct($name='', $image='', $price='', $stock='', $description=""){
             $this->name = $name;
             $this->image = $image;
             $this->price = $price;

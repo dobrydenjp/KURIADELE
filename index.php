@@ -1,7 +1,8 @@
 <?php
     session_start();
+    $login_customer = $_SESSION['login_customer'];
+    var_dump($login_customer);
     
-
 ?>
 
 <!doctype html>
@@ -50,7 +51,7 @@
             
             
         </div>
-        
+        <p><?= $login_customer ?></p>
         
         <div class='top_2'>
             <h4 class='customer'>取扱商品</h4>

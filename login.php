@@ -3,6 +3,9 @@
     // registration_new.phpのセッション　フラッシュメッセージ取得
     $flash_message = $_SESSION['flash_message'];
     $_SESSION['flash_message'] = null;
+    
+    $login_error = $_SESSION['login_error'];
+    var_dump($login_error);
 ?>
 
 <!doctype html>
@@ -58,7 +61,9 @@
         
         
         <div class='login_1'>ＭＹページログイン</div>
-        <p><?= $error ?></p>
+        <?php foreach($login_error as $errors): ?>
+            <p><?= $login_error ?></p>
+        <?php endforeach; ?>
         <form action='login_check.php' method='POST'>
             <div class='login_2'>
                 メールアドレス  <input type='text' name='email_address' /><br><br>

@@ -4,7 +4,7 @@
     $errors = $_SESSION['errors'];
     
     $_SESSION['errors'] = null;
-
+    var_dump($errors);
 ?>
 
 <!doctype html>
@@ -55,7 +55,7 @@
                 <?php foreach($errors as $error): ?>
                     <p><?= $error ?></p>
                 <?php endforeach; ?>
-            <?php endif ?>
+            <?php endif; ?>
             
         <form method='POST' action='registration_new.php'>
             <div class='customer_information form-group row '>
@@ -110,7 +110,7 @@
         </form>
         
         <div class='footer '>
-            <ul><span><a href='corporate philosophy.php'>KURIADELEについて</a></span><br>
+            <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
                 <li>事業計画</li>
                 <li>展望</li>

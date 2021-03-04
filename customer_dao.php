@@ -87,6 +87,12 @@
                self::close_connection($pdo, $stmp); 
             }
         }
+        
+        
+        
+        
+        
+        
         // メールアドレスとパスワードによって、お客様情報を取得する
         public static function get_customer($email_address, $password){
             try{
@@ -106,8 +112,9 @@
                 // 顧客情報をCustomerクラスのインスタンスで取得
                 $customer = $stmt->fetch();
     
-                return $customer;
                 
+                
+                return $customer;
             }catch(PDOException $e){
                 
                 return "問題が発生しました<br>" . $e->getMessage();
@@ -116,7 +123,22 @@
                self::close_connection($pdo, $stmp); 
             }
         }
-        
+        public static function check($customer){
+            // public $email_address;
+            // public $password;
+            // 空の配列用意
+            $error = array();
+            // メールアドレスチェック
+            if($customer->email_address !== 0){
+                $error[] = 'メールアドレスを入力してください';
+            }elseif(!preg_match('/^[a-zA-Z0-9_.+-]+[@][a-zA-Z0-9.-]+$/', $customer->email_address)){
+                $error[] = '登録メールアドレスを入力してください';
+            }
+            if(strlen($customer->password) < 5){
+                $error[] = 'パスワードは正しく入力してください'; 
+            }
+            return $error;
+        }
         // registration_new.phpへ送る
         // 入力値チェック
         public static function validate($customer){
@@ -169,5 +191,6 @@
             // k完成したエラー配列を返す registration_new.phpへ
             return $errors;
         }
+        
         
     }
