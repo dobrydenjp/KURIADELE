@@ -3,6 +3,7 @@
     session_start();
     // var_dump($_POST);
     // 入力されたメールアドレス・パスワードを取得する
+    
     $email_address = $_POST['email_address'];
     $password = $_POST['password'];
     
@@ -16,20 +17,24 @@
 //     // 入力されたメールアドレスとパスワードを持っている人をデータベースから抜き出す
 //     // そんな顧客がいるかチェック  2つの情報を探し出すメソッド
     // }else{ // いなければ
-       
+    $error = CustomerDAO::check($email_address, $password);
     
-    if($customer[0] !== 0){
+    if(count($error) === 0){
         $customer = CustomerDAO::get_customer($email_address, $password);
         $_SESSION['login_customer'] = $customer->name . '様　こんにちは';
         header('Location: index.php');
         exit;
     }else{
-        $error = CustomerDAO::check($customer);
+
         $_SESSION['login_error'] = $error;
         header('Location: login.php');
         exit;
+        
+    // 
     }
-    
+        // 
+              
+        
     // }
     // if(!isset($_SESSION['login_customer'])){
         

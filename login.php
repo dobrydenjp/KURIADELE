@@ -5,6 +5,7 @@
     $_SESSION['flash_message'] = null;
     
     $login_error = $_SESSION['login_error'];
+    $_SESSION['login_error'] = null;
     var_dump($login_error);
 ?>
 
@@ -61,9 +62,11 @@
         
         
         <div class='login_1'>ＭＹページログイン</div>
-        <?php foreach($login_error as $errors): ?>
+        <?php foreach($login_error as $error): ?>
             <p><?= $login_error ?></p>
         <?php endforeach; ?>
+        
+        
         <form action='login_check.php' method='POST'>
             <div class='login_2'>
                 メールアドレス  <input type='text' name='email_address' /><br><br>

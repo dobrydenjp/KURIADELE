@@ -123,22 +123,7 @@
                self::close_connection($pdo, $stmp); 
             }
         }
-        public static function check($customer){
-            // public $email_address;
-            // public $password;
-            // 空の配列用意
-            $error = array();
-            // メールアドレスチェック
-            if($customer->email_address !== 0){
-                $error[] = 'メールアドレスを入力してください';
-            }elseif(!preg_match('/^[a-zA-Z0-9_.+-]+[@][a-zA-Z0-9.-]+$/', $customer->email_address)){
-                $error[] = '登録メールアドレスを入力してください';
-            }
-            if(strlen($customer->password) < 5){
-                $error[] = 'パスワードは正しく入力してください'; 
-            }
-            return $error;
-        }
+        
         // registration_new.phpへ送る
         // 入力値チェック
         public static function validate($customer){
@@ -150,7 +135,6 @@
             // public $tel;
             // public $email_address;
             // public $password;
-            
             // 空のエラー配列を準備
             $errors = array();
             
@@ -191,6 +175,25 @@
             // k完成したエラー配列を返す registration_new.phpへ
             return $errors;
         }
-        
+        public static function check($email_address, $password){
+            // public $email_address;
+            // public $password;
+            // 空の配列用意
+            // var_dump($customer->email_address);
+            // var_dump($customer->password);
+            $error = array();
+            // $customer->email_address ===nullならばエラーメッセージ表示する
+            // メールアドレスチェック
+            if($email_address === null){
+                $error[] = 'メールアドレスを入力してください';
+            }elseif(!preg_match('/^[a-zA-Z0-9_.+-]+[@][a-zA-Z0-9.-]+$/', $email_address)){
+                $error[] = '登録メールアドレスを入力してください';
+            }
+            if($password < 5){
+                $error[] = 'パスワードは正しく入力してください'; 
+            }
+            return $error;
+            ;
+        }
         
     }
