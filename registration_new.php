@@ -25,7 +25,7 @@
         // 顧客情報をデータベースに保存する
         CustomerDAO::insert($customer);
         // メッセージをセッションに保存
-        $_SESSION['flash_message'] = $name . 'さんの登録が完了しました';
+        $_SESSION['done_message'] = $name . 'さんの登録が完了しました';
         // ログイン画面に遷移
         header('Location: login.php');
         exit;

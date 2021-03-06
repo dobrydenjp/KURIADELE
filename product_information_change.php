@@ -1,14 +1,23 @@
 <?php
     session_start();
-    // 間違いがあった場合一度だけエラーメッセージ表示
+    // 外部ファイル読込
+    require_once 'item_dao.php';
+    // 入力商品情報にエラーがあった場合一度だけエラーメッセージ表示
     $errors = $_SESSION['errors'];
     $_SESSION['errors'] = null;
-    var_dump($errors);
+    // var_dump($errors);
     
+    // どこのflash_messageなのか？　確認する
+    // $flash_message = $_SESSION['flash_message'];
+    // $_SESSION['flash_message'] = null;
     
-    $flash_message = $_SESSION['flash_message'];
-    $_SESSION['flash_message'] = null;
+    // 無事に商品登録完了したメッセージ表示
+    $flash_message = $_SESSION['register_message'];
+    $_SESSION['register_message'] = null;
+    session_destroy();
     
+    $items = ItemDAO::get_all_items();
+    // var_dump($items);
 ?>
 
 
@@ -96,6 +105,18 @@
             </div>
             
         </form>
+        <div class='customer'>登録内容確認</div>
+        
+        <!--商品情報変更画面から遷移　変更したものを表示する設定-->
+        <?php foreach($items as $item): ?>
+            <div class='product_1'>
+                <a><?= $item->id ?></a>
+                <img src='upload/items/<?= $item->image ?>' class='product_2'></img>
+                <p class='product_3'><?= $item->name  ?>￥<?= $item->price ?></p>
+                
+                <p class='product_3'><?= $item->description  ?></p>
+            </div>
+        <?php endforeach; ?>
         <div class=corporation_1><a href='administrator.php'>管理者ページへ</a></div>
         
         

@@ -1,7 +1,19 @@
 <?php
+    // 外部ファイル読込
+    require_once 'admin_dao.php';
+    // セッション開始
+    // session_start();
+    var_dump($_POST);
     
-    // SQLで管理人口座情報は登録したほうがいいのか確認する
-    // 新しいテーブルが必要？？
+    // 入力情報を保存
+    // $bank_name = $POST['bank_name'];
+    
+    
+    // sqlに銀行情報保存する
+    // class daoを使う
+    // 管理者が振込先を入力
+    // お客さん側の購入　支払銀行確認する場所に反映
+
 ?>
 <!doctype html>
 <html lang='ja'>

@@ -4,7 +4,7 @@
     $errors = $_SESSION['errors'];
     
     $_SESSION['errors'] = null;
-    var_dump($errors);
+    // var_dump($errors);
 ?>
 
 <!doctype html>

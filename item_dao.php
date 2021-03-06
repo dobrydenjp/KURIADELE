@@ -82,7 +82,7 @@
                 return null;
             }
         }
-        
+        // 全ての商品を取得するメソッド
         public static function get_all_items(){
             try{
                 // データベースに接続する神様取得
@@ -183,10 +183,16 @@
             // 価格を入力しない場合のメッセージ
             if($item->price === ''){
                 $errors[] = '金額を入力してください';
+                // 金額(３桁毎のカンマ付、小数以下無し、符号無し)にしたい
+                // ^((([1-9]\d*)(,\d{3})*)|0)
+            }elseif(!preg_match('/^[0-9]+$/', $item->price)){
+                $errors[] = '正しい金額を入力してください';
             }
             // 個数を入力しない場合のメッセージ
             if($item->stock === ''){
                 $errors[] = '個数を入力してください';
+            }elseif(!preg_match('/^[0-9]+$/', $item->stock)){
+                $errors[] = '正しい数字を入力してください';
             }
             // 説明文を入力しない場合のメッセージ
             if($item->description === ''){

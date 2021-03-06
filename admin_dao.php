@@ -63,5 +63,34 @@
                self::close_connection($pdo, $stmp);
             }
         }
+        // 管理者　銀行口座を1件登録するメソッド
+
+        public static function insert($management){
+            try{
+                // データベースに接続する神様取得
+                $pdo = self::get_connection();
+                // INSERT文を実行する準備（名前、年齢はわざとあやふやにしておく）
+                $stmt = $pdo -> prepare("INSERT INTO bank (bank_name, branch_name, account, NO , kana_name) VALUES (:bank_name, :branch_name, :account, :NO , :kana_name)");
+                
+                // バインド処理（あやふやだった名前、年齢を実データで埋める）
+                $stmt->bindParam(':bank_name', $management->bankbank_name, PDO::PARAM_STR);
+                $stmt->bindParam(':branch_name', $management->branch_name, PDO::PARAM_STR);
+                $stmt->bindParam(':account', $management->account, PDO::PARAM_STR);
+                $stmt->bindParam(':NO ', $management->NO, PDO::PARAM_STR);
+                $stmt->bindParam(':kana_name', $management->kana_name, PDO::PARAM_STR);
+                
+                // INSERT文本番実行
+                $stmt->execute();
+    
+                return $management;
+                
+            }catch(PDOException $e){
+                
+                return "問題が発生しました<br>" . $e->getMessage();
+                
+            }finally{
+               self::close_connection($pdo, $stmp); 
+            }
+        }
     }    
 ?> 

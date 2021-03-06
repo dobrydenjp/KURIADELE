@@ -1,10 +1,16 @@
 <?php
-    require_once 'login_filter.php';
-    // require_once 'customer.php';
-    // session_start();
-    // $login_customer = $_SESSION['login_customer'];
+    // 外部ファイル読込
+    require_once 'customer_dao.php';
+    // セッション開始
+    session_start();
+    // login者の情報　セッションに保存
+    $login_customer = $_SESSION['login_customer'];
+    // var_dump($login_customer);
+    
+    // require_once 'login_filter.php';
+    // login_checkよりflash_messsage をセッションから取得
     $flash_message = $_SESSION['flash_message'];
-    $_SESSION['flash_message'] = null;
+    // var_dump($flash_message);
 ?>
 
 
@@ -52,7 +58,7 @@
             
         </div>
         
-        
+        <?= $flash_message ?>
         <div class='top_2'>
             <h4 class='customer'>取扱商品</h4>
             <div class='top_c'><a href='product.php'><img src='camera_3.jpg' alt='camera'></img></a></div>
@@ -67,25 +73,10 @@
             <h4 class='top_e'>2021.1.6　合同会社KUREADALE設立</a>
             
         </div>
-        <!--<?php if($flash_message !== null): ?> -->
-        <!--<?= $flash_message ?>-->
-        <!--<?php endif; ?>-->
-        <!--<div class='customer'>-->
-        <!--    <?= $login_customer->name ?>様　ようこそ！-->
-        <!--</div>-->
         
         
-        <!--<div class='question'>-->
-        <!--    何かありましたらご連絡ください。-->
-        <!--</div>-->
-        
-        <!--<form action='send.php'>-->
-        <!--    <div class='question_2'>件名  <input type='text' name='' class='submit' /><br><br></div> -->
-        <!--    <div class='question_3'><div class='question_4'>内容</div>  <textarea name='comment_text' cols='50' rows='10'/></textarea><br>-->
-        <!--    </div>-->
-        <!--    <div class='enroll'><input type='submit' value='送信'/></div>-->
-        <!--</form>             -->
-        <!--<br>-->
+       
+
         
         
         <div class='footer '>

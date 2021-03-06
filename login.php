@@ -1,12 +1,27 @@
 <?php
     session_start();
     // registration_new.phpのセッション　フラッシュメッセージ取得
-    $flash_message = $_SESSION['flash_message'];
-    $_SESSION['flash_message'] = null;
+    // flas_messageをセッションから取得 新規会員登録成功
+    $flash_message = $_SESSION['done_message'];
+    // セッションに保存されたflash_messageを一旦破棄（使いまわす為）
+    $_SESSION['done_message'] = null;
     
-    $login_error = $_SESSION['login_error'];
-    $_SESSION['login_error'] = null;
-    var_dump($login_error);
+    // 入力エラー内容の $errors をセッションから取得
+    $errors = $_SESSION['errors'];
+    // 破棄
+    $_SESSION['errors'] = null;
+    // var_dump($errors);
+    
+    // データベースを探してその様な顧客が見つからなかったという
+    //  error_message をセッションから取得
+    $error_message = $_SESSION['error_message'];
+    // // 破棄
+    $_SESSION['error_message'] = null;
+    
+    
+    // var_dump($error_message);
+    
+    
 ?>
 
 <!doctype html>
@@ -55,15 +70,20 @@
         <br>
         <br>
         <!--新規登録成功のメッセージ表示-->
-        
         <?php if($flash_message !== null): ?>
             <p><?= $flash_message ?></p>
         <?php endif; ?>
         
+        <!--入力したメールアドレスとパスワードが登録と違う場合のエラーメッセージ表示-->
+        <?php if($error_message !== null): ?>
+            <p><?= $error_message ?></p>
+        <?php endif; ?>
+        
         
         <div class='login_1'>ＭＹページログイン</div>
-        <?php foreach($login_error as $error): ?>
-            <p><?= $login_error ?></p>
+        <!--入力していない場合やどちらかの入力の場合エラーメッセージ表示-->
+        <?php foreach($errors as $error): ?>
+            <p><?= $error ?></p>
         <?php endforeach; ?>
         
         

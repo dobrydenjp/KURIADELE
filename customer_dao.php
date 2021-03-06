@@ -181,19 +181,19 @@
             // 空の配列用意
             // var_dump($customer->email_address);
             // var_dump($customer->password);
-            $error = array();
-            // $customer->email_address ===nullならばエラーメッセージ表示する
+            $errors = array();
+            // $customer->email_address === ''ならばエラーメッセージ表示する
             // メールアドレスチェック
-            if($email_address === null){
-                $error[] = 'メールアドレスを入力してください';
+            if($email_address === ''){
+                $errors[] = 'メールアドレスを入力してください';
             }elseif(!preg_match('/^[a-zA-Z0-9_.+-]+[@][a-zA-Z0-9.-]+$/', $email_address)){
-                $error[] = '登録メールアドレスを入力してください';
+                $errors[] = '登録メールアドレスを入力してください';
             }
             if($password < 5){
-                $error[] = 'パスワードは正しく入力してください'; 
+                $errors[] = 'パスワードは正しく入力してください'; 
             }
-            return $error;
-            ;
+            return $errors;
+            
         }
         
     }

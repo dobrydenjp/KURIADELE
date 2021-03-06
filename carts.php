@@ -5,7 +5,7 @@
     session_start();
     
     $login_customer = $_SESSION['login_customer'];
-    
+    var_dump($login_customer);
     
     $my_carts = CartDAO::get_my_carts($login_customer->id);
     // var_dump($my_carts);
