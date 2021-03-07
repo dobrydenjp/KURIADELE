@@ -1,6 +1,5 @@
 <?php
     require_once 'customer.php';
-    
     // データベースを扱う便利屋さん
     class CustomerDAO{
         // データベースと接続を行うメソッド
