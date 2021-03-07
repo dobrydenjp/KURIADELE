@@ -1,34 +1,33 @@
 <?php
-    session_start();
-    // // ログイン後のお客様
-    // $login_customer = $_SESSION['flash_message'];
-    // // var_dump($login_customer);
+
+    session_start;
 ?>
 
+
 <!doctype html>
-<html lang='ja'>
+
+<thml lang='ja'>
     <head>
         <meta charset='UTF-8'>
-        <title>TOPページ</title>
+        <title>お問い合わせ</title>
         <link rel='stylesheet' href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        
         <div class='col-lg-12'>
             <div class='header row'>
         
                 <a href='index.php' class='logo'><span class='com'>KURIADELE</span></a>
                 
                 <span class='info_1'><a href='items.php'>商品情報</a></span>
-                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
+                <span class='info_2'><a href='contact.php'>お問い合わせ</a></span>
                 <span class='info_3'><a href='login.php'>ログイン</a></span>
                 
                 
                 
                 <span class='info'>
-                    <form method='POST' action='送信先'>
+                    <form method='POST' action=''>
                         <input type='text' name=''/><input type='submit' name='' value='検索'/>
                     </form>
                 </span>
@@ -42,40 +41,22 @@
                 <!--</div>-->
             </div>
         </div>
-        
-        
-        <div class='top_1'>
-            
-            <div class='top_a'>満足の極みへ</div>
-            <div class='top_b'><img src='camera.jpg' alt='camera'></img></div>
-            
-            
-        </div>
-        <!--<p><?= $login_customer ?></p>-->
-        
-        <div class='top_2'>
-            <h4 class='customer'>取扱商品</h4>
-            <div class='top_c'><a href='product.php'><img src='camera_3.jpg' alt='camera'></img></a></div>
-            
+        <div class='question' >
+            何かありましたらご連絡ください。
         </div>
         
-        
-        <div class='top_3'>
-            <h4 class='customer'>KURIADELEnews</h1>
-            <h3 class='top_d'>今日のニュース</h1>
-            
-            <h4 class='top_e'>2021.1.6　合同会社KUREADALE設立</a>
-            
-        </div>
-
-
-
+        <form method='POST' action='contact_new.php'>
+            <div class='question_2'>お名前  <input type='text' name='name' class='submit' /></div>
+            <div class='question_2'>件名  <input type='text' name='text' class='submit' /></div> 
+            <div class='question_3'><p>内容</p>  <textarea name='comment_text' cols='50' rows='10'/></textarea></div>
+            <div class='question_2 question_5'>メールアドレス <input type='text' name='email_address' class='submit'/> </div>
+            <div class='enroll_2'><input type='submit' value='送信'/></div>
+        </form>  
         
         
         
         
-
-
+        
         <div class='footer '>
             <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>

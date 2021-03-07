@@ -40,7 +40,7 @@
                 <a href='index.php' class='logo'><span class='com'>KURIADELE</span></a>
                 
                 <span class='info_1'><a href='items.php'>商品情報</a></span>
-                <span class='info_2'><a href='contact.php'>お問い合わせ</a></span>
+                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
                 <span class='info_3'><a href='login.php'>ログイン</a></span>
                 
                 

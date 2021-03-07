@@ -13,7 +13,7 @@
         
                 <span class='com'>KURIADELE</span>
                 <span class='info_1'><a href='product.php'>商品情報</a></span>
-                <span class='info_2'><a href='contact.php'>お問い合わせ</a></span>
+                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
                 <span class='info_3'><a href='login.php'>ログイン</a></span>
                 <span class='info_2'><a href='index.php'>TOPページへ</a></span>
                 <span class='info_2'><a href='carts.php'>カート</a></span>

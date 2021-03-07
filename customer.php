@@ -18,6 +18,7 @@
             $this->tel = $tel;
             $this->email_address = $email_address;
             $this->password = $password;
+            
         }
         
     }
