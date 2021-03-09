@@ -1,7 +1,12 @@
 <?php
-    session_start();
+    // ログインフィルター
+    require_once 'admin_login_filter.php';
     // 外部ファイル読込
+    require_once 'admin_dao.php';
     require_once 'item_dao.php';
+    session_start();
+    // ログイン者の情報をセッションに保存
+    $login_admin = $_SESSION['login_admin'];
     // 入力商品情報にエラーがあった場合一度だけエラーメッセージ表示
     $errors = $_SESSION['errors'];
     $_SESSION['errors'] = null;
@@ -15,7 +20,7 @@
     $flash_message = $_SESSION['register_message'];
     $_SESSION['register_message'] = null;
     session_destroy();
-    
+    // 登録した全ての情報表示する
     $items = ItemDAO::get_all_items();
     // var_dump($items);
 ?>
@@ -34,12 +39,10 @@
         <div class='col-lg-12'>
             <div class='header row'>
         
-                <span class='com'>KURIADELE</span>
-                <span class='info_1'><a href='product.php'>商品情報</a></span>
-                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='info_3'><a href='login.php'>ログイン</a></span>
-                <span class='info_2'><a href='index.php'>TOPページへ</a></span>
-                <span class='info_2'><a href='carts.php'>カート</a></span>
+                <a href='admin_index.php' class='logo'><span class='com'>KURIADELE</span></a>
+                <span class='info_1'><a href='admin_index.php'>管理者TOP</a></span>
+                <span class='info_2'><a href='index.php'>顧客TOP</a></span>
+                <span class='info_3'><a href='admin_logout.php'>ログアウト</a></span>
                 <span class='info'>
                     <form method='POST' action='送信先'>
                         <input type='text' name=''/><input type='submit' name='' value='検索'/>

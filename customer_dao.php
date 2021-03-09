@@ -31,30 +31,30 @@
             $stmp = null;
         }
     
-        // // 全会員情報を取得するメソッド
-        // public static function get_all_humans(){
-        //     try{
-        //         // データベースに接続する神様取得
-        //         $pdo = self::get_connection();
-        //         // SELECT文を実行する
-        //         $stmt = $pdo->query('SELECT * FROM humans');
-        //         // フェッチの結果を、Humanクラスのインスタンスにマッピングする
-        //         $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Human');
-        //         // 会員全データをHumanクラスのインスタンス配列で取得
-        //         $humans = $stmt->fetchAll();
+        // 全会員情報を取得するメソッド
+        public static function get_all_humans(){
+            try{
+                // データベースに接続する神様取得
+                $pdo = self::get_connection();
+                // SELECT文を実行する
+                $stmt = $pdo->query('SELECT * FROM customers');
+                // フェッチの結果を、Customerクラスのインスタンスにマッピングする
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Customer');
+                // 会員全データをCustomerクラスのインスタンス配列で取得
+                $customers = $stmt->fetchAll();
+                // Customerクラスのインスタンスの配列を返す
+                return $customers;
                 
-        //         // Humanクラスのインスタンスの配列を返す
-        //         return $humans;
+            }catch(PDOException $e){
                 
-        //     }catch(PDOException $e){
-        //         // とりあえず空の配列を返す
-        //         return array();
-            
-        //     }finally{
-        //         // 神様さようなら
-        //         self::close_connection($pdo, $stmp);
-        //     }
-        // }
+                
+                // とりあえず空の配列を返す
+                return array();
+                
+            }finally{
+               self::close_connection($pdo, $stmp); 
+            }
+        }
     
         // 会員を1件登録するメソッド
         public static function insert($customer){
@@ -188,7 +188,9 @@
             }elseif(!preg_match('/^[a-zA-Z0-9_.+-]+[@][a-zA-Z0-9.-]+$/', $email_address)){
                 $errors[] = '登録メールアドレスを入力してください';
             }
-            if($password < 5){
+            // パスワードチェック
+            // 文字列か数値否か　文字strlen
+            if($password === 5){
                 $errors[] = 'パスワードは正しく入力してください'; 
             }
             return $errors;

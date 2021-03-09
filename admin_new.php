@@ -15,17 +15,15 @@
     if($admin !== false){
                     // セッション情報　login_adminというニックネームを保存
         $_SESSION['login_admin'] = $admin;
-        header('Location: administrator.php');
+        header('Location: admin_index.php');
         exit;
         
     }else{ // いなければ
     
         $_SESSION['error'] = 'ログインできません';
-        header('Location: administrator_login.php');
+        header('Location: admin_login.php');
         exit;
     }
-    if(!isset($_SESSION['login_admin'])){
-        
-    }
+
     
 ?>

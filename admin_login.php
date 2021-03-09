@@ -1,8 +1,24 @@
+<?php
+
+    // セッション開始
+    session_start();
+    
+    
+    // ログインにて入力ミスの場合にエラーメッセージ表示
+    $error = $_SESSION['error'];
+    // 破棄
+    $_SESSION['error'] = null;
+    // どのflash_messageか確認
+    $flash_message = $_SESSION['flash_message'];
+    $_SESSION['flash_message'] = null; 
+    
+    
+?>
 <!doctype html>
 <html lang='ja'>
     <head>
         <meta charset='UTF-8'>
-        <title>企業情報変更</title>
+        <title>管理者ログイン</title>
         <link rel='stylesheet' href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -11,20 +27,17 @@
         <div class='col-lg-12'>
             <div class='header row'>
         
-                <span class='com'>KURIADELE</span>
-                <span class='info_1'><a href='product.php'>商品情報</a></span>
-                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='info_3'><a href='login.php'>ログイン</a></span>
-                <span class='info_2'><a href='index.php'>TOPページへ</a></span>
-        
+                <a href='admin_index.php' class='logo'><span class='com'>KURIADELE</span></a>
+                <span class='info_1'><a href='admin_index.php'>管理者TOP</a></span>
+                <span class='info_2'><a href='index.php'>顧客TOP</a></span>
+                <span class='info_3'><a href='product.php'>取扱商品</a></span>
                 <span class='info'>
                     <form method='POST' action='送信先'>
                         <input type='text' name=''/><input type='submit' name='' value='検索'/>
                     </form>
                 </span>
             
-                <button type='button' class='btn btn-light dropdown-toggle' data-toggle='dropdown'>
-                </button>
+                <button type='button' class='btn btn-light dropdown-toggle' data-toggle='dropdown'></button>
                 <div class='dropdown-menu'>
                     <a class='dropdown-item' href='#'><a href='corporate_philosophy.php'>KURIADELEについて</a>
                     <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
@@ -33,22 +46,25 @@
             </div>
         </div>
         
-        <div class='customer'>企業情報変更</div>
-        <div><?  ?></div>
-        <form method='POST' action='corporate_new.php'>
-            
-            <input type="submit" value="更新"/>
         
-            <div class=corporation>
-                KURIADELEとは<textarea name="description" cols="30" rows="5"></textarea>
-            </div>
-            <div class=corporation>代表挨拶<input type="text" name="greeting"/></div>
-            <div class=corporation>事業計画<input type="text" name="plan"/></div>
-            
-        </form>
-        <div class=corporation_1><a href='administrator.php'>管理者ページへ</a></div>
+        <div class='customer'>管理者ページログイン</div>
+        <?php if($error !== null): ?>
+            <p><?= $error ?></p>
+        <?php endif; ?>
         
+        <?php if($flash_message !== null): ?>
+            <p><?= $flash_message ?></p>
+        <?php endif; ?>
+            <form action='admin_new.php' method='POST'>
+                <div class='login_2'>
+                    メールアドレス  <input type='text' name='email_address' /><br><br>
+                    　パスワード  　<input type='password' name='password'/><br>
+                    
+                    <p class='enroll_1'><input type='submit' value='login'/></p>
+                </div>
+            </form>
         
+        <br>
         <div class='footer '>
             <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>

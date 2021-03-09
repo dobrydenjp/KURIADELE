@@ -110,8 +110,6 @@
         
         //idから1つの商品を取得する
         public static function get_item_by_id($id){
-            // 全会員情報を取得するメソッド
-            
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();

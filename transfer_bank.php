@@ -1,3 +1,18 @@
+<?php
+    // ログインしていない状態で管理者トップへアクセスするのを防ぐ
+   require_once 'admin_login_filter.php';
+   // 外部ファイル読込
+   require_once 'admin_dao.php';
+// セッション開始
+   session_start();
+   // idをGETで取得
+   $id = $_GET['id'];
+   // 現在の口座情報を表示する
+   $get_bank = Admindao::get_bank_by_id($id);
+//   var_dump($get_bank);
+   // 変更できるようにする
+?>
+
 <!doctype html>
 <html lang='ja'>
     <head>
@@ -14,8 +29,8 @@
                 <span class='com'>KURIADELE</span>
                 <span class='info_1'><a href='product.php'>商品情報</a></span>
                 <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='info_3'><a href='login.php'>ログイン</a></span>
-                <span class='info_2'><a href='index.php'>TOPページへ</a></span>
+                <span class='info_3'><a href='admin_logout.php'>ログアウト</a></span>
+                <span class='info_2'><a href='admin_index.php'>TOPページへ</a></span>
                 <span class='info_2'><a href='carts.php'>カート</a></span>
                 <span class='info'>
                     <form method='POST' action='送信先'>
@@ -39,37 +54,42 @@
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>銀行名</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='text' name='name' class='form-control'/>
+                        <input type='text' name='bank_name' class='form-control'/>
                     </div>
             </div>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>支店名</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='text' name='name' class='form-control'/>
+                        <input type='text' name='branch_name' class='form-control'/>
                     </div>
             </div>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>預金科目</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='text' name='name' class='form-control'/>
+                        <input type='text' name='account' class='form-control'/>
                     </div>
             </div>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>口座番号</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='text' name='name' class='form-control'/>
+                        <input type='text' name='NO' class='form-control'/>
                     </div>
             </div>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>口座名義人(カナ)</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='text' name='name' class='form-control'/>
+                        <input type='text' name='kana_name' class='form-control'/>
                     </div>
             </div>
             <div class='enroll_1'>
                 <input type='submit' value='登録'/>
             </div>
-        
+            <p>現在の口座情報</p>
+            <p><?= $get_bank->bank_name ?>    <?= $get_bank->branch_name ?></p>
+            <p><?= $get_bank->account ?>    <?= $get_bank->NO ?></p>
+            <p><?= $get_bank->kana_name ?></p>
+            
+            
         </form>
         <div class=corporation_1><a href='administrator.php'>管理者ページへ</a></div>
         

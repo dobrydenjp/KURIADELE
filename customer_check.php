@@ -1,3 +1,11 @@
+<?php
+    // 外部ファイル読込
+    require_once 'customer_dao.php';
+    // お客様情報取得
+    $customers = CustomerDAO::get_all_humans();
+    // var_dump($customers);
+?>    
+
 <!doctype html>
 <html lang='ja'>
     <head>
@@ -33,7 +41,14 @@
             </div>
         </div>
         <div class='customer'>お客様一覧</div>
-        <div><?  ?></div>
+        <?php foreach($customers as $customer): ?>
+            <a><?= $customer->id ?></a>
+                <div class='product_3'><?= $customer->name  ?>      <?= $customer->kana_name ?></div>
+                <div class='product_3'><?= $customer->postal_code  ?>      <?= $customer->address ?></div>
+                <div class='product_3'><?= $customer->tel  ?></div>
+                <div class='product_3'><?= $customer->email_address ?></div>
+                <div class='product_3'><?= $customer->password ?></div>
+        <?php endforeach; ?>
         
         
         

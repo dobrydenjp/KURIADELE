@@ -38,12 +38,12 @@
         ItemDAO::insert($item);
         // エラーがない場合
         $_SESSION['register_message'] = '商品の登録が完了しました。内容確認';
-        header('Location: product_information_change.php');
+        header('Location: product_change.php');
         exit;
     }else{
         // それ以外　間違いがある場合　エラーメッセージ表示
         $_SESSION['errors'] = $errors;
-        header('Location: product_information_change.php');
+        header('Location: product_change.php');
         exit;
     }
     

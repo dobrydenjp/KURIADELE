@@ -1,4 +1,16 @@
 <?php
+    // ログインしていない状態で管理者トップへアクセスするのを防ぐ
+    require_once 'admin_login_filter.php';
+    // 外部ファイル読込
+    require_once 'admin_dao.php';
+    session_start();
+       // 管理者の情報をセッションに保存
+    $login_admin = $_SESSION['login_admin'];
+       // 銀行口座を登録した際flash_messsage をセッションから取得・表示
+    $flash_message = $_SESSION['flash_message'];
+    // var_dump($flash_message);
+       // 1度のみ表示
+    $_SESSION['flash_message'] = null;
    
 ?>
 
@@ -15,12 +27,11 @@
         <div class='col-lg-12'>
             <div class='header row'>
         
-                <span class='com'>KURIADELE</span>
-                <span class='info_1'><a href='product.php'>商品情報</a></span>
-                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='info_3'><a href='login.php'>ログイン</a></span>
-                <span class='info_2'><a href='index.php'>TOPページへ</a></span>
-                <span class='info_2'><a href='carts.php'>カート</a></span>
+                <a href='admin_index.php' class='logo'><span class='com'>KURIADELE</span></a>
+                <span class='info_1'><a href='admin_index.php'>管理者TOP</a></span>
+                <span class='info_2'><a href='index.php'>顧客TOP</a></span>
+                <span class='info_3'><a href='admin_logout.php'>ログアウト</a></span>
+
                 <span class='info'>
                     <form method='POST' action='送信先'>
                         <input type='text' name=''/><input type='submit' name='' value='検索'/>
@@ -38,9 +49,14 @@
         </div>
         
         <div class='customer'>管理者ページ</div>
+        <!--$flash_message がnullでないならば-->
+        <?php if($flash_message !== null): ?>
+        <!--$flash_message　表示する-->
+            <P><?= $flash_message ?></P>
+        <?php endif; ?>
         
         <div class='administrator'>
-            <div class='administrator_1'><a href='product_information_change.php'>商品情報登録</a></div>
+            <div class='administrator_1'><a href='product_change.php'>商品情報登録</a></div>
             <div class='administrator_2'><a href='inquiry_check.php'>お問い合わせ確認</a></div>
         </div>
         <div class='administrator'>

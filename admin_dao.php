@@ -68,22 +68,24 @@
 
         public static function insert($bank){
             try{
+                // print 'OK';
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
+                // print 'OK1';
                 // INSERT文を実行する準備（名前、年齢はわざとあやふやにしておく）
-                $stmt = $pdo -> prepare("INSERT INTO bank (bank_name, branch_name, account, NO , name) VALUES (:bank_name, :branch_name, :account, :NO , :kana_name)");
-                
+                $stmt = $pdo -> prepare("INSERT INTO bank (bank_name, branch_name, account, NO, kana_name) VALUES (:bank_name, :branch_name, :account, :NO, :kana_name)");
+                // print 'OK2';
                 // バインド処理（あやふやだった名前、年齢を実データで埋める）
                 $stmt->bindParam(':bank_name', $bank->bank_name, PDO::PARAM_STR);
                 $stmt->bindParam(':branch_name', $bank->branch_name, PDO::PARAM_STR);
                 $stmt->bindParam(':account', $bank->account, PDO::PARAM_STR);
-                $stmt->bindParam(':NO ', $bank->NO, PDO::PARAM_INT);
+                $stmt->bindParam(':NO', $bank->NO, PDO::PARAM_INT);
                 $stmt->bindParam(':kana_name', $bank->kana_name, PDO::PARAM_STR);
-                
+                // print 'OK3';
                 // INSERT文本番実行
                 $stmt->execute();
-    
-                return $bank;
+                // print 'OK4';   
+                return '銀行口座を登録しました';
                 
             }catch(PDOException $e){
                 
@@ -94,5 +96,33 @@
             }
         
         }
-    }    
-?> 
+        // idによって管理者の口座情報を取得するメソッド
+        public static function get_bank_by_id($id){
+            try{
+                // データベースに接続する神様取得
+                $pdo = self::get_connection();
+                // SELECT文を実行する あいまいなまま準備する
+                $stmt = $pdo->prepare('SELECT * FROM bank WHERE id=1');
+                // バインド処理
+                $stmt->bindParam(':id', $id , PDO::PARAM_INT);
+                // 本番実行
+                $stmt->execute();
+                // フェッチの結果を、Itemクラスのインスタンスにマッピングする
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Bank');
+                // 商品情報をItemクラスのインスタンスで取得
+                $bank = $stmt->fetch();
+                
+                // Itemクラスのインスタンスを返す
+                return $bank;
+                
+            }catch(PDOException $e){
+                // とりあえずnullの配列を返す
+                return null;
+            
+            }finally{
+                // 神様さようなら
+                self::close_connection($pdo, $stmp);
+            }
+        }
+    }
+?>

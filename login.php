@@ -82,10 +82,11 @@
         
         <div class='login_1'>ＭＹページログイン</div>
         <!--入力していない場合やどちらかの入力の場合エラーメッセージ表示-->
-        <?php foreach($errors as $error): ?>
-            <p><?= $error ?></p>
-        <?php endforeach; ?>
-        
+        <?php if($errors !== null): ?>
+            <?php foreach($errors as $error): ?>
+                <p><?= $error ?></p>
+            <?php endforeach; ?>
+        <?php endif; ?>
         
         <form action='login_check.php' method='POST'>
             <div class='login_2'>
