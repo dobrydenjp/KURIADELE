@@ -160,7 +160,7 @@
                self::close_connection($pdo, $stmp); 
             }
         } 
-        
+        // 登録エラー表示
         public static function validate($item){
         //         // public $name;
         //         // public $image;

@@ -9,7 +9,7 @@
     
     // require_once 'login_filter.php';
     // login_checkよりflash_messsage をセッションから取得
-    $flash_message = $_SESSION['flash_message'];
+    $login_message = $_SESSION['login_message'];
     // var_dump($flash_message);
 ?>
 
@@ -58,7 +58,9 @@
             
         </div>
         
-        <?= $flash_message ?>
+        <?php if($login_message !== null): ?>
+            <p><?= $login_message ?></p>
+        <?php endif; ?>
         <div class='top_2'>
             <h4 class='customer'>取扱商品</h4>
             <div class='top_c'><a href='product.php'><img src='camera_3.jpg' alt='camera'></img></a></div>

@@ -1,12 +1,16 @@
 <?php
+    // 外部ファイル読込
+    require_once 'customer_dao.php';
+    // セッション開始
     session_start();
     // registration_new.phpのセッション　フラッシュメッセージ取得
     // flas_messageをセッションから取得 新規会員登録成功
-    $flash_message = $_SESSION['done_message'];
+    $done_message = $_SESSION['done_message'];
     // セッションに保存されたflash_messageを一旦破棄（使いまわす為）
     $_SESSION['done_message'] = null;
     
-    // 入力エラー内容の $errors をセッションから取得
+    // // 入力エラー内容の $errors をセッションから取得
+    // $error_customer = $_SESSION['error_customer'];
     $errors = $_SESSION['errors'];
     // 破棄
     $_SESSION['errors'] = null;
@@ -70,8 +74,8 @@
         <br>
         <br>
         <!--新規登録成功のメッセージ表示-->
-        <?php if($flash_message !== null): ?>
-            <p><?= $flash_message ?></p>
+        <?php if($done_message !== null): ?>
+            <p><?= $dene_message ?></p>
         <?php endif; ?>
         
         <!--入力したメールアドレスとパスワードが登録と違う場合のエラーメッセージ表示-->
@@ -87,7 +91,6 @@
                 <p><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
-        
         <form action='login_check.php' method='POST'>
             <div class='login_2'>
                 メールアドレス  <input type='text' name='email_address' /><br><br>

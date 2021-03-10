@@ -18,7 +18,7 @@
     $flash_message = AdminDAO::insert($bank);
     // 銀行口座を登録した際にflash_messageを表示する
     $_SESSION['flash_message'] = $flash_message;
-    header('Location: administrator.php');
+    header('Location: transfer_bank.php');
     exit;
     // var_dump($bank);
     

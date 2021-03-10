@@ -1,15 +1,13 @@
 <?php
-
     // セッション開始
     session_start();
-    
-    
     // ログインにて入力ミスの場合にエラーメッセージ表示
     $error = $_SESSION['error'];
     // 破棄
     $_SESSION['error'] = null;
     // どのflash_messageか確認
     $flash_message = $_SESSION['flash_message'];
+    // 破棄
     $_SESSION['flash_message'] = null; 
     
     

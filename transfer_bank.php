@@ -1,16 +1,23 @@
 <?php
     // ログインしていない状態で管理者トップへアクセスするのを防ぐ
-   require_once 'admin_login_filter.php';
-   // 外部ファイル読込
-   require_once 'admin_dao.php';
-// セッション開始
-   session_start();
-   // idをGETで取得
-   $id = $_GET['id'];
-   // 現在の口座情報を表示する
-   $get_bank = Admindao::get_bank_by_id($id);
-//   var_dump($get_bank);
-   // 変更できるようにする
+    require_once 'admin_login_filter.php';
+    // 外部ファイル読込
+    require_once 'admin_dao.php';
+    // セッション開始
+    session_start();
+    // 管理者の情報をセッションに保存
+    $login_admin = $_SESSION['login_admin'];
+    // 銀行口座を登録した際flash_messsage をセッションから取得・表示
+    $flash_message = $_SESSION['flash_message'];
+    // var_dump($flash_message);
+    // 1度のみ表示
+    $_SESSION['flash_message'] = null;
+    // idをGETで取得
+    $id = $_GET['id'];
+    // 現在の口座情報を表示する
+    $get_bank = Admindao::get_bank_by_id($id);
+    // var_dump($get_bank);
+// 変更できるようにする
 ?>
 
 <!doctype html>
@@ -49,7 +56,11 @@
         </div>
         
         <div class='customer'>振込み先情報</div>
-        
+        <!--$flash_message がnullでないならば-->
+        <?php if($flash_message !== null): ?>
+        <!--$flash_message　表示する-->
+            <P><?= $flash_message ?></P>
+        <?php endif; ?>
         <form method='POST' action='registration_transfer.php' enctype="multipart/form-data">
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>銀行名</label>

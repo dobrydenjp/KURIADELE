@@ -174,6 +174,7 @@
             // k完成したエラー配列を返す registration_new.phpへ
             return $errors;
         }
+        // メールアドレスとパスワードログイン入力値チェック
         public static function check($email_address, $password){
             // public $email_address;
             // public $password;

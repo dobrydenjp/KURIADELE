@@ -36,7 +36,7 @@
         <div class='customer'>KURIADELEnews 更新</div>
         
         <div><?  ?></div>
-         
+        
   
   
         <div class=corporation_1><a href='administrator.php'>管理者ページへ</a></div>

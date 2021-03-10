@@ -3,15 +3,6 @@
     require_once 'admin_login_filter.php';
     // 外部ファイル読込
     require_once 'admin_dao.php';
-    session_start();
-       // 管理者の情報をセッションに保存
-    $login_admin = $_SESSION['login_admin'];
-       // 銀行口座を登録した際flash_messsage をセッションから取得・表示
-    $flash_message = $_SESSION['flash_message'];
-    // var_dump($flash_message);
-       // 1度のみ表示
-    $_SESSION['flash_message'] = null;
-   
 ?>
 
 <!doctype html>
@@ -49,11 +40,7 @@
         </div>
         
         <div class='customer'>管理者ページ</div>
-        <!--$flash_message がnullでないならば-->
-        <?php if($flash_message !== null): ?>
-        <!--$flash_message　表示する-->
-            <P><?= $flash_message ?></P>
-        <?php endif; ?>
+        
         
         <div class='administrator'>
             <div class='administrator_1'><a href='product_change.php'>商品情報登録</a></div>

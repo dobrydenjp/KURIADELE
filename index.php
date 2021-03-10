@@ -1,8 +1,8 @@
 <?php
     session_start();
-    // // ログイン後のお客様
-    // $login_customer = $_SESSION['flash_message'];
-    // // var_dump($login_customer);
+    // 
+    $login_customer = $_SESSION['login_message'];
+    var_dump($login_customer);
 ?>
 
 <!doctype html>
@@ -51,7 +51,9 @@
             
             
         </div>
-        <!--<p><?= $login_customer ?></p>-->
+        <?php if($login_customer !== null): ?>
+            <p><?= $login_customer ?></p>
+        <?php endif; ?>
         
         <div class='top_2'>
             <h4 class='customer'>取扱商品</h4>

@@ -4,23 +4,20 @@
     // 外部ファイル読込
     require_once 'admin_dao.php';
     require_once 'item_dao.php';
+    // セッション開始
     session_start();
     // ログイン者の情報をセッションに保存
     $login_admin = $_SESSION['login_admin'];
-    // 入力商品情報にエラーがあった場合一度だけエラーメッセージ表示
+    // 登録できないメッセージ表示
     $errors = $_SESSION['errors'];
+    //破棄
     $_SESSION['errors'] = null;
     // var_dump($errors);
-    
-    // どこのflash_messageなのか？　確認する
-    // $flash_message = $_SESSION['flash_message'];
-    // $_SESSION['flash_message'] = null;
-    
     // 無事に商品登録完了したメッセージ表示
     $flash_message = $_SESSION['register_message'];
+    // 破棄
     $_SESSION['register_message'] = null;
-    session_destroy();
-    // 登録した全ての情報表示する
+    // 登録した全ての商品情報表示する
     $items = ItemDAO::get_all_items();
     // var_dump($items);
 ?>
