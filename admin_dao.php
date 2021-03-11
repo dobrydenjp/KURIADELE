@@ -53,12 +53,12 @@
                 $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Admin');
                 // 顧客情報をadminクラスのインスタンスで取得
                 $admin = $stmt->fetch();
-    
+                
                 return $admin;
                 
             }catch(PDOException $e){
                 
-                return "問題が発生しました<br>" . $e->getMessage();
+                return null;
                 
             }finally{
                self::close_connection($pdo, $stmp);

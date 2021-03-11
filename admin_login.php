@@ -6,10 +6,10 @@
     // 破棄
     $_SESSION['error'] = null;
     // どのflash_messageか確認
-    $flash_message = $_SESSION['flash_message'];
-    // 破棄
-    $_SESSION['flash_message'] = null; 
-    
+    // $flash_message = $_SESSION['flash_message'];
+    // // 破棄
+    // $_SESSION['flash_message'] = null; 
+
     
 ?>
 <!doctype html>
@@ -46,13 +46,12 @@
         
         
         <div class='customer'>管理者ページログイン</div>
+        <!--ログインエラーメッセージ-->
         <?php if($error !== null): ?>
             <p><?= $error ?></p>
         <?php endif; ?>
         
-        <?php if($flash_message !== null): ?>
-            <p><?= $flash_message ?></p>
-        <?php endif; ?>
+
             <form action='admin_new.php' method='POST'>
                 <div class='login_2'>
                     メールアドレス  <input type='text' name='email_address' /><br><br>

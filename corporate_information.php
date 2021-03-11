@@ -1,3 +1,19 @@
+<?php
+    // 外部ファイル読込
+    require_once 'company_dao.php';
+    // セッション開始
+    session_start();
+    // 企業情報登録コメント表示する
+    $comment = $_SESSION['comment'];
+    // 破棄
+    $_SESSION['comment'] = null;
+    // idをGETで取得
+    $id = $_GET['id'];
+    // 現在の企業情報表示
+    $company = CompanyDAO::get_companys_id($id);
+    // var_dump($company);
+?>
+
 <!doctype html>
 <html lang='ja'>
     <head>
@@ -34,17 +50,21 @@
         </div>
         
         <div class='customer'>企業情報変更</div>
-        <div><?  ?></div>
-        <form method='POST' action='corporate_new.php'>
-            
-            <input type="submit" value="更新"/>
+        <?php if($comment !== null): ?>
+            <p><?= $comment ?></p>
+        <?php endif; ?>
         
-            <div class=corporation>
-                KURIADELEとは<textarea name="description" cols="30" rows="5"></textarea>
-            </div>
+        <p><?= $company->description ?></p>
+        <p><?= $company->greeting ?></p>
+        <p><?= $company->plan ?></p>
+        <!--削除追加　更新機能つける-->
+        
+        
+        <form method='POST' action='corporate_new.php'>
+            <div class=corporation>KURIADELEとは<textarea name="description" cols="30" rows="5"></textarea></div>
             <div class=corporation>代表挨拶<input type="text" name="greeting"/></div>
             <div class=corporation>事業計画<input type="text" name="plan"/></div>
-            
+            <input type="submit" value="更新"/>
         </form>
         <div class=corporation_1><a href='administrator.php'>管理者ページへ</a></div>
         

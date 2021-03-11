@@ -30,6 +30,7 @@
             exit;
         }
     }else{ // 入力エラーがあるならば
+        // エラーメッセージをセッションに保存
         $_SESSION['errors'] = $errors;
         header('Location: login.php');
         exit;

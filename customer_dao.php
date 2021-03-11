@@ -191,7 +191,7 @@
             }
             // パスワードチェック
             // 文字列か数値否か　文字strlen
-            if($password === 5){
+            if($password === ''){
                 $errors[] = 'パスワードは正しく入力してください'; 
             }
             return $errors;

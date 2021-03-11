@@ -15,7 +15,7 @@
     
     // 入力情報をもとに新しい顧客のインスタンス作成
     $customer = new Customer($name, $kana_name, $postal_code, $address, $tel, $email_address, $password);
-    
+    // var_dump($customer);
     // 入力チェック CustomerDAOのvalidate($customer)に書いてある
     $errors = CustomerDAO::validate($customer);
     

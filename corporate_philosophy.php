@@ -1,5 +1,13 @@
 <?php
+    // 外部ファイル読込
+    require_once 'company_dao.php';
+    // セッション開始
     session_start();
+    // idをGETで取得
+    $id = $_GET['id'];
+    // 現在の企業情報表示
+    $company = CompanyDAO::get_companys_id($id);
+    // var_dump($company);
 
 ?>
 
@@ -42,11 +50,10 @@
         
         
         
-        <div class=corporation>KURIADELEとは</div></div>
-        <div class=corporation>代表挨拶</div>
-        <div class=corporation>事業計画</div>
-        <div class=corporation>展望</div>
-        <!--管理者ページで、管理用ログイン機能つける-->
+        <div class=corporation>KURIADELEとは</div><label  class=corporation><?= $company->description ?></label>
+        <div class=corporation>代表挨拶</div><label class=corporation><?= $company->greeting ?></label>
+        <div class=corporation>事業計画</div><label class=corporation><?= $company->plan ?></label>
+        
         <div class=corporation_1><a href='administrator_login.php'>管理者ページへ</a></div>
                                 
         

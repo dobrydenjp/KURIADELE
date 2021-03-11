@@ -4,7 +4,7 @@
     // フィルター
     // require_once 'admin_login_filter.php';
     // 外部ファイル読込
-    require_once 'admin_dao.php';
+
     // セッション開始
     session_start();
 
@@ -13,7 +13,7 @@
     // var_dump($login_admin);
     
     // どのflash_messageか確認
-    $flash_message = $_SESSION['flash_message'];
+    // $flash_message = $_SESSION['flash_message'];
     // var_dump($flash_message);
     // 1度のみ表示
     // $_SESSION['flash_message'] = null;
@@ -60,8 +60,9 @@
             
             
         </div>
-
-        <p><?= $login_admin->name ?>様　こんにちは</p>
+        <?php if($login_admin !== null): ?>
+            <p><?= $login_admin ?></p>
+        <?php endif; ?>
         <div class='top_2'>
             <h4 class='customer'>取扱商品</h4>
             <div class='top_c'><a href='product.php'><img src='camera_3.jpg' alt='camera'></img></a></div>
