@@ -106,9 +106,7 @@
                             // before('SELECT * FROM bank WHERE id=1');
                 $stmt = $pdo->prepare('SELECT * FROM bank WHERE id = (SELECT max(id) FROM bank)');
                     // 表示されない  ('SELECT * FROM bank WHERE (id,created_at) IN (SELECT id,max(created_at) FROM ank GROUP BY id');
-                    
-                    
-                    
+
                 // バインド処理
                 $stmt->bindParam(':id', $id , PDO::PARAM_INT);
                 // 本番実行
@@ -138,7 +136,7 @@
             // public $account;
             // public $NO;
             // public $kana_name;
-            // 空の配列
+            // 空の配列準備
             $error_message = array();
             // 銀行名を入力しない場合のメッセージ
             if($bank->bank_name === ''){

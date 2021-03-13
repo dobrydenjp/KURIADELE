@@ -1,6 +1,18 @@
 <?php
-
-    session_start;
+    // 外部ファイル読込
+    require_once 'contact_dao.php';
+    // セッション開始
+    session_start();
+    // 質問項目入力エラーメッセージ表示
+    $contact_error = $_SESSION['contact_error'];
+    // 破棄
+    $_SESSION['contact_error'] = null;
+    // var_dump($contact_error);
+    // 送信できた場合のメッセージ
+    $contact_message = $_SESSION['contact_message'];
+    // 破棄
+    $_SESSION['contact_message'] = null;
+    // var_dump($contact_message);
 ?>
 
 
@@ -44,6 +56,15 @@
         <div class='question' >
             何かありましたらご連絡ください。
         </div>
+        
+        <?php if($contact_error !== null): ?>
+            <?php foreach($contact_error as $error): ?>
+                <p><?= $error ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        <?php if($contact_message !== null): ?>
+                <p><?= $contact_message ?>
+        <?php endif; ?>
         
         <form method='POST' action='contact_new.php'>
             <div class='question_2'>お名前  <input type='text' name='name' class='submit' /></div>

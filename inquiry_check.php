@@ -1,3 +1,10 @@
+<?php
+    // 外部ファイル読込
+    require_once 'contacts_dao.php'
+    // お客側問い合わせフォームから受け取る
+?>
+
+
 <!doctype html>
 <html lang='ja'>
     <head>

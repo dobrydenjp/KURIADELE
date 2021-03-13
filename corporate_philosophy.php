@@ -54,7 +54,7 @@
         <div class=corporation>代表挨拶</div><label class=corporation><?= $company->greeting ?></label>
         <div class=corporation>事業計画</div><label class=corporation><?= $company->plan ?></label>
         
-        <div class=corporation_1><a href='administrator_login.php'>管理者ページへ</a></div>
+        <div class=corporation_1><a href='administrator.php'>管理者ページへ</a></div>
                                 
         
         

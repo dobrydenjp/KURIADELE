@@ -5,14 +5,17 @@
 
 ・
 ・企業情報変更　if　validation　入力チェック　OK
-・企業情報変更　追加　削除できる項目追加
+・企業情報変更　追加　削除できる項目追加 
 ・お客側　表示確認　OK
 
-・お問い合わせフォーム　送信後の　class sql dao作成
-・お問い合わせフォーム　if validation 入力チェック
+・お問い合わせフォーム　送信後の　class sql dao作成 OK
+・お問い合わせフォーム　if validation 入力チェック OK
+・sql 内容を1000文字にする
+・sql 管理側に出力する
 ・管理側　お問い合わせフォーム内容表示
 
 ・KURIADELEnews　送信後　if　validation　入力チェック
+・現在class空の分裂できるか確認中
 
 ・管理側　お客情報表示
 ・管理側　お客購入情報表示
