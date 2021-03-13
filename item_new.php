@@ -32,13 +32,13 @@
     
     // 入力内容のチェック
     $errors = ItemDAO::validate($item);
-    var_dump($errors);
+    // var_dump($errors);
     // 入力エラーがないならば
     if(count($errors) === 0){
         // 商品を登録する
         ItemDAO::insert($item);
-        var_dump($item);
-       // エラーがない場合
+        // var_dump($item);
+        // エラーがない場合
         $_SESSION['register_message'] = '商品の登録が完了しました。内容確認';
         header('Location: product_change.php');
         exit;

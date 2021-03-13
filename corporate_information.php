@@ -3,10 +3,15 @@
     require_once 'company_dao.php';
     // セッション開始
     session_start();
-    // 企業情報登録コメント表示する
-    $comment = $_SESSION['comment'];
+    // 企業情報入力エラーメッセージ表示
+    $company_error = $_SESSION['company_error'];
     // 破棄
-    $_SESSION['comment'] = null;
+    $_SESSION['company_error'] = null;
+    // var_dump($company_error);
+    // // 企業情報登録コメント表示する
+    $company_message = $_SESSION['company_message'];
+    // // 破棄
+    $_SESSION['company_message'] = null;
     // idをGETで取得
     $id = $_GET['id'];
     // 現在の企業情報表示
@@ -27,11 +32,10 @@
         <div class='col-lg-12'>
             <div class='header row'>
         
-                <span class='com'>KURIADELE</span>
-                <span class='info_1'><a href='product.php'>商品情報</a></span>
-                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='info_3'><a href='login.php'>ログイン</a></span>
-                <span class='info_2'><a href='index.php'>TOPページへ</a></span>
+                <a href='admin_index.php' class='logo'><span class='com'>KURIADELE</span></a>
+                <span class='info_1'><a href='admin_index.php'>管理者TOP</a></span>
+                <span class='info_2'><a href='index.php'>顧客TOP</a></span>
+                <span class='info_3'><a href='admin_logout.php'>ログアウト</a></span>
         
                 <span class='info'>
                     <form method='POST' action='送信先'>
@@ -50,13 +54,22 @@
         </div>
         
         <div class='customer'>企業情報変更</div>
-        <?php if($comment !== null): ?>
-            <p><?= $comment ?></p>
+        
+        
+        <?php if($company_error !== null): ?>
+            <?php foreach($company_error as $error): ?>
+                <p><?= $error ?></p>
+            <?php endforeach; ?>
         <?php endif; ?>
         
-        <p><?= $company->description ?></p>
-        <p><?= $company->greeting ?></p>
-        <p><?= $company->plan ?></p>
+        <?php if($company_message !== null): ?>
+            <p><?= $company_message ?></p>
+        <?php endif; ?>
+        <p>現在の登録状況</p>
+            <p><?= $company->description ?></p>
+            <p><?= $company->greeting ?></p>
+            <p><?= $company->plan ?></p>
+        
         <!--削除追加　更新機能つける-->
         
         

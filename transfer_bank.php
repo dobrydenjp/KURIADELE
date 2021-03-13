@@ -7,15 +7,20 @@
     session_start();
     // 管理者の情報をセッションに保存
     $login_admin = $_SESSION['login_admin'];
-    // 銀行口座を登録した際flash_messsage をセッションから取得・表示
-    $flash_message = $_SESSION['flash_message'];
-    // var_dump($flash_message);
+    // 銀行口座入力エラーがある場合のメッセージを表示
+    $error_message = $_SESSION['error_message'];
+    // 破棄
+    $_SESSION['error_message'] = null;
+    // var_dump($error_message);
+    // 銀行口座を登録した際bank_message をセッションから取得・表示
+    $bank_message = $_SESSION['bank_message'];
+    // var_dump($bank_message);
     // 1度のみ表示
-    $_SESSION['flash_message'] = null;
+    $_SESSION['bank_message'] = null;
     // idをGETで取得
     $id = $_GET['id'];
     // 現在の口座情報を表示する
-    $get_bank = Admindao::get_bank_by_id($id);
+    $get_bank = AdminDAO::get_bank_by_id($id);
     // var_dump($get_bank);
 // 変更できるようにする
 ?>
@@ -33,12 +38,11 @@
         <div class='col-lg-12'>
             <div class='header row'>
         
-                <span class='com'>KURIADELE</span>
-                <span class='info_1'><a href='product.php'>商品情報</a></span>
-                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
+                <a href='admin_index.php' class='logo'><span class='com'>KURIADELE</span></a>
+                <span class='info_1'><a href='admin_index.php'>管理者TOP</a></span>
+                <span class='info_2'><a href='index.php'>顧客TOP</a></span>
                 <span class='info_3'><a href='admin_logout.php'>ログアウト</a></span>
-                <span class='info_2'><a href='admin_index.php'>TOPページへ</a></span>
-                <span class='info_2'><a href='carts.php'>カート</a></span>
+
                 <span class='info'>
                     <form method='POST' action='送信先'>
                         <input type='text' name=''/><input type='submit' name='' value='検索'/>
@@ -56,11 +60,21 @@
         </div>
         
         <div class='customer'>振込み先情報</div>
-        <!--$flash_message がnullでないならば-->
-        <?php if($flash_message !== null): ?>
-        <!--$flash_message　表示する-->
-            <P><?= $flash_message ?></P>
+        <!--$error_message がnullでないならば-->
+        <?php if($error_message !== null): ?>
+            <!--配列だから-->
+            <?php foreach($error_message as $errors):?>
+                <!--$error_message　表示する-->
+                <p><?= $errors ?></p>
+            <?php endforeach; ?>
         <?php endif; ?>
+        
+        <!--$bank_message がnullでないならば-->
+        <?php if($bank_message !== null): ?>
+        <!--$bank_message　表示する-->
+            <P><?= $bank_message ?></P>
+        <?php endif; ?>
+        
         <form method='POST' action='registration_transfer.php' enctype="multipart/form-data">
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>銀行名</label>

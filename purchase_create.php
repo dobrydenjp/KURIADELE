@@ -1,15 +1,15 @@
 <?php
-
+    // 外部ファイル読込
     require_once 'cart_dao.php';
     require_once 'customer_dao.php';
     require_once 'purchase_dao.php';
     require_once 'item_dao.php';
-    
+    // セッション開始
     session_start();
-    
+    // ログイン者の情報保存
     $login_customer = $_SESSION['login_customer'];
     
-    
+    // ログイン者の選択した物　idを取得
     $my_carts = CartDAO::get_my_carts($login_customer->id);
     
 
@@ -30,8 +30,8 @@
     //      // カート情報削除
     //     CartDAO::delete_cart($cart->id);
     // }
-    
-    $_SESSION['flash_message'] = お支払い先確認へ;
+    // 支払い銀行の確認メッセージ表示
+    $_SESSION['pay_message'] = お支払い先確認;
     header('Location: purchase_transfer.php');
     exit;
     

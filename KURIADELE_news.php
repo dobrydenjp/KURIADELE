@@ -11,11 +11,10 @@
         <div class='col-lg-12'>
             <div class='header row'>
         
-                <span class='com'>KURIADELE</span>
-                <span class='info_1'><a href='product.php'>商品情報</a></span>
-                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='info_3'><a href='login.php'>ログイン</a></span>
-                <span class='info_2'><a href='index.php'>TOPページへ</a></span>
+                <a href='admin_index.php' class='logo'><span class='com'>KURIADELE</span></a>
+                <span class='info_1'><a href='admin_index.php'>管理者TOP</a></span>
+                <span class='info_2'><a href='index.php'>顧客TOP</a></span>
+                <span class='info_3'><a href='admin_logout.php'>ログアウト</a></span>
         
                 <span class='info'>
                     <form method='POST' action='送信先'>
@@ -34,8 +33,21 @@
         </div>
         
         <div class='customer'>KURIADELEnews 更新</div>
+        <form method='POST' action='news.php' enctype="multipart/form-data">
+            <div class='customer_information form-group row '>
+                <label class='col-lg-4 col-form-label'>日付<br>News</label>
+
+                    <div class='col-lg-4 col-12'>
+                        <input type='date' name='days' class='form-control'/>
+                        <input type='text' name='news' class='form-control'/>
+                    </div>
+            </div>
+        <
+            <div class='enroll_1'>
+                <input type='submit' value='更新'/>
+            </div>
+        </form>
         
-        <div><?  ?></div>
         
   
   

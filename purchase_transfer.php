@@ -1,8 +1,20 @@
 <?php
+    // ログインフィルター
     require_once 'login_filter.php';
+    // 外部ファイル読込
+    require_once 'admin_dao.php';
+    // セッション開始
     session_start();
-    $flash_message = $_SESSION['flash_message'];
-    $_SESSION['flash_message'] = null;
+    // idをGETで取得
+    $id = $_GET['id'];
+    // 現在の口座情報を表示する
+    $get_bank = Admindao::get_bank_by_id($id);
+    // var_dump($get_bank);
+    // 支払銀行確認メッセージ表示
+    $pay_message = $_SESSION['pay_message'];
+    // 破棄
+    $_SESSION['pay_message'] = null;
+    
 ?>
 
 <!doctype html>
@@ -45,12 +57,18 @@
             </div>
         </div>
         <div class='customer'>ご購入手続き</div>
-        <p><?= $flash_message ?></p>
+        <?php if($pay_message !== null): ?>
+            <p><?= $pay_message ?></p>
+        <?php endif ;?>
         <div class='buy_1'>支払方法はお振込みのみです</div>
         
         <P class='customer_1'>お振込み口座</P>
-        <!--変更ができるように、管理者ページから飛ぶ-->
-        <p class='customer_1'><?  ?></p>
+        
+        
+            <p><?= $get_bank->bank_name ?><?= $get_bank->branch_name ?></p>
+            <p><?= $get_bank->account ?><?= $get_bank->NO ?></p>
+            <p><?= $get_bank->kana_name ?></p>
+        
         <form class='' method='POST' action='check.php' >
             <input type='submit' value='入力内容確認' class='enroll_1'/>
         </form>

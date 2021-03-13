@@ -1,9 +1,8 @@
 <?php
     // 外部ファイル読込
-    require_once 'contact.php';
-    
+    require_once 'company.php';
     // データベースを扱う便利屋さん
-    class ContactDAO{
+    class NewsDAO{
         // データベースと接続を行うメソッド
         private static function get_connection(){
             
@@ -32,25 +31,22 @@
             // 実行結果さようなら
             $stmp = null;
         }
-        
-        // 問い合わせ内容を1件登録するメソッド
-        public static function insert($contacts){
+        // KURIADELEnewsを登録するメソッド
+        public static function insert($news){
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
-                // INSERT文を実行する準備（データはわざとあやふやにしておく）
-               $stmt = $pdo -> prepare("INSERT INTO contacts (name, subject, contact, email_address) VALUES(:name, :subject, ;contact, ;email_address)");
+                // INSERT文を実行する準備（名前、年齢はわざとあやふやにしておく)
+                $stmt = $pdo -> prepare("INSERT INTO companys (days, news) VALUES (:days, :news)");
                 
-                // バインド処理（あやふやだった箇所実データで埋める）
-                $stmt->bindParam(':name', $contacts->name, PDO::PARAM_STR);
-                $stmt->bindParam(':subject', $contacts->subject, PDO::PARAM_STR);
-                $stmt->bindParam(':contact', $contacts->contact, PDO::PARAM_STR);
-                $stmt->bindParam(':email_address', $contacts->email_address, PDO::PARAM_STR);
+                // バインド処理（あやふやだった名前、年齢を実データで埋める）
+                $stmt->bindParam(':days', $news->days, PDO::PARAM_INT);
+                $stmt->bindParam(':news', $news->news, PDO::PARAM_STR);
                 
                 // INSERT文本番実行
                 $stmt->execute();
     
-                return 'ご質問ありがとうございます。ご返信にはお時間を頂きます。よろしくお願い致します。';
+                return "newsが完了しました";
                 
             }catch(PDOException $e){
                 

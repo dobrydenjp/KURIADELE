@@ -12,14 +12,26 @@
     // print $description . $greeting . $plan;
     // company命の誕生
     $company = new Company($description, $greeting, $plan);
-    // var_dump($company);
-    // 企業情報を登録する
-    CompanyDAO::insert($company);
-    // var_dump($company);
-    // メッセージ表示
-    $_SESSION['comment'] = '登録が完了しました';
-    // var_dump($company);
-    header('Location: corporate_information.php');
-    exit;
+    var_dump($company);
+    
+    $company_error = CompanyDAO::validate($company);
+    // var_dump($company_error);
+    // 入力エラーがないならば
+    if(count($company_error) === 0){
+    //     // 企業情報を登録する
+        CompanyDAO::insert($company);
+    //     // メッセージ表示
+        $_SESSION['company_message'] = '登録が完了しました';
+        // var_dump($company);
+        header('Location: corporate_information.php');
+        exit;
+    }else{ // 入力エラーがあるならば
+    //       // エラーメッセージ表示
+        $_SESSION['company_error'] = $company_error;
+        // var_dump($company_error);
+        header('Location: corporate_information.php');
+        exit;
+    }
+    
     
 ?>

@@ -4,9 +4,8 @@
     // セッション開始
     session_start();
     // var_dump($_POST);
-    // $_POST = [];
-    // // var_dump($_POST);
-    // // // 入力情報を保存
+    
+    // 入力情報を保存
     $bank_name = $_POST['bank_name'];
     $branch_name = $_POST['branch_name'];
     $account = $_POST['account'];
@@ -14,17 +13,29 @@
     $kana_name = $_POST['kana_name'];
     // Bank命の誕生
     $bank = new Bank($bank_name, $branch_name, $account, $NO, $kana_name);
-    // 追加した口座情報をflash_messageへ
-    $flash_message = AdminDAO::insert($bank);
-    // 銀行口座を登録した際にflash_messageを表示する
-    $_SESSION['flash_message'] = $flash_message;
-    header('Location: transfer_bank.php');
-    exit;
-    // var_dump($bank);
     
-    // // sqlに銀行情報保存する
-    // class daoを使う
-    // 管理者が振込先を入力
+    // エラーチェック
+    $error_message = AdminDAO::validate($bank);
+    // var_dump($error_message);
+    // 入力エラーがないならば
+    if(count($bank_error) === 0){
+        // 登録する　同時に下部に登録情報表示する
+        // 追加した口座情報をbank_messageへ
+        $bank_message = AdminDAO::insert($bank);
+        // 銀行口座を登録した際にbank_messageを表示する
+        $_SESSION['bank_message'] = $bank_message;
+        header('Location: transfer_bank.php');
+        exit;
+        // var_dump($bank);
+    
+    }else{  // 入力エラーがあるならば
+            // 登録できない
+        $_SESSION['error_message'] = $error_message;
+        // var_dump($error_message);
+        header('Location: transfer_bank.php');
+        exit;
+        
+    }
     // お客さん側の購入　支払銀行確認する場所に反映
 
 ?>

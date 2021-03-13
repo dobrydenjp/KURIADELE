@@ -102,17 +102,23 @@
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
                 // SELECT文を実行する あいまいなまま準備する
-                $stmt = $pdo->prepare('SELECT * FROM bank WHERE id=1');
+                
+                            // before('SELECT * FROM bank WHERE id=1');
+                $stmt = $pdo->prepare('SELECT * FROM bank WHERE id = (SELECT max(id) FROM bank)');
+                    // 表示されない  ('SELECT * FROM bank WHERE (id,created_at) IN (SELECT id,max(created_at) FROM ank GROUP BY id');
+                    
+                    
+                    
                 // バインド処理
                 $stmt->bindParam(':id', $id , PDO::PARAM_INT);
                 // 本番実行
                 $stmt->execute();
-                // フェッチの結果を、Itemクラスのインスタンスにマッピングする
+                // フェッチの結果を、Bankクラスのインスタンスにマッピングする
                 $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Bank');
-                // 商品情報をItemクラスのインスタンスで取得
+                // 商品情報をBankクラスのインスタンスで取得
                 $bank = $stmt->fetch();
                 
-                // Itemクラスのインスタンスを返す
+                // Bankクラスのインスタンスを返す
                 return $bank;
                 
             }catch(PDOException $e){
@@ -123,6 +129,43 @@
                 // 神様さようなら
                 self::close_connection($pdo, $stmp);
             }
+        }
+        
+        // 入力エラーチェック
+        public static function validate($bank){
+            // public $bank_name;
+            // public $branch_name;
+            // public $account;
+            // public $NO;
+            // public $kana_name;
+            // 空の配列
+            $error_message = array();
+            // 銀行名を入力しない場合のメッセージ
+            if($bank->bank_name === ''){
+                $error_message[] = '銀行名を入力してください';
+            }
+            // 支店名を入力しない場合のメッセージ
+            if($bank->branch_name === ''){
+                $error_message[] = '支店名を入力してください';
+            }
+            // 預金科目を入力しない場合のメッセージ
+            if($bank->account === ''){
+                $error_message[] = '預金科目を入力してください';
+            }
+            // 口座番号を入力しない場合のメッセージ
+            if($bank->NO === ''){
+                $error_message[] = '番号を入力してください';
+            }elseif(!preg_match('/^[0-9]+$/', $bank->NO)){
+                $error_message[] = '正しい番号を入力してください';
+            }
+            // 口座名義を入力しない場合のメッセージ
+            //片仮名入力チェック
+            if(!preg_match('/^[ｧ-ﾝﾞﾟ]+$')){
+            	$error_message[] = '半角カタカナを入力してください';
+            }
+            
+            return $error_message;
+            
         }
     }
 ?>
