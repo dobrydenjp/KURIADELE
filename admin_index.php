@@ -3,8 +3,9 @@
     // ログインしないと画面遷移できないようにする
     // フィルター
     // require_once 'admin_login_filter.php';
-    // 外部ファイル読込
 
+    // 外部ファイル読込
+    require_once 'news_dao.php';
     // セッション開始
     session_start();
 
@@ -17,6 +18,11 @@
     // var_dump($flash_message);
     // 1度のみ表示
     // $_SESSION['flash_message'] = null;
+    // GET通信
+    $id = $_GET['id'];
+    // newsの情報取得
+    $news = NewsDAO::get_news_id($id);
+    // var_dump($news);
 ?>
 <!doctype html>
 <html lang='ja'>
@@ -74,7 +80,7 @@
             <h4 class='customer'>KURIADELEnews</h1>
             <h3 class='top_d'>今日のニュース</h1>
             
-            <h4 class='top_e'>2021.1.6　合同会社KUREADALE設立</a>
+            <h4 class='top_e'><?= $news->days ?>　　　<?= $news->news ?></h4>
             
         </div>
 

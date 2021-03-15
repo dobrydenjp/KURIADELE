@@ -94,5 +94,30 @@
             
             return $contact_error;
         }
+        // 問い合わせ内容を全件取得するメソッド
+        public static function get_all_contacts(){
+            try{
+                // データベースに接続する神様取得
+                $pdo = self::get_connection();
+                // SELECT文を実行
+                $stmt = $pdo -> query('SELECT * FROM contacts');
+                
+                // フェッチの結果を、Contactクラスのインスタンスにマッピングする
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Contact');
+                
+                // 全問合せ情報を取得
+                $contacts = $stmt->fetchAll();
+                
+                // 問合せ内容全部はいあげる
+                return $contacts;
+ 
+            }catch(PDOException $e){
+                
+                return "問題が発生しました<br>" . $e->getMessage();
+                
+            }finally{
+               self::close_connection($pdo, $stmp); 
+            }
+        }
     }
 ?>

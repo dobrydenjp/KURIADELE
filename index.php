@@ -1,8 +1,16 @@
 <?php
+    // 外部ファイル読込
+    require_once 'news_dao.php';
+    // セッション開始
     session_start();
     // 
     $login_customer = $_SESSION['login_message'];
-    var_dump($login_customer);
+    // var_dump($login_customer);
+    // GETでid取得
+    $id = $_GET['id'];
+    // newsの情報取得
+    $news = NewsDAO::get_news_id($id);
+    // var_dump($news);
 ?>
 
 <!doctype html>
@@ -64,9 +72,9 @@
         
         <div class='top_3'>
             <h4 class='customer'>KURIADELEnews</h1>
-            <h3 class='top_d'>今日のニュース</h1>
+            <h3 class='top_d'>KURIADELE最新ニュース</h1>
+            <h4 class='top_e'><?= $news->days ?>　　　<?= $news->news ?></h4>
             
-            <h4 class='top_e'>2021.1.6　合同会社KUREADALE設立</a>
             
         </div>
 

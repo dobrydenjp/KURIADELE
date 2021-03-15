@@ -1,3 +1,25 @@
+<?php
+    // 外部ファイル読込
+    require_once 'news_dao.php';
+    // セッション開始
+    session_start();
+    // 入力項目エラーメッセージ表示
+    $news_error = $_SESSION['news_error'];
+    // 破棄
+    $_SESSION['news_error'] = null;
+    // var_dump($news_error);
+    // 保存できた時のメッセージ表示
+    $news_message = $_SESSION['news_message'];
+    // 破棄
+    $_SESSION['news_message'] = null;
+    // var_dump($news_message);
+    // GET通信
+    $id = $_GET['id'];
+    // newsの情報取得
+    $news = NewsDAO::get_news_id($id);
+    // var_dump($news);
+?>
+
 <!doctype html>
 <html lang='ja'>
     <head>
@@ -33,6 +55,20 @@
         </div>
         
         <div class='customer'>KURIADELEnews 更新</div>
+        <?php if($news_error !== null): ?>
+            <?php foreach($news_error as $error): ?>
+                <p><?= $error ?></p>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        
+        <?php if($news_message !== null): ?>
+            <p><?= $news_message ?></p>
+        <?php endif; ?>
+        
+        <p>現在の登録状況</p>
+        
+        <p><?= $news->days ?> <?= $news->news ?></p>
+        
         <form method='POST' action='news.php' enctype="multipart/form-data">
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>日付<br>News</label>
@@ -42,7 +78,7 @@
                         <input type='text' name='news' class='form-control'/>
                     </div>
             </div>
-        <
+        
             <div class='enroll_1'>
                 <input type='submit' value='更新'/>
             </div>

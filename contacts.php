@@ -59,11 +59,11 @@
         
         <?php if($contact_error !== null): ?>
             <?php foreach($contact_error as $error): ?>
-                <p><?= $error ?>
+                <p><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
         <?php if($contact_message !== null): ?>
-                <p><?= $contact_message ?>
+                <p><?= $contact_message ?></p>
         <?php endif; ?>
         
         <form method='POST' action='contact_new.php'>

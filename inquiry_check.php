@@ -1,7 +1,13 @@
 <?php
     // 外部ファイル読込
-    require_once 'contacts_dao.php'
+    require_once 'contact_dao.php';
+    // セッション開始
+    session_start();
     // お客側問い合わせフォームから受け取る
+    $contacts = ContactDAO::get_all_contacts();
+    // var_dump($contacts);
+    // 
+    
 ?>
 
 
@@ -45,8 +51,14 @@
         
         
         <!--PHP入る-->
-        <div><?  ?></div>
+        <?php foreach($contacts as $contact): ?>
+    
         
+            <div><?= $contact->id ?><?= $contact->name ?></div>
+            <div><?= $contact->subject ?></div>
+            <div><?= $contact->contact ?></div>
+            <div><?= $contact->email_address ?></div>
+        <?php endforeach; ?>
         
         <div class=corporation_1><a href='administrator.php'>管理者ページへ</a></div>
         <div class='footer '>
