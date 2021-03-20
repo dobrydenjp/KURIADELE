@@ -22,8 +22,8 @@
         // 画像をアップロード
         $image = ItemDAO::upload();
     }
-    // // // 選択されていないとき　登録できないようにする
-    // // // 選択されたとき　登録できるようにする
+    // // // 選択されていないとき  登録できないようにする
+    // // // 選択されたとき  登録できるようにする
 
     // // // itemの命誕生
     $item = new Item($name, $image, $price, $stock, $description);
@@ -43,14 +43,9 @@
         header('Location: product_change.php');
         exit;
     }else{
-        // それ以外　間違いがある場合　エラーメッセージ表示
+        // それ以外  間違いがある場合  エラーメッセージ表示
         $_SESSION['errors'] = $errors;
         header('Location: product_change.php');
         exit;
     }
-    
-    
-
-    
-    
 ?>

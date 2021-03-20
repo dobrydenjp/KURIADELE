@@ -33,6 +33,8 @@
         }
         // KURIADELEnewsを登録するメソッド
         public static function insert($news){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
@@ -77,6 +79,8 @@
         
         // 最新の入力idを出力するメソッド
         public static function get_news_id($id){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
@@ -92,7 +96,7 @@
                 // 登録企業情報を取得
                 $news = $stmt->fetch();
                 
-                // 商品全部はいあげる
+                // 企業情報はいあげる
                 return $news;
  
             }catch(PDOException $e){

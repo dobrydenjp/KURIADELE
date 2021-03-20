@@ -35,6 +35,8 @@
     
         // 商品を1件登録するメソッド
         public static function insert($item){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
@@ -64,6 +66,8 @@
         
         // ファイルをアップロード
         public static function upload(){
+            $pdo = null;
+            $stmp = null;
             // ファイルを選択していれば
             if (!empty($_FILES['image']['name'])) {
                 // ファイル名をユニーク化
@@ -84,6 +88,8 @@
         }
         // 全ての商品を取得するメソッド
         public static function get_all_items(){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
@@ -110,6 +116,8 @@
         
         //idから1つの商品を取得する
         public static function get_item_by_id($id){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();

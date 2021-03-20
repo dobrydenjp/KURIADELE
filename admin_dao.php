@@ -6,12 +6,11 @@
     class AdminDAO{
         // データベースと接続を行うメソッド
         private static function get_connection(){
-            
-            // データベース接続情報      
+            // データベース接続情報
             $dsn = "mysql:host=localhost;dbname=KURIADELE";
             $db_username = "root";
             $db_password = "";
-        
+
             $options = array(
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,        // 失敗したら例外を投げる
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_CLASS,   //デフォルトのフェッチモードはクラス
@@ -37,6 +36,8 @@
         
         // メールアドレスとパスワードによって、管理者情報を取得する
         public static function get_admin($email_address, $password){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
@@ -58,15 +59,16 @@
                 
             }catch(PDOException $e){
                 
-                return null;
+                return "問題が発生しました<br>" . $e->getMessage();
                 
             }finally{
                self::close_connection($pdo, $stmp);
             }
         }
-        // 管理者　銀行口座を1件登録するメソッド
-
+        // 管理者 銀行口座を1件登録するメソッド
         public static function insert($bank){
+            $pdo = null;
+            $stmp = null;
             try{
                 // print 'OK';
                 // データベースに接続する神様取得
@@ -84,31 +86,28 @@
                 // print 'OK3';
                 // INSERT文本番実行
                 $stmt->execute();
-                // print 'OK4';   
+                // print 'OK4';
                 return '銀行口座を登録しました';
-                
+
             }catch(PDOException $e){
-                
+
                 return "問題が発生しました<br>" . $e->getMessage();
                 
             }finally{
                 self::close_connection($pdo, $stmp);
             }
-        
         }
         // idによって管理者の口座情報を取得するメソッド
         public static function get_bank_by_id($id){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
                 // SELECT文を実行する あいまいなまま準備する
-                
-                            // before('SELECT * FROM bank WHERE id=1');
                 $stmt = $pdo->prepare('SELECT * FROM bank WHERE id = (SELECT max(id) FROM bank)');
-                    // 表示されない  ('SELECT * FROM bank WHERE (id,created_at) IN (SELECT id,max(created_at) FROM ank GROUP BY id');
-
                 // バインド処理
-                $stmt->bindParam(':id', $id , PDO::PARAM_INT);
+                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
                 // 本番実行
                 $stmt->execute();
                 // フェッチの結果を、Bankクラスのインスタンスにマッピングする
@@ -159,11 +158,9 @@
             // 口座名義を入力しない場合のメッセージ
             //片仮名入力チェック
             if(!preg_match('/^[ｧ-ﾝﾞﾟ]+$')){
-            	$error_message[] = '半角カタカナを入力してください';
+                $error_message[] = '半角カタカナを入力してください';
             }
-            
             return $error_message;
-            
         }
     }
 ?>

@@ -15,14 +15,16 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='col-lg-12'>
-            <div class='header row'>
+        <div class='container-fluid'>
+            <div class='row  header '>
         
-                <a href='admin_index.php' class='logo'><span class='com'>KURIADELE</span></a>
-                <span class='info_1'><a href='admin_index.php'>管理者TOP</a></span>
-                <span class='info_2'><a href='index.php'>顧客TOP</a></span>
-                <span class='info_3'><a href='admin_logout.php'>ログアウト</a></span>
+                <a href='admin_index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
+                <span class='offset-3 col-auto'><a href='admin_index.php'>管理者TOP</a></span>
+                <span class='col-auto  '><a href='index.php'>顧客TOP</a></span>
+                <span class='col-auto '><a href='admin_logout.php'>ログアウト</a></span>
+            
 
+        
                 <span class='info'>
                     <form method='POST' action='送信先'>
                         <input type='text' name=''/><input type='submit' name='' value='検索'/>
@@ -51,13 +53,13 @@
             <div class='administrator_2'><a href='purchase_information.php'>購入一覧</a></div>
         </div>
         <div class='administrator'>
-            <div class='administrator_1'><a href='corporate_information.php'>企業情報変更</a></div>
+            <div class='administrator_1'><a href='company_information.php'>企業情報変更</a></div>
             <div class='administrator_2'><a href='KURIADELE_news.php'>KUREADALEnews更新</a></div>
             <div class='administrator_1'><a href='transfer_bank.php'>振込先入力</a></div>
         
         </div>
         <div class='footer '>
-            <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
+            <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
                 <li>事業計画</li>
                 <li>展望</li>

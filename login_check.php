@@ -7,7 +7,7 @@
     // 入力されたメールアドレス・パスワードを取得する
     $email_address = $_POST['email_address'];
     $password = $_POST['password'];
-    // 入力内容のチェック（入力項目が空でないか？メールアドレスの形の入力か？のみ簡易チェック　daoにより）
+    // 入力内容のチェック（入力項目が空でないか？メールアドレスの形の入力か？のみ簡易チェック  daoにより）
     $errors = CustomerDAO::check($email_address, $password);
     
     // 入力エラーがないならば
@@ -35,12 +35,4 @@
         header('Location: login.php');
         exit;
     }
-              
-        
-
-        
-        
-    
-   
-   
 ?>

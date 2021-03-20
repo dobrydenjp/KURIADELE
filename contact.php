@@ -1,4 +1,7 @@
 <?php
+    // 外部ファイル読込
+    require_once 'customer_dao.php';
+    
     class Contact{
         public $id;
         public $name;
@@ -12,6 +15,11 @@
             $this->subject = $subject;
             $this->contact = $contact;
             $this->email_address = $email_address;
+        }
+        
+        public function get_customer(){
+            $customer = CustomerDAO::get_customer_by_id($this->id);
+            return $customer;
         }
     }
 ?>

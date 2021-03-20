@@ -94,8 +94,11 @@
             
             return $contact_error;
         }
+        
         // 問い合わせ内容を全件取得するメソッド
         public static function get_all_contacts(){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();

@@ -4,7 +4,7 @@
     // 外部ファイル読込
     require_once 'admin_dao.php';
     // セッション開始
-    session_start();
+    // session_start();
     // 管理者の情報をセッションに保存
     $login_admin = $_SESSION['login_admin'];
     // 銀行口座入力エラーがある場合のメッセージを表示
@@ -12,17 +12,21 @@
     // 破棄
     $_SESSION['error_message'] = null;
     // var_dump($error_message);
-    // 銀行口座を登録した際bank_message をセッションから取得・表示
+    // 銀行口座を登録した際 bank_message をセッションから取得・表示
     $bank_message = $_SESSION['bank_message'];
     // var_dump($bank_message);
     // 1度のみ表示
     $_SESSION['bank_message'] = null;
     // idをGETで取得
-    $id = $_GET['id'];
+    // $idをnullにする
+    $id = null;
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
     // 現在の口座情報を表示する
     $get_bank = AdminDAO::get_bank_by_id($id);
     // var_dump($get_bank);
-// 変更できるようにする
+    // 変更できるようにする
 ?>
 
 <!doctype html>
@@ -35,14 +39,16 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='col-lg-12'>
+        <div class='container-fluid'>
             <div class='header row'>
         
-                <a href='admin_index.php' class='logo'><span class='com'>KURIADELE</span></a>
-                <span class='info_1'><a href='admin_index.php'>管理者TOP</a></span>
-                <span class='info_2'><a href='index.php'>顧客TOP</a></span>
-                <span class='info_3'><a href='admin_logout.php'>ログアウト</a></span>
+                <a href='admin_index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
+                <span class='offset-3 col-auto'><a href='admin_index.php'>管理者TOP</a></span>
+                <span class='col-auto'><a href='index.php'>顧客TOP</a></span>
+                <span class='col-auto'><a href='admin_logout.php'>ログアウト</a></span>
 
+        
+                
                 <span class='info'>
                     <form method='POST' action='送信先'>
                         <input type='text' name=''/><input type='submit' name='' value='検索'/>
@@ -63,15 +69,15 @@
         <!--$error_message がnullでないならば-->
         <?php if($error_message !== null): ?>
             <!--配列だから-->
-            <?php foreach($error_message as $errors):?>
-                <!--$error_message　表示する-->
+            <?php foreach($error_message as $errors): ?>
+                <!--$error_message  表示する-->
                 <p><?= $errors ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
         
-        <!--$bank_message がnullでないならば-->
+        <!-- $bank_message がnullでないならば-->
         <?php if($bank_message !== null): ?>
-        <!--$bank_message　表示する-->
+        <!--$bank_message 表示する-->
             <P><?= $bank_message ?></P>
         <?php endif; ?>
         

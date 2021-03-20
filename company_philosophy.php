@@ -3,48 +3,42 @@
     require_once 'company_dao.php';
     // セッション開始
     session_start();
-    // 企業情報入力エラーメッセージ表示
-    $company_error = $_SESSION['company_error'];
-    // 破棄
-    $_SESSION['company_error'] = null;
-    // var_dump($company_error);
-    // // 企業情報登録コメント表示する
-    $company_message = $_SESSION['company_message'];
-    // // 破棄
-    $_SESSION['company_message'] = null;
     // idをGETで取得
-    $id = $_GET['id'];
+    // $idをnullにする
+    $id = null;
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
     // 現在の企業情報表示
     $company = CompanyDAO::get_companys_id($id);
     // var_dump($company);
+
 ?>
 
 <!doctype html>
 <html lang='ja'>
     <head>
         <meta charset='UTF-8'>
-        <title>企業情報変更</title>
+        <title>企業情報</title>
         <link rel='stylesheet' href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='col-lg-12'>
-            <div class='header row'>
-        
-                <a href='admin_index.php' class='logo'><span class='com'>KURIADELE</span></a>
-                <span class='info_1'><a href='admin_index.php'>管理者TOP</a></span>
-                <span class='info_2'><a href='index.php'>顧客TOP</a></span>
-                <span class='info_3'><a href='admin_logout.php'>ログアウト</a></span>
-        
+        <div class='container-fluid'>
+            <div class='row  header '>
+                <a href='index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
+                
+                <span class='offset-3 col-auto'><a href='product.php'>商品情報</a></span>
+                <span class='col-auto '><a href='contacts.php'>お問い合わせ</a></span>
+                <span class='col-auto '><a href='login.php'>ログイン</a></span> 
                 <span class='info'>
                     <form method='POST' action='送信先'>
                         <input type='text' name=''/><input type='submit' name='' value='検索'/>
                     </form>
                 </span>
-            
-                <button type='button' class='btn btn-light dropdown-toggle' data-toggle='dropdown'>
-                </button>
+           
+                <button type='button' class='btn btn-light dropdown-toggle' data-toggle='dropdown'></button>
                 <div class='dropdown-menu'>
                     <a class='dropdown-item' href='#'><a href='corporate_philosophy.php'>KURIADELEについて</a>
                     <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
@@ -53,37 +47,21 @@
             </div>
         </div>
         
-        <div class='customer'>企業情報変更</div>
+        <div ><p class=customer>企業情報</p></div>
         
         
-        <?php if($company_error !== null): ?>
-            <?php foreach($company_error as $error): ?>
-                <p><?= $error ?></p>
-            <?php endforeach; ?>
-        <?php endif; ?>
-        
-        <?php if($company_message !== null): ?>
-            <p><?= $company_message ?></p>
-        <?php endif; ?>
-        <p>現在の登録状況</p>
-            <p><?= $company->description ?></p>
-            <p><?= $company->greeting ?></p>
-            <p><?= $company->plan ?></p>
-        
-        <!--削除追加　更新機能つける-->
         
         
-        <form method='POST' action='corporate_new.php'>
-            <div class=corporation>KURIADELEとは<textarea name="description" cols="30" rows="5"></textarea></div>
-            <div class=corporation>代表挨拶<input type="text" name="greeting"/></div>
-            <div class=corporation>事業計画<input type="text" name="plan"/></div>
-            <input type="submit" value="更新"/>
-        </form>
-        <div class=corporation_1><a href='administrator.php'>管理者ページへ</a></div>
+        <div class=corporation>KURIADELEとは</div><label  class=corporation><?= $company->description ?></label>
+        <div class=corporation>代表挨拶</div><label class=corporation><?= $company->greeting ?></label>
+        <div class=corporation>事業計画</div><label class=corporation><?= $company->plan ?></label>
+        
+        
+                                
         
         
         <div class='footer '>
-            <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
+            <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
                 <li>事業計画</li>
                 <li>展望</li>

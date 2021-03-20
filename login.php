@@ -3,7 +3,7 @@
     require_once 'customer_dao.php';
     // セッション開始
     session_start();
-    // registration_new.phpのセッション　フラッシュメッセージ取得
+    // registration_new.phpのセッション  フラッシュメッセージ取得
     // flas_messageをセッションから取得 新規会員登録成功
     $done_message = $_SESSION['done_message'];
     // セッションに保存されたflash_messageを一旦破棄（使いまわす為）
@@ -33,30 +33,27 @@
     <head>
         <meta charset='UTF-8'>
         <title>ログイン</title>
-        <link rel='stylesheet' href='index.css'>
+        <link rel='stylesheet' type="text/css" href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='col-lg-12'>
-            <div class='header row'>
-        
-                <a href='index.php' class='logo'><span class='com'>KURIADELE</span></a>
-                
-                <span class='info_1'><a href='items.php'>商品情報</a></span>
-                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='info_3'><a href='login.php'>ログイン</a></span>
+        <div class='container-fluid'>
+            <div class='row  header '>
+                <a href='index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
+                <span class='offset-3 col-auto'><a href='product.php'>商品情報</a></span>
+                <span class='col-auto  '><a href='contacts.php'>お問い合わせ</a></span>
+                <span class='col-auto '><a href='login.php'>ログイン</a></span>
                 
                 
-                
-                <span class='info'>
-                    <form method='POST' action='送信先'>
-                        <input type='text' name=''/><input type='submit' name='' value='検索'/>
-                    </form>
-                </span>
+                <!--<span class='info'>-->
+                <!--    <form method='POST' action='送信先'>-->
+                <!--        <input type='text' name=''/><input type='submit' name='' value='検索'/>-->
+                <!--    </form>-->
+                <!--</span>-->
             
-                <button type='button' class='btn btn-light dropdown-toggle' data-toggle='dropdown'>
-                </button>
+                <!--<button type='button' class='btn btn-light dropdown-toggle' data-toggle='dropdown'>-->
+                <!--</button>-->
                 <!--<div class='dropdown-menu'>-->
                 <!--    <a class='dropdown-item' href='#'><a href='corporate_philosophy.php'>KURIADELEについて</a>-->
                 <!--    <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>-->
@@ -110,7 +107,7 @@
     
     
         <div class='footer '>
-            <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
+            <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
                 <li>事業計画</li>
                 <li>展望</li>
@@ -118,7 +115,7 @@
             <ul><span><a href='product.php'>取扱商品</a></span>
                 <li>商品一覧</li>
             </ul>
-            <ul><span><a href='contact.php'>サポート</a></span>
+            <ul><span><a href='contacts.php'>サポート</a></span>
                 <li>お問い合わせ</li>
             </ul>
             <ul><span>SNSアカウント</span>

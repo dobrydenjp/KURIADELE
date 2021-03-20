@@ -8,15 +8,10 @@
         public $created_at;
         
         
-        public function __construct($name='',$email_address='', $password=''){
-            $this->name = $name;   
+        public function __construct($name='', $email_address='', $password=''){
+            $this->name = $name;
             $this->email_address = $email_address;
             $this->password = $password;
-            
         }
-
-        
-            
-
     }
 ?>

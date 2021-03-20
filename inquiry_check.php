@@ -1,8 +1,15 @@
 <?php
+    // ログインフィルター
+    require_once 'admin_login_filter.php';
     // 外部ファイル読込
     require_once 'contact_dao.php';
     // セッション開始
-    session_start();
+    // session_start();
+    // idをGETで取得
+    // $idをnullにする
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
     // お客側問い合わせフォームから受け取る
     $contacts = ContactDAO::get_all_contacts();
     // var_dump($contacts);
@@ -21,15 +28,13 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='col-lg-12'>
+        <div class='container-fluid'>
             <div class='header row'>
         
-                <span class='com'>KURIADELE</span>
-                
-                <span class='info_1'><a href='product.php'>商品情報</a></span>
-                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='info_2'><a href='index.php'>TOPページへ</a></span>
-                <span class='info_3'><a href='login.php'>ログイン</a></span>
+                <a href='admin_index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
+                <span class='offset-3 col-auto'><a href='admin_index.php'>管理者TOP</a></span>
+                <span class='col-auto'><a href='index.php'>顧客TOP</a></span>
+                <span class='col-auto'><a href='admin_logout.php'>ログアウト</a></span>
                 
         
                 <span class='info'>

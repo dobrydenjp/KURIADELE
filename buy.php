@@ -1,16 +1,19 @@
 <?php
-    require_once 'login_filter.php';
+    //外部ファイル読込
     require_once 'item_dao.php';
     require_once 'customer.php';
+    // セッション開始
+    // session_start();
     // print 'OK';
-    $id = $_GET['id'];
-    // print $id;
-    
-    session_start();
+    $id = null;
+    // $idをGETで取得
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
+    // 選択された商品情報を取得
     $item = ItemDAO::get_item_by_id($id);
     // var_dump($item);
-    
-    $login_customer = $_SESSION['login_customer'];
+    // カートに入れたい場合の場合分け
 ?>
 <!doctype html>
 <thml lang='ja'>
@@ -22,15 +25,13 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='col-12'>
-            <div class='header'>
-        
-                <span class='com'>KURIADELE</span>
+        <div class='container-fluid'>
+            <div class='row  header '>
+                <a href='index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
                 
-                <span class='info_1'><a href='product.php'>商品情報</a></span>
-                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='info_2'><a href='login.php'>ログイン</a></span>
-                <span class='info_2'><a href='index.php'>TOPページへ</a></span>
+                <span class='offset-3 col-auto'><a href='product.php'>商品情報</a></span>
+                <span class='col-auto '><a href='contacts.php'>お問い合わせ</a></span>
+                <span class='col-auto '><a href='login.php'>ログイン</a></span>
         
                 <span class='info'>
                     <form method='POST' action='送信先'>
@@ -61,7 +62,7 @@
         
         <!--$login_customerがnull空でない時に実行-->
         <?php if($login_customer !== null): ?>
-        <form method='POST' action='cart_in.php'>    
+        <form method='POST' action='cart_in.php'>
             <select class='select_box' name="number">
                 <?php for($i = 1; $i <= $item->stock; $i++): ?>
                 <option value='<?= $i ?>'><?= $i ?></option>
@@ -69,20 +70,20 @@
             個</select>
             <!--ＰＨＰ入力-->
             <input type="hidden" name="item_id" value="<?= $item->id ?>">
-            <input type='submit' value='カートに入れる'>
-            <!--<p class='product_4'></p>-->
+            
+            
         </form>
         <?php ?>
         <?php endif; ?>
         
         
         
-        
+        <h6 class='buy_2'>これより先はログイン後お手続きくださいませ。</h6>
         
         
         
         <div class='footer '>
-            <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
+            <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
                 <li>事業計画</li>
                 <li>展望</li>

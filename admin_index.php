@@ -1,13 +1,14 @@
 <?php
     // ログイン画面から管理者TOPへ遷移されてしまう
     // ログインしないと画面遷移できないようにする
-    // フィルター
-    // require_once 'admin_login_filter.php';
+    // ログインフィルター
+    require_once 'admin_login_filter.php';
 
     // 外部ファイル読込
     require_once 'news_dao.php';
+    require_once 'admin_dao.php';
     // セッション開始
-    session_start();
+    // session_start();
 
     // ログイン者の情報をセッションに保存
     $login_admin = $_SESSION['login_admin'];
@@ -18,12 +19,17 @@
     // var_dump($flash_message);
     // 1度のみ表示
     // $_SESSION['flash_message'] = null;
-    // GET通信
-    $id = $_GET['id'];
+    // idをGETで取得
+    // $idをnullにする
+    $id = null;
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
     // newsの情報取得
     $news = NewsDAO::get_news_id($id);
     // var_dump($news);
 ?>
+
 <!doctype html>
 <html lang='ja'>
     <head>
@@ -34,14 +40,15 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='col-lg-12'>
-            <div class='header row'>
+        <div class='container-fluid'>
+            <div class='row  header '>
         
-                <a href='admin_index.php' class='logo'><span class='com'>KURIADELE</span></a>
-                <span class='info_1'><a href='index.php'>顧客TOP</a></span>
-                <span class='info_2'><a href='product.php'>商品情報確認</a></span>
-                <span class='info_3'><a href='administrator.php'>登録内容変更</a></span>
-                <span class='info_3'><a href='admin_login.php'>ログアウト</a></span>
+                <a href='admin_index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
+                <span class='offset-3 col-auto'><a href='index.php'>顧客TOP</a></span>
+                <span class='col-auto'><a href='administrator.php'>登録内容変更</a></span>
+                <span class='col-auto'><a href='admin_login.php'>ログアウト</a></span>
+                
+        
                 
                 <span class='info'>
                     <form method='POST' action='送信先'>
@@ -78,22 +85,16 @@
         
         <div class='top_3'>
             <h4 class='customer'>KURIADELEnews</h1>
-            <h3 class='top_d'>今日のニュース</h1>
+            <h4 class='top_d'>今日のニュース</h4>
             
-            <h4 class='top_e'><?= $news->days ?>　　　<?= $news->news ?></h4>
+            <h5 class='top_e'><?= $news->days ?>        <?= $news->news ?></h5>
             
         </div>
 
 
 
-        
-        
-        
-        
-
-
         <div class='footer '>
-            <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
+            <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
                 <li>事業計画</li>
                 <li>展望</li>
@@ -101,7 +102,7 @@
             <ul><span><a href='product.php'>取扱商品</a></span>
                 <li>商品一覧</li>
             </ul>
-            <ul><span><a href='contact.php'>サポート</a></span>
+            <ul><span><a href='login_contact.php'>サポート</a></span>
                 <li>お問い合わせ</li>
             </ul>
             <ul><span>SNSアカウント</span>

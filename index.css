@@ -1,11 +1,11 @@
 
 .header {
     background-color: #BDD7EE;
-    display: flex;
-    height: 80px;
     align-items: flex-end;
-    
-    
+    padding-top: 3%;
+}
+.logo {
+    font-size: 40px;
 }
 a.logo:hover {
     text-decoration: none;
@@ -14,7 +14,6 @@ a.logo:hover {
     width: 100%;
     display: flex;
     border-bottom: 1px black solid;
-    
 }
 .top_a {
     position: relative;
@@ -36,16 +35,16 @@ a.logo:hover {
 
 
 .top_2 {
-    height: 10%;
+    height: 55%;
     border-bottom: 1px black solid;
 }
 .top_c {
-    margin-top: 2%;
+    
     text-align: center;
 }
 .top_3 {
-    height: 10%;
-    border-bottom: 1px black solid;
+    height: 8%;
+    
     
 }
 
@@ -58,30 +57,23 @@ a.logo:hover {
     margin-top: 2%;
 }
 
-
-span {
-    width: 10%;
-    
-}
-.com {
-    font-size: 30px;
-}
 .info_1 {
-    font-size: 15px;
-    margin-left: 8%;
-    width: 9%;
+    /*font-size: 13px;*/
+    /*margin-left: -8%;*/
+    margin-top: 3%;
 }
-.info_2 {
-    font-size: 15px;
-}
-.info_3 {
-    font-size: 15px;
-}
-.info {
-    display: inline-flex;
-    text-align: right;
-    width: 250px;
-}
+/*.info_2 {*/
+/*    font-size: 13px;*/
+/*    text-align: center;*/
+/*    margin-left: -10%;*/
+
+/*}*/
+
+/*.info {*/
+/*    display: inline-flex;*/
+/*    text-align: right;*/
+/*    width: 250px;*/
+/*}*/
 /*.ddropdown-menu_button {*/
 /*    margin-left: 80%;*/
 /*}*/
@@ -93,7 +85,7 @@ span {
     margin-left: 20%;
     text-align: center;
     
-    width: 170px;
+    width: 16%;
 }
 .customer_1{
     
@@ -120,16 +112,16 @@ span {
 }
 .footer {
     background-color: #D6DCE4;
-    height: 150px;
+    /*height: 19%;*/
     display: flex;
-    
+    margin-top: 10%;
 }
-span {
+/*span {*/
     
-    border-bottom: solid 2px black;
+/*    border-bottom: solid 2px black;*/
     
     
-}
+/*}*/
 ul {
     width: 30%;
     font-size: 20px;
@@ -147,11 +139,12 @@ li {
 }
 .login_2 {
     text-align: center;
+    margin-top: 3%;
 }
 .question {
     margin-left: 20%;
-    margin-top: 5%;
-    margin-bottom: 20px;
+    margin-top: 3%;
+    
 }
 .question_2 {
     margin-top: 2%;
@@ -229,6 +222,7 @@ p {
     font-size: 18px;
     display: flex;
     text-align: center;
+    margin-bottom: -2%;
 }
 .administrator_1 {
     font-size: 18px;
@@ -254,6 +248,12 @@ p {
    text-align: center;
    margin-bottom: 1%;
 }
+.buy_2{
+    text-align: center;
+}
 .form-group {
     margin-bottom: 3%;
+}
+.customer_information.form-group.row {
+    margin-top: 2%;
 }

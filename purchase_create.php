@@ -9,7 +9,7 @@
     // ログイン者の情報保存
     $login_customer = $_SESSION['login_customer'];
     
-    // ログイン者の選択した物　idを取得
+    // ログイン者の選択した物  idを取得
     $my_carts = CartDAO::get_my_carts($login_customer->id);
     
 

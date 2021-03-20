@@ -1,16 +1,28 @@
 <?php
+    // ログイン者の個人情報変更できるできるようにする
+    // ログインしていない状態で管理者トップへアクセスするのを防ぐ
+    // ログインフィルター
+    require_once 'login_filter.php';
     // 外部ファイル読込
     require_once 'customer_dao.php';
+    require_once 'news_dao.php';
     // セッション開始
-    session_start();
-    // login者の情報　セッションに保存
-    $login_customer = $_SESSION['login_customer'];
-    // var_dump($login_customer);
-    
-    // require_once 'login_filter.php';
-    // login_checkよりflash_messsage をセッションから取得
+    // session_start();
+    // login_checkよりlogin_messsage をセッションから取得
     $login_message = $_SESSION['login_message'];
     // var_dump($flash_message);
+    // ログイン者の情報  セッションに保存
+    $login_customer = $_SESSION['login_customer'];
+    // var_dump($login_customer);
+    // idをnullにする
+    // GETでid取得
+    $id = null;
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
+    // newsの情報取得
+    $news = NewsDAO::get_news_id($id);
+    // var_dump($news);
 ?>
 
 
@@ -24,15 +36,16 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class="col-lg-12">
-            <div class='header row'>
         
-                <span class='com'>KURIADELE</span>
-                <span class='info_1'><a href='mypage.php'><?= $login_customer->name ?>様のページ</a></span>
-                <span class='info_1'><a href='product.php'>商品情報</a></span>
-                <span class='info_2'><a href='carts.php'>カート</a></span>
-                <span class='info_2'><a href='purchases.php'>購入履歴</a></span>
-                <span class='info_2'><a href='logout.php'>ログアウト</a></span>
+                
+        <div class='container-fluid'>
+            <div class='row  header '>
+                <a href='index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
+                <span class='offset-1 col-auto'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
+                <span class='offset-1 col-auto'><a href='login_contact.php'>お問い合わせ</a></span>
+                <span class='col-auto '><a href='carts.php'>カート</a></span>
+                <span class='col-auto '><a href='purchases.php'>購入履歴</a></span>
+                <span class='col-auto '><a href='index.php'>ログアウト</a></span>
                 <!--<span class='info'>-->
                 <!--    <form method='POST' action='送信先'>-->
                 <!--        <input type="text" name=""/><input type="submit" name="" value='検索'/>-->
@@ -63,7 +76,7 @@
         <?php endif; ?>
         <div class='top_2'>
             <h4 class='customer'>取扱商品</h4>
-            <div class='top_c'><a href='product.php'><img src='camera_3.jpg' alt='camera'></img></a></div>
+            <div class='top_c'><a href='login_product.php'><img src='camera_3.jpg' alt='camera'></img></a></div>
             
         </div>
         
@@ -72,7 +85,7 @@
             <h4 class='customer'>KURIADELEnews</h1>
             <h3 class='top_d'>今日のニュース</h1>
             
-            <h4 class='top_e'>2021.1.6　合同会社KUREADALE設立</a>
+            <h4 class='top_e'><?= $news->days ?>        <?= $news->news ?></h4>
             
         </div>
         
@@ -87,11 +100,12 @@
                 <li>事業計画</li>
                 <li>展望</li>
             </ul>
-            <ul><span><a href='product.php'>取扱商品</a></span>
+            <ul><span><a href='login_product.php'>取扱商品</a></span>
                 <li>商品一覧</li>
             </ul>
-            <ul><span><a href='contact.php'>サポート</a></span>
+            <ul><span><a href='login_contact.php'>サポート</a></span>
                 <li>お問い合わせ</li>
+                <li>お客様情報変更</li>
             </ul>
             <ul><span>SNSアカウント</span>
             </ul>

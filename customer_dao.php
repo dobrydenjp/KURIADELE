@@ -33,6 +33,8 @@
     
         // 全会員情報を取得するメソッド
         public static function get_all_humans(){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
@@ -58,6 +60,8 @@
     
         // 会員を1件登録するメソッド
         public static function insert($customer){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
@@ -86,14 +90,10 @@
                self::close_connection($pdo, $stmp); 
             }
         }
-        
-        
-        
-        
-        
-        
         // メールアドレスとパスワードによって、お客様情報を取得する
         public static function get_customer($email_address, $password){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
@@ -190,12 +190,41 @@
                 $errors[] = '登録メールアドレスを入力してください';
             }
             // パスワードチェック
-            // 文字列か数値否か　文字strlen
+            // 文字列か数値否か  文字strlen
             if($password === ''){
                 $errors[] = 'パスワードは正しく入力してください'; 
             }
             return $errors;
             
-        }
         
+        
+        }
+        // 登録されている会員情報を変更するメソッド
+        public static function update($id, $name, $kana_name, $postal_code, $address, $tel, $email_address, $password){
+            $pdo = null;
+            $stmp = null;
+            try{
+                // データベースに接続する神様
+                $pdo = self::get_connection();
+                // update文を実行する準備（名前・カナ・郵便番号・住所・電話番号・メールアドレス・パスワードはあやふやにする）
+                $stmt = $pdo->prepare('UPDATE customers SET name=:name, kana_name=:kana_name, postal_code=:postal_code, address=:address, tel=:tel, email_address=:email_address, password=:password WHERE id=:id');
+                // バインド処理（あやふやだった名前・カナ・郵便番号・住所・電話番号・メールアドレス・パスワードを実データで埋める）
+                $stmt->bindParam(':name', $name, pdo::PARAM_STR);
+                $stmt->bindParam(':kana_name', $kana_name, pdo::PARAM_STR);
+                $stmt->bindParam(':postal_code', $postal_code, pdo::PARAM_INT);
+                $stmt->bindParam(':address', $address, pdo::PARAM_STR);
+                $stmt->bindParam(':tel', $tel, pdo::PARAM_INT);
+                $stmt->bindParam(':email_address', $email_address, pdo::PARAM_STR);
+                $stmt->bindParam(':password', $password, pdo::PARAM_STR);
+                // update本番実行
+                $stmt->execute();
+                return 'お客様情報を変更しました';
+            
+            }catch(PDOException $e){
+                return'問題が発生しました';
+            }finally{
+                self::close_connection($pdo, $stmp);
+            }
+        }
     }
+?>

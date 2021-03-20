@@ -4,7 +4,7 @@
     require_once 'news_dao.php';
     // セッション開始
     session_start();
-    // 入力情報　保存する
+    // 入力情報  保存する
     $days = $_POST['days'];
     $news = $_POST['news'];
     // var_dump($_POST);
@@ -29,8 +29,4 @@
         exit;
         
     }
-    
-
-    
-    
 ?>

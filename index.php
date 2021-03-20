@@ -2,12 +2,15 @@
     // 外部ファイル読込
     require_once 'news_dao.php';
     // セッション開始
-    session_start();
-    // 
-    $login_customer = $_SESSION['login_message'];
-    // var_dump($login_customer);
+    // session_start();
+    
+
+    // idをnullにする
     // GETでid取得
-    $id = $_GET['id'];
+    $id = null;
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
     // newsの情報取得
     $news = NewsDAO::get_news_id($id);
     // var_dump($news);
@@ -23,16 +26,13 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        
-        <div class='col-lg-12'>
-            <div class='header row'>
-        
-                <a href='index.php' class='logo'><span class='com'>KURIADELE</span></a>
+        <div class='container-fluid'>
+            <div class='row  header '>
+                <a href='index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
                 
-                <span class='info_1'><a href='items.php'>商品情報</a></span>
-                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='info_3'><a href='login.php'>ログイン</a></span>
-                
+                <span class='offset-3 col-auto'><a href='product.php'>商品情報</a></span>
+                <span class='col-auto '><a href='contacts.php'>お問い合わせ</a></span>
+                <span class='col-auto '><a href='login.php'>ログイン</a></span>
                 
                 
                 <span class='info'>
@@ -59,9 +59,7 @@
             
             
         </div>
-        <?php if($login_customer !== null): ?>
-            <p><?= $login_customer ?></p>
-        <?php endif; ?>
+        
         
         <div class='top_2'>
             <h4 class='customer'>取扱商品</h4>
@@ -73,7 +71,7 @@
         <div class='top_3'>
             <h4 class='customer'>KURIADELEnews</h1>
             <h3 class='top_d'>KURIADELE最新ニュース</h1>
-            <h4 class='top_e'><?= $news->days ?>　　　<?= $news->news ?></h4>
+            <h4 class='top_e'><?= $news->days ?>        <?= $news->news ?></h4>
             
             
         </div>
@@ -87,7 +85,7 @@
 
 
         <div class='footer '>
-            <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
+            <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
                 <li>事業計画</li>
                 <li>展望</li>
@@ -95,7 +93,7 @@
             <ul><span><a href='product.php'>取扱商品</a></span>
                 <li>商品一覧</li>
             </ul>
-            <ul><span><a href='contact.php'>サポート</a></span>
+            <ul><span><a href='contacts.php'>サポート</a></span>
                 <li>お問い合わせ</li>
             </ul>
             <ul><span>SNSアカウント</span>

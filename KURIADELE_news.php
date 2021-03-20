@@ -1,8 +1,10 @@
 <?php
+    // ログインフィルター
+    require_once 'admin_login_filter.php';
     // 外部ファイル読込
     require_once 'news_dao.php';
     // セッション開始
-    session_start();
+    // session_start();
     // 入力項目エラーメッセージ表示
     $news_error = $_SESSION['news_error'];
     // 破棄
@@ -13,8 +15,12 @@
     // 破棄
     $_SESSION['news_message'] = null;
     // var_dump($news_message);
-    // GET通信
-    $id = $_GET['id'];
+    // idをGETで取得
+    // $idをnullにする
+    $id = null;
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
     // newsの情報取得
     $news = NewsDAO::get_news_id($id);
     // var_dump($news);
@@ -30,14 +36,16 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='col-lg-12'>
+        <div class='container-fluid'>
             <div class='header row'>
         
-                <a href='admin_index.php' class='logo'><span class='com'>KURIADELE</span></a>
-                <span class='info_1'><a href='admin_index.php'>管理者TOP</a></span>
-                <span class='info_2'><a href='index.php'>顧客TOP</a></span>
-                <span class='info_3'><a href='admin_logout.php'>ログアウト</a></span>
+                <a href='admin_index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
+                <span class='offset-3 col-auto'><a href='admin_index.php'>管理者TOP</a></span>
+                <span class='col-auto'><a href='index.php'>顧客TOP</a></span>
+                <span class='col-auto'><a href='admin_logout.php'>ログアウト</a></span>
         
+        
+                
                 <span class='info'>
                     <form method='POST' action='送信先'>
                         <input type='text' name=''/><input type='submit' name='' value='検索'/>

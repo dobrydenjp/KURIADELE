@@ -1,8 +1,6 @@
 <?php
     
     require_once 'item_dao.php';
- 
-    
     $id = $_GET['id'];
     
     
@@ -19,14 +17,13 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='col-lg-12'>
-            <div class='header row'>
-        
-                <a href='index.php' class='logo'><span class='com'>KURIADELE</span></a>
+        <div class='container-fluid'>
+            <div class='row  header '>
+                <a href='index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
                 
-                <span class='info_1'><a href='items.php'>商品情報</a></span>
-                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='info_3'><a href='login.php'>ログイン</a></span>
+                <span class='offset-3 col-auto'><a href='product.php'>商品情報</a></span>
+                <span class='col-auto '><a href='contacts.php'>お問い合わせ</a></span>
+                <span class='col-auto '><a href='login.php'>ログイン</a></span>
                 
                 
                 

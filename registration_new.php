@@ -1,8 +1,9 @@
 <?php
     // var_dump($_POST);
-    // インスタンス
-    session_start();
+    // 外部ファイル読込
     require_once 'customer_dao.php';
+    // セッション開始
+    session_start();
     // 入力情報の取得
     $name = $_POST['name'];
     $kana_name = $_POST['kana_name'];

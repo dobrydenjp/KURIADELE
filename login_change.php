@@ -1,17 +1,16 @@
 <?php
-    session_start();
-    // registration_new.phpのセッション情報取得
-    $errors = $_SESSION['errors'];
-    
-    $_SESSION['errors'] = null;
-    // var_dump($errors);
+    // ログインフィルター
+    require_once 'login_filter.php';
+    // 外部ファイル読込
+    require_once 'customer_dao.php';
 ?>
 
 <!doctype html>
+
 <thml lang='ja'>
     <head>
         <meta charset='UTF-8'>
-        <title>新規会員登録</title>
+        <title>お問い合わせ</title>
         <link rel='stylesheet' href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -20,41 +19,37 @@
         <div class='container-fluid'>
             <div class='row  header '>
                 <a href='index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
+                <span class='offset-1 col-auto'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
+                <span class='offset-1 col-auto'><a href='product.php'>商品情報</a></span>
+                <span class='col-auto '><a href='carts.php'>カート</a></span>
+                <span class='col-auto '><a href='purchases.php'>購入履歴</a></span>
+                <span class='col-auto '><a href='index.php'>ログアウト</a></span>
                 
-                <span class='offset-3 col-auto'><a href='product.php'>商品情報</a></span>
-                <span class='col-auto '><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='col-auto '><a href='login.php'>ログイン</a></span>
+                
+                
                 <span class='info'>
-                    <form method='POST' action='送信先'>
+                    <form method='POST' action=''>
                         <input type='text' name=''/><input type='submit' name='' value='検索'/>
                     </form>
                 </span>
             
-                <div class='dropdown-menu_button'>
-                    <button type='button' class='btn btn-light dropdown-toggle' data-toggle='dropdown'>
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class='dropdown-item' href='#'><a href='corporate philosophy.php'>KURIADELEについて</a>
-                        <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
-                        <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>
-                    </div>
-                </div>
+                <button type='button' class='btn btn-light dropdown-toggle' data-toggle='dropdown'>
+                </button>
+                <!--<div class='dropdown-menu'>-->
+                <!--    <a class='dropdown-item' href='#'><a href='corporate_philosophy.php'>KURIADELEについて</a>-->
+                <!--    <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>-->
+                <!--    <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>-->
+                <!--</div>-->
             </div>
         </div>
-        
-        <br>
-        <br>
-        <div class='customer'>
-            
-            新規会員登録
-        </div>
+        <div class='customer'>お客様情報変更</div>
         <?php if($errors !== null): ?>
                 <?php foreach($errors as $error): ?>
                     <p><?= $error ?></p>
                 <?php endforeach; ?>
             <?php endif; ?>
             
-        <form method='POST' action='registration_new.php'>
+        <form method='POST' action='login_change_new.php'>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>お名前</label>
                     <div class="col-lg-4 col-12">
@@ -106,6 +101,10 @@
             
         </form>
         
+        
+        
+        
+        <div class=corporation_1><a href='login_contact.php'>戻る</a></div>
         <div class='footer '>
             <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
@@ -115,7 +114,7 @@
             <ul><span><a href='product.php'>取扱商品</a></span>
                 <li>商品一覧</li>
             </ul>
-            <ul><span><a href='contacts.php'>サポート</a></span>
+            <ul><span><a href='login_contact.php'>サポート</a></span>
                 <li>お問い合わせ</li>
             </ul>
             <ul><span>SNSアカウント</span>

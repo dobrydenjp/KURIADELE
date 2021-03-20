@@ -9,12 +9,12 @@
         public $kana_name;
         public $created_at;
         
-
+        
         public function __construct($bank_name='', $branch_name='', $account='', $NO ='', $kana_name=''){
             $this->bank_name = $bank_name;
             $this->branch_name = $branch_name;
             $this->account = $account;
-            $this->NO = $NO ;
+            $this->NO = $NO;
             $this->kana_name = $kana_name;
         }
     }

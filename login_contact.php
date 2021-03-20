@@ -1,18 +1,28 @@
 <?php
+    // ログインフィルター
+    require_once 'login_filter.php';
     // 外部ファイル読込
     require_once 'contact_dao.php';
+    require_once 'customer_dao.php';
     // セッション開始
-    session_start();
+    // session_start();
+
     // 質問項目入力エラーメッセージ表示
-    $contact_error = $_SESSION['contact_error'];
+    $my_contact_error = $_SESSION['my_contact_error'];
     // 破棄
-    $_SESSION['contact_error'] = null;
+    $_SESSION['my_contact_error'] = null;
     // var_dump($contact_error);
     // 送信できた場合のメッセージ
-    $contact_message = $_SESSION['contact_message'];
+    $my_contact_message = $_SESSION['my_contact_message'];
     // 破棄
-    $_SESSION['contact_message'] = null;
-    // var_dump($contact_message);
+    $_SESSION['my_contact_message'] = null;
+    // // var_dump($contact_message);
+    // idをnullで取得
+    $id = null;
+    // $idをGETで取得
+    if(isset($_GET['id'])){
+        $_GET['id'];
+    }
 ?>
 
 
@@ -30,10 +40,11 @@
         <div class='container-fluid'>
             <div class='row  header '>
                 <a href='index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
-                
-                <span class='offset-3 col-auto'><a href='product.php'>商品情報</a></span>
-                <span class='col-auto '><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='col-auto '><a href='login.php'>ログイン</a></span>
+                <span class='offset-1 col-auto'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
+                <span class='offset-1 col-auto'><a href='product.php'>商品情報</a></span>
+                <span class='col-auto '><a href='carts.php'>カート</a></span>
+                <span class='col-auto '><a href='purchases.php'>購入履歴</a></span>
+                <span class='col-auto '><a href='index.php'>ログアウト</a></span>
                 
                 
                 
@@ -52,31 +63,30 @@
                 <!--</div>-->
             </div>
         </div>
-        <div class='question' >
-            何かありましたらご連絡ください。
-        </div>
+        <p class='customer'>お問い合わせフォーム</p>
         
-        <?php if($contact_error !== null): ?>
-            <?php foreach($contact_error as $error): ?>
+        <div class='question'>ご質問・ご要望があればご連絡ください。</div>
+        <?php if($my_contact_error !== null): ?>
+            <?php foreach($my_contact_error as $error): ?>
                 <p><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
-        <?php if($contact_message !== null): ?>
-                <p><?= $contact_message ?></p>
+        <?php if($my_contact_message !== null): ?>
+                <p><?= $my_contact_message ?></p>
         <?php endif; ?>
         
-        <form method='POST' action='contact_new.php'>
-            <div class='question_2'>お名前  <input type='text' name='name' class='submit' /></div>
+        <form method='POST' action='login_contact_new.php'>
+            <div class='question_2'>お名前  <input type='text' name='name' class='submit' value='<?= $login_customer->name ?>'/></div>
             <div class='question_2'>件名  <input type='text' name='subject' class='submit' /></div> 
             <div class='question_3'><p>内容</p>  <textarea name='contact' cols='50' rows='10'/></textarea></div>
-            <div class='question_2 question_5'>メールアドレス <input type='text' name='email_address' class='submit'/> </div>
+            <div class='question_2 question_5'>メールアドレス <input type='text' name='email_address' class='submit' value='<?= $login_customer->email_address ?>'/></div>
             <div class='enroll_2'><input type='submit' value='送信'/></div>
         </form>  
         
         
         
-        
-        
+        <p class='customer'><a href='login_change.php'>お客様情報ご変更の方は<br>こちら</a></p>
+        <div class=corporation_1><a href='mypage.php'>戻る</a></div>
         <div class='footer '>
             <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
@@ -86,7 +96,7 @@
             <ul><span><a href='product.php'>取扱商品</a></span>
                 <li>商品一覧</li>
             </ul>
-            <ul><span><a href='contacts.php'>サポート</a></span>
+            <ul><span><a href='login_contact.php'>サポート</a></span>
                 <li>お問い合わせ</li>
             </ul>
             <ul><span>SNSアカウント</span>

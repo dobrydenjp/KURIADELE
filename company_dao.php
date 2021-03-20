@@ -34,6 +34,8 @@
         }
         // 企業情報を登録するメソッド
         public static function insert($company){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
@@ -81,6 +83,8 @@
         }
         // 企業情報を取得するメソッド
         public static function get_companys_id($id){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();

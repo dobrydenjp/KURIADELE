@@ -1,4 +1,10 @@
 <?php
+    // ログインフィルター
+    require_once 'admin_login_filter.php';
+    // 外部ファイル読込
+    require_once 'purchase_dao.php';
+   
+    
    
 ?>
 
@@ -12,15 +18,13 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='col-lg-12'>
+        <div class='container-fluid'>
             <div class='header row'>
         
-                <span class='com'>KURIADELE</span>
-                <span class='info_1'><a href='product.php'>商品情報</a></span>
-                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='info_3'><a href='login.php'>ログイン</a></span>
-                <span class='info_2'><a href='index.php'>TOPページへ</a></span>
-                <span class='info_2'><a href='carts.php'>カート</a></span>
+                <a href='admin_index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
+                <span class='offset-3 col-auto'><a href='admin_index.php'>管理者TOP</a></span>
+                <span class='col-auto'><a href='index.php'>顧客TOP</a></span>
+                <span class='col-auto'><a href='admin_logout.php'>ログアウト</a></span>
                 <span class='info'>
                     <form method='POST' action='送信先'>
                         <input type='text' name=''/><input type='submit' name='' value='検索'/>
@@ -38,10 +42,16 @@
         </div>
         
         <div class='customer'>購入一覧</div>
+        <!--何を購入したか表示-->
+        
+        
+        
+        
+        
         
         <div class=corporation_1><a href='administrator.php'>管理者ページへ</a></div>
         <div class='footer '>
-            <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
+            <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
                 <li>事業計画</li>
                 <li>展望</li>

@@ -4,7 +4,7 @@
     // セッション開始
     session_start();
     // var_dump($_POST);
-    // 入力されたアドレスとパスワード表示　　確認ＯＫ
+    // 入力されたアドレスとパスワード表示  確認ＯＫ
     $email_address = $_POST['email_address'];
     $password = $_POST['password'];
     
@@ -17,7 +17,7 @@
     // // falseと$adminの値または型が等しくない 同じではない時
     if($admin !== false){
         
-         // セッション情報　login_adminというニックネームを保存
+         // セッション情報 login_adminというニックネームを保存
         $_SESSION['login_admin'] = $admin->name . '様　こんにちは';
         // var_dump($_SESSION);
         header('Location: admin_index.php');
@@ -28,7 +28,7 @@
         $_SESSION['error'] = 'ログインできません';
         // var_dump($_SESSION);
         header('Location: admin_login.php');
-    //     exit;
+        exit;
     }
 
     

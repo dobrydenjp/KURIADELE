@@ -27,18 +27,14 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='col-lg-12'>
-            <div class='header'>
-        
-                <span class='com'>KURIADELE</span>
-                
-                <span class='info_1'><a href='product.php'>商品情報</a></span>
-                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='info_2'><a href='index.php'>TOPページへ</a></span>
-                <span class='info_2'><a href='mypage.php'><?= $login_customer->name ?>様のページ</a></span>
-                <span class='info_2'><a href='logout.php'>ログアウト</a></span>
-                <span class='info_2'><a href='purchases_history.php'>購入履歴</a></span>
-                <span class='info_2'><a href='cart_in.php'>カート</a></span>
+        <div class='container-fluid'>
+            <div class='row  header '>
+                <a href='index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
+                <span class='offset-1 col-auto'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
+                <span class='offset-1 col-auto'><a href='product.php'>商品情報</a></span>
+                <span class='col-auto '><a href='carts.php'>カート</a></span>
+                <span class='col-auto '><a href='purchases.php'>購入履歴</a></span>
+                <span class='col-auto '><a href='index.php'>ログアウト</a></span>
                 <span class='info'>
                     <form method='POST' action='送信先'>
                         <input type='text' name=''/><input type='submit' name='' value='検索'/>

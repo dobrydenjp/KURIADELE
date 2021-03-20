@@ -9,7 +9,9 @@
     // $flash_message = $_SESSION['flash_message'];
     // // 破棄
     // $_SESSION['flash_message'] = null; 
-
+    
+    // headerの管理者TOPにフィルターつける
+    // 
     
 ?>
 <!doctype html>
@@ -22,13 +24,14 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='col-lg-12'>
-            <div class='header row'>
+        <div class='container-fluid'>
+            <div class='row  header '>
         
-                <a href='admin_index.php' class='logo'><span class='com'>KURIADELE</span></a>
-                <span class='info_1'><a href='admin_index.php'>管理者TOP</a></span>
-                <span class='info_2'><a href='index.php'>顧客TOP</a></span>
-                <span class='info_3'><a href='product.php'>取扱商品</a></span>
+                <a href='admin_index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
+                <span class='offset-3 col-auto'><a href='admin_index.php'>管理者TOP</a></span>
+                <span class='col-auto  '><a href='index.php'>顧客TOP</a></span>
+                <span class='col-auto '><a href='product.php'>取扱商品</a></span>
+                
                 <span class='info'>
                     <form method='POST' action='送信先'>
                         <input type='text' name=''/><input type='submit' name='' value='検索'/>
@@ -37,7 +40,7 @@
             
                 <button type='button' class='btn btn-light dropdown-toggle' data-toggle='dropdown'></button>
                 <div class='dropdown-menu'>
-                    <a class='dropdown-item' href='#'><a href='corporate_philosophy.php'>KURIADELEについて</a>
+                    <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
                     <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
                     <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>
                 </div>
@@ -55,7 +58,7 @@
             <form action='admin_new.php' method='POST'>
                 <div class='login_2'>
                     メールアドレス  <input type='text' name='email_address' /><br><br>
-                    　パスワード  　<input type='password' name='password'/><br>
+                      パスワード    <input type='password' name='password'/><br>
                     
                     <p class='enroll_1'><input type='submit' value='login'/></p>
                 </div>
@@ -63,7 +66,7 @@
         
         <br>
         <div class='footer '>
-            <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
+            <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
                 <li>事業計画</li>
                 <li>展望</li>

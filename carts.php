@@ -1,15 +1,26 @@
 <?php
+    // ログインフィルター
     require_once 'login_filter.php';
+    // 外部ファイル読込
     require_once 'cart_dao.php';
     require_once 'customer_dao.php';
+    // セッション開始
     session_start();
-    
+    // ログイン者の情報保存 login_check.phpからのセッション
     $login_customer = $_SESSION['login_customer'];
-    var_dump($login_customer);
-    
+    // var_dump($login_customer);
+    // 商品をカートに入れたメッセージ表示
+    $cart_message = $_SESSION['cart_message'];
+    // var_dump($cart_message);
+    // 破棄
+    $_SESSION['cart_message'] = null;
+    // ログイン者のidからカート情報を取得
     $my_carts = CartDAO::get_my_carts($login_customer->id);
-    // var_dump($my_carts);
-    // カート・入力内容確認・最終確認　個数変更できるようにする
+    var_dump($my_carts);
+    // 購入と同時に在庫を減らす
+    $my_carts = CartDAO::decrement_stock($cart);
+    var_dump($my_carts);
+    // カート・入力内容確認・最終確認 個数変更できるようにする
 ?>
 <!doctype html>
 <thml lang='ja'>
@@ -21,16 +32,16 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class="col-lg-12">
-            <div class='header row'>
-        
-                <span class='com'>KURIADELE</span>
+        <div class='container-fluid'>
+            <div class='row  header '>
+                <a href='index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
+                <span class='offset-1 col-auto'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
+                <span class='offset-1 col-auto'><a href='login_product.php'>商品情報</a></span>
+                <span class='col-auto '><a href='carts.php'>カート</a></span>
+                <span class='col-auto '><a href='purchases.php'>購入履歴</a></span>
+                <span class='col-auto '><a href='index.php'>ログアウト</a></span>
                 
-                <span class='info_1'><a href='mypage.php'><?= $login_customer->name ?>様のページ</a></span>
-                <span class='info_1'><a href='product.php'>商品情報</a></span>
-                <span class='info_2'><a href='carts.php'>カート</a></span>
-                <span class='info_2'><a href='purchases.php'>購入履歴</a></span>
-                <span class='info_2'><a href='logout.php'>ログアウト</a></span>
+        
                 <!--<span class='info'>-->
                 <!--    <form method='POST' action='送信先'>-->
                 <!--        <input type="text" name=""/><input type="submit" name="" value='検索'/>-->
@@ -46,10 +57,14 @@
                 <!--</div>-->
             </div>
         </div>
-        
+
         <div class='customer'>買い物かご</div>
+        <!--商品をカートに追加したメッセージ表示-->
+        <?php if($cart_message !== null): ?>
+            <P><?= $cart_message ?></P>
+        <?php endif; ?>
         
-         
+        <!--カートに追加した商品情報表示-->
         <?php foreach($my_carts as $cart): ?>
         <div class='product_1'>
             <p>カート番号:  <?= $cart->id ?></p>
@@ -57,15 +72,14 @@
             <img src='upload/items/<?= $cart->get_item()->image ?>' class='product_2'></img>
             <div class='product_3'><?= $cart->get_item()->name  ?>          ￥<?= $cart->get_item()->price ?></div>
             <select class='select_box' name="number">
-                <!--buy.phpで選択した個数をそのまま引き継ぐ-->
-                <!--更に個数numberを選択できるようにする-->
+                <!--個数numberを選択できるようにする-->
                 
-                <?php for($i = 1; $i <= $cart->item_stock; $i++): ?>
-                <option value='<?= $i ?>'><?= $i ?></option>
+                <?php for($i = 0; $i <= $cart->get_item()->stock; $i++): ?>
+                    <option value='<?= $i ?>'><?= $i ?></option>
                 <?php endfor; ?>
             個</select>
-            <!--<p>個数: <?= $cart->number ?></p>-->
-            <p>小計: ￥<?= $cart->number * $cart->get_item()->price ?></p>
+            <!--<p>個数: <?= $cart->get_item()->number ?></p>-->
+            <p>小計: ￥<?= $cart->get_item()->number * $cart->get_item()->price ?></p>
         </div>
         <?php endforeach; ?>
         
@@ -76,15 +90,15 @@
         </form>
         
         <div class='footer '>
-            <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
+            <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
                 <li>事業計画</li>
                 <li>展望</li>
             </ul>
-            <ul><span><a href='product.php'>取扱商品</a></span>
+            <ul><span><a href='login_product.php'>取扱商品</a></span>
                 <li>商品一覧</li>
             </ul>
-            <ul><span><a href='contact.php'>サポート</a></span>
+            <ul><span><a href='login_contact.php'>サポート</a></span>
                 <li>お問い合わせ</li>
             </ul>
             <ul><span>SNSアカウント</span>

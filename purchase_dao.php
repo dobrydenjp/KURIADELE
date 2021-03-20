@@ -94,5 +94,26 @@
             }
             return $total;
         }
-        
+        // 全ての購入情報を取得するメソッド
+        public static function get_all_purchases(){
+            try{
+                // データベースに接続する神様取得
+                $pdo = self::get_connection();
+                // SELECT文実行準備
+                $stmt = $pdo -> query('SELECT * FROM purchases');
+                // フェッチの結果をPurchasesクラスのインスタンスにマッピング
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Purchase');
+                // 全商品情報取得
+                $purchases = $stmt->fetchAll();
+                // 返す
+                return $purchases;
+            }catch(PDOException $e){
+                
+                return "問題が発生しました<br>" . $e->getMessage();
+                
+            }finally{
+               self::close_connection($pdo, $stmp); 
+            }
+        }
     }
+?>

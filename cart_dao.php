@@ -42,7 +42,7 @@
                 // バインド処理（あやふやだった箇所を実データで埋める）
                 $stmt->bindParam(':customer_id', $cart->customer_id, PDO::PARAM_INT);
                 $stmt->bindParam(':item_id', $cart->item_id, PDO::PARAM_INT);
-                $stmt->bindParam(':item_stock', $cart->item_id, PDO::PARAM_INT);
+                $stmt->bindParam(':item_stock', $cart->item_stock, PDO::PARAM_INT);
                 $stmt->bindParam(':number', $cart->number, PDO::PARAM_INT);
                 
                 // INSERT文本番実行
@@ -144,3 +144,4 @@
 
         
     }
+?>
