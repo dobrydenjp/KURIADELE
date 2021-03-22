@@ -4,9 +4,13 @@
     // 外部ファイル読込
     require_once 'admin_dao.php';
     // セッション開始
-    session_start();
+    // session_start();
     // idをGETで取得
-    $id = $_GET['id'];
+    $id = null;
+    // $idをGETで取得
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
     // 現在の口座情報を表示する
     $get_bank = Admindao::get_bank_by_id($id);
     // var_dump($get_bank);

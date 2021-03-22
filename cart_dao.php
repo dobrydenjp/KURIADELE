@@ -34,6 +34,8 @@
     
         // カートに1件登録するメソッド
         public static function insert($cart){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
@@ -61,6 +63,8 @@
         
         // 顧客番号を指定した場合の全カート情報を取得するメソッド
         public static function get_my_carts($customer_id){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
@@ -90,6 +94,8 @@
         }
         
         public static function get_total_price($carts){
+            $pdo = null;
+            $stmp = null;
             $total = 0;
             foreach($carts as $cart){
                 $total += $cart->get_item()->price * $cart->number;
@@ -98,6 +104,8 @@
         }
         // 購入時該当商品の在庫を 減らす
         public static function decrement_stock($cart){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
@@ -122,6 +130,8 @@
         
         // 指定した番号のカート情報を削除するメソッド
         public static function delete_cart($id){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();

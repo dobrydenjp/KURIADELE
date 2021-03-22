@@ -4,7 +4,7 @@
     //外部ファイル読込
     require_once 'item_dao.php';
     require_once 'customer.php';
-    
+    require_once 'cart_dao.php';
     // セッション開始
     // session_start();
     // print 'OK';
@@ -15,8 +15,8 @@
     }
     // 登録した商品情報をDAOからid情報で取得
     $item = ItemDAO::get_item_by_id($id);
-    // var_dump($item);
-
+    var_dump($item);
+    
     // ログイン者の情報取得
     $login_customer = $_SESSION['login_customer'];
 ?>
@@ -67,24 +67,22 @@
         
         <!--$login_customerがnull空でない時に実行-->
         <?php if($login_customer !== null): ?>
-        <form method='POST' action='cart_in.php'>
-            <select class='select_box' name="number">
-                <?php for($i = 1; $i <= $item->stock; $i++): ?>
-                <option value='<?= $i ?>'><?= $i ?></option>
-                <?php endfor; ?>
-            個</select>
-            <!--ＰＨＰ入力-->
-            <input type="hidden" name="item_id" value="<?= $item->id ?>">
-            <input type='submit' value='カートに入れる'>
-            <!--<p class='product_4'></p>-->
-        </form>
-        <?php ?>
+            <form method='POST' action='cart_in.php'>
+                <select class='select_box' name="number">
+                    <?php for($i = 1; $i <= $item->stock; $i++): ?>
+                        <option value='<?= $i ?>'><?= $i ?></option>
+                    <?php endfor; ?>
+                個</select>
+                <!--ＰＨＰ入力-->
+                <input type="hidden" name='item_stock' value="<?= $item->stock ?>">
+                <input type="hidden" name="item_id" value="<?= $item->id ?>">
+                <input type='submit' value='カートに入れる'>
+                <!--<p class='product_4'></p>-->
+            </form>
+        
         <?php endif; ?>
         
-        
-        
-        
-        
+    
         
         
         <div class='footer '>

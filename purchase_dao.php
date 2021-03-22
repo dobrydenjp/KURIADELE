@@ -34,6 +34,8 @@
     
         // 購入履歴に1件登録するメソッド
         public static function insert($purchase){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();

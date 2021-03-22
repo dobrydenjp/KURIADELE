@@ -5,7 +5,7 @@
     require_once 'cart_dao.php';
     require_once 'customer_dao.php';
     // セッション開始
-    session_start();
+    // session_start();
     // ログイン者の情報保存 login_check.phpからのセッション
     $login_customer = $_SESSION['login_customer'];
     // var_dump($login_customer);
@@ -14,12 +14,20 @@
     // var_dump($cart_message);
     // 破棄
     $_SESSION['cart_message'] = null;
-    // ログイン者のidからカート情報を取得
+    // // ログイン者のidからカート情報を取得
     $my_carts = CartDAO::get_my_carts($login_customer->id);
     var_dump($my_carts);
-    // 購入と同時に在庫を減らす
-    $my_carts = CartDAO::decrement_stock($cart);
-    var_dump($my_carts);
+    
+    
+     
+    // // 購入と同時に在庫を減らす
+    // $my_carts = CartDAO::decrement_stock($cart);
+    // var_dump($my_carts);
+    $id = null;
+    // $idをGETで取得
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
     // カート・入力内容確認・最終確認 個数変更できるようにする
 ?>
 <!doctype html>
@@ -65,29 +73,35 @@
         <?php endif; ?>
         
         <!--カートに追加した商品情報表示-->
-        <?php foreach($my_carts as $cart): ?>
-        <div class='product_1'>
-            <p>カート番号:  <?= $cart->id ?></p>
-            <p>商品番号: <?= $cart->get_item()->id ?></p>
-            <img src='upload/items/<?= $cart->get_item()->image ?>' class='product_2'></img>
-            <div class='product_3'><?= $cart->get_item()->name  ?>          ￥<?= $cart->get_item()->price ?></div>
-            <select class='select_box' name="number">
-                <!--個数numberを選択できるようにする-->
+        <?php if($login_customer !== null): ?>
+            <?php foreach($my_carts as $cart): ?>
+                <div class='product_1'>
+                    <p>カート番号:  <?= $cart->id ?></p>
+                    <p>商品番号: <?= $cart->get_item()->id ?></p>
+                    <img src='upload/items/<?= $cart->get_item()->image ?>' class='product_2'></img>
+                    <div class='product_3'><?= $cart->get_item()->name  ?>          ￥<?= $cart->get_item()->price ?></div>
+                </div>
+            
+            
                 
-                <?php for($i = 0; $i <= $cart->get_item()->stock; $i++): ?>
-                    <option value='<?= $i ?>'><?= $i ?></option>
-                <?php endfor; ?>
-            個</select>
-            <!--<p>個数: <?= $cart->get_item()->number ?></p>-->
-            <p>小計: ￥<?= $cart->get_item()->number * $cart->get_item()->price ?></p>
-        </div>
-        <?php endforeach; ?>
+                <form method='POST' action='purchase_create.php'>    
+                    <select class='select_box' name="number">
+                        <?php for($i = 0; $i <= $cart->get_item()->stock; $i++): ?>
+                            <option value='<?= $i ?>'><?= $i ?></option>
+                        <?php endfor; ?>
+                    個</select>
+                    小計: ￥<?= $cart->number * $cart->get_item()->price ?> 円
+                    
+                </form>
+            <?php endforeach; ?>
         
-        <h3>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></h3>
+            <h3>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></h3>
+            
+            <a href='purchase_create.php?id=<?=$cart->customer_id?>' class='product_1'>購入</a>
+        <?php endif; ?>
         
-        <form action='purchase_create.php' class='enroll_1'>
-            <button type="submit">購入</button>
-        </form>
+            
+            
         
         <div class='footer '>
             <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>

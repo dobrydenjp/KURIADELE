@@ -28,7 +28,7 @@
             <div class='row  header '>
                 <a href='index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
                 <span class='offset-1 col-auto'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
-                <span class='offset-1 col-auto'><a href='product.php'>商品情報</a></span>
+                <span class='offset-1 col-auto'><a href='login_product.php'>商品情報</a></span>
                 <span class='col-auto '><a href='carts.php'>カート</a></span>
                 <span class='col-auto '><a href='purchases.php'>購入履歴</a></span>
                 <span class='col-auto '><a href='index.php'>ログアウト</a></span>
@@ -70,7 +70,7 @@
                 <li>事業計画</li>
                 <li>展望</li>
             </ul>
-            <ul><span><a href='product.php'>取扱商品</a></span>
+            <ul><span><a href='login_product.php'>取扱商品</a></span>
                 <li>商品一覧</li>
             </ul>
             <ul><span><a href='login_contact.php'>サポート</a></span>
