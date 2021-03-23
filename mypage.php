@@ -46,18 +46,19 @@
                 <span class='col-auto '><a href='carts.php'>カート</a></span>
                 <span class='col-auto '><a href='purchases.php'>購入履歴</a></span>
                 <span class='col-auto '><a href='index.php'>ログアウト</a></span>
-                <!--<span class='info'>-->
-                <!--    <form method='POST' action='送信先'>-->
-                <!--        <input type="text" name=""/><input type="submit" name="" value='検索'/>-->
-                <!--    </form>-->
-                <!--</span>-->
+                <span class='info'>
+                    <form method='POST' action='search.php'>
+                        <input type='search' name='name'/>
+                        <input type='submit' value='検索'/>
+                    </form>
+                </span>
             
                 <!--<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">-->
                 <!--</button>-->
                 <!--<div class="dropdown-menu">-->
-                <!--    <a class='dropdown-item' href='#'><a href='corporate_philosophy.php'>KURIADELEについて</a>-->
-                <!--    <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>-->
-                <!--    <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>-->
+                <!--    <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>-->
+                <!--    <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>-->
+                <!--    <a class='dropdown-item' href='#'><a href='login_contact.php'>サポート</a>-->
                 <!--</div>-->
             </div>
         </div>

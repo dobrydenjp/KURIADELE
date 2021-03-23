@@ -9,7 +9,7 @@
     $subject = $_POST['subject'];
     $contact = $_POST['contact'];
     $email_address = $_POST['email_address'];
-
+    // $contacts命誕生
     $contacts = new Contact($name, $subject, $contact, $email_address);
     // var_dump($contacts);
     // 入力エラーチェック

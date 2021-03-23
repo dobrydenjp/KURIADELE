@@ -142,7 +142,7 @@
                 
                 // DELETE文本番実行
                 $stmt->execute();
-                
+                return '削除しました';
             }catch(PDOException $e){
                 
                 return "問題が発生しました<br>" . $e->getMessage();
@@ -151,7 +151,29 @@
                self::close_connection($pdo, $stmp); 
             }
         }
-
-        
+        public static function update($carts){
+            $pdo = null;
+            $stmp = null;
+            try{
+                // データベースに接続する神様取得
+                $pdo = self::get_connection();
+                // update文を実行する準備（数字はわざとあやふやにする
+                $stmt= $pdo -> prepare('UPDATE carts SET number=:number WHERE id=:id');
+                // バインド処理（あやふやだった数字を実データで埋める）
+                $stmt->bindValue(':number', $cart->number, PDO::PARAM_INT);
+                $stmt->bindValue(':id', $cart->id, PDO::PARAM_INT);
+                // update本番実行
+                $stmt->execute();
+                
+                return '個数変更しました';
+                
+            }catch(PDOException $e){
+                
+                return "問題が発生しました<br>" . $e->getMessage();
+                
+            }finally{
+                self::close_connection($pdo, $stmp);
+            }
+        }
     }
 ?>

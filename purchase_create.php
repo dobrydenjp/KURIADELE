@@ -1,18 +1,30 @@
 <?php
-    var_dump($_POST);
+    // var_dump($_POST);
+    // 外部ファイル読込
     require_once 'cart_dao.php';
     require_once 'customer_dao.php';
     require_once 'purchase_dao.php';
     require_once 'item_dao.php';
-    
+    // セッション開始
     session_start();
-    
+    // ログイン者の情報取得
     $login_customer = $_SESSION['login_customer'];
-    // $customer_id = $cart->customer_id;
-    // $item_id = $_POST['item_id'];
-    $number = $_POST['number'];
     var_dump($_POST);
+    // $carts = $_SESSION['carts'];
+    // // カートに保存された情報取得
+    // var_dump($_POST);
     
+    
+    
+    // カート入力情報取得
+    $carts = $_SESSION['carts'];
+    var_dump($carts);
+    
+    
+   // 個数変更
+    $carts = CartDAO::update($carts);
+    // $cart = CartDAO::decrement_stock($cart);
+    // var_dump($cart);
     // 商品の個数選ぶ
     // 小計に反映される
         // 小計には選んだ個数として掛け算されて反映される

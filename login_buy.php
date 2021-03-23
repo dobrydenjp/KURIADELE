@@ -34,7 +34,7 @@
             <div class='row  header '>
                 <a href='index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
                 <span class='offset-1 col-auto'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
-                <span class='offset-1 col-auto'><a href='logun_product.php'>商品情報</a></span>
+                <span class='offset-1 col-auto'><a href='login_product.php'>商品情報</a></span>
                 <span class='col-auto '><a href='carts.php'>カート</a></span>
                 <span class='col-auto '><a href='purchases.php'>購入履歴</a></span>
                 <span class='col-auto '><a href='index.php'>ログアウト</a></span>
@@ -74,6 +74,7 @@
                     <?php endfor; ?>
                 個</select>
                 <!--ＰＨＰ入力-->
+                
                 <input type="hidden" name='item_stock' value="<?= $item->stock ?>">
                 <input type="hidden" name="item_id" value="<?= $item->id ?>">
                 <input type='submit' value='カートに入れる'>

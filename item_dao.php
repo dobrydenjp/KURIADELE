@@ -208,5 +208,33 @@
             return $errors;
             
         }
+        // キーワードから商品一覧を取得する
+        public static function find_by_keyword($keyword){
+            $pdo = null;
+            $stmp = null;
+            try{
+                // データベースに接続する神様取得
+                $pdo = self::get_connection();
+                // SELECT文実行準備
+                $stmt = $pdo->prepare('SELECT * FROM items WHERE name LIKE :name');
+                // バインド処理
+                $stmt->bindValue(':name', '%' . $keyword . '%' , PDO::PARAM_STR);
+                // 本番実行
+                $stmt->execute();
+                // フェッチの結果をItemクラスのインスタンスにマッピングする
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Item');
+                // 全商品データをItemクラスのインスタンス配列で取得
+                $items = $stmt->fetchAll();
+                // Itemクラスのインスタンス配列を返す
+                return $items;
+                
+            }catch(PDOException $e){
+                // とりあえず、空の配列を返す
+                return array();
+            }finally{
+                // 神様さよなら
+                self::close_connection($pdo, $stmp);
+            }
+        }
     }
 ?>

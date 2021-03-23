@@ -16,18 +16,19 @@
     $_SESSION['cart_message'] = null;
     // // ログイン者のidからカート情報を取得
     $my_carts = CartDAO::get_my_carts($login_customer->id);
-    var_dump($my_carts);
+    // var_dump($my_carts);
     
-    
-     
     // // 購入と同時に在庫を減らす
     // $my_carts = CartDAO::decrement_stock($cart);
     // var_dump($my_carts);
-    $id = null;
-    // $idをGETで取得
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-    }
+    
+    
+    
+    
+    // カートに入っている商品の数を選んで変化ボタンを押すと、
+    // カートのid,個数がPOSTされるようにしたい
+    
+    
     // カート・入力内容確認・最終確認 個数変更できるようにする
 ?>
 <!doctype html>
@@ -85,11 +86,15 @@
             
                 
                 <form method='POST' action='purchase_create.php'>    
-                    <select class='select_box' name="number">
+                    <select class='select_box'>
                         <?php for($i = 0; $i <= $cart->get_item()->stock; $i++): ?>
                             <option value='<?= $i ?>'><?= $i ?></option>
                         <?php endfor; ?>
                     個</select>
+                    <input type='hidden' name='id' value='<?= $cart->id ?>'>
+                    <input type='hidden' name='number' value='<?= $cart->number ?>'>
+                    <input type='submit' value='変更'/>
+                    <input type='submit' value='削除'/>
                     小計: ￥<?= $cart->number * $cart->get_item()->price ?> 円
                     
                 </form>
