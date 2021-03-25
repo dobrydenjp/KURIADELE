@@ -36,42 +36,48 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        
+
                 
-        <div class='container-fluid'>
-            <div class='row  header '>
-                <a href='index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
-                <span class='offset-1 col-auto'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
-                <span class='offset-1 col-auto'><a href='login_contact.php'>お問い合わせ</a></span>
-                <span class='col-auto '><a href='carts.php'>カート</a></span>
-                <span class='col-auto '><a href='purchases.php'>購入履歴</a></span>
-                <span class='col-auto '><a href='index.php'>ログアウト</a></span>
-                <span class='info'>
-                    <form method='POST' action='search.php'>
+        <div class='container-fluid sticky-top'>
+            <div class='row header'>
+                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <span class='col-lg offset-1 col-lg-1 px-0'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
+                <span class='col-lg-4 px-0 span_a'>
+                    <a href='login_contact.php' class='span_a'>お問い合わせ</a>
+                    <a href='carts.php' class='span_a'>カート</a>
+                    <a href='purchases.php' class='span_a'>購入履歴</a>
+                    <a href='index.php' class='span_a'>ログアウト</a>
+                </span>
+                
+                <span class='col-lg-1 px-0 info'>
+                    <form method='POST' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                </span>
+                
             
-                <!--<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">-->
-                <!--</button>-->
-                <!--<div class="dropdown-menu">-->
-                <!--    <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>-->
-                <!--    <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>-->
-                <!--    <a class='dropdown-item' href='#'><a href='login_contact.php'>サポート</a>-->
-                <!--</div>-->
+                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
+                    <div class="dropdown-menu">
+                        <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
+                        <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
+                        <a class='dropdown-item' href='#'><a href='login_contact.php'>サポート</a>
+                    </div>
+                </span>
             </div>
         </div>
-        <br>
-        <br>
+
         <div class='top_1'>
-            
+    
             <div class='top_a'>満足の極みへ</div>
             <div class='top_b'><img src='camera.jpg' alt='camera'></img></div>
-            
-            
         </div>
         
+
+  
+  
+  
+  
+  
         <?php if($login_message !== null): ?>
             <p><?= $login_message ?></p>
         <?php endif; ?>
@@ -96,7 +102,7 @@
         
         
         <div class='footer '>
-            <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
+            <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
                 <li>事業計画</li>
                 <li>展望</li>
@@ -108,8 +114,8 @@
                 <li>お問い合わせ</li>
                 <li>お客様情報変更</li>
             </ul>
-            <ul><span>SNSアカウント</span>
-            </ul>
+            <!--<ul><span>SNSアカウント</span>-->
+            <!--</ul>-->
             
         </div>
             

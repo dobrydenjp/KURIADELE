@@ -28,28 +28,29 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='container-fluid'>
-            <div class='header row'>
-        
-                <a href='admin_index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
-                <span class='offset-3 col-auto'><a href='admin_index.php'>管理者TOP</a></span>
-                <span class='col-auto'><a href='index.php'>顧客TOP</a></span>
-                <span class='col-auto'><a href='admin_logout.php'>ログアウト</a></span>
+        <div class='row  header '>
+                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <span class='col-lg-4 offset-lg-2 px-0 span_a'>
+                    <a href='admin_index.php' class='span_a'>管理者TOP</a>
+                    <a href='index.php' class='span_a'>顧客TOP</a>
+                    <a href='admin_logout.php' class='span_a'>ログアウト</a>
+                </span>    
                 
-        
-                <span class='info'>
-                    <form method='POST' action='送信先'>
-                        <input type='text' name=''/><input type='submit' name='' value='検索'/>
+                <span class='col-lg-1  px-0  info'>
+                    <form method='POST' action='search.php' class='info'>
+                        <input type='search' name='name'/>
+                        <input type='submit' value='検索'/>
                     </form>
-                </span>
+                
             
-                <button type='button' class='btn btn-light dropdown-toggle' data-toggle='dropdown'>
-                </button>
-                <div class='dropdown-menu'>
-                    <a class='dropdown-item' href='#'><a href='corporate_philosophy.php'>KURIADELEについて</a>
-                    <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
-                    <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>
-                </div>
+                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
+                        <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
+                        <a class='dropdown-item' href='#'><a href='login_contact.php'>サポート</a>
+                    </div>
+                </span>
             </div>
         </div>
         <div class='customer'>お問い合わせ確認</div>

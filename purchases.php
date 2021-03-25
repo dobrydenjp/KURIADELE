@@ -24,30 +24,34 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='container-fluid'>
+        <div class='container-fluid sticky-top'>
             <div class='row  header '>
-                <a href='index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
-                <span class='offset-1 col-auto'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
-                <span class='offset-1 col-auto'><a href='login_product.php'>商品情報</a></span>
-                <span class='col-auto '><a href='carts.php'>カート</a></span>
-                <span class='col-auto '><a href='purchases.php'>購入履歴</a></span>
-                <span class='col-auto '><a href='index.php'>ログアウト</a></span>
-                <!--<span class='info'>-->
-                <!--    <form method='POST' action='送信先'>-->
-                <!--        <input type="text" name=""/><input type="submit" name="" value='検索'/>-->
-                <!--    </form>-->
-                <!--</span>-->
+                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <span class='col-lg offset-1 col-lg-1 px-0'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
+                <span class='col-lg-4 px-0 span_a'>
+                    <a href='login_contact.php' class='span_a'>商品情報</a>
+                    <a href='carts.php' class='span_a'>カート</a>
+                    <a href='purchases.php' class='span_a'>購入履歴</a>
+                    <a href='index.php' class='span_a'>ログアウト</a>
+                </span>
+                
+                <span class='col-lg-1  px-0  info'>
+                    <form method='POST' action='search.php' class='info'>
+                        <input type='search' name='name'/>
+                        <input type='submit' value='検索'/>
+                    </form>
+                
             
-                <!--<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">-->
-                <!--</button>-->
-                <!--<div class="dropdown-menu">-->
-                <!--    <a class='dropdown-item' href='#'><a href='corporate_philosophy.php'>KURIADELEについて</a>-->
-                <!--    <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>-->
-                <!--    <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>-->
-                <!--</div>-->
+                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
+                        <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
+                        <a class='dropdown-item' href='#'><a href='login_contact.php'>サポート</a>
+                    </div>
+                </span>
             </div>
         </div>
-        
         <div class='customer'>購入履歴</div>
         
         <?php foreach($my_purchases as $cart): ?>

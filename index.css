@@ -10,6 +10,18 @@
 a.logo:hover {
     text-decoration: none;
 }
+.span_a {
+    margin-left: 5%;
+    width: 5%;
+}
+.info {
+    margin-left: 0%;
+    display: flex;
+}
+/*.ddropdown-menu_button {*/
+/*    margin-left: 80%;*/
+/*}*/
+
 .top_1 {
     width: 100%;
     display: flex;
@@ -32,6 +44,8 @@ a.logo:hover {
     
     
 }
+
+
 
 
 .top_2 {
@@ -69,14 +83,6 @@ a.logo:hover {
 
 /*}*/
 
-/*.info {*/
-/*    display: inline-flex;*/
-/*    text-align: right;*/
-/*    width: 250px;*/
-/*}*/
-/*.ddropdown-menu_button {*/
-/*    margin-left: 80%;*/
-/*}*/
 
 .customer {
     display: inline-block;
@@ -164,10 +170,10 @@ li {
     padding-top: 110px;
     
 }
-p {
-    margin-right: 0%;
-    width: 14%;
-}
+/*p {*/
+/*    margin-right: 0%;*/
+/*    width: 14%;*/
+/*}*/
 .question_4 {
     margin-right: 3px;
     width: 39px;
@@ -182,7 +188,13 @@ p {
     padding-left: 16%;
     text-align: center;
     margin-right: 68%;
+    font-weight: bold;
 }
+.company {
+    margin-left: 22%;
+    margin-bottom: 2%;
+}
+
 .corporation_1 {
     font-size: 14px;
     border: double;
