@@ -24,12 +24,12 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='row  header '>
+        <div class='container-fluid sticky-top'>
                 <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
                 <span class='col-lg-4 offset-lg-2 px-0 span_a'>
                     <a href='admin_index.php' class='span_a'>管理者TOP</a>
                     <a href='index.php' class='span_a'>顧客TOP</a>
-                    <a href='admin_logout.php' class='span_a'>ログアウト</a>
+                    <a href='admin_login.php' class='span_a'>ログイン</a>
                 </span>    
                 
                 <span class='col-lg-1  px-0  info'>

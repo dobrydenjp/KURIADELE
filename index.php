@@ -30,25 +30,26 @@
         <div class='container-fluid sticky-top'>
             <div class='row  header '>
                 <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='col-lg-4 offset-lg-2 px-0 span_a'>
+                <span class='col-lg offset-1 col-lg-1 px-0'></span>
+                <span class='col-lg-4 px-0 span_a'>
                     <a href='product.php' class='span_a'>商品情報</a>
                     <a href='contacts.php' class='span_a'>お問い合わせ</a>
                     <a href='login.php' class='span_a'>ログイン</a>
+                    
                 </span>    
                 
-                <span class='col-lg-1  px-0  info'>
+                <span class='col-lg-1 px-0 info'>
                     <form method='POST' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
                 
             
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-                    </button>
+                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
-                        <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
-                        <a class='dropdown-item' href='#'><a href='login_contact.php'>サポート</a>
+                        <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
+                        <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>
                     </div>
                 </span>
             </div>

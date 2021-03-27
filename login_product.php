@@ -30,7 +30,7 @@
                 <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
                 <span class='col-lg offset-1 col-lg-1 px-0'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
                 <span class='col-lg-4 px-0 span_a'>
-                    <a href='login_contact.php' class='span_a'>商品情報</a>
+                    <a href='login_product.php' class='span_a'>商品情報</a>
                     <a href='carts.php' class='span_a'>カート</a>
                     <a href='purchases.php' class='span_a'>購入履歴</a>
                     <a href='index.php' class='span_a'>ログアウト</a>
@@ -46,7 +46,7 @@
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
                     </button>
                     <div class="dropdown-menu">
-                        <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
+                        <a class='dropdown-item' href='#'><a href='login_company_philosophy.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
                         <a class='dropdown-item' href='#'><a href='login_contact.php'>サポート</a>
                     </div>
@@ -74,7 +74,7 @@
         
 
         <div class='footer '>
-            <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
+            <ul><span><a href='login_company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
                 <li>事業計画</li>
                 <li>展望</li>

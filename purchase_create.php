@@ -9,20 +9,20 @@
     session_start();
     // ログイン者の情報取得
     $login_customer = $_SESSION['login_customer'];
-    var_dump($_POST);
+    // var_dump($_POST);
     // $carts = $_SESSION['carts'];
     // // カートに保存された情報取得
     // var_dump($_POST);
     
     
     
-    // カート入力情報取得
-    $carts = $_SESSION['carts'];
-    var_dump($carts);
+    // // カート入力情報取得
+    // $carts = $_SESSION['carts'];
+    // var_dump($carts);
     
     
    // 個数変更
-    $carts = CartDAO::update($carts);
+    // $carts = CartDAO::update($carts);
     // $cart = CartDAO::decrement_stock($cart);
     // var_dump($cart);
     // 商品の個数選ぶ

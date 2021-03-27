@@ -1,36 +1,34 @@
 <?php
-    // ログインフィルター
-    require_once 'login_filter.php';
-    //外部ファイル読込
-    require_once 'item_dao.php';
-    require_once 'customer.php';
-    require_once 'cart_dao.php';
+    // 外部ファイル読込
+    require_once 'customer_dao.php';
+    require_once 'company_dao.php';
     // セッション開始
-    // session_start();
-    // print 'OK';
+    session_start();
+    // idをGETで取得
+    // $idをnullにする
     $id = null;
-    // $idをGETで取得
     if(isset($_GET['id'])){
         $id = $_GET['id'];
     }
-    // 登録した商品情報をDAOからid情報で取得
-    $item = ItemDAO::get_item_by_id($id);
-    var_dump($item);
-    
     // ログイン者の情報取得
     $login_customer = $_SESSION['login_customer'];
+    // 現在の企業情報表示
+    $company = CompanyDAO::get_companys_id($id);
+    // var_dump($company);
+
 ?>
+
 <!doctype html>
-<thml lang='ja'>
+<html lang='ja'>
     <head>
         <meta charset='UTF-8'>
-        <title>商品情報</title>
+        <title>企業情報</title>
         <link rel='stylesheet' href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        div class='container-fluid sticky-top'>
+        <div class='container-fluid sticky-top'>
             <div class='row  header '>
                 <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
                 <span class='col-lg offset-1 col-lg-1 px-0'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
@@ -58,36 +56,18 @@
                 </span>
             </div>
         </div>
- 
         
-        <p class='customer'>商品情報</p>
+        <div ><p class=customer>企業情報</p></div>
         
-        <div class='product_1'>
-            <a><?= $item->id ?></a>
-            <img src='upload/items/<?= $item->image ?>' class='product_2'></img>
-            <div class='product_3'><?= $item->name  ?>          ￥<?= $item->price ?></div>
-            <div><?= $item->description ?></div>
-        </div>
         
-        <!--$login_customerがnull空でない時に実行-->
-        <?php if($login_customer !== null): ?>
-            <form method='POST' action='cart_in.php'>
-                <select class='select_box' name="number">
-                    <?php for($i = 1; $i <= $item->stock; $i++): ?>
-                        <option value='<?= $i ?>'><?= $i ?></option>
-                    <?php endfor; ?>
-                個</select>
-                <!--ＰＨＰ入力-->
-                
-                <input type="hidden" name='item_stock' value="<?= $item->stock ?>">
-                <input type="hidden" name="item_id" value="<?= $item->id ?>">
-                <input type='submit' value='カートに入れる'>
-                <!--<p class='product_4'></p>-->
-            </form>
         
-        <?php endif; ?>
         
-    
+        <div class=corporation>KURIADELEとは</div><label  class=company><?= $company->description ?></label>
+        <div class=corporation>代表挨拶</div><label class=company><?= $company->greeting ?></label>
+        <div class=corporation>事業計画</div><label class=company><?= $company->plan ?></label>
+        
+        
+                                
         
         
         <div class='footer '>
@@ -96,10 +76,10 @@
                 <li>事業計画</li>
                 <li>展望</li>
             </ul>
-            <ul><span><a href='login_product.php'>取扱商品</a></span>
+            <ul><span><a href='product.php'>取扱商品</a></span>
                 <li>商品一覧</li>
             </ul>
-            <ul><span><a href='login_contact.php'>サポート</a></span>
+            <ul><span><a href='contact.php'>サポート</a></span>
                 <li>お問い合わせ</li>
             </ul>
             <ul><span>SNSアカウント</span>

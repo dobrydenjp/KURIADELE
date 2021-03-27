@@ -37,8 +37,8 @@
                     </button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
-                        <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
-                        <a class='dropdown-item' href='#'><a href='login_contact.php'>サポート</a>
+                        <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
+                        <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>
                     </div>
                 </span>
             </div>

@@ -151,7 +151,7 @@
                self::close_connection($pdo, $stmp); 
             }
         }
-        public static function update($carts){
+        public static function update($id, $number){
             $pdo = null;
             $stmp = null;
             try{
@@ -164,8 +164,8 @@
                 $stmt->bindValue(':id', $cart->id, PDO::PARAM_INT);
                 // update本番実行
                 $stmt->execute();
-                
-                return '個数変更しました';
+                // print 'OK';
+                return '商品個数変更致しました';
                 
             }catch(PDOException $e){
                 

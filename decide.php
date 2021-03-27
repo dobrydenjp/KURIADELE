@@ -76,12 +76,12 @@
             
         <div class='customer_1'>またどうぞよろしくお願い致します。</div>
         
-        <a href='index.php'>
+        <a href='mypage.php'>
             <div class='corporation_1'>TOPページへ戻る</div>
         </a>
         
         <div class='footer '>
-            <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
+            <ul><span><a href='login_company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
                 <li>事業計画</li>
                 <li>展望</li>

@@ -5,7 +5,7 @@
     require_once 'cart_dao.php';
     require_once 'customer_dao.php';
     // セッション開始
-    // session_start();
+    session_start();
     // ログイン者の情報保存 login_check.phpからのセッション
     $login_customer = $_SESSION['login_customer'];
     // var_dump($login_customer);
@@ -14,19 +14,23 @@
     // var_dump($cart_message);
     // 破棄
     $_SESSION['cart_message'] = null;
-    // // ログイン者のidからカート情報を取得
+    // ログイン者のidからカート情報を取得
     $my_carts = CartDAO::get_my_carts($login_customer->id);
     // var_dump($my_carts);
-    
-    // // 購入と同時に在庫を減らす
+    // 商品個数変更したメッセージ表示
+    $number_message = $_SESSION['number_message'];
+    // 破棄
+    $_SESSION['number_message'] = null;
+    var_dump($number_message);
+    $number = $_SESSION['number'];
+    // 商品個数変更後の数字表示
     // $my_carts = CartDAO::decrement_stock($cart);
     // var_dump($my_carts);
     
     
     
     
-    // カートに入っている商品の数を選んで変化ボタンを押すと、
-    // カートのid,個数がPOSTされるようにしたい
+
     
     
     // カート・入力内容確認・最終確認 個数変更できるようにする
@@ -46,7 +50,7 @@
                 <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
                 <span class='col-lg offset-1 col-lg-1 px-0'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
                 <span class='col-lg-4 px-0 span_a'>
-                    <a href='login_contact.php' class='span_a'>商品情報</a>
+                    <a href='login_product.php' class='span_a'>商品情報</a>
                     <a href='carts.php' class='span_a'>カート</a>
                     <a href='purchases.php' class='span_a'>購入履歴</a>
                     <a href='index.php' class='span_a'>ログアウト</a>
@@ -62,7 +66,7 @@
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
                     </button>
                     <div class="dropdown-menu">
-                        <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
+                        <a class='dropdown-item' href='#'><a href='login_company_philosophy.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
                         <a class='dropdown-item' href='#'><a href='login_contact.php'>サポート</a>
                     </div>
@@ -76,26 +80,33 @@
             <P><?= $cart_message ?></P>
         <?php endif; ?>
         
+        <!--商品の個数変更したメッセージ表示-->
+        <?php if($number_message !== null): ?>
+            <p><?= $number_message ?></p>
+        <?php endif; ?>
+        
+        
         <!--カートに追加した商品情報表示-->
         <?php if($login_customer !== null): ?>
             <?php foreach($my_carts as $cart): ?>
                 <div class='product_1'>
                     <p>カート番号:  <?= $cart->id ?></p>
                     <p>商品番号: <?= $cart->get_item()->id ?></p>
+                    <p>個数: <?= $cart->number ?><?= $number->number ?></p>
                     <img src='upload/items/<?= $cart->get_item()->image ?>' class='product_2'></img>
                     <div class='product_3'><?= $cart->get_item()->name  ?>          ￥<?= $cart->get_item()->price ?></div>
                 </div>
             
             
                 
-                <form method='POST' action='purchase_create.php'>    
-                    <select class='select_box'>
+                <form method='POST' action='cart_update.php'>    
+                    <select name='number' class='select_box'>
                         <?php for($i = 0; $i <= $cart->get_item()->stock; $i++): ?>
                             <option value='<?= $i ?>'><?= $i ?></option>
                         <?php endfor; ?>
                     個</select>
                     <input type='hidden' name='id' value='<?= $cart->id ?>'>
-                    <input type='hidden' name='number' value='<?= $cart->number ?>'>
+                    <input type='hidden' name='item_id' value='<?= $cart->item_id ?>'>
                     <input type='submit' value='変更'/>
                     <input type='submit' value='削除'/>
                     小計: ￥<?= $cart->number * $cart->get_item()->price ?> 円
@@ -112,7 +123,7 @@
             
         
         <div class='footer '>
-            <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
+            <ul><span><a href='login_company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
                 <li>事業計画</li>
                 <li>展望</li>

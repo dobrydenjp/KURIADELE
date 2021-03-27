@@ -1,5 +1,6 @@
 <?php
     // 外部ファイル読込
+    require_once 'customer_dao.php';
     require_once 'company_dao.php';
     // セッション開始
     session_start();
@@ -28,13 +29,12 @@
         <div class='container-fluid sticky-top'>
             <div class='row  header '>
                 <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='col-lg offset-1 col-lg-1 px-0'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
-                <span class='col-lg-4 px-0 span_a'>
-                    <a href='login_contact.php' class='span_a'>商品情報</a>
-                    <a href='carts.php' class='span_a'>カート</a>
-                    <a href='purchases.php' class='span_a'>購入履歴</a>
-                    <a href='index.php' class='span_a'>ログアウト</a>
-                </span>
+                
+                <span class='col-lg-4 offset-lg-2 px-0 span_a'>
+                    <a href='product.php' class='span_a'>商品情報</a>
+                    <a href='contacts.php' class='span_a'>お問い合わせ</a>
+                    <a href='login.php' class='span_a'>ログイン</a>
+                </span> 
                 
                 <span class='col-lg-1  px-0  info'>
                     <form method='POST' action='search.php' class='info'>
@@ -76,7 +76,7 @@
             <ul><span><a href='product.php'>取扱商品</a></span>
                 <li>商品一覧</li>
             </ul>
-            <ul><span><a href='contact.php'>サポート</a></span>
+            <ul><span><a href='contacts.php'>サポート</a></span>
                 <li>お問い合わせ</li>
             </ul>
             <ul><span>SNSアカウント</span>
