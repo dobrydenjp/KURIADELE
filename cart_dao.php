@@ -151,6 +151,7 @@
                self::close_connection($pdo, $stmp); 
             }
         }
+        // 選択した商品の個数を変更するメソッド
         public static function update($id, $number){
             $pdo = null;
             $stmp = null;
@@ -160,8 +161,8 @@
                 // update文を実行する準備（数字はわざとあやふやにする
                 $stmt= $pdo -> prepare('UPDATE carts SET number=:number WHERE id=:id');
                 // バインド処理（あやふやだった数字を実データで埋める）
-                $stmt->bindValue(':number', $cart->number, PDO::PARAM_INT);
-                $stmt->bindValue(':id', $cart->id, PDO::PARAM_INT);
+                $stmt->bindValue(':number', $number, PDO::PARAM_INT);
+                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
                 // update本番実行
                 $stmt->execute();
                 // print 'OK';

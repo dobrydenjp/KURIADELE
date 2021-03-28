@@ -3,6 +3,19 @@
     require_once 'login_filter.php';
     // 外部ファイル読込
     require_once 'customer_dao.php';
+    // セッション開始
+    // session_start();
+    // ログイン者の情報取得
+    $login_customer = $_SESSION['login_customer'];
+    // 入力した新会員情報取得
+    $customer_update = $_SESSION['name'];
+    $customer_update = $_SESSION['kana_name'];
+    $customer_update = $_SESSION['postal_code'];
+    $customer_update = $_SESSION['address'];
+    $customer_update = $_SESSION['tel'];
+    $customer_update = $_SESSION['email_address'];
+    $customer_update = $_SESSION['password'];
+    var_dump($customer_update);
 ?>
 
 <!doctype html>
@@ -27,15 +40,14 @@
                     <a href='index.php' class='span_a'>ログアウト</a>
                 </span>
                 
-                <span class='col-lg-1  px-0  info'>
+                <span class='col-lg-1 px-0 info'>
                     <form method='POST' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
                 
             
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-                    </button>
+                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='login_company_philosophy.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
@@ -46,12 +58,13 @@
         </div>
         
         <div class='customer'>お客様情報変更</div>
-        <?php if($errors !== null): ?>
-                <?php foreach($errors as $error): ?>
-                    <p><?= $error ?></p>
-                <?php endforeach; ?>
-            <?php endif; ?>
+        <!--<?php if($errors !== null): ?>-->
+        <!--        <?php foreach($errors as $error): ?>-->
+        <!--            <p><?= $error ?></p>-->
+        <!--        <?php endforeach; ?>-->
+        <!--    <?php endif; ?>-->
             
+        <p><?= $customer_update->name ?></p>
         <form method='POST' action='login_change_new.php'>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>お名前</label>
@@ -120,8 +133,8 @@
             <ul><span><a href='login_contact.php'>サポート</a></span>
                 <li>お問い合わせ</li>
             </ul>
-            <ul><span>SNSアカウント</span>
-            </ul>
+            <!--<ul><span>SNSアカウント</span>-->
+            <!--</ul>-->
             
         </div>
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>

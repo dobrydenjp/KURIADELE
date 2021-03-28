@@ -5,7 +5,7 @@
     require_once 'cart_dao.php';
     require_once 'customer_dao.php';
     // セッション開始
-    session_start();
+    // session_start();
     // ログイン者の情報保存 login_check.phpからのセッション
     $login_customer = $_SESSION['login_customer'];
     // var_dump($login_customer);
@@ -21,12 +21,24 @@
     $number_message = $_SESSION['number_message'];
     // 破棄
     $_SESSION['number_message'] = null;
-    var_dump($number_message);
-    $number = $_SESSION['number'];
-    // 商品個数変更後の数字表示
-    // $my_carts = CartDAO::decrement_stock($cart);
-    // var_dump($my_carts);
+    // var_dump($number_message);
+    // $updateをセッションで取得　空にする
+    $id = null;
+    // $idをGETで取得
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
     
+    // 商品個数変更後の数字表示 
+    $number = $_SESSION['number'];
+    // var_dump($number);
+    
+    
+    // カートの商品を削除するメッセージ取得
+    $delete_message = $_SESSION['delete_message'];
+    // var_dump($delete_message);
+    // 破棄
+    $_SESSION['delete_message'] = null;
     
     
     
@@ -56,15 +68,14 @@
                     <a href='index.php' class='span_a'>ログアウト</a>
                 </span>
                 
-                <span class='col-lg-1  px-0  info'>
+                <span class='col-lg-1 px-0 info'>
                     <form method='POST' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
                 
             
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-                    </button>
+                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='login_company_philosophy.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
@@ -73,7 +84,6 @@
                 </span>
             </div>
         </div>
-
         <div class='customer'>買い物かご</div>
         <!--商品をカートに追加したメッセージ表示-->
         <?php if($cart_message !== null): ?>
@@ -85,14 +95,18 @@
             <p><?= $number_message ?></p>
         <?php endif; ?>
         
+        <!--商品を削除したメッセージ表示-->
+        <?php if($delete_message !== null): ?>
+            <p><?= $delete_message ?></p>
+        <?php endif; ?>
         
-        <!--カートに追加した商品情報表示-->
+        
         <?php if($login_customer !== null): ?>
             <?php foreach($my_carts as $cart): ?>
                 <div class='product_1'>
                     <p>カート番号:  <?= $cart->id ?></p>
                     <p>商品番号: <?= $cart->get_item()->id ?></p>
-                    <p>個数: <?= $cart->number ?><?= $number->number ?></p>
+                    <p>個数: <?= $number ?></p>
                     <img src='upload/items/<?= $cart->get_item()->image ?>' class='product_2'></img>
                     <div class='product_3'><?= $cart->get_item()->name  ?>          ￥<?= $cart->get_item()->price ?></div>
                 </div>
@@ -107,11 +121,13 @@
                     個</select>
                     <input type='hidden' name='id' value='<?= $cart->id ?>'>
                     <input type='hidden' name='item_id' value='<?= $cart->item_id ?>'>
-                    <input type='submit' value='変更'/>
-                    <input type='submit' value='削除'/>
+                    <input type='submit' value='変更' class='button'/>
+                    <a href='cart_delete.php?id=<?= $cart->id ?>' class='button'>削除</a>
+                    
                     小計: ￥<?= $cart->number * $cart->get_item()->price ?> 円
                     
                 </form>
+                
             <?php endforeach; ?>
         
             <h3>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></h3>
@@ -134,8 +150,8 @@
             <ul><span><a href='login_contact.php'>サポート</a></span>
                 <li>お問い合わせ</li>
             </ul>
-            <ul><span>SNSアカウント</span>
-            </ul>
+            <!--<ul><span>SNSアカウント</span>-->
+            <!--</ul>-->
             
         </div>
             

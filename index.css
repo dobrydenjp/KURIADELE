@@ -229,6 +229,25 @@ li {
     margin-bottom: 7%;
     margin-left: 11%;
 }
+.button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 12pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 7px 7px;   /* 余白       */
+  background    : #6666ff;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #6666ff;    /* 枠の指定 */
+}
+.button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #6666ff;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
 .administrator {
  
     font-size: 18px;

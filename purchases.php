@@ -35,15 +35,14 @@
                     <a href='index.php' class='span_a'>ログアウト</a>
                 </span>
                 
-                <span class='col-lg-1  px-0  info'>
+                <span class='col-lg-1 px-0 info'>
                     <form method='POST' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
                 
             
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-                    </button>
+                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='login_company_philosophy.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>

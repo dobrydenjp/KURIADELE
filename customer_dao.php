@@ -207,8 +207,10 @@
                 // データベースに接続する神様
                 $pdo = self::get_connection();
                 // update文を実行する準備（名前・カナ・郵便番号・住所・電話番号・メールアドレス・パスワードはあやふやにする）
-                $stmt = $pdo->prepare('UPDATE customers SET name=:name, kana_name=:kana_name, postal_code=:postal_code, address=:address, tel=:tel, email_address=:email_address, password=:password WHERE id=:id');
+                                    // UPDATE carts SET number=:number WHERE id=:id;
+                $stmt = $pdo->prepare('UPDATE customers SET id=:id, name=:name, kana_name=:kana_name, postal_code=:postal_code, address=:address, tel=:tel, email_address=:email_address, password=:password WHERE id=:id');
                 // バインド処理（あやふやだった名前・カナ・郵便番号・住所・電話番号・メールアドレス・パスワードを実データで埋める）
+                $stmt->bindParam(':id', $id, pdo::PARAM_INT);
                 $stmt->bindParam(':name', $name, pdo::PARAM_STR);
                 $stmt->bindParam(':kana_name', $kana_name, pdo::PARAM_STR);
                 $stmt->bindParam(':postal_code', $postal_code, pdo::PARAM_INT);
@@ -218,6 +220,7 @@
                 $stmt->bindParam(':password', $password, pdo::PARAM_STR);
                 // update本番実行
                 $stmt->execute();
+                // print 'OK';
                 return 'お客様情報を変更しました';
             
             }catch(PDOException $e){

@@ -41,15 +41,14 @@
                     <a href='index.php' class='span_a'>ログアウト</a>
                 </span>
                 
-                <span class='col-lg-1  px-0  info'>
+                <span class='col-lg-1 px-0 info'>
                     <form method='POST' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
                 
             
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-                    </button>
+                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='login_company_philosophy.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
@@ -102,8 +101,8 @@
             <ul><span><a href='login_contact.php'>サポート</a></span>
                 <li>お問い合わせ</li>
             </ul>
-            <ul><span>SNSアカウント</span>
-            </ul>
+            <!--<ul><span>SNSアカウント</span>-->
+            <!--</ul>-->
             
         </div>
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>

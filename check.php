@@ -91,8 +91,8 @@
             <ul><span><a href='login_contact.php'>サポート</a></span>
                 <li>お問い合わせ</li>
             </ul>
-            <ul><span>SNSアカウント</span>
-            </ul>
+            <!--<ul><span>SNSアカウント</span>-->
+            <!--</ul>-->
             
         </div>
     <script type="text/javascript" src="JavaScript2.js"></script>
