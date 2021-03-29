@@ -42,14 +42,14 @@
                 // INSERT文を実行する準備（名前、年齢はわざとあやふやにしておく）
                 $stmt = $pdo -> prepare("INSERT INTO carts(customer_id, item_id, item_stock, number) VALUES(:customer_id, :item_id, :item_stock, :number)");
                 // バインド処理（あやふやだった箇所を実データで埋める）
-                $stmt->bindParam(':customer_id', $cart->customer_id, PDO::PARAM_INT);
-                $stmt->bindParam(':item_id', $cart->item_id, PDO::PARAM_INT);
-                $stmt->bindParam(':item_stock', $cart->item_stock, PDO::PARAM_INT);
-                $stmt->bindParam(':number', $cart->number, PDO::PARAM_INT);
+                $stmt->bindValue(':customer_id', $cart->customer_id, PDO::PARAM_INT);
+                $stmt->bindValue(':item_id', $cart->item_id, PDO::PARAM_INT);
+                $stmt->bindValue(':item_stock', $cart->item_stock, PDO::PARAM_INT);
+                $stmt->bindValue(':number', $cart->number, PDO::PARAM_INT);
                 
                 // INSERT文本番実行
                 $stmt->execute();
-    
+                print 'OK';
                 return "カートに追加しました";
                 
             }catch(PDOException $e){
@@ -92,7 +92,7 @@
                self::close_connection($pdo, $stmp); 
             }
         }
-        
+        // 合計金額
         public static function get_total_price($carts){
             $pdo = null;
             $stmp = null;

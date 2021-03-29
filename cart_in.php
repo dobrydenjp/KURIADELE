@@ -12,20 +12,21 @@
     
     // 選択された情報を保存
     $customer_id = $login_customer->id;
+    
     $item_id = $_POST['item_id'];
     $item_stock = $_POST['item_stock'];
     $number = $_POST['number'];
-    
+    // var_dump($_POST);
     // cart命の誕生
     $cart = new Cart($customer_id, $item_id, $item_stock, $number);
     
     
-    // カートに1件登録
+    // // カートに1件登録
     $cart = CartDAO::insert($cart);
     
-    // カート入力情報をセッションに保存
+    // // カート入力情報をセッションに保存
     $_SESSION['carts'] = $cart;
-    // var_dump($cart);
+    // var_dump($_SESSION);
     $_SESSION['cart_message'] = '商品をカートに追加しました';
     header('Location: carts.php');
     exit;

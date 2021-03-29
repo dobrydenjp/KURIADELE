@@ -65,7 +65,9 @@
         </div>
         <?php endforeach; ?>
         
-        <h3>合計金額: ￥<?= CartDAO::get_total_price($my_purchases) ?></h3>
+        <h5>合計金額: ￥<?= CartDAO::get_total_price($my_purchases) ?></h5>
+        <h4>消費税込 合計金額: ￥<?= CartDAO::get_total_price($my_purchases)* 1.08 ?>  </h4>
+        
         
         <div class='footer '>
             <ul><span><a href='login_company_philosophy.php'>KURIADELEについて</a></span><br>

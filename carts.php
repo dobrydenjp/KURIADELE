@@ -106,7 +106,7 @@
                 <div class='product_1'>
                     <p>カート番号:  <?= $cart->id ?></p>
                     <p>商品番号: <?= $cart->get_item()->id ?></p>
-                    <p>個数: <?= $number ?></p>
+                    <p>個数: <?= $cart->number ?></p>
                     <img src='upload/items/<?= $cart->get_item()->image ?>' class='product_2'></img>
                     <div class='product_3'><?= $cart->get_item()->name  ?>          ￥<?= $cart->get_item()->price ?></div>
                 </div>
@@ -129,10 +129,10 @@
                 </form>
                 
             <?php endforeach; ?>
-        
-            <h3>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></h3>
-            
-            <a href='purchase_create.php?id=<?=$cart->customer_id?>' class='product_1'>購入</a>
+            　
+            <h5>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></h5>
+            <h4>消費税込 合計金額: ￥<?= CartDAO::get_total_price($my_carts)* 1.08 ?>  </h4>
+            <a href='purchase_transfer.php?id=<?=$cart->customer_id ?>' class='product_1'>決定</a>
         <?php endif; ?>
         
             
