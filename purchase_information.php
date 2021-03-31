@@ -3,9 +3,13 @@
     require_once 'admin_login_filter.php';
     // 外部ファイル読込
     require_once 'purchase_dao.php';
-   
-    
-   
+    require_once 'customer_dao.php';
+    require_once 'cart_dao.php';
+    // セッション開始
+    // session_start();
+    // 購入した全ての商品取得
+    $purchases = PurchaseDAO::get_all_purchases();
+    // var_dump($purchases);
 ?>
 
 <!doctype html>
@@ -18,27 +22,28 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='row  header '>
-                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='col-lg-4 offset-lg-2 px-0 span_a'>
+        <div class='container-fluid sticky-top'>
+            <div class='row  header '>
+                <a href='admin_index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <span class='col-lg offset-1 col-lg-1 px-0'></span>
+                <span class='col-lg-4 px-0 span_a'>
                     <a href='admin_index.php' class='span_a'>管理者TOP</a>
                     <a href='index.php' class='span_a'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_a'>ログアウト</a>
                 </span>    
                 
-                <span class='col-lg-1  px-0  info'>
+                <span class='col-lg-1 px-0 info'>
                     <form method='POST' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
                 
             
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-                    </button>
+                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
-                        <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
-                        <a class='dropdown-item' href='#'><a href='login_contact.php'>サポート</a>
+                        <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
+                        <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>
                     </div>
                 </span>
             </div>
@@ -46,7 +51,17 @@
         
         <div class='customer'>購入一覧</div>
         <!--何を購入したか表示-->
-        
+        <?php foreach($purchases as $purchase): ?>
+            <div class='product_1'>
+                <p>購入番号:  <?= $cart->id ?></p>
+                <p>商品番号: <?= $cart->get_item()->id ?></p>
+                <img src='upload/items/<?= $cart->get_item()->image ?>' class='product_2'></img>
+                <div>購入日時： <?= $cart->created_at ?></div>
+                <div class='product_3'><?= $cart->get_item()->name ?>          ￥<?= $cart->get_item()->price ?></div>
+                <p>個数: <?= $cart->number ?></p>
+                <p>小計: ￥<?= $cart->number * $cart->get_item()->price ?></p>
+            </div>
+        <?php endforeach; ?>
         
         
         

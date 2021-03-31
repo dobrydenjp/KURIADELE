@@ -83,7 +83,7 @@
             <div class='question_2'>件名  <input type='text' name='subject' class='submit' /></div> 
             <div class='question_3'><p>内容</p>  <textarea name='contact' cols='50' rows='10'/></textarea></div>
             <div class='question_2 question_5'>メールアドレス <input type='text' name='email_address' class='submit' value='<?= $login_customer->email_address ?>'/></div>
-            <div class='enroll_2'><input type='submit' value='送信'/></div>
+            <div class='enroll_2'><input type='submit' value='送信' class='btn-gradient'/></div>
         </form>  
         
         

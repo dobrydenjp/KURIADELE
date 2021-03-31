@@ -40,7 +40,7 @@
                 
         <div class='container-fluid sticky-top'>
             <div class='row header'>
-                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <a href='mypage.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
                 <span class='col-lg offset-1 col-lg-1 px-0'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
                 <span class='col-lg-4 px-0 span_a'>
                     <a href='login_contact.php' class='span_a'>お問い合わせ</a>

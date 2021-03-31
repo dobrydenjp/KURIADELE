@@ -72,8 +72,8 @@
             <p><?= $get_bank->account ?><?= $get_bank->NO ?></p>
             <p><?= $get_bank->kana_name ?></p>
         
-        <form class='' method='POST' action='check.php' >
-            <input type='submit' value='入力内容確認' class='enroll_1'/>
+        <form action='check.php' method='POST' class='enroll_2'>
+            <input type='submit' value='入力内容確認' class='btn-gradient'/>
         </form>
         
         

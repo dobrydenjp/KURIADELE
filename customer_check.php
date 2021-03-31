@@ -26,26 +26,27 @@
     </head>
     <body>
         <div class='container-fluid sticky-top'>
-                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='col-lg-4 offset-lg-2 px-0 span_a'>
+            <div class='row  header '>
+                <a href='admin_index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <span class='col-lg offset-1 col-lg-1 px-0'></span>
+                <span class='col-lg-4 px-0 span_a'>
                     <a href='admin_index.php' class='span_a'>管理者TOP</a>
                     <a href='index.php' class='span_a'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_a'>ログアウト</a>
                 </span>    
                 
-                <span class='col-lg-1  px-0  info'>
+                <span class='col-lg-1 px-0 info'>
                     <form method='POST' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
                 
             
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-                    </button>
+                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
-                        <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
-                        <a class='dropdown-item' href='#'><a href='login_contact.php'>サポート</a>
+                        <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
+                        <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>
                     </div>
                 </span>
             </div>
@@ -53,12 +54,17 @@
         
         <div class='customer'>お客様一覧</div>
         <?php foreach($customers as $customer): ?>
-            <a><?= $customer->id ?></a>
-                <div class='product_3'><?= $customer->name  ?>      <?= $customer->kana_name ?></div>
-                <div class='product_3'><?= $customer->postal_code  ?>      <?= $customer->address ?></div>
-                <div class='product_3'><?= $customer->tel  ?></div>
-                <div class='product_3'><?= $customer->email_address ?></div>
-                <div class='product_3'><?= $customer->password ?></div>
+            <h6 class='inquiry_id'><?= $customer->id ?></h6>
+            <div class='inquiry'>
+            
+                <p>お名前：&emsp;&emsp;<?= $customer->name  ?></p>
+                <p>カナ：&emsp;&emsp;&emsp;<?= $customer->kana_name ?></p>
+                <p>郵便番号：&emsp;<?= $customer->postal_code  ?></p>
+                <p>住所：&emsp;&emsp;&emsp;<?= $customer->address ?></p>
+                <p>お電話番号：<?= $customer->tel  ?></p>
+                <p>メールアドレス：<?= $customer->email_address ?></p>
+                <p>パスワード：<?= $customer->password ?></p>
+            </div>
         <?php endforeach; ?>
         
         

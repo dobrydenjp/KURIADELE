@@ -14,11 +14,7 @@
     $login_admin = $_SESSION['login_admin'];
     // var_dump($login_admin);
     
-    // どのflash_messageか確認
-    // $flash_message = $_SESSION['flash_message'];
-    // var_dump($flash_message);
-    // 1度のみ表示
-    // $_SESSION['flash_message'] = null;
+    
     // idをGETで取得
     // $idをnullにする
     $id = null;
@@ -41,26 +37,27 @@
     </head>
     <body>
         <div class='container-fluid sticky-top'>
-                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='col-lg-4 offset-lg-2 px-0 span_a'>
-                    <a href='admin_index.php' class='span_a'>管理者TOP</a>
-                    <a href='administrator.php' class='span_a'>登録内容変更</a>
+            <div class='row  header '>
+                <a href='admin_index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <span class='col-lg offset-1 col-lg-1 px-0'></span>
+                <span class='col-lg-4 px-0 span_a'>
+                    <a href='administrator.php' class='span_a'>管理者ページへ</a>
+                    <a href='index.php' class='span_a'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_a'>ログアウト</a>
                 </span>    
                 
-                <span class='col-lg-1  px-0  info'>
+                <span class='col-lg-1 px-0 info'>
                     <form method='POST' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
                 
             
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-                    </button>
+                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
-                        <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
-                        <a class='dropdown-item' href='#'><a href='login_contact.php'>サポート</a>
+                        <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
+                        <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>
                     </div>
                 </span>
             </div>
@@ -84,10 +81,10 @@
         
         
         <div class='top_3'>
-            <h4 class='customer'>KURIADELEnews</h1>
-            <h4 class='top_d'>今日のニュース</h4>
+            <h4 class='customer'>KURIADELEnews</h4>
+            <h3 class='top_d'>KURIADELE最新ニュース</h1>
+            <h4 class='top_e'><?= $news->days ?>        <?= $news->news ?></h4>
             
-            <h5 class='top_e'><?= $news->days ?>        <?= $news->news ?></h5>
             
         </div>
 

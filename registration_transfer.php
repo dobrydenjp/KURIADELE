@@ -17,7 +17,7 @@
     $error_message = AdminDAO::validate($bank);
     // var_dump($error_message);
     // 入力エラーがないならば
-    if(count($bank_error) === 0){
+    if(count($error_message) === 0){
         // 登録する 同時に下部に登録情報表示する
         // 追加した口座情報を bank_message へ
         $bank_message = AdminDAO::insert($bank);

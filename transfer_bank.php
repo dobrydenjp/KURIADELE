@@ -40,26 +40,27 @@
     </head>
     <body>
         <div class='container-fluid sticky-top'>
-                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='col-lg-4 offset-lg-2 px-0 span_a'>
+            <div class='row  header '>
+                <a href='admin_index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <span class='col-lg offset-1 col-lg-1 px-0'></span>
+                <span class='col-lg-4 px-0 span_a'>
                     <a href='admin_index.php' class='span_a'>管理者TOP</a>
                     <a href='index.php' class='span_a'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_a'>ログアウト</a>
                 </span>    
                 
-                <span class='col-lg-1  px-0  info'>
+                <span class='col-lg-1 px-0 info'>
                     <form method='POST' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
                 
             
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-                    </button>
+                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
-                        <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
-                        <a class='dropdown-item' href='#'><a href='login_contact.php'>サポート</a>
+                        <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
+                        <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>
                     </div>
                 </span>
             </div>
@@ -85,41 +86,37 @@
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>銀行名</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='text' name='bank_name' class='form-control'/>
+                        <input type='text' name='bank_name' class='form-control' placeholder='<?= $get_bank->bank_name ?>' />
                     </div>
             </div>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>支店名</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='text' name='branch_name' class='form-control'/>
+                        <input type='text' name='branch_name' class='form-control' placeholder='<?= $get_bank->branch_name ?>'/>
                     </div>
             </div>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>預金科目</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='text' name='account' class='form-control'/>
+                        <input type='text' name='account' class='form-control' placeholder='<?= $get_bank->account ?>'/>
                     </div>
             </div>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>口座番号</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='text' name='NO' class='form-control'/>
+                        <input type='text' name='NO' class='form-control' placeholder='<?= $get_bank->NO ?>'/>
                     </div>
             </div>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>口座名義人(カナ)</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='text' name='kana_name' class='form-control'/>
+                        <input type='text' name='kana_name' class='form-control' placeholder='<?= $get_bank->kana_name ?>'/>
                     </div>
             </div>
-            <div class='enroll_1'>
-                <input type='submit' value='登録'/>
+            <div class='enroll_2'>
+                <input type='submit' value='登録' class='btn-gradient'/>
             </div>
-            <p>現在の口座情報</p>
-            <p><?= $get_bank->bank_name ?>    <?= $get_bank->branch_name ?></p>
-            <p><?= $get_bank->account ?>    <?= $get_bank->NO ?></p>
-            <p><?= $get_bank->kana_name ?></p>
-            
+
             
         </form>
         <div class=corporation_1><a href='administrator.php'>管理者ページへ</a></div>

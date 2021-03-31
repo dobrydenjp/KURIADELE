@@ -28,14 +28,13 @@
     <body>
         
         <div class='container-fluid sticky-top'>
-            <div class='row  header '>
+            <div class='row header'>
                 <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
                 <span class='col-lg offset-1 col-lg-1 px-0'></span>
                 <span class='col-lg-4 px-0 span_a'>
                     <a href='product.php' class='span_a'>商品情報</a>
                     <a href='contacts.php' class='span_a'>お問い合わせ</a>
                     <a href='login.php' class='span_a'>ログイン</a>
-                    
                 </span>    
                 
                 <span class='col-lg-1 px-0 info'>
@@ -73,7 +72,7 @@
         
         
         <div class='top_3'>
-            <h4 class='customer'>KURIADELEnews</h1>
+            <h4 class='customer'>KURIADELEnews</h4>
             <h3 class='top_d'>KURIADELE最新ニュース</h1>
             <h4 class='top_e'><?= $news->days ?>        <?= $news->news ?></h4>
             
@@ -100,8 +99,8 @@
             <ul><span><a href='contacts.php'>サポート</a></span>
                 <li>お問い合わせ</li>
             </ul>
-            <ul><span>SNSアカウント</span>
-            </ul>
+            <!--<ul><span>SNSアカウント</span>-->
+            <!--</ul>-->
             
         </div>
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>

@@ -132,7 +132,7 @@
             　
             <h5>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></h5>
             <h4>消費税込 合計金額: ￥<?= CartDAO::get_total_price($my_carts)* 1.08 ?>  </h4>
-            <a href='purchase_transfer.php?id=<?=$cart->customer_id ?>' class='product_1'>決定</a>
+            <a href='purchase_transfer.php?id=<?=$cart->customer_id ?>' class='btn-gradient enroll_2'>決定</a>
         <?php endif; ?>
         
             

@@ -16,26 +16,27 @@
     </head>
     <body>
         <div class='container-fluid sticky-top'>
-                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='col-lg-4 offset-lg-2 px-0 span_a'>
+            <div class='row  header '>
+                <a href='admin_index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <span class='col-lg offset-1 col-lg-1 px-0'></span>
+                <span class='col-lg-4 px-0 span_a'>
                     <a href='admin_index.php' class='span_a'>管理者TOP</a>
                     <a href='index.php' class='span_a'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_a'>ログアウト</a>
                 </span>    
                 
-                <span class='col-lg-1  px-0  info'>
+                <span class='col-lg-1 px-0 info'>
                     <form method='POST' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
                 
             
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-                    </button>
+                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
-                        <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
-                        <a class='dropdown-item' href='#'><a href='login_contact.php'>サポート</a>
+                        <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
+                        <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>
                     </div>
                 </span>
             </div>
@@ -43,22 +44,21 @@
         
         
         <div class='customer'>管理者ページ</div>
+        <br>
+        
+        <div class='admin_a'><a href='product_change.php'>商品情報登録</a></div>
+        <div class='admin_b'><a href='inquiry_check.php'>お問い合わせ確認</a></div>
+        <div class='admin_a'><a href='customer_check.php'>登録お客様一覧</a></div>
+        <div class='admin_b'><a href='purchase_information.php'>購入一覧</a></div>
+        <div class='admin_a'><a href='company_information.php'>企業情報変更</a></div>
+        <div class='admin_b'><a href='KURIADELE_news.php'>KUREADALEnews更新</a></div>
+        <div class='admin_a'><a href='transfer_bank.php'>振込先入力</a></div>
         
         
-        <div class='administrator'>
-            <div class='administrator_1'><a href='product_change.php'>商品情報登録</a></div>
-            <div class='administrator_2'><a href='inquiry_check.php'>お問い合わせ確認</a></div>
-        </div>
-        <div class='administrator'>
-            <div class='administrator_1'><a href='customer_check.php'>登録お客様一覧</a></div>
-            <div class='administrator_2'><a href='purchase_information.php'>購入一覧</a></div>
-        </div>
-        <div class='administrator'>
-            <div class='administrator_1'><a href='company_information.php'>企業情報変更</a></div>
-            <div class='administrator_2'><a href='KURIADELE_news.php'>KUREADALEnews更新</a></div>
-            <div class='administrator_1'><a href='transfer_bank.php'>振込先入力</a></div>
         
-        </div>
+        
+        
+        
         <div class='footer '>
             <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>

@@ -76,7 +76,7 @@
         
         <form mathod='POST' action='check_mate.php' class='enroll_1'>
             
-            <input type="submit" value="最終確認"/>
+            <input type="submit" value="最終確認" class='btn-gradient'/>
         </form>
         
         <div class='footer '>
