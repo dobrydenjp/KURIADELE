@@ -49,7 +49,7 @@
                 
                 // INSERT文本番実行
                 $stmt->execute();
-                print 'OK';
+                // print 'OK';
                 return "カートに追加しました";
                 
             }catch(PDOException $e){

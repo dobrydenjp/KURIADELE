@@ -61,16 +61,14 @@
         <?php if($logout_message !== null): ?>
             <p><?= $logout_message ?></p>
         <?php endif; ?>
-
-            <form action='admin_new.php' method='POST'>
-                <div class='login_2'>
-                    メールアドレス&emsp;<input type='text' name='email_address' /><br><br>
-                    パスワード&emsp;&emsp;&emsp;<input type='password' name='password'/><br>
-                    <p class='enroll_2'><input type='submit' value='login' class='btn-gradient'/></p>
-                </div>
-            </form>
+        <form action='admin_new.php' method='POST'>
+            <div class='login_2'>
+                メールアドレス&emsp;<input type='text' name='email_address' /><br><br>
+                パスワード&emsp;&emsp;&emsp;<input type='password' name='password'/><br>
+                <p class='enroll_2'><input type='submit' value='login' class='btn-gradient'/></p>
+            </div>
+        </form>
         
-        <br>
         <div class='footer '>
             <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>

@@ -8,40 +8,18 @@
     // ログイン者の情報取得
     $login_customer = $_SESSION['login_customer'];
     // var_dump($customer_id);
-    // 入力された情報を保存
-    $name = $_POST['name'];
-    $kana_name = $_POST['kana_name'];
-    $postal_code = $_POST['postal_code'];
-    $address = $_POST['address'];
-    $tel = $_POST['tel'];
-    $email_address = $_POST['email_address'];
-    $password = $_POST['password'];
-    // var_dump($_POST);
-    // 入力された情報をもとに新しい顧客を作成
-    $customer_update = new Customer($name, $kana_name, $postal_code, $address, $tel, $email_address, $password);
-    // var_dump($customer_update);
-    // 入力チェック
-    $errors = CustomerDAO::validate($customer);
-    // 入力間違いがないならば
-    if(count($errors) !== 0){
-        // 会員情報変更の更新
-        $customer_update = CustomerDAO::update($customer_update, $login_customer->id);
-        var_dump($customer_update);
-    //     // 更新登録したメッセージ保存
-    //     $_SESSION['update_message'] = '会員情報を更新しました';
-    //     // メッセージ表示
-    //     header('Location: login_change.php');
-    // }else{  // 間違いがあるならば
-    //     // エラーメッセージ表示
-    //     $_SESSION['errors'] = $errors;
-    }
+    // エラーメッセージの取得
+    $errors = $_SESSION['errors'];
+    // エラーメッセージをセッションから破棄
+    $_SESSION['errors'] = null;
+
          
 ?>
     
 
 <!doctype html>
 
-<thml lang='ja'>
+<html lang='ja'>
     <head>
         <meta charset='UTF-8'>
         <title>お客様情報変更</title>
@@ -51,14 +29,13 @@
     </head>
     <body>
         <div class='container-fluid sticky-top'>
-            <div class='row  header '>
-                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='col-lg offset-1 col-lg-1 px-0'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
-                <span class='col-lg-4 px-0 span_a'>
-                    <a href='login_product.php' class='span_a'>商品情報</a>
-                    <a href='carts.php' class='span_a'>カート</a>
-                    <a href='purchases.php' class='span_a'>購入履歴</a>
-                    <a href='index.php' class='span_a'>ログアウト</a>
+            <div class='row header'>
+                <a href='mypage.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <span class='offset-lg-4 col-lg-3 px-0 span_c'>
+                    <a href='login_contact.php' class='span_d'>お問い合わせ</a>
+                    <a href='carts.php' class='span_d'>カート</a>
+                    <a href='purchases.php' class='span_d'>購入履歴</a>
+                    <a href='logout.php' class='span_d'>ログアウト</a>
                 </span>
                 
                 <span class='col-lg-1 px-0 info'>
@@ -79,49 +56,49 @@
         </div>
         
         <div class='customer'>お客様情報変更</div>
-        <!--<?php if($errors !== null): ?>-->
-        <!--        <?php foreach($errors as $error): ?>-->
-        <!--            <p><?= $error ?></p>-->
-        <!--        <?php endforeach; ?>-->
-        <!--    <?php endif; ?>-->
+        <?php if(count($errors) !== 0): ?>
+                <?php foreach($errors as $error): ?>
+                    <p><?= $error ?></p>
+                <?php endforeach; ?>
+        <?php endif; ?>
             
         <p><?= $customer_update->name ?></p>
-        <form method='POST' action='login_change.php'>
+        <form method='POST' action='login_update.php'>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>お名前</label>
                     <div class="col-lg-4 col-12">
-                        <input type='text' name='name' class='form-control' placeholder='<?= $login_customer->name ?>'/>
+                        <input type='text' name='name' class='form-control' value='<?= $login_customer->name ?>'/>
                     </div>
             </div>
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>フリガナ</label>
                     <div class="col-lg-4 col-12">
-                        <input type='text' name='kana_name' class='form-control' placeholder='<?= $login_customer->kana_name ?>'/>
+                        <input type='text' name='kana_name' class='form-control' value='<?= $login_customer->kana_name ?>'/>
                     </div>
             </div>
             <div class='customer_information form-group row'>
                 <label class='col-lg-4 col-form-label'>郵便番号</label>
                     <div class="col-lg-2 col-4">
-                        <input type='text' name='postal_code' class='form-control' placeholder='<?= $login_customer->postal_code ?>'/>
+                        <input type='text' name='postal_code' class='form-control' value='<?= $login_customer->postal_code ?>'/>
                     </div>
             </div>
             <div class='customer_information form-group row'>
                 <label class='col-lg-4 col-form-label'>住所</label>
                     <div class="col-lg-4 col-12">
-                        <input type="text" name="address" class='form-control' placeholder='<?= $login_customer->address ?>'/>
+                        <input type="text" name="address" class='form-control' value='<?= $login_customer->address ?>'/>
                     </div>
             </div>
             
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>お電話番号</label>
                     <div class="col-lg-4 col-12">
-                        <input type='text' name='tel' class='form-control' placeholder='<?= $login_customer->tel ?>'/>
+                        <input type='text' name='tel' class='form-control' value='<?= $login_customer->tel ?>'/>
                     </div>
             </div>
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>メールアドレス(ログインＩＤになります)</label>
                     <div class="col-lg-4 col-12">
-                        <input type='text' name='email_address' class='form-control' placeholder='<?= $login_customer->email_address ?>'/>
+                        <input type='text' name='email_address' class='form-control' value='<?= $login_customer->email_address ?>'/>
                     </div>
                 </div>
             <div class='customer_information form-group row'>
@@ -143,16 +120,16 @@
         
         <div class=corporation_1><a href='login_contact.php'>戻る</a></div>
         <div class='footer '>
-            <ul><span><a href='login_company_philosophy.php'>KURIADELEについて</a></span><br>
-                <li>代表挨拶</li>
-                <li>事業計画</li>
-                <li>展望</li>
+            <ul><span>KURIADELEについて</span><br>
+                <li><a href='login_company_philosophy.php'>企業紹介</a></li>
+
             </ul>
-            <ul><span><a href='login_product.php'>取扱商品</a></span>
-                <li>商品一覧</li>
+            <ul><span>取扱商品</span>
+                <li><a href='login_product.php'>商品一覧</a></li>
             </ul>
-            <ul><span><a href='login_contact.php'>サポート</a></span>
-                <li>お問い合わせ</li>
+            <ul><span>サポート</span>
+                <li><a href='login_contact.php'>お問い合わせ</a></li>
+                <li><a href='login_change.php'>お客様情報変更</a></li>
             </ul>
             <!--<ul><span>SNSアカウント</span>-->
             <!--</ul>-->

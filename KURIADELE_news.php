@@ -79,8 +79,8 @@
                 <label class='col-lg-4 col-form-label'>日付<br>News</label>
 
                     <div class='col-lg-4 col-12'>
-                        <input type='date' name='days' class='form-control' placeholder='<?= $news->days ?>'/>
-                        <input type='text' name='news' class='form-control' placeholder='<?= $news->news ?>'/>
+                        <input type='date' name='days' class='form-control' value='<?= $news->days ?>'/>
+                        <input type='text' name='news' class='form-control' value='<?= $news->news ?>'/>
                     </div>
             </div>
         

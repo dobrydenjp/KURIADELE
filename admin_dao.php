@@ -157,7 +157,7 @@
             }
             // 口座名義を入力しない場合のメッセージ
             //片仮名入力チェック
-            if(!preg_match('/^[ｧ-ﾝﾞﾟ]+$/', $bank->kana_name)){
+            if(!preg_match('/^[ｦ-ﾟｰ ]+$/u', $bank->kana_name)){
                 $error_message[] = '半角カタカナを入力してください';
             }
             return $error_message;

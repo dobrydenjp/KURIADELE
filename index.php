@@ -30,11 +30,10 @@
         <div class='container-fluid sticky-top'>
             <div class='row header'>
                 <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='col-lg offset-1 col-lg-1 px-0'></span>
-                <span class='col-lg-4 px-0 span_a'>
-                    <a href='product.php' class='span_a'>商品情報</a>
-                    <a href='contacts.php' class='span_a'>お問い合わせ</a>
-                    <a href='login.php' class='span_a'>ログイン</a>
+                <span class='offset-lg-4 col-lg-3 px-0 span_a'>
+                    <a href='product.php 'class='span_b'>商品情報</a>
+                    <a href='contacts.php'class='span_b'>お問い合わせ</a>
+                    <a href='login.php'class='span_b'>ログイン</a>
                 </span>    
                 
                 <span class='col-lg-1 px-0 info'>
@@ -83,26 +82,26 @@
 
         
         
-        
-        
-
-
         <div class='footer '>
-            <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
-                <li>代表挨拶</li>
-                <li>事業計画</li>
-                <li>展望</li>
+            <ul><span>KURIADELEについて</span><br>
+                <li><a href='company_philosophy.php'>企業紹介</a></li>
+
             </ul>
-            <ul><span><a href='product.php'>取扱商品</a></span>
-                <li>商品一覧</li>
+            <ul><span>取扱商品</span>
+                <li><a href='product.php'>商品一覧</a></li>
             </ul>
-            <ul><span><a href='contacts.php'>サポート</a></span>
-                <li>お問い合わせ</li>
+            <ul><span>サポート</span>
+                <li><a href='contacts.php'>お問い合わせ</a></li>
+
             </ul>
             <!--<ul><span>SNSアカウント</span>-->
             <!--</ul>-->
             
         </div>
+        
+
+
+        
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>
     <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js' integrity='sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV' crossorigin='anonymous'></script>

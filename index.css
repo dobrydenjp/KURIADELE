@@ -1,8 +1,9 @@
 
 .header {
     background-color: #BDD7EE;
-    align-items: flex-end;
-    padding-top: 3%;
+    align-items: center;
+    
+    
 }
 .logo {
     font-size: 40px;
@@ -11,14 +12,23 @@ a.logo:hover {
     text-decoration: none;
 }
 .span_a {
-
-    margin-left: 5%;
-    width: 5%;
+    font-size: 15px;
+    text-align: right;
+}
+.span_b {
+    margin-left: 6%;
+}
+.span_c {
+    font-size: 15px;
+    text-align: right;
+}
+.span_d {
+    margin-left: 2.5%;
 }
 
 .info {
-    margin-left: 0%;
     display: flex;
+    margin-left: 2%;
 }
 /*.ddropdown-menu_button {*/
 /*    margin-left: 80%;*/
@@ -249,17 +259,17 @@ li {
   text-align    : center;      /* 文字位置   */
   cursor        : pointer;     /* カーソル   */
   padding       : 7px 7px;   /* 余白       */
-  background    : #6666ff;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
+  background    : #BDD7EE;     /* 背景色     */
+  color         : #007bff;     /* 文字色     */
   line-height   : 1em;         /* 1行の高さ  */
   transition    : .3s;         /* なめらか変化 */
-  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
-  border        : 2px solid #6666ff;    /* 枠の指定 */
+  
+  
 }
 .button:hover {
-  box-shadow    : none;        /* カーソル時の影消去 */
-  color         : #6666ff;     /* 背景色     */
-  background    : #ffffff;     /* 文字色     */
+          
+  color         : #007bff;     /* 背景色     */
+  background    : #BDD7EE;     /* 文字色     */
 }
 
 

@@ -200,7 +200,7 @@
         
         }
         // 登録されている会員情報を変更するメソッド
-        public static function update($customer_update, $login_customer){
+        public static function update($customer_update, $id){
             $pdo = null;
             $stmp = null;
             try{
@@ -218,12 +218,13 @@
                 $stmt->bindParam(':tel', $customer_update->tel, pdo::PARAM_INT);
                 $stmt->bindParam(':email_address', $customer_update->email_address, pdo::PARAM_STR);
                 $stmt->bindParam(':password', $customer_update->password, pdo::PARAM_STR);
+                $stmt->bindParam(':id', $id, pdo::PARAM_INT);
                 // print 'OK';
 
                 // update本番実行
                 $stmt->execute();
                 // print 'OK';
-                return array($customer_update, $login_customer);
+                // return array($customer_update, $login_customer);
             
             }catch(PDOException $e){
                 return'問題が発生しました';

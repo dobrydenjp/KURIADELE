@@ -25,14 +25,13 @@
     </head>
     <body>
         <div class='container-fluid sticky-top'>
-            <div class='row  header '>
-                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='col-lg offset-1 col-lg-1 px-0'><a href='mypage.php'><?= $login_customer->name ?>様<br>マイページ</a></span>
-                <span class='col-lg-4 px-0 span_a'>
-                    <a href='login_product.php' class='span_a'>商品情報</a>
-                    <a href='carts.php' class='span_a'>カート</a>
-                    <a href='purchases.php' class='span_a'>購入履歴</a>
-                    <a href='index.php' class='span_a'>ログアウト</a>
+            <div class='row header'>
+                <a href='mypage.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <span class='offset-lg-4 col-lg-3 px-0 span_c'>
+                    <a href='login_contact.php' class='span_d'>お問い合わせ</a>
+                    <a href='carts.php' class='span_d'>カート</a>
+                    <a href='purchases.php' class='span_d'>購入履歴</a>
+                    <a href='logout.php' class='span_d'>ログアウト</a>
                 </span>
                 
                 <span class='col-lg-1 px-0 info'>
@@ -70,19 +69,19 @@
         
         
         <div class='footer '>
-            <ul><span><a href='login_company_philosophy.php'>KURIADELEについて</a></span><br>
-                <li>代表挨拶</li>
-                <li>事業計画</li>
-                <li>展望</li>
+            <ul><span>KURIADELEについて</span><br>
+                <li><a href='login_company_philosophy.php'>企業紹介</a></li>
+
             </ul>
-            <ul><span><a href='login_product.php'>取扱商品</a></span>
-                <li>商品一覧</li>
+            <ul><span>取扱商品</span>
+                <li><a href='login_product.php'>商品一覧</a></li>
             </ul>
-            <ul><span><a href='login_contact.php'>サポート</a></span>
-                <li>お問い合わせ</li>
+            <ul><span>サポート</span>
+                <li><a href='login_contact.php'>お問い合わせ</a></li>
+                <li><a href='login_change.php'>お客様情報変更</a></li>
             </ul>
-            <ul><span>SNSアカウント</span>
-            </ul>
+            <!--<ul><span>SNSアカウント</span>-->
+            <!--</ul>-->
             
         </div>
             

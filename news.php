@@ -15,7 +15,7 @@
     // 入力エラーがないならば
     if(count($news_error) === 0){
         // news登録する
-        $news = NewsDAO::insert($news);
+        NewsDAO::insert($news);
         // 登録したメッセージ表示
         $_SESSION['news_message'] = '登録が完了しました';
         // var_dump($_SESSION);
