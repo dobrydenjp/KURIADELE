@@ -45,23 +45,39 @@
         </div>
         
         <div class='customer'>取り扱い商品<br>一覧</div>
-        
-        
-        
-        <?php foreach($items as $item): ?>
-            <form method='POST' action='item_new.php'>
-                <div class='product_1'>
-                
-                    <a><?= $item->id ?></a>
-                    <img src='upload/items/<?= $item->image ?>' class='product_2'></img>
-                    <div class='product_3'><?= $item->name ?>          ￥<?= $item->price ?></div>
-                    <p class='product_4'><a href='buy.php?id=<?= $item->id ?>'>詳細ページへ</a></p>
-                                                            <!--idの情報で詳細ページへ飛べると思いました-->
-            
-                </div>
-            </form>
-        <?php endforeach; ?>
-        
+        <table class='container-fluid table col-lg-6'>
+            <div class='row'>
+                <tbody>
+                    
+                        
+                    <!--$login_customerがnull空でない時に実行-->
+                    <?php if($login_customer !== null): ?>
+                    <tr>
+                        <td class='table_td'><?= $item->id ?></td>
+                        <td class='img_td'><img src='upload/items/<?= $item->image ?>' class='product_2'></img></td>
+                        <td class='table_td'><?= $item->name  ?>
+                        <td class='table_td'>￥<?= $item->price ?></td>
+                        <td class='table_td'><?= $item->description ?></td>
+                        <td class='table_td'>
+                            <form method='POST' action='cart_in.php' class=''>
+                                <select class='select_box' name="number">
+                                    <?php for($i = 1; $i <= $item->stock; $i++): ?>
+                                        <option value='<?= $i ?>'><?= $i ?></option>
+                                    <?php endfor; ?>
+                                    
+                                個</select>
+                                <input type='submit' value='カートに入れる'>
+                                <input type="hidden" name='item_stock' value="<?= $item->stock ?>">
+                                <input type="hidden" name="item_id" value="<?= $item->id ?>">
+                            </form>
+                        </td>
+                        
+                    </tr>
+                    <?php endif; ?>
+                    
+                </tbody>
+            </div>
+        </table>
 
         <div class='footer '>
             <ul><span>KURIADELEについて</span><br>

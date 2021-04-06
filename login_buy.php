@@ -59,32 +59,39 @@
  
         
         <p class='customer'>商品情報</p>
-        
-        <div class='product_1'>
-            <a><?= $item->id ?></a>
-            <img src='upload/items/<?= $item->image ?>' class='product_2'></img>
-            <div class='product_3'><?= $item->name  ?>          ￥<?= $item->price ?></div>
-            <div><?= $item->description ?></div>
-        </div>
-        
-        <!--$login_customerがnull空でない時に実行-->
-        <?php if($login_customer !== null): ?>
-            <form method='POST' action='cart_in.php'>
-                <select class='select_box' name="number">
-                    <?php for($i = 1; $i <= $item->stock; $i++): ?>
-                        <option value='<?= $i ?>'><?= $i ?></option>
-                    <?php endfor; ?>
-                個</select>
-                <!--ＰＨＰ入力-->
-                
-                <input type="hidden" name='item_stock' value="<?= $item->stock ?>">
-                <input type="hidden" name="item_id" value="<?= $item->id ?>">
-                <input type='submit' value='カートに入れる'>
-                <!--<p class='product_4'></p>-->
-            </form>
-        
-        <?php endif; ?>
-        
+        <table class='container-fluid table col-lg-6'>
+            <div class='row'>
+                <tbody>
+                    
+                        
+                    <!--$login_customerがnull空でない時に実行-->
+                    <?php if($login_customer !== null): ?>
+                    <tr>
+                        <td class='table_td'><?= $item->id ?></td>
+                        <td class='img_td'><img src='upload/items/<?= $item->image ?>' class='product_2'></img></td>
+                        <td class='table_td'><?= $item->name  ?>
+                        <td class='table_td'>￥<?= $item->price ?></td>
+                        <td class='table_td'><?= $item->description ?></td>
+                        <td class='table_td'>
+                            <form method='POST' action='cart_in.php' class=''>
+                                <select class='select_box' name="number">
+                                    <?php for($i = 1; $i <= $item->stock; $i++): ?>
+                                        <option value='<?= $i ?>'><?= $i ?></option>
+                                    <?php endfor; ?>
+                                    
+                                個</select>
+                                <input type='submit' value='カートに入れる'>
+                                <input type="hidden" name='item_stock' value="<?= $item->stock ?>">
+                                <input type="hidden" name="item_id" value="<?= $item->id ?>">
+                            </form>
+                        </td>
+                        
+                    </tr>
+                    <?php endif; ?>
+                    
+                </tbody>
+            </div>
+        </table>
     
         
         

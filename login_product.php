@@ -61,21 +61,25 @@
             <p><?= $serch_message ?></p>
         <?php endif; ?>
         
-        
-        <?php foreach($items as $item): ?>
-            <form method='POST' action='item_new.php'>
-                <div class='product_1'>
-                
-                    <a><?= $item->id ?></a>
-                    <img src='upload/items/<?= $item->image ?>' class='product_2'></img>
-                    <div class='product_3'><?= $item->name ?>          ￥<?= $item->price ?></div>
-                    <p class='product_4'><a href='login_buy.php?id=<?= $item->id ?>'>詳細ページへ</a></p>
-                                                            
-            
-                </div>
-            </form>
-        <?php endforeach; ?>
-        
+        <table class='container-fluid table col-lg-6'>
+            <div class='row'>
+                <tbody>
+                    <?php foreach($items as $item): ?>
+                    <tr>
+                        <td class='table_td'><?= $item->id ?></td>
+                        <td class='img_td'><img src='upload/items/<?= $item->image ?>' class='product_2'></img></td>
+                        <td class='table_td'><?= $item->name ?>
+                        <td class='table_td'>￥<?= $item->price ?></td>
+                        <form method='POST' action='item_new.php'>
+                            <td class='table_td'> <a href='login_buy.php?id=<?= $item->id ?>'>詳細ページへ</a></td>
+                        </form>
+                    </tr>
+                        
+                    
+                    <?php endforeach; ?>
+                </tbody>
+            </div>
+        </table>
 
         <div class='footer '>
             <ul><span>KURIADELEについて</span><br>

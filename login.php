@@ -72,14 +72,12 @@
         <?php if($done_message !== null): ?>
             <p><?= $dene_message ?></p>
         <?php endif; ?>
-        
+
+        <div class='login_1'>ＭＹページログイン</div>
         <!--入力したメールアドレスとパスワードが登録と違う場合のエラーメッセージ表示-->
         <?php if($error_message !== null): ?>
             <p><?= $error_message ?></p>
         <?php endif; ?>
-        
-        
-        <div class='login_1'>ＭＹページログイン</div>
         <!--入力していない場合やどちらかの入力の場合エラーメッセージ表示-->
         <?php if($errors !== null): ?>
             <?php foreach($errors as $error): ?>

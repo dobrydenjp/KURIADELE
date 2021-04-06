@@ -26,22 +26,21 @@
     </head>
     <body>
         <div class='container-fluid sticky-top'>
-            <div class='row  header '>
-                <a href='admin_index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='col-lg offset-1 col-lg-1 px-0'></span>
-                <span class='col-lg-4 px-0 span_a'>
-                    <a href='admin_index.php' class='span_a'>管理者TOP</a>
-                    <a href='index.php' class='span_a'>顧客TOP</a>
-                    <a href='admin_logout.php' class='span_a'>ログアウト</a>
-                </span>    
-                
+            <div class='row header'>
+                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <span class='offset-lg-4 col-lg-3 px-0 span_a'>
+                    <a href='administrator.php' class='span_b'>管理ページへ</a>
+                    <a href='index.php' class='span_b'>顧客TOP</a>
+                    <a href='admin_logout.php' class='span_b'>ログアウト</a>
+                </span>
+
                 <span class='col-lg-1 px-0 info'>
                     <form method='POST' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                
-            
+
+
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
@@ -51,41 +50,55 @@
                 </span>
             </div>
         </div>
-        
+
         <div class='customer'>お客様一覧</div>
-        <?php foreach($customers as $customer): ?>
-            <h6 class='inquiry_id'><?= $customer->id ?></h6>
-            <div class='inquiry'>
-            
-                <p>お名前：&emsp;&emsp;<?= $customer->name  ?></p>
-                <p>カナ：&emsp;&emsp;&emsp;<?= $customer->kana_name ?></p>
-                <p>郵便番号：&emsp;<?= $customer->postal_code  ?></p>
-                <p>住所：&emsp;&emsp;&emsp;<?= $customer->address ?></p>
-                <p>お電話番号：<?= $customer->tel  ?></p>
-                <p>メールアドレス：<?= $customer->email_address ?></p>
-                <p>パスワード：<?= $customer->password ?></p>
+        
+            <div class='container-fluid  col-lg-10'>
+                <table class='table table-hover '>
+                    <thead >
+                        <tr>
+                            <th>会員番号</th>
+                            <th>お名前</th>
+                            <th>メールアドレス</th>
+                        </tr>
+                    </thead>
+                    <?php foreach($customers as $customer){ ?>
+                        
+                        <tr>
+                            
+                            <th><a href='personal.php?id=<?= $customer->id ?>'><?= $customer->id ?> </a></th>
+                            <td><?= $customer->name ?></td>
+                            <td><?= $customer->email_address ?></td>
+                        
+                        </tr>
+                        
+                    <?php } ?>
+                    
+                </table>
             </div>
-        <?php endforeach; ?>
+
+
+
+
+
+
         
-        
-        
-        <div class=corporation_1><a href='administrator.php'>管理者ページへ</a></div>
-        
-        
+
+
         <div class='footer '>
-            <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
-                <li>代表挨拶</li>
-                <li>事業計画</li>
-                <li>展望</li>
+            <ul><span>KURIADELEについて</span><br>
+                <li><a href='company_philosophy.php'>企業紹介</a></li>
+
             </ul>
-            <ul><span><a href='product.php'>取扱商品</a></span>
-                <li>商品一覧</li>
+            <ul><span>取扱商品</span>
+                <li><a href='product.php'>商品一覧</a></li>
             </ul>
-            <ul><span><a href='contact.php'>サポート</a></span>
-                <li>お問い合わせ</li>
+            <ul><span>サポート</span>
+                <li><a href='contacts.php'>お問い合わせ</a></li>
+
             </ul>
-            <ul><span>SNSアカウント</span>
-            </ul>
+            <!--<ul><span>SNSアカウント</span>-->
+            <!--</ul>-->
             
         </div>
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>

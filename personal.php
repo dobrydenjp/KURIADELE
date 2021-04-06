@@ -1,15 +1,21 @@
 <?php
-    // ログインしていない状態で管理者トップへアクセスするのを防ぐ
-    require_once 'admin_login_filter.php';
     // 外部ファイル読込
-    require_once 'admin_dao.php';
+    require_once 'customer_dao.php';
+    require_once 'purchase_dao.php';
+    require_once 'cart_dao.php';
+    // クリックされた情報をgetで取得
+    $id = $_GET['id'];
+    // print $id;
+    $customer = CustomerDAO::get_customer_by_id($id);
+    // var_dump($customer);
+    $my_purchases = PurchaseDAO::get_my_purchases($customer->id);
+    // var_dump($my_purchases);
 ?>
-
 <!doctype html>
 <html lang='ja'>
     <head>
         <meta charset='UTF-8'>
-        <title>管理者ページ</title>
+        <title>お客様一覧</title>
         <link rel='stylesheet' href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -22,15 +28,15 @@
                     <a href='administrator.php' class='span_b'>管理ページへ</a>
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_b'>ログアウト</a>
-                </span>    
-                
+                </span>
+
                 <span class='col-lg-1 px-0 info'>
                     <form method='POST' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                
-            
+
+
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
@@ -40,26 +46,60 @@
                 </span>
             </div>
         </div>
+
+        <div class='customer'>お客様情報</div>
+       
+        <table class='container-fluid list table col-lg-6 col-6'>
+            <div class='row'> 
+                <tbody>
+                    <tr>
+                        <th>お名前</th><td><?= $customer->name ?></td>
+                    </tr>
+                    <tr>
+                        <th>カタカナ</th><td><?= $customer->kana_name ?></td>
+                    </tr>
+                    <tr>
+                        <th>郵便番号</th><td><?= $customer->postal_code ?></td>
+                    </tr>
+                    <tr>
+                        <th>住所</th><td><?= $customer->address ?></td>
+                    </tr>
+                    <tr>
+                        <th>お電話番号</th><td><?= $customer->tel ?></td>
+                    </tr>
+                    <tr>
+                        <th>メールアドレス</th><td><?= $customer->email_address ?></td>
+                    </tr>
+                    <tr>
+                        <th>パスワード</th><td><?= $customer->password ?></td>
+                    </tr>
+                </tbody>
+            </div>
+        </table>
         
-        
-        <div class='customer'>管理者ページ</div>
-        <br>
-        
-        <div class='admin_a'><a href='product_change.php'>商品情報登録</a></div>
-        <div class='admin_b'><a href='inquiry_check.php'>お問い合わせ確認</a></div>
-        <div class='admin_a'><a href='customer_check.php'>登録お客様一覧</a></div>
-        <div class='admin_b'><a href='purchase_information.php'>購入一覧</a></div>
-        <div class='admin_a'><a href='company_information.php'>企業情報変更</a></div>
-        <div class='admin_b'><a href='KURIADELE_news.php'>KUREADALEnews更新</a></div>
-        <div class='admin_a'><a href='transfer_bank.php'>振込先入力</a></div>
-        
-        
-        
-        
-        
-        
+        <div class='customer'>購入情報</div>
+
+        <table class='container-fluid list table col-lg-6'>
+            <div class='row'>
+                <tbody>
+                    <?php foreach($my_purchases as $cart): ?>
+                        <tr>
+                            <td class='img_td'><img src='upload/items/<?= $cart->get_item()->image ?>' class='product_2'></img></td>
+                            <td class='table_td'>商品名：<?= $cart->get_item()->name ?></td>
+                            <td class='table_td'>商品番号：<?= $cart->get_item()->id ?></td>
+                            <td class='table_td'>購入日時：<?= $cart->created_at ?></td>
+                            <td class='table_td'>購入個数: <?= $cart->number ?></td>
+                            <td class='table_td'>金額：<?= $cart->get_item()->price ?></td>
+                        </tr>
+                            
+
+
+                    <?php endforeach; ?>
+               </tbody>
+            </div>
+        </table>
         <div class='footer '>
-            <ul><span><a href='company_philosophy.php'>KURIADELEについて</a></span><br>
+            <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
                 <li>代表挨拶</li>
                 <li>事業計画</li>
                 <li>展望</li>
@@ -72,7 +112,7 @@
             </ul>
             <ul><span>SNSアカウント</span>
             </ul>
-            
+
         </div>
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>
     <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous'></script>

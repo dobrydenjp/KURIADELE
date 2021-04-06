@@ -27,8 +27,8 @@
     if(count($errors) === 0){
         // 会員情報変更の更新
         CustomerDAO::update($customer_update, $login_customer->id);
-        $_SESSION['flash_message'] = '会員情報を変更しました';
-        header('Location: mypage.php');
+        $_SESSION['update_message'] = '会員情報を変更しました';
+        header('Location: login_change.php');
         exit;
     }else{
         // セッションにエラーメッセージをセット

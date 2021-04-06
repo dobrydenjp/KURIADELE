@@ -23,9 +23,7 @@
     // newsの情報取得
     $news = NewsDAO::get_news_id($id);
     // var_dump($news);
-    // flash_message をセッションより取得
-    $flash_message = $_SESSION['flash_message'];
-    $_SESSION['flash_message'] = null;
+    
     
     // 検索フォーム入力エラーメッセージ表示
     $search_errors = $_SESSION['search_errors'];
@@ -78,10 +76,7 @@
             <div class='top_b'><img src='camera.jpg' alt='camera'></img></div>
         </div>
         
-        <!--flash_message表示-->
-        <?php if($flash_message !== null): ?>
-        <p><?= $flash_message ?></p>
-        <?php endif; ?>
+        
         
         <!--ログイン者のメッセージ表示-->
         <?php if($login_message !== null): ?>

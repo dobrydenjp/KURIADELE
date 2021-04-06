@@ -37,13 +37,12 @@
     </head>
     <body>
         <div class='container-fluid sticky-top'>
-            <div class='row  header '>
-                <a href='admin_index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='col-lg offset-1 col-lg-1 px-0'></span>
-                <span class='col-lg-4 px-0 span_a'>
-                    <a href='admin_index.php' class='span_a'>管理者TOP</a>
-                    <a href='index.php' class='span_a'>顧客TOP</a>
-                    <a href='admin_logout.php' class='span_a'>ログアウト</a>
+            <div class='row header'>
+                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <span class='offset-lg-4 col-lg-3 px-0 span_a'>
+                    <a href='administrator.php' class='span_b'>管理ページへ</a>
+                    <a href='index.php' class='span_b'>顧客TOP</a>
+                    <a href='admin_logout.php' class='span_b'>ログアウト</a>
                 </span>    
                 
                 <span class='col-lg-1 px-0 info'>
@@ -96,19 +95,19 @@
         
         
         <div class='footer '>
-            <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
-                <li>代表挨拶</li>
-                <li>事業計画</li>
-                <li>展望</li>
+            <ul><span>KURIADELEについて</span><br>
+                <li><a href='company_philosophy.php'>企業紹介</a></li>
+
             </ul>
-            <ul><span><a href='product.php'>取扱商品</a></span>
-                <li>商品一覧</li>
+            <ul><span>取扱商品</span>
+                <li><a href='product.php'>商品一覧</a></li>
             </ul>
-            <ul><span><a href='contact.php'>サポート</a></span>
-                <li>お問い合わせ</li>
+            <ul><span>サポート</span>
+                <li><a href='contacts.php'>お問い合わせ</a></li>
+
             </ul>
-            <ul><span>SNSアカウント</span>
-            </ul>
+            <!--<ul><span>SNSアカウント</span>-->
+            <!--</ul>-->
             
         </div>
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>

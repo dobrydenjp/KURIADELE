@@ -73,7 +73,7 @@
                 $stmt->bindParam(':kana_name', $customer->kana_name, PDO::PARAM_STR);
                 $stmt->bindParam(':postal_code', $customer->postal_code, PDO::PARAM_STR);
                 $stmt->bindParam(':address', $customer->address, PDO::PARAM_STR);
-                $stmt->bindParam(':tel', $customer->tel, PDO::PARAM_STR);
+                $stmt->bindParam(':tel', $customer->address, PDO::PARAM_STR);
                 $stmt->bindParam(':email_address', $customer->email_address, PDO::PARAM_STR);
                 $stmt->bindParam(':password', $customer->password, PDO::PARAM_STR);
                 
@@ -232,8 +232,36 @@
                 self::close_connection($pdo, $stmp);
             }
         }
-    }
-    // <!--既に登録している人の情報を変更-->
+        //idから1つの商品を取得する
+        public static function get_customer_by_id($id){
+            $pdo = null;
+            $stmp = null;
+            try{
+                // データベースに接続する神様取得
+                $pdo = self::get_connection();
+                // SELECT文を実行する あいまいなまま準備する
+                $stmt = $pdo->prepare('SELECT * FROM customers WHERE id=:id');
+                // バインド処理
+                $stmt->bindParam(':id', $id , PDO::PARAM_INT);
+                // 本番実行
+                $stmt->execute();
+                // フェッチの結果を、Customerクラスのインスタンスにマッピングする
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Customer');
+                // 商品情報をCustomerクラスのインスタンスで取得
+                $customer = $stmt->fetch();
+                
+                // Customerクラスのインスタンスを返す
+                return $customer;
+                
+            }catch(PDOException $e){
+                // とりあえずnullの配列を返す
+                return null;
             
-    //         <!--それをupdateで更新する-->
+            }finally{
+                // 神様さようなら
+                self::close_connection($pdo, $stmp);
+            }
+        }
+    }
+    
 ?>

@@ -12,7 +12,10 @@
     $errors = $_SESSION['errors'];
     // エラーメッセージをセッションから破棄
     $_SESSION['errors'] = null;
-
+    // 顧客情報更新メッセージ をセッションより取得
+    $update_message = $_SESSION['lupdate_message'];
+    // 破棄
+    $_SESSION['update_message'] = null;
          
 ?>
     
@@ -56,15 +59,22 @@
         </div>
         
         <div class='customer'>お客様情報変更</div>
+        <!--顧客情報変更エラーメッセージ表示-->
         <?php if(count($errors) !== 0): ?>
-                <?php foreach($errors as $error): ?>
-                    <p><?= $error ?></p>
-                <?php endforeach; ?>
+            <?php foreach($errors as $error): ?>
+                <p><?= $error ?></p>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        <!--顧客情報更新メッセージ 表示-->
+        <?php if($update_message !== null): ?>
+            <p><?= $update_message ?></p>
         <?php endif; ?>
             
-        <p><?= $customer_update->name ?></p>
+        
         <form method='POST' action='login_update.php'>
+            <p class='caution'>入力フォームには、現在の登録情報を記載しております。</p>
             <div class='customer_information form-group row '>
+                
                 <label class='col-lg-4 col-form-label'>お名前</label>
                     <div class="col-lg-4 col-12">
                         <input type='text' name='name' class='form-control' value='<?= $login_customer->name ?>'/>
@@ -118,7 +128,6 @@
         
         
         
-        <div class=corporation_1><a href='login_contact.php'>戻る</a></div>
         <div class='footer '>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='login_company_philosophy.php'>企業紹介</a></li>

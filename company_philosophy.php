@@ -30,9 +30,9 @@
             <div class='row header'>
                 <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
                 <span class='offset-lg-4 col-lg-3 px-0 span_a'>
-                    <a href='product.php 'class='span_b'>商品情報</a>
-                    <a href='contacts.php'class='span_b'>お問い合わせ</a>
-                    <a href='login.php'class='span_b'>ログイン</a>
+                    <a href='administrator.php' class='span_b'>管理ページへ</a>
+                    <a href='index.php' class='span_b'>顧客TOP</a>
+                    <a href='admin_logout.php' class='span_b'>ログアウト</a>
                 </span>    
                 
                 <span class='col-lg-1 px-0 info'>

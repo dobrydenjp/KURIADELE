@@ -99,41 +99,44 @@
             <p><?= $delete_message ?></p>
         <?php endif; ?>
         
-        
-        <?php if($login_customer !== null): ?>
-            <?php foreach($my_carts as $cart): ?>
-                <div class='product_1'>
-                    <p>カート番号:  <?= $cart->id ?></p>
-                    <p>商品番号: <?= $cart->get_item()->id ?></p>
-                    <p>個数: <?= $cart->number ?></p>
-                    <img src='upload/items/<?= $cart->get_item()->image ?>' class='product_2'></img>
-                    <div class='product_3'><?= $cart->get_item()->name  ?>          ￥<?= $cart->get_item()->price ?></div>
-                </div>
-            
-            
-                
-                <form method='POST' action='cart_update.php'>    
-                    <select name='number' class='select_box'>
-                        <?php for($i = 1; $i <= $cart->get_item()->stock; $i++): ?>
-                            <option value='<?= $i ?>'><?= $i ?></option>
-                        <?php endfor; ?>
-                    個</select>
-                    <input type='hidden' name='id' value='<?= $cart->id ?>'>
-                    <input type='hidden' name='item_id' value='<?= $cart->item_id ?>'>
-                    <input type='submit' value='変更' class='button'/>
-                    <a href='cart_delete.php?id=<?= $cart->id ?>' class='button'>削除</a>
+        <table class='container-fluid table col-lg-6'>
+            <div class='row'>
+                <tbody>
+                    <?php if($login_customer !== null): ?>
+                        <?php foreach($my_carts as $cart): ?>
+                            <tr>
+                                <td class='table_td'>カート番号:<?= $cart->id ?></td>
+    
+                                    <td class='product_img'><img src='upload/items/<?= $cart->get_item()->image ?>'></img></td>
+                                    <td class='table_td'>商品名：<?= $cart->get_item()->name ?></p></td>
+                                    <td class='table_td'>個数：<?= $cart->number ?>&ensp;個</p></td>
+                                    <td class='table_td'>
+                                        <form method='POST' action='cart_update.php' class='box'>    
+                                            <select name='number' class='select_box '>
+                                                <?php for($i = 1; $i <= $cart->get_item()->stock; $i++): ?>
+                                                    <option value='<?= $i ?>'><?= $i ?></option>
+                                                <?php endfor; ?>
+                                            個</select>
+                                            <input type='hidden' name='id' value='<?= $cart->id ?>'>
+                                            <input type='hidden' name='item_id' value='<?= $cart->item_id ?>'>
+                                            <input type='submit' value='変更' class='button'/>
+                                            <a href='cart_delete.php?id=<?= $cart->id ?>' class='button'>削除</a>
+                                        </form>
+                                    <p>小計: ￥<?= $cart->number * $cart->get_item()->price ?>&ensp;円</p>
+                                </td>
+                                    
+                            </tr>     
+                            
+                            
+                        <?php endforeach; ?>
                     
-                    小計: ￥<?= $cart->number * $cart->get_item()->price ?> 円
-                    
-                </form>
-                
-            <?php endforeach; ?>
-            　
-            <h5>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></h5>
-            <h4>消費税込 合計金額: ￥<?= CartDAO::get_total_price($my_carts)* 1.08 ?>  </h4>
-            <a href='purchase_transfer.php?id=<?=$cart->customer_id ?>' class='btn-gradient enroll_2'>決定</a>
-        <?php endif; ?>
-        
+                        <td class='table_td'><h5>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></h5></td>
+                        <td class='table_td'><h4>消費税込 合計金額: ￥<?= CartDAO::get_total_price($my_carts)* 1.08 ?>  </h4></td>
+                        <td class='table_td'><a href='purchase_transfer.php?id=<?=$cart->customer_id ?>' class='btn-gradient enroll_2'>決定</a></td>
+                    <?php endif; ?>
+                </tbody>
+            </div>
+        </table>
             
             
         
