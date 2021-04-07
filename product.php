@@ -45,39 +45,31 @@
         </div>
         
         <div class='customer'>取り扱い商品<br>一覧</div>
+        
+        
+        
         <table class='container-fluid table col-lg-6'>
             <div class='row'>
                 <tbody>
-                    
-                        
-                    <!--$login_customerがnull空でない時に実行-->
-                    <?php if($login_customer !== null): ?>
+                    <?php foreach($items as $item): ?>
                     <tr>
                         <td class='table_td'><?= $item->id ?></td>
                         <td class='img_td'><img src='upload/items/<?= $item->image ?>' class='product_2'></img></td>
-                        <td class='table_td'><?= $item->name  ?>
-                        <td class='table_td'>￥<?= $item->price ?></td>
-                        <td class='table_td'><?= $item->description ?></td>
-                        <td class='table_td'>
-                            <form method='POST' action='cart_in.php' class=''>
-                                <select class='select_box' name="number">
-                                    <?php for($i = 1; $i <= $item->stock; $i++): ?>
-                                        <option value='<?= $i ?>'><?= $i ?></option>
-                                    <?php endfor; ?>
-                                    
-                                個</select>
-                                <input type='submit' value='カートに入れる'>
-                                <input type="hidden" name='item_stock' value="<?= $item->stock ?>">
-                                <input type="hidden" name="item_id" value="<?= $item->id ?>">
-                            </form>
-                        </td>
-                        
+                        <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
+                        <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
+                        <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
+                        <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
+                        <form method='POST' action='item_new.php'>
+                            <td class='table_td'> <a href='buy.php?id=<?= $item->id ?>'>詳細ページへ</a></td>
+                        </form>
                     </tr>
-                    <?php endif; ?>
+                        
                     
+                    <?php endforeach; ?>
                 </tbody>
             </div>
         </table>
+        
 
         <div class='footer '>
             <ul><span>KURIADELEについて</span><br>

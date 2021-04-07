@@ -60,7 +60,6 @@
         <?php if($serch_message !== null): ?>
             <p><?= $serch_message ?></p>
         <?php endif; ?>
-        
         <table class='container-fluid table col-lg-6'>
             <div class='row'>
                 <tbody>
@@ -68,18 +67,22 @@
                     <tr>
                         <td class='table_td'><?= $item->id ?></td>
                         <td class='img_td'><img src='upload/items/<?= $item->image ?>' class='product_2'></img></td>
-                        <td class='table_td'><?= $item->name ?>
-                        <td class='table_td'>￥<?= $item->price ?></td>
-                        <form method='POST' action='item_new.php'>
-                            <td class='table_td'> <a href='login_buy.php?id=<?= $item->id ?>'>詳細ページへ</a></td>
-                        </form>
+                        <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
+                        <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
+                        <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
+                        <td class='table_td'>
+                            <form method='POST' action='item_buy.php'>
+                                <input type='submit' value='詳細ページへ'>
+                                <input type="hidden" name='id' value="<?= $item->id ?>">
+                            </form>
+                        </td>
                     </tr>
-                        
-                    
+                                
                     <?php endforeach; ?>
                 </tbody>
             </div>
         </table>
+    
 
         <div class='footer '>
             <ul><span>KURIADELEについて</span><br>

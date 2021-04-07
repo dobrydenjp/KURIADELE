@@ -8,6 +8,9 @@
     // セッション開始
     // session_start();
     // print 'OK';
+    // ログイン者の情報取得
+    $login_customer = $_SESSION['login_customer'];
+    
     $id = null;
     // $idをGETで取得
     if(isset($_GET['id'])){
@@ -15,10 +18,25 @@
     }
     // 登録した商品情報をDAOからid情報で取得
     $item = ItemDAO::get_item_by_id($id);
-    // var_dump($item);
+    var_dump($item);
+    // // 在庫がないならば
+    if($item->stock <= 0){
+        // login_buyにて在庫なしのメッセージを表示する
+        $_SESSION['no_stock'] = '在庫はありません';
+        // var_dump($_SESSION);
+        header('Location: login_buy.php');
+        exit;
+        // カートに入れるボタンはなくなるようにする
+        
+    }else{ // 在庫があるならば
+        // 詳細ページにセレクトボックスに数字が入る
+        header('Location: login_buy.php');
+        exit;
+    }
     
-    // ログイン者の情報取得
-    $login_customer = $_SESSION['login_customer'];
+    // 在庫がないメッセージ表示
+    $no_stock_message = $_SESSION['no_stock'];
+    var_dump($no_stock_message);
 ?>
 <!doctype html>
 <thml lang='ja'>
@@ -62,17 +80,17 @@
         <table class='container-fluid table col-lg-6'>
             <div class='row'>
                 <tbody>
-                    
-                        
                     <!--$login_customerがnull空でない時に実行-->
                     <?php if($login_customer !== null): ?>
                     <tr>
                         <td class='table_td'><?= $item->id ?></td>
-                        <td class='img_td'><img src='upload/items/<?= $item->image ?>' class='product_2'></img></td>
-                        <td class='table_td'><?= $item->name  ?>
-                        <td class='table_td'>￥<?= $item->price ?></td>
-                        <td class='table_td'><?= $item->description ?></td>
+                        <td><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
+                        <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
+                        <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
+                        <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
+                        <td class='table_td'>商品説明：<?= $item->description ?></td>
                         <td class='table_td'>
+                            
                             <form method='POST' action='cart_in.php' class=''>
                                 <select class='select_box' name="number">
                                     <?php for($i = 1; $i <= $item->stock; $i++): ?>

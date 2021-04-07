@@ -25,59 +25,48 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='container-fluid'>
-            <div class='row  header '>
-                <a href='index.php' class='logo'><span class='col-auto'>KURIADELE</span></a>
+        <div class='container-fluid sticky-top'>
+            <div class='row header'>
+                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <span class='offset-lg-4 col-lg-3 px-0 span_a'>
+                    <a href='product.php 'class='span_b'>商品情報</a>
+                    <a href='contacts.php'class='span_b'>お問い合わせ</a>
+                    <a href='login.php'class='span_b'>ログイン</a>
+                </span>    
                 
-                <span class='offset-3 col-auto'><a href='product.php'>商品情報</a></span>
-                <span class='col-auto '><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='col-auto '><a href='login.php'>ログイン</a></span>
-        
-                <span class='info'>
-                    <form method='POST' action='送信先'>
-                        <input type='text' name=''/><input type='submit' name='' value='検索'/>
+                <span class='col-lg-1 px-0 info'>
+                    <form method='POST' action='search.php' class='info'>
+                        <input type='search' name='name'/>
+                        <input type='submit' value='検索'/>
                     </form>
-                </span>
+                
             
-                <div class='dropdown-menu_button'>
-                    <button type='button' class='btn btn-light dropdown-toggle' data-toggle='dropdown'>
-                    </button>
-                    <div class='dropdown-menu'>
-                        <a class='dropdown-item' href='#'><a href='corporate_philosophy.php'>KURIADELEについて</a>
+                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
+                    <div class="dropdown-menu">
+                        <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
                         <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>
                     </div>
-                </div>
+                </span>
             </div>
         </div>
         
         <p class='customer'>商品情報</p>
-        
-        <div class='product_1'>
-            <a><?= $item->id ?></a>
-            <img src='upload/items/<?= $item->image ?>' class='product_2'></img>
-            <div class='product_3'><?= $item->name  ?>          ￥<?= $item->price ?></div>
-            <div><?= $item->description ?></div>
-        </div>
-        
-        <!--$login_customerがnull空でない時に実行-->
-        <?php if($login_customer !== null): ?>
-        <form method='POST' action='cart_in.php'>
-            <select class='select_box' name="number">
-                <?php for($i = 1; $i <= $item->stock; $i++): ?>
-                <option value='<?= $i ?>'><?= $i ?></option>
-                <?php endfor; ?>
-            個</select>
-            <!--ＰＨＰ入力-->
-            <input type="hidden" name="item_id" value="<?= $item->id ?>">
-            
-            
-        </form>
-        <?php ?>
-        <?php endif; ?>
-        
-        
-        
+        <table class='container-fluid table col-lg-5'>
+            <div class='row'>
+                <tbody>
+                    <tr>
+                        <td class='table_td'><?= $item->id ?></td>
+                        <td ><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
+                        <td class='table_td'><?= $item->name ?></td>
+                        <td class='table_td'>￥<?= $item->price ?></td>
+                        <td class='table_td'><?= $item->description ?></td>
+                    </tr>
+                   
+                </tbody>
+            </div>
+        </table>
+
         <h6 class='buy_2'>これより先はログイン後お手続きくださいませ。</h6>
         
         

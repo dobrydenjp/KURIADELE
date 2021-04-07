@@ -51,23 +51,25 @@
             </div>
         </div>
         <div class='customer'>購入履歴</div>
-        
-        <?php foreach($my_purchases as $cart): ?>
-        <div class='product_1'>
-            <p>購入番号:  <?= $cart->id ?></p>
-            <p>商品番号: <?= $cart->get_item()->id ?></p>
-            <img src='upload/items/<?= $cart->get_item()->image ?>' class='product_2'></img>
-            <div>購入日時： <?= $cart->created_at ?></div>
-            <div class='product_3'><?= $cart->get_item()->name ?>          ￥<?= $cart->get_item()->price ?></div>
-            <p>個数: <?= $cart->number ?></p>
-            <p>小計: ￥<?= $cart->number * $cart->get_item()->price ?></p>
-        </div>
-        <?php endforeach; ?>
-        
-        <h5>合計金額: ￥<?= CartDAO::get_total_price($my_purchases) ?></h5>
-        <h4>消費税込 合計金額: ￥<?= CartDAO::get_total_price($my_purchases)* 1.08 ?>  </h4>
-        
-        
+        <table class='container-fluid table col-lg-11'>
+            <div class='row'>
+                <tbody>
+                    <?php foreach($my_purchases as $cart): ?>
+                    <tr>
+                        <td class='purchase_id'>購入番号:<?= $cart->id ?></td>
+                        <td class='purchase_id'>商品番号: <?= $cart->get_item()->id ?></td>
+                        <td class='purchase_td'><img src='upload/items/<?= $cart->get_item()->image ?>' class='purchase_img'></img></td>
+                        <td class='purchase_td'>商品名：<?= $cart->get_item()->name ?></td>
+                        <td class='purchase_td'>購入日時： <?= $cart->created_at ?></td>
+                        <td class='purchase_td'>個数：<?= $cart->number ?>&ensp;個</td>
+                        <td class='purchase_td'>小計: ￥<?= $cart->number * $cart->get_item()->price ?>円</td>
+                        <td class='purchase_td'>消費税込金額: ￥<?= CartDAO::get_total_price($my_purchases)* 1.08 ?>円</td>
+                    </tr>     
+                    <?php endforeach; ?>
+                </tbody>            
+            </div>
+        </table>
+
         <div class='footer '>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='login_company_philosophy.php'>企業紹介</a></li>

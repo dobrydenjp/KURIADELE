@@ -20,16 +20,24 @@
     // cart命の誕生
     $cart = new Cart($customer_id, $item_id, $item_stock, $number);
     
-    
-    // // カートに1件登録
-    $cart = CartDAO::insert($cart);
-    
-    // // カート入力情報をセッションに保存
-    $_SESSION['carts'] = $cart;
-    // var_dump($_SESSION);
-    $_SESSION['cart_message'] = '商品をカートに追加しました';
-    header('Location: carts.php');
+    header('Location: login_buy.php');
     exit;
+    // }else{ // 在庫があるならば
+    //     // カートに1件登録
+    //     $cart = CartDAO::insert($cart);
+        
+    //     // カート入力情報をセッションに保存
+    //     $_SESSION['carts'] = $cart;
+    //     // var_dump($_SESSION);
+    //     $_SESSION['cart_message'] = '商品をカートに追加しました';
+    //     header('Location: carts.php');
+    //     exit;
+    
+    
+    
+    
+    
+    
     
     
 ?>

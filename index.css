@@ -95,7 +95,7 @@ a.logo:hover {
     
     font-size: 20px;
     margin-top: 2%;
-    margin-left: 5%;
+    margin-left: 15%;
     margin-bottom: 40px;
 }
 .customer_information {
@@ -127,11 +127,29 @@ a.logo:hover {
   border-bottom: none;
 }
 .enroll_2 {
-    text-align: center;
+    text-align: left;
     margin-bottom: 20px;
     margin-top: 20px;
     margin-left: 2%;
 }
+.purchase {
+    text-align: center;
+}
+.purchase_id {
+    width: 6%;
+    font-size: 11px;
+}
+.purchase_img {
+    padding-top: 2%;
+    width: 70%;
+}
+.purchase_td {
+    font-size: 11px;
+    font-family: sans-serif;
+    width: 12%;
+    text-align: center;
+}
+
 .footer {
     background-color: #D6DCE4;
     display: flex;
@@ -228,6 +246,15 @@ li {
     width: 30%;
     height: 13%;
 }
+.cart_td {
+    font-size: 11px;
+    font-family: sans-serif;
+    width: 24%;
+}
+.carts_img {
+    padding-top: 10%;
+    width: 60%;
+}
 .product_block {
     
     margin-left: 10%;
@@ -240,18 +267,21 @@ li {
     margin-top: 10%;
     float: left;
 }
-.box {
-    width: 158%;
-    margin-left: 68%;
+.select_td {
+    margin-right: -4%;
+    width: 106%;
 }
 
 .img_td {
-    width: 49%;
+    width: 50%;
+    margin-left: 12%;
+    margin-top: 4%;
 }
 .table_td {
     display: flex;
     font-size: 11px;
     font-family: sans-serif;
+    width: 100%;
 }
 
 .product_4{
@@ -262,13 +292,10 @@ li {
     padding-left: 35px;
 
 }
-.select_box {
-    text-transform: none;
-    margin-top: 7%;
-    margin-bottom: 7%;
-    margin-left: 11%;
-}
 
+.table_money {
+    text-align: right;
+}
 
 
 

@@ -56,24 +56,30 @@
         </div>
         
         <div class='customer'>入力内容確認</div>
-      
-         <?php foreach($my_carts as $cart): ?>
-        <div class='product_1'>
-            <p>カート番号:  <?= $cart->id ?></p>
-            <p>商品番号: <?= $cart->get_item()->id ?></p>
-            <img src='upload/items/<?= $cart->get_item()->image ?>' class='product_2'></img>
-            <div class='product_3'><?= $cart->get_item()->name ?>          ￥<?= $cart->get_item()->price ?></div>
-            <p>個数: <?= $cart->number ?></p>
-            <p>小計: ￥<?= $cart->number * $cart->get_item()->price ?></p>
-        </div>
-        <?php endforeach; ?>
+        <table class='container-fluid table col-lg-7'>
+            <div class='row'>
+                <tbody>
+                    <?php foreach($my_carts as $cart): ?>
+                    <tr>
+                        <td class='cart_td'>カート番号:<?= $cart->id ?></td>
+                        <td ><img src='upload/items/<?= $cart->get_item()->image ?>' class='carts_img'></img></td>
+                        <td class='table_td'>商品名：<?= $cart->get_item()->name ?></p></td>
+                        <td class='table_td'>商品名：<?= $cart->get_item()->description ?></p></td>
+                        <td class='table_td'>個数：<?= $cart->number ?>&ensp;個</p></td>
+                        <td class='table_td'>小計: ￥<?= $cart->number * $cart->get_item()->price ?>&ensp;円</td>
+                    </tr>     
+                    <?php endforeach; ?>
+                </tbody>            
+            </div>
+        </table>
+
+            <div class='container-fluid table col-lg-7 table_money'>
+                <h5>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></h5>
+                <h4>消費税込 合計金額: ￥<?= CartDAO::get_total_price($my_carts)* 1.08 ?>  </h4>
+            </div>
+            <p class='purchase'>ご入力された内容にお間違いがない方は次にお進みください</p>
         
-        <h3>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></h3>
-        
-        <div class=''>ご入力された内容にお間違いがない方は次にお進みください</div>
-        
-        <form mathod='POST' action='check_mate.php' class='enroll_1'>
-            
+        <form mathod='POST' action='check_mate.php' class='purchase'>
             <input type="submit" value="最終確認" class='btn-gradient'/>
         </form>
         

@@ -65,12 +65,31 @@
         
         <P class='customer_1'>お振込み口座</P>
         
+        <table class='container-fluid table col-lg-4'>
+            <div class='row'>
+                <tbody>
+                    <tr>
+                        <th>銀行名<td class='table_td'><?= $get_bank->bank_name ?></td></th>
+                    </tr>
+                    <tr>
+                        <th>支店名<td class='table_td'><?= $get_bank->branch_name ?></td></th>
+                    </tr>
+                    <tr>
+                        <th>預金科目<td class='table_td'><?= $get_bank->account ?></td></th>
+                    </tr>
+                    <tr>
+                        <th>口座番号<td class='table_td'><?= $get_bank->NO ?></td></th>
+                    </tr>
+                    <tr>
+                        <th>口座名義人<td class='table_td'><?= $get_bank->kana_name ?></td></th>
+                    </tr>
+   
+                </tbody>
+            </div>
+        </table>    
+            
         
-            <p><?= $get_bank->bank_name ?><?= $get_bank->branch_name ?></p>
-            <p><?= $get_bank->account ?><?= $get_bank->NO ?></p>
-            <p><?= $get_bank->kana_name ?></p>
-        
-        <form action='check.php' method='POST' class='enroll_2'>
+        <form action='check.php' method='POST' class='purchase'>
             <input type='submit' value='入力内容確認' class='btn-gradient'/>
         </form>
         
