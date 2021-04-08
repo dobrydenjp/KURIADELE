@@ -50,31 +50,14 @@
         お客様一覧ページ→名前クリック→その人の情報・購入履歴が出るok
         お問い合わせ確認を一緒のページに付ける
     ・
-
+    ・管理者　会員ページ・非会員ページで分ける
 
     html
     ・全てのページに対して、整えて見やすいものにする
     ヘッダー部分
         bootstrap使い調節 OK
         表示画面を調節 途中
-  .btn {
-  display: inline-block;
-  padding: 0.5em 1em;
-  text-decoration: none;
-  border-radius: 4px;
-  color: #ffffff;
-  background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
-  border-bottom: solid 3px #5e7fca;
-}
 
-.btn:active {
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
-  border-bottom: none;
-}  
-    
 　
 　
 
@@ -92,22 +75,8 @@
         KURIADELEnews  西暦を表示しておりindex.php には出るが、日付は出ないので出力したい
         振込口座名義人は半角カタカナ入力のみにしたいが、できない
         
-.button {
-  display       : inline-block;
-  border-radius : 5%;          /* 角丸       
-  font-size     : 12pt;        /* 文字サイズ 
-  text-align    : center;      /* 文字位置   
-  cursor        : pointer;     /* カーソル   
-  padding       : 7px 7px;     /* 余白       
-  background    : #BDD7EE;     /* 背景色     
-  color         : #007bff;     /* 文字色     
-  line-height   : 1em;         /* 1行の高さ  
-  transition    : .3s;         /* なめらか変化 
-  
-  
-}
-.button:hover {
-          
-  color         : #007bff;     /* 背景色     
-  background    : #BDD7EE;     /* 文字色     
-}
+
+
+'SELECT * FROM items ORDER BY created_at DESC, RAND()'
+'UPDATE items SET created_at = (created_at + INTERVAL 1 HOUR) image'
+<?= $images->image ?>

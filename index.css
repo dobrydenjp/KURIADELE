@@ -223,7 +223,11 @@ li {
     margin-left: 22%;
     margin-bottom: 2%;
 }
-
+.company_info {
+    vertical-align: middle;
+    display: inline;
+    line-height: 60px;
+}
 .corporation_1 {
     font-size: 14px;
     border: double;

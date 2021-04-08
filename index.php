@@ -1,16 +1,19 @@
 <?php
     // 外部ファイル読込
     require_once 'news_dao.php';
+    require_once 'item_dao.php';
     // セッション開始
     // session_start();
-    
-
     // idをnullにする
     // GETでid取得
     $id = null;
     if(isset($_GET['id'])){
         $id = $_GET['id'];
     }
+    // // データベースから商品画像を取得する
+    $images = ItemDAO::get_image($item->image);
+    // var_dump($images);
+    // 時間によって画像が変わる
     // newsの情報取得
     $news = NewsDAO::get_news_id($id);
     // var_dump($news);
@@ -65,7 +68,8 @@
         
         <div class='top_2'>
             <h4 class='customer'>取扱商品</h4>
-            <div class='top_c'><a href='product.php'><img src='camera_3.jpg' alt='camera'></img></a></div>
+            
+                <div class='top_c'><a href='product.php'><img src='upload/items/'></img></a></div>
             
         </div>
         

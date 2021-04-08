@@ -111,13 +111,13 @@
                         <input type='text' name='kana_name' class='form-control' placeholder='<?= $get_bank->kana_name ?>'/>
                     </div>
             </div>
-            <div class='enroll_2'>
+            <div class='top_d'>
                 <input type='submit' value='登録' class='btn-gradient'/>
             </div>
 
             
         </form>
-        <div class=corporation_1><a href='administrator.php'>管理者ページへ</a></div>
+        
         
         <div class='footer '>
             <ul><span>KURIADELEについて</span><br>

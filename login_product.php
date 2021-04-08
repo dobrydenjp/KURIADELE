@@ -12,7 +12,7 @@
     }
     // 登録した全ての商品情報取得
     $items = ItemDAO::get_all_items();
-    
+    // var_dump($items);
     // キーワードに類似した商品表示
     $serch_message = $_SESSION['search_message'];
     // var_dump($serch_message);
@@ -69,6 +69,7 @@
                         <td class='img_td'><img src='upload/items/<?= $item->image ?>' class='product_2'></img></td>
                         <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
                         <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
+                        <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
                         <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
                         <td class='table_td'>
                             <form method='POST' action='item_buy.php'>

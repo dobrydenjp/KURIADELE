@@ -27,7 +27,7 @@
 
     // // // itemの命誕生
     $item = new Item($name, $image, $price, $stock, $description);
-    // var_dump($item);
+    var_dump($item);
     
     
     // 入力内容のチェック

@@ -79,15 +79,15 @@
         <!--削除追加  更新機能つける-->
         
         
-        <form method='POST' action='company_new.php' class='inquiry'>
-            <div class=corporation>KURIADELEとは<textarea name="description" cols="30" rows="5" placeholder='<?= $company->description ?>'></textarea></div>
-            <div class=corporation>代表挨拶<input type="text" name="greeting" placeholder='<?= $company->greeting ?>'/></div>
-            <div class=corporation>事業計画<input type="text" name="plan" placeholder='<?= $company->plan ?>'/></div>
+        <form method='POST' action='company_new.php' class='top_d'>
+            <p class='company_info'>KURIADELEとは</p><textarea name="description" cols="30" rows="5" placeholder='<?= $company->description ?>'></textarea>
+            <p>代表挨拶<input type="text" name="greeting" value='<?= $company->greeting ?>'/></p>
+            <p>事業計画<input type="text" name="plan" value='<?= $company->plan ?>'/></p>
             
-            <input type="submit" value="更新" class='btn-gradient'/>
-
+            <div class=''>
+                <input type="submit" value="更新" class='btn-gradient'/>
+            </div>
         </form>
-        <div class=corporation_1><a href='administrator.php'>管理者ページへ</a></div>
         
         
         <div class='footer '>

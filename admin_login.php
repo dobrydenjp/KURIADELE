@@ -65,7 +65,7 @@
             <div class='login_2'>
                 メールアドレス&emsp;<input type='text' name='email_address' /><br><br>
                 パスワード&emsp;&emsp;&emsp;<input type='password' name='password'/><br>
-                <p class='enroll_2'><input type='submit' value='login' class='btn-gradient'/></p>
+                <p class='top_d'><input type='submit' value='login' class='btn-gradient'/></p>
             </div>
         </form>
         

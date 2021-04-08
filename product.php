@@ -5,7 +5,7 @@
     session_start();
     // 登録した全ての商品情報取得
     $items = ItemDAO::get_all_items();
-    
+    var_dump($items);
 ?>
 
 <!doctype html>

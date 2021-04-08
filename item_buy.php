@@ -8,6 +8,7 @@
     
     $id = $_POST['id'];
     $name = $_POST['name'];
+    $image = $_POST['image'];
     $price = $_POST['price'];
     $stock = $_POST['stock'];
     $description = $_POST['description'];

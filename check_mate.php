@@ -48,7 +48,7 @@
         <form method='POST' action='decide.php'>
             <!--登録内容（ご希望商品・お届け先・クレジットカード内容）の表示-->
             
-            <div class='enroll_1'>
+            <div class='top_d'>
             <input type="submit" value="決定" class='btn-gradient'/></div>
         </form>
         

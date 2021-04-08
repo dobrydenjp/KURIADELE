@@ -118,17 +118,23 @@
         <div class='customer'>登録内容確認</div>
         
         <!--商品情報変更画面から遷移  変更したものを表示する設定-->
-        <?php foreach($items as $item): ?>
-            <div class='product_1'>
-                <a><?= $item->id ?></a>
-                <img src='upload/items/<?= $item->image ?>' class='product_2'></img>
-                <p class='product_3'><?= $item->name ?>￥<?= $item->price ?></p>
-                
-                <p class='product_3'><?= $item->description ?></p>
+        <table class='container-fluid table col-lg-6'>
+            <div class='row'>
+                <tbody>
+                    <?php foreach($items as $item): ?>
+                    <tr>
+                        <td class='table_td'><?= $item->id ?></td>
+                        <td class='img_td'><img src='upload/items/<?= $item->image ?>' class='product_2'></img></td>
+                        <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
+                        <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
+                        <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
+                        <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
+                    </tr>
+                                
+                    <?php endforeach; ?>
+                </tbody>
             </div>
-        <?php endforeach; ?>
-        <div class=corporation_1><a href='administrator.php'>管理者ページへ</a></div>
-        
+        </table>
         
         <div class='footer '>
             <ul><span>KURIADELEについて</span><br>

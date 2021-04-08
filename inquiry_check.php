@@ -58,8 +58,9 @@
         
         <!--PHP入る-->
         <?php foreach($contacts as $contact): ?>
-            <h6 class='inquiry_id'><?= $contact->id ?></h6>
+            
             <div class='inquiry'>
+                <h6 class='inquiry_id'><?= $contact->id ?></h6>
                 <p>お名前：&emsp;&emsp;<?= $contact->name ?></p>
                 <p>件名：&emsp;&emsp;&emsp;<?= $contact->subject ?></p>
                 <p>内容：&emsp;&emsp;&emsp;<?= $contact->contact ?></p>
@@ -67,7 +68,7 @@
             </div>
         <?php endforeach; ?>
         
-        <div class=corporation_1><a href='administrator.php'>管理者ページへ</a></div>
+        
         <div class='footer '>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='company_philosophy.php'>企業紹介</a></li>
