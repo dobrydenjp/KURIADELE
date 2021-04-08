@@ -16,27 +16,14 @@
     if(isset($_GET['id'])){
         $id = $_GET['id'];
     }
-    // 登録した商品情報をDAOからid情報で取得
-    $item = ItemDAO::get_item_by_id($id);
-    var_dump($item);
-    // // 在庫がないならば
-    if($item->stock <= 0){
-        // login_buyにて在庫なしのメッセージを表示する
-        $_SESSION['no_stock'] = '在庫はありません';
-        // var_dump($_SESSION);
-        header('Location: login_buy.php');
-        exit;
-        // カートに入れるボタンはなくなるようにする
-        
-    }else{ // 在庫があるならば
-        // 詳細ページにセレクトボックスに数字が入る
-        header('Location: login_buy.php');
-        exit;
-    }
+    // // 登録した商品情報をDAOからid情報で取得
+    // $item = ItemDAO::get_item_by_id($id);
+    // var_dump($item);
+    
     
     // 在庫がないメッセージ表示
-    $no_stock_message = $_SESSION['no_stock'];
-    var_dump($no_stock_message);
+    // $no_stock_message = $_SESSION['no_stock'];
+    // var_dump($no_stock_message);
 ?>
 <!doctype html>
 <thml lang='ja'>

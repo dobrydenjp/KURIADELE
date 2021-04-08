@@ -7,16 +7,16 @@
     // 前のページ）から読込
     
     $id = $_POST['id'];
-    // $name = $_POST['name'];
-    // $price = $_POST['price'];
+    $name = $_POST['name'];
+    $price = $_POST['price'];
     $stock = $_POST['stock'];
-    // $description = $_POST['description'];
+    $description = $_POST['description'];
     
     
     // ItemDAOを使い、idの商品情報取得
-    $item = ItemDAO::get_item_by_id($id, $stock);
+    $item = ItemDAO::get_item_by_id($id);
     
-    // var_dump($item);
+    var_dump($item);
     // 在庫がないならば
     if(count($item->stock) <= 0){
         // login_buyにて在庫なしのメッセージを表示する
