@@ -81,7 +81,7 @@
                 <li><a href='product.php'>商品一覧</a></li>
             </ul>
             <ul><span>サポート</span>
-                <li><a href='contact.php'>お問い合わせ</a></li>
+                <li><a href='contacts.php'>お問い合わせ</a></li>
 
             </ul>
             <!--<ul><span>SNSアカウント</span>-->

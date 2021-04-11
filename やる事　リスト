@@ -19,10 +19,10 @@
             商品が無い表示する
     
     ・item_show.phpは使われているか確認
-    
+    search.php で非会員ページも接続されるのをはずす
 
 　  ・検索機能　作成 
-　      確認中
+　      全てのページ確認する
 　  
     ・フッター部分　会員変更リンク ok
         問い合わせフォームのところ消すok
@@ -30,6 +30,7 @@
     ・エラーメッセージ表示場所　それぞれ調節する
     ・
     ・topページの取り扱い商品の写真をデータベースから引っ張る
+        mypageも
     
     管理側
     
@@ -51,7 +52,19 @@
         お問い合わせ確認を一緒のページに付ける
     ・
     ・管理者　会員ページ・非会員ページで分ける
-
+    
+    mypage → 取扱商品 → login_product → item_buy → carts
+            ↓                           ↑
+            検索ボタン → search →       →      
+                        取扱商品一覧ページは
+                        login_product・searchはproductsで統一ページになる
+                        includeのproductsページからで呼ばれる
+                        item_buy以降のページはidによって1つの商品が取得される
+            在庫が0個になる場合
+            カートに入っているもの同じ商品の在庫以上は購入ができないようにする
+            カートに入れたら全て購入できてしまう。
+            できないようにする
+                        
     html
     ・全てのページに対して、整えて見やすいものにする
     ヘッダー部分
@@ -62,21 +75,6 @@
 　
 
         
-会員情報変更    カートと同様に入力していたが、
-                セッションで上手くいかない
-                
-ログインフィルター　
-        会員マイページmypage.php  非会員トップページindex.php ok
-        管理者ログインページadmin_login.php  管理者マイページのindex.php ok
-        についてそれぞれログインフィルターをかけたいがかからない ok
-        
-        
-管理側
-        KURIADELEnews  西暦を表示しておりindex.php には出るが、日付は出ないので出力したい
-        振込口座名義人は半角カタカナ入力のみにしたいが、できない
-        
 
 
-'SELECT * FROM items ORDER BY created_at DESC, RAND()'
-'UPDATE items SET created_at = (created_at + INTERVAL 1 HOUR) image'
-<?= $images->image ?>
+

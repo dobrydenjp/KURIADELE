@@ -86,35 +86,7 @@
                 return null;
             }
         }
-        // 登録した画像を取得するメソッド
-        public static function get_image($item){
-            $pdo = null;
-            $stmp = null;
-            try{
-                // データベースに接続する神様取得
-                $pdo = self::get_connection();
-                // SELECT文を実行する あいまいなまま準備する
-                $stmt = $pdo->prepare('SELECT * FROM items ORDER BY created_at DESC, RAND()');
-                // 本番実行
-                $stmt->execute();
-                // フェッチの結果を、Itemクラスのインスタンスにマッピングする
-                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Item');
-                // 商品情報をItemクラスのインスタンスで取得
-                $images = $stmt->fetch();
-                
-                // Itemクラスのインスタンスを返す
-                return $images;
-                
-            }catch(PDOException $e){
-                // とりあえずnullの配列を返す
-                return null;
-            
-            }finally{
-                // 神様さようなら
-                self::close_connection($pdo, $stmp);
-            }
         
-        }
         // 全ての商品を取得するメソッド
         public static function get_all_items(){
             $pdo = null;

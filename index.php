@@ -10,10 +10,16 @@
     if(isset($_GET['id'])){
         $id = $_GET['id'];
     }
-    // // データベースから商品画像を取得する
-    $images = ItemDAO::get_image($item->image);
-    // var_dump($images);
-    // 時間によって画像が変わる
+    // データベースから商品画像を取得する
+    // $images = ItemDAO::get_image($item->image);
+    // データベースから全商品を取得
+    $items = ItemDAO::get_all_items();
+    // var_dump($items);
+    // 表示したい画像をさいころを振って決める
+    $rand = mt_rand(0, count($items) - 1);
+    // print $rand;
+    $items = $items[$rand];
+    // var_dump($items);
     // newsの情報取得
     $news = NewsDAO::get_news_id($id);
     // var_dump($news);
@@ -69,7 +75,7 @@
         <div class='top_2'>
             <h4 class='customer'>取扱商品</h4>
             
-                <div class='top_c'><a href='product.php'><img src='upload/items/'></img></a></div>
+                <div class='top_c'><a href='product.php'><img src='upload/items/<?= $items->image ?>'></img></a></div>
             
         </div>
         

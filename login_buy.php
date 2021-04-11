@@ -8,19 +8,26 @@
     // セッション開始
     // session_start();
     // print 'OK';
-    // ログイン者の情報取得
-    $login_customer = $_SESSION['login_customer'];
+    $item = $_GET['id'];
+    $item = $_GET['name'];
+    $item = $_GET['stock'];
+    $item = $_GET['price'];
+    $item = $_GET['description'];
+    // var_dump($item);
     
     $id = null;
     // $idをGETで取得
     if(isset($_GET['id'])){
         $id = $_GET['id'];
     }
+    
     // // 登録した商品情報をDAOからid情報で取得
-    // $item = ItemDAO::get_item_by_id($id);
-    // var_dump($item);
+    $item = ItemDAO::get_item_by_id($id);
+    var_dump($item);
+    // ログイン者の情報取得
     
-    
+    // ログイン者の情報取得
+    $login_customer = $_SESSION['login_customer'];
     // 在庫がないメッセージ表示
     // $no_stock_message = $_SESSION['no_stock'];
     // var_dump($no_stock_message);

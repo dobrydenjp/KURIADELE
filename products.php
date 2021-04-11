@@ -1,43 +1,11 @@
 <?php
-    // ログインフィルター
-    require_once 'login_filter.php';
-    // 外部ファイル読込
-    require_once 'cart_dao.php';
-    require_once 'customer_dao.php';
-    require_once 'purchase_dao.php';
-    require_once 'item_dao.php';
-    // セッション開始
-    session_start();
-    
-    $login_customer = $_SESSION['login_customer'];
-    
-    
-    $my_carts = CartDAO::get_my_carts($login_customer->id);
-    
 
-    // var_dump($my_carts);
-    //トランザクション処理を開始
-    // $pdo = CartDAO::get_connection()
-    // $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // $pdo->beginTransaction();
-    
-    foreach($my_carts as $cart){
-        
-        $purchase = new Purchase($cart->customer_id, $cart->item_id, $cart->number);
-        // var_dump($purchase);
-        // 購入履歴登録
-        PurchaseDAO::insert($purchase);
-        // 在庫数減少
-        ItemDAO::decrement_stock($cart);
-         // カート情報削除
-        CartDAO::delete_cart($cart->id);
-    }
 ?>
 <!doctype html>
 <html lang='ja'>
     <head>
         <meta charset='UTF-8'>
-        <title>最終確認</title>
+        <title>取り扱い商品一覧</title>
         <link rel='stylesheet' href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -52,14 +20,14 @@
                     <a href='purchases.php' class='span_d'>購入履歴</a>
                     <a href='logout.php' class='span_d'>ログアウト</a>
                 </span>
-                
+
                 <span class='col-lg-1 px-0 info'>
-                    <form method='POST' action='search.php' class='info'>
+                    <form method='GET' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                
-            
+
+
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='login_company_philosophy.php'>KURIADELEについて</a>
@@ -69,14 +37,34 @@
                 </span>
             </div>
         </div>
-        
-        <div class='customer_1'>ご注文ありがとうございました。</div>
-            
-        <div class='customer_1'>またどうぞよろしくお願い致します。</div>
-        
-        <a href='mypage.php'>
-            <div class='corporation_1'>TOPページへ戻る</div>
-        </a>
+        <div class='customer'>取り扱い商品<br>一覧</div>
+        <!--キーワードに類似した商品表示-->
+        <?php if($message !== ''): ?>
+        <p><?= $message ?></p>
+        <?php endif; ?>
+        <table class='container-fluid table col-lg-6'>
+            <div class='row'>
+                <tbody>
+                    <?php foreach($items as $item): ?>
+                    <tr>
+                        <td class='table_td'><?= $item->id ?></td>
+                        <td class='img_td'><img src='upload/items/<?= $item->image ?>' class='product_2'></img></td>
+                        <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
+                        <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
+                        <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
+                        <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
+                        <td class='table_td'>
+                            <form method='GET' action='item_buy.php'>
+                                <input type='submit' value='詳細ページへ'>
+                                <input type="hidden" name='id' value="<?= $item->id ?>">
+                            </form>
+                        </td>
+                    </tr>
+                                
+                    <?php endforeach; ?>
+                </tbody>
+            </div>
+        </table>
         
         <div class='footer '>
             <ul><span>KURIADELEについて</span><br>
@@ -92,11 +80,10 @@
             </ul>
             <!--<ul><span>SNSアカウント</span>-->
             <!--</ul>-->
-            
+
         </div>
-    <script type="text/javascript" src="JavaScript2.js"></script>
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>
     <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js' integrity='sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV' crossorigin='anonymous'></script>
     </body>
-</thml>
+</html>

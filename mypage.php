@@ -6,6 +6,7 @@
     // 外部ファイル読込
     require_once 'customer_dao.php';
     require_once 'news_dao.php';
+    require_once 'item_dao.php';
     // セッション開始
     // session_start();
     // login_checkよりlogin_messsage をセッションから取得
@@ -20,6 +21,13 @@
     if(isset($_GET['id'])){
         $id = $_GET['id'];
     }
+    // データベースから全商品を取得
+    $items = ItemDAO::get_all_items();
+    // var_dump($items);
+    // 表示したい画像をさいころを振って決める
+    $rand = mt_rand(0, count($items) - 1);
+    // print $rand;
+    $items = $items[$rand];
     // newsの情報取得
     $news = NewsDAO::get_news_id($id);
     // var_dump($news);
@@ -30,6 +38,8 @@
     // 破棄
     $_SESSION['search_errors'] = null;
     // var_dump($_SESSION);
+    // include_once 'products.php';
+
 ?>
 
 
@@ -54,7 +64,7 @@
                 </span>
                 
                 <span class='col-lg-1 px-0 info'>
-                    <form method='POST' action='search.php' class='info'>
+                    <form method='GET' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
@@ -89,7 +99,7 @@
         <?php endif; ?>
         <div class='top_2'>
             <h4 class='customer'>取扱商品</h4>
-            <div class='top_c'><a href='login_product.php'><img src='camera_3.jpg' alt='camera'></img></a></div>
+            <div class='top_c'><a href='login_product.php'><img src='upload/items/<?= $items->image ?>'></img></a></div>
             
         </div>
         

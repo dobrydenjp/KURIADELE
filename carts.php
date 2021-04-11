@@ -4,6 +4,7 @@
     // 外部ファイル読込
     require_once 'cart_dao.php';
     require_once 'customer_dao.php';
+    require_once 'item_dao.php';
     // セッション開始
     // session_start();
     // ログイン者の情報保存 login_check.phpからのセッション
@@ -14,6 +15,7 @@
     // var_dump($cart_message);
     // 破棄
     $_SESSION['cart_message'] = null;
+    
     // ログイン者のidからカート情報を取得
     $my_carts = CartDAO::get_my_carts($login_customer->id);
     // var_dump($my_carts);
@@ -39,6 +41,9 @@
     // var_dump($delete_message);
     // 破棄
     $_SESSION['delete_message'] = null;
+    // 商品の在庫が足りない場合のメッセージ取得
+    $stock_message = $_SESSION['stock_message'];
+    // var_dump($stock_message);
     
     
     
@@ -108,8 +113,9 @@
                             <td class='cart_td'>カート番号:<?= $cart->id ?></td>
                             <td ><img src='upload/items/<?= $cart->get_item()->image ?>' class='carts_img'></img></td>
                             <td class='table_td'>商品名：<?= $cart->get_item()->name ?></p></td>
-                            <td class='table_td'>商品名：<?= $cart->get_item()->description ?></p></td>
-                            <td class='table_td'>個数：<?= $cart->number ?>&ensp;個</p></td>
+                            <td class='table_td'>商品説明：<?= $cart->get_item()->description ?></p></td>
+                            <td class='table_td'>在庫数：<?= $cart->get_item()->stock ?></p></td>
+                            <td class='table_td'>購入数：<?= $cart->number ?>&ensp;個</p></td>
                             <td class='table_td'>
                                 <form method='POST' action='cart_update.php' class='select_td'>    
                                     <select name='number' class='select_box '>
@@ -133,7 +139,11 @@
             <div class='container-fluid table col-lg-7 table_money'>
                 <p>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></p>
                 <p>消費税込 合計金額: ￥<?= CartDAO::get_total_price($my_carts)* 1.08 ?></p>
-                <p ><a href='purchase_transfer.php?id=<?=$cart->customer_id ?>' class='btn-gradient '>決定</a></p>
+                <form method='POST' action='purchase_new.php'>
+                    
+                    <input type='submit' value='決定' class='btn-gradientclass'/>
+                
+                </form>
             </div>
   
         <?php endif; ?>
