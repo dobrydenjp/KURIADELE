@@ -2,7 +2,7 @@
     // ログインフィルター
     require_once 'login_filter.php';
     // 外部ファイル読込
-    require_once 'customer_dao.php';
+    require_once 'daos/customer_dao.php';
     // セクション開始
     session_start(); 
     // ログイン者の情報取得

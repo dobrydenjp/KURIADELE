@@ -1,10 +1,10 @@
 <?php
     // var_dump($_POST);
     // 外部ファイル読込
-    require_once 'cart_dao.php';
-    require_once 'customer_dao.php';
-    require_once 'purchase_dao.php';
-    require_once 'item_dao.php';
+    require_once 'daos/cart_dao.php';
+    require_once 'daos/customer_dao.php';
+    require_once 'daos/purchase_dao.php';
+    require_once 'daos/item_dao.php';
     // セッション開始
     session_start();
     // ログイン者の情報取得

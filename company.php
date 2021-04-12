@@ -1,23 +1,18 @@
 <?php
-    // 会社とは？設計図
-    class Company{
-        public $id;
-        public $description;
-        public $greeting;
-        public $plan;
-        public $days;
-        public $news;
-        public $created_at;
-        
-        public function __construct($description='', $greeting='', $plan='', $days='', $news=''){
-            $this->description = $description;
-            $this->greeting = $greeting;
-            $this->plan = $plan;
-            $this->days = $days;
-            $this->news = $news;
-            
-            
-        }
-        
+    // 外部ファイル読込
+    require_once 'daos/customer_dao.php';
+    require_once 'admin_daos/company_dao.php';
+    // セッション開始
+    session_start();
+    // idをGETで取得
+    // $idをnullにする
+    $id = null;
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
     }
+    // 現在の企業情報表示
+    $company = CompanyDAO::get_companys_id($id);
+    // var_dump($company);
+    // viewファイルの表示
+    include_once 'views/company_view.php';
 ?>

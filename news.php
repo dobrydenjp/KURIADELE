@@ -1,7 +1,7 @@
 <?php
     // var_dump($_POST);
     // 外部ファイル読込
-    require_once 'news_dao.php';
+    require_once 'admin_daos/news_dao.php';
     // セッション開始
     session_start();
     // 入力情報  保存する

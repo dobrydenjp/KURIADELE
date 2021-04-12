@@ -1,7 +1,7 @@
 <?php
     // var_dump($_POST);
     // 外部ファイル読込
-    require_once 'cart_dao.php';
+    require_once 'daos/cart_dao.php';
     // セッション開始
     session_start();
     // 前のページ（carts.php）からid読込

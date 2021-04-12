@@ -2,9 +2,9 @@
     // ログインフィルター
     require_once 'login_filter.php';
     // 外部ファイル読込
-    require_once 'cart_dao.php';
-    require_once 'customer.php';
-    require_once 'item_dao.php';
+    require_once 'daos/cart_dao.php';
+    require_once 'models/customer.php';
+    require_once 'daos/item_dao.php';
     // セッション開始
     session_start();
     // ログイン者の情報保存 login_check.phpからのセッション取得

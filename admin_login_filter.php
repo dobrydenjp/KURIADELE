@@ -1,6 +1,6 @@
 <?php
     // 外部ファイル読込
-    require_once 'admin.php';
+    require_once 'models/admin.php';
     // セッション開始
     session_start();
     // セッション情報 login_adminというニックネーム取得

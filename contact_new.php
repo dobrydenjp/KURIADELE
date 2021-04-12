@@ -1,6 +1,6 @@
 <?php
     // 外部ファイル読込
-    require_once 'contact_dao.php';
+    require_once 'admin_daos/contact_dao.php';
     // var_dump($_POST);
     // セッション開始
     session_start();

@@ -1,6 +1,6 @@
 <?php
     // 外部ファイル読込
-    require_once 'item_dao.php';
+    require_once 'daos/item_dao.php';
     // セッション開始
     session_start();
     // var_dump($_POST); // 全ての情報が入っている

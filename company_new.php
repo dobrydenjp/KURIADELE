@@ -1,6 +1,6 @@
 <?php
     // 外部ファイル読込
-    require_once 'company_dao.php';
+    require_once 'daos/company_dao.php';
     // セッション開始
     session_start();
     

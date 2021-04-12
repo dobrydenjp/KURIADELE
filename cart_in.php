@@ -1,8 +1,8 @@
 <?php
     // 外部ファイル読込
-    require_once 'customer.php';
-    require_once 'cart_dao.php';
-    require_once 'item_dao.php';
+    require_once 'models/customer.php';
+    require_once 'daos/cart_dao.php';
+    require_once 'daos/item_dao.php';
     // var_dump($_POST);    
     // セクション開始
     session_start();
@@ -30,7 +30,7 @@
     $_SESSION['carts'] = $my_carts;
     // var_dump($_SESSION);
     $_SESSION['cart_message'] = '商品をカートに追加しました';
-    header('Location: carts.php');
+    header('Location: cart.php');
     exit;
     
     

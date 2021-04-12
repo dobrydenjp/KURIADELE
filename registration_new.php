@@ -1,7 +1,7 @@
 <?php
     // var_dump($_POST);
     // 外部ファイル読込
-    require_once 'customer_dao.php';
+    require_once 'daos/customer_dao.php';
     // セッション開始
     session_start();
     // 入力情報の取得
