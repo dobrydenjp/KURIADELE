@@ -1,41 +1,15 @@
-<?php
-    // ログインフィルター
-    require_once 'admin_login_filter.php';
-    // 外部ファイル読込
-    require_once 'admin_daos/company_dao.php';
-    // セッション開始
-    // session_start();
-    // 企業情報入力エラーメッセージ表示
-    $company_error = $_SESSION['company_error'];
-    // 破棄
-    $_SESSION['company_error'] = null;
-    // var_dump($company_error);
-    // // 企業情報登録コメント表示する
-    $company_message = $_SESSION['company_message'];
-    // // 破棄
-    $_SESSION['company_message'] = null;
-    // idをGETで取得
-
-    $id = null;
-    if(isset($_GET['id'])){
-        $id = $_GET['id']; 
-    }
-    // 現在の企業情報表示
-    $company = CompanyDAO::get_companys_id($id);
-    // var_dump($company);
-?>
-
 <!doctype html>
 <html lang='ja'>
     <head>
         <meta charset='UTF-8'>
-        <title>企業情報変更</title>
+        <title>管理者ログイン</title>
         <link rel='stylesheet' href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='container-fluid sticky-top'>
+
+         <div class='container-fluid sticky-top'>
             <div class='row header'>
                 <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
                 <span class='offset-lg-4 col-lg-3 px-0 span_a'>
@@ -62,49 +36,34 @@
         </div>
         
         
-        <div class='customer'>企業情報変更</div>
-        
-        
-        <?php if($company_error !== null): ?>
-            <?php foreach($company_error as $error): ?>
-                <p><?= $error ?></p>
-            <?php endforeach; ?>
+        <div class='customer'>管理者ページログイン</div>
+        <!--ログインエラーメッセージ-->
+        <?php if($error !== null): ?>
+            <p><?= $error ?></p>
         <?php endif; ?>
-        
-        <?php if($company_message !== null): ?>
-            <p><?= $company_message ?></p>
+        <!--ログアウトメッセージ-->
+        <?php if($logout_message !== null): ?>
+            <p><?= $logout_message ?></p>
         <?php endif; ?>
-
-        
-        <!--削除追加  更新機能つける-->
-        
-        
-        <form method='POST' action='company_new.php' class='top_d'>
-            <p class='company_info'>KURIADELEとは</p><textarea name="description" cols="30" rows="5" placeholder='<?= $company->description ?>'></textarea>
-            <p>代表挨拶<input type="text" name="greeting" value='<?= $company->greeting ?>'/></p>
-            <p>事業計画<input type="text" name="plan" value='<?= $company->plan ?>'/></p>
-            
-            <div class=''>
-                <input type="submit" value="更新" class='btn-gradient'/>
+        <form action='admin_new.php' method='POST'>
+            <div class='login_2'>
+                メールアドレス&emsp;<input type='text' name='email_address' /><br><br>
+                パスワード&emsp;&emsp;&emsp;<input type='password' name='password'/><br>
+                <p class='top_d'><input type='submit' value='login' class='btn-gradient'/></p>
             </div>
         </form>
         
-        
         <div class='footer '>
-            <ul><span><a href='corporate_philosophy.php'>KURIADELEについて</a></span><br>
-                <li>代表挨拶</li>
-                <li>事業計画</li>
-                <li>展望</li>
+            <ul><span>KURIADELEについて</span><br>
+                <li><a href='company.php'>企業紹介</a></li>
+
             </ul>
-            <ul><span><a href='product.php'>取扱商品</a></span>
-                <li>商品一覧</li>
+            <ul><span>取扱商品</span>
+                <li><a href='product.php'>商品一覧</a></li>
             </ul>
-            <ul><span><a href='contact.php'>サポート</a></span>
-                <li>お問い合わせ</li>
+            <ul><span>サポート</span>
+                <li><a href='contact.php'>お問い合わせ</a></li>
             </ul>
-            <ul><span>SNSアカウント</span>
-            </ul>
-            
         </div>
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>
     <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous'></script>

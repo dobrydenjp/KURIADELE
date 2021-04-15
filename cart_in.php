@@ -22,22 +22,54 @@
     // var_dump($_GET);
     // cart命の誕生
     $cart = new Cart($customer_id, $item_id, $item_stock, $number);
-
+    // var_dump($cart);
+    
     // カートに1件登録
     $my_carts = CartDAO::insert($cart);
     // var_dump($my_carts);
-    // カート入力情報をセッションに保存
-    $_SESSION['carts'] = $my_carts;
+    
+    
+    // 同一商品をカートに入れたら新規で登録するのではなく追加で登録する
+    
+    
+    
     // var_dump($_SESSION);
+    // カート入力情報をセッションに保存
+    
+    // // カートの初期化
+    // $_SESSION['my_carts'] = $my_carts;
+    // $array[] = $_SESSION['my_carts'];
+    // // var_dump($array);
+    // // // カートの中身を取得する
+    
+    // $my_carts = $_SESSION['my_carts'];
+    // // var_dump($my_carts);
+    // // // カートに商品を追加する
+    //  $item_id = $item['id'];
+    //  var_dump($item_id);
+    // if (!isset($_SESSION['my_carts'][$item_id])){
+    //     // 注文数を増やす
+    //     $_SESSION['my_carts'][$item_id] += $my_carts[$number];
+    // }
+    // var_dump($_SESSION);
+    // カートを初期化する
+    
+    // 既にカートに入っている個数を取得
+    // 個数を0にしておく
+    // $count = 0;
+    
+    // if (!isset($_SESSION['my_carts'][$item_id])){
+    //     // 配列に商品情報を取得
+    //     $count = $_SESSION['my_carts'][$ite_id]['count'];
+    // }
+    // var_dump($count);
     $_SESSION['cart_message'] = '商品をカートに追加しました';
     header('Location: cart.php');
     exit;
     
     
-    
-    
-    
-    
-    
-    
+    //すでにカートに存在する商品を再度　カートに新規追加すると、
+    //既存のカートの商品個数が変化するのではなく、もう1つカート情報が新規に増えてしまいます。
+
+  
 ?>

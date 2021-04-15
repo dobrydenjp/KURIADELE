@@ -21,6 +21,6 @@
     // // 画面遷移
     $_SESSION['number_message'] = 'カート番号' . $id . '商品番号' . $item_id . 'の個数を' . $number . '個に変更しました';
     // var_dump($number);
-    header('Location: carts.php');
+    header('Location: cart.php');
     exit;
 ?>

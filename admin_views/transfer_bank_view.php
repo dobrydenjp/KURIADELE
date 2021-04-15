@@ -1,34 +1,3 @@
-<?php
-    // ログインしていない状態で管理者トップへアクセスするのを防ぐ
-    require_once 'admin_login_filter.php';
-    // 外部ファイル読込
-    require_once 'admin_daos/admin_dao.php';
-    // セッション開始
-    // session_start();
-    // 管理者の情報をセッションに保存
-    $login_admin = $_SESSION['login_admin'];
-    // 銀行口座入力エラーがある場合のメッセージを表示
-    $error_message = $_SESSION['error_message'];
-    // 破棄
-    $_SESSION['error_message'] = null;
-    // var_dump($error_message);
-    // 銀行口座を登録した際 bank_message をセッションから取得・表示
-    $bank_message = $_SESSION['bank_message'];
-    // var_dump($bank_message);
-    // 1度のみ表示
-    $_SESSION['bank_message'] = null;
-    // idをGETで取得
-    // $idをnullにする
-    $id = null;
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-    }
-    // 現在の口座情報を表示する
-    $get_bank = AdminDAO::get_bank_by_id($id);
-    // var_dump($get_bank);
-    // 変更できるようにする
-?>
-
 <!doctype html>
 <html lang='ja'>
     <head>
@@ -41,7 +10,7 @@
     <body>
         <div class='container-fluid sticky-top'>
             <div class='row header'>
-                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <a href='admin_index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
                 <span class='offset-lg-4 col-lg-3 px-0 span_a'>
                     <a href='administrator.php' class='span_b'>管理ページへ</a>
                     <a href='index.php' class='span_b'>顧客TOP</a>
@@ -121,19 +90,15 @@
         
         <div class='footer '>
             <ul><span>KURIADELEについて</span><br>
-                <li><a href='company_philosophy.php'>企業紹介</a></li>
+                <li><a href='company.php'>企業紹介</a></li>
 
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='product.php'>商品一覧</a></li>
             </ul>
             <ul><span>サポート</span>
-                <li><a href='contacts.php'>お問い合わせ</a></li>
-
+                <li><a href='contact.php'>お問い合わせ</a></li>
             </ul>
-            <!--<ul><span>SNSアカウント</span>-->
-            <!--</ul>-->
-            
         </div>
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>
     <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous'></script>

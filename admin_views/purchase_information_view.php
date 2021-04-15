@@ -1,25 +1,8 @@
-<?php
-    // ログインフィルター
-    require_once 'admin_login_filter.php';
-    // 外部ファイル読込
-    require_once 'daos/customer_dao.php';
-    // セッション開始
-    // session_start();
-    // idをGETで取得
-    // idをnullにする
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-    }
-    // お客様情報取得
-    $customers = CustomerDAO::get_all_humans();
-    // var_dump($customers);
-?>
-
 <!doctype html>
 <html lang='ja'>
     <head>
         <meta charset='UTF-8'>
-        <title>お客様一覧</title>
+        <title>購入一覧</title>
         <link rel='stylesheet' href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -27,20 +10,20 @@
     <body>
         <div class='container-fluid sticky-top'>
             <div class='row header'>
-                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <a href='admin_index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
                 <span class='offset-lg-4 col-lg-3 px-0 span_a'>
                     <a href='administrator.php' class='span_b'>管理ページへ</a>
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_b'>ログアウト</a>
-                </span>
-
+                </span>    
+                
                 <span class='col-lg-1 px-0 info'>
                     <form method='POST' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-
-
+                
+            
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
@@ -50,56 +33,37 @@
                 </span>
             </div>
         </div>
-
-        <div class='customer'>お客様一覧</div>
         
-            <div class='container-fluid  col-lg-10'>
-                <table class='table table-hover '>
-                    <thead >
-                        <tr>
-                            <th>会員番号</th>
-                            <th>お名前</th>
-                            <th>メールアドレス</th>
-                        </tr>
-                    </thead>
-                    <?php foreach($customers as $customer){ ?>
-                        
-                        <tr>
-                            
-                            <th><a href='personal.php?id=<?= $customer->id ?>'><?= $customer->id ?> </a></th>
-                            <td><?= $customer->name ?></td>
-                            <td><?= $customer->email_address ?></td>
-                        
-                        </tr>
-                        
-                    <?php } ?>
-                    
-                </table>
+        <div class='customer'>購入一覧</div>
+        <!--何を購入したか表示-->
+        <?php foreach($purchases as $purchase): ?>
+            <div class='product_1'>
+                <p>購入番号:  <?= $cart->id ?></p>
+                <p>商品番号: <?= $cart->get_item()->id ?></p>
+                <img src='upload/items/<?= $cart->get_item()->image ?>' class='product_2'></img>
+                <div>購入日時： <?= $cart->created_at ?></div>
+                <div class='product_3'><?= $cart->get_item()->name ?>          ￥<?= $cart->get_item()->price ?></div>
+                <p>個数: <?= $cart->number ?></p>
+                <p>小計: ￥<?= $cart->number * $cart->get_item()->price ?></p>
             </div>
-
-
-
-
-
-
+        <?php endforeach; ?>
         
-
-
+        
+        
+        
+        
+        <div class=corporation_1><a href='administrator.php'>管理者ページへ</a></div>
         <div class='footer '>
             <ul><span>KURIADELEについて</span><br>
-                <li><a href='company_philosophy.php'>企業紹介</a></li>
+                <li><a href='company.php'>企業紹介</a></li>
 
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='product.php'>商品一覧</a></li>
             </ul>
             <ul><span>サポート</span>
-                <li><a href='contacts.php'>お問い合わせ</a></li>
-
+                <li><a href='contact.php'>お問い合わせ</a></li>
             </ul>
-            <!--<ul><span>SNSアカウント</span>-->
-            <!--</ul>-->
-            
         </div>
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>
     <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous'></script>

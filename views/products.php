@@ -2,7 +2,7 @@
 <html lang='ja'>
     <head>
         <meta charset='UTF-8'>
-        <title>取り扱い商品 一覧ジ</title>
+        <title>取り扱い商品 一覧</title>
         <link rel='stylesheet' href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -51,7 +51,7 @@
                         <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
                         <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
                         <td class='table_td'>
-                            <form method='GET' action='item_buy.php'>
+                            <form method='GET' action='login_item_buy.php'>
                                 <input type='submit' value='詳細ページへ'>
                                 <input type="hidden" name='id' value="<?= $item->id ?>">
                             </form>

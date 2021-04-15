@@ -81,7 +81,6 @@
                 
                 // 全カート情報を取得
                 $my_carts = $stmt->fetchAll();
-    
                 return $my_carts;
                 
             }catch(PDOException $e){
@@ -176,5 +175,6 @@
                 self::close_connection($pdo, $stmp);
             }
         }
+
     }
 ?>

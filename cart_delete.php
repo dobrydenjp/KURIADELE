@@ -13,6 +13,6 @@
     $_SESSION['delete_message'] = 'カート番号' . $id . 'の商品を削除しました。';
     // var_dump ($_SESSION);
     // 画面遷移
-    header('Location: carts.php') ;
+    header('Location: cart.php') ;
     exit;
 ?>
