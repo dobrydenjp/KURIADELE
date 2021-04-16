@@ -16,10 +16,11 @@
 
     // 選択された情報を保存
     $customer_id = $login_customer->id;
+    // $id = $_GET['id'];
     $item_id = $_GET['item_id'];
     $item_stock = $_GET['item_stock'];
     $number = $_GET['number'];
-    // var_dump($_GET);
+    var_dump($_GET);
     // cart命の誕生
     $cart = new Cart($customer_id, $item_id, $item_stock, $number);
     // var_dump($cart);
