@@ -54,7 +54,7 @@
                         <!--$login_customerがnull空でない時に実行-->
                         <?php if($login_customer !== null): ?>
                           
-                            <form method='GET' action='cart_in.php'>
+                            <form method='POST' action='cart_in.php'>
                                 <select class='select_box' name="number">
                                     <?php for($i = 1; $i <= $item->stock; $i++): ?>
                                         <option value='<?= $i ?>'><?= $i ?></option>

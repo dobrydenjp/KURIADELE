@@ -15,7 +15,7 @@
                 <span class='offset-lg-4 col-lg-3 px-0 span_a'>
                     <a href='administrator.php' class='span_b'>管理ページへ</a>
                     <a href='index.php' class='span_b'>顧客TOP</a>
-                    <a href='admin_logout.php' class='span_b'>ログアウト</a>
+                    <a href='admin_login.php' class='span_b'>ログイン</a>
                 </span>    
                 
                 <span class='col-lg-1 px-0 info'>

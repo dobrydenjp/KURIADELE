@@ -70,6 +70,7 @@
                 $pdo = self::get_connection();
                 // SELECT文を実行する準備
                 $stmt = $pdo -> prepare("SELECT * FROM carts WHERE customer_id=:customer_id");
+
                 // バインド処理（あやふやだった箇所を実データで埋める）
                 $stmt->bindParam(':customer_id', $customer_id, PDO::PARAM_INT);
                 
@@ -173,6 +174,38 @@
                 
             }finally{
                 self::close_connection($pdo, $stmp);
+            }
+        }
+        // 顧客番号を指定した場合の item_id を取得するメソッド
+        public static function find_cart($customer_id, $item_id){
+            $pdo = null;
+            $stmp = null;
+            try{
+                // データベースに接続する神様取得
+                $pdo = self::get_connection();
+                // update文を実行する準備（数字はわざとあやふやにする
+                $stmt= $pdo -> prepare('INSERT INTO carts ($customer_id,item_id, amount)VALUES(?,?,?)');
+                // バインド処理（あやふやだった数字を実データで埋める）
+                $stmt->bindValue(':item_id', $item_id, PDO::PARAM_INT);
+                $stmt->bindValue(':$customer_id', $customer_id, PDO::PARAM_INT);
+                print 'OK1';
+                // SELECT文本番実行
+                $stmt->execute();
+                print 'OK2';
+                // フェッチの結果を、Cartクラスのインスタンスにマッピングする
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Cart');
+                print 'OK3';
+                // カート情報を取得
+                $carts = $stmt->fetch();
+                print 'OK4';
+                return 'カート追加しました';
+                
+            }catch(PDOException $e){
+                
+                return "問題が発生しました<br>" . $e->getMessage();
+                
+            }finally{
+               self::close_connection($pdo, $stmp); 
             }
         }
 
