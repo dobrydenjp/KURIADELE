@@ -16,15 +16,17 @@
 
     // 選択された情報を保存
     $customer_id = $login_customer->id;
-    
+    // $customer_id = $_POST['customer_id'];
+    // var_dump($customer_id);
     $item_id = $_POST['item_id'];
     $item_stock = $_POST['item_stock'];
     $number = $_POST['number'];
-    // var_dump($_POST);
+    var_dump($_POST);
     
     // ログイン顧客が $item_id の商品を既にカートに入れているか判定
-    $cart = cartDAO::find_cart($customer_id->id, $item_id);
+    $cart = cartDAO::find_cart($item_id, $number, $customer_id);
     var_dump($cart);
+    
     // もし、そんなカートが既にcartsテーブルに存在すれば、
     // if($cart !== false){
     //     // カート情報の更新処理
@@ -33,15 +35,15 @@
     // }else{
     //     // 既にカートに商品が入ってあればカートインスタンス取得する
     //     // cart命の誕生
-    //     $cart = new Cart($customer_id, $item_id, $item_stock, $number);
-    //     // var_dump($cart);
-    //      // カートに1件登録
-    //     $cart = CartDAO::insert($cart);
-    //     $_SESSION['carts'] = $cart;
-    //     // var_dump($carts);
-    //     $_SESSION['cart_message'] = '商品をカートに追加しました';
-    //     header('Location: cart.php');
-    //     exit;
+        // $cart = new Cart($customer_id, $item_id, $item_stock, $number);
+        // // var_dump($cart);
+        //  // カートに1件登録
+        // $cart = CartDAO::insert($cart);
+        // $_SESSION['carts'] = $cart;
+        // var_dump($carts);
+        // $_SESSION['cart_message'] = '商品をカートに追加しました';
+        // header('Location: cart.php');
+        // exit;
     // }
     
     

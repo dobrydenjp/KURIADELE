@@ -7,13 +7,7 @@
     require_once 'daos/cart_dao.php';
     // セッション開始
     // session_start();
-    // GETで選択された商品情報取得
-    // $item = $_GET['id'];
-    // $item = $_GET['name'];
-    // $item = $_GET['stock'];
-    // $item = $_GET['price'];
-    // $item = $_GET['description'];
-    // var_dump($item);
+
     // // $idをGETで取得
     $id = null;
     if(isset($_GET['id'])){

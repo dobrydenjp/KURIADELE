@@ -62,6 +62,7 @@
                                     
                                 個</select>
                                 <input type='submit' value='カートに入れる'>
+                                <input type="hidden" name='customer_id' value="<?= $login_customer->id ?>">
                                 <input type="hidden" name='item_stock' value="<?= $item->stock ?>">
                                 <input type="hidden" name="item_id" value="<?= $item->id ?>">
                             </form>

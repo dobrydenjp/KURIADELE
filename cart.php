@@ -21,26 +21,7 @@
     // var_dump($my_carts);
     $_SESSION['my_carts'] = $my_carts;
     $cart = $_SESSION['my_carts'];
-    // カートに入れた状態で、
-    // 新しく同じ商品をカートに入れるボタンを押したら、
-    // 個数だけが増える
-    // カートの初期化
-    // $_SESSION['my_carts'] = $my_carts->item_id;
-    // var_dump($_SESSION);
-    // $array[] = $_SESSION['my_carts'];
-    // var_dump($array);
-    // // カートの中身を取得する
-    
-    // $my_carts = $_SESSION['my_carts'];
-    // var_dump($my_carts);
-    // // // カートに商品を追加する
-    // $item_id = $item_id['item_id'];
-    // // var_dump($item_id);
-    // if (!isset($_SESSION['my_carts'][$item_id])){
-    //     // 注文数を増やす
-    //     $_SESSION['my_carts'][$item_id] += $my_carts[$number];
-    // }
-    // var_dump($_SESSION);
+
     
     // カートに何もない状態でも決定ボタンが押せてしまいます。
     // カートに商品が入っていなければ
