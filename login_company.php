@@ -14,7 +14,6 @@
     $login_customer = $_SESSION['login_customer'];
     // 現在の企業情報表示
     $company = CompanyDAO::get_companys_id($id);
-    // var_dump($company);
     // viewファイルの表示
     include_once 'views/login_company_view.php';
 ?>

@@ -12,10 +12,8 @@
     $kana_name = $_POST['kana_name'];
     // Bank命の誕生
     $bank = new Bank($bank_name, $branch_name, $account, $NO, $kana_name);
-    
     // エラーチェック
     $error_message = AdminDAO::validate($bank);
-    // var_dump($error_message);
     // 入力エラーがないならば
     if(count($error_message) === 0){
         // 登録する 同時に下部に登録情報表示する
@@ -25,12 +23,10 @@
         $_SESSION['bank_message'] = $bank_message;
         header('Location: transfer_bank.php');
         exit;
-        // var_dump($bank);
-    
     }else{  // 入力エラーがあるならば
             // 登録できない
         $_SESSION['error_message'] = $error_message;
-        // var_dump($error_message);
+        // 画面遷移
         header('Location: transfer_bank.php');
         exit;
     }

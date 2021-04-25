@@ -9,7 +9,6 @@
     $password = $_POST['password'];
     // 入力内容のチェック（入力項目が空でないか？メールアドレスの形の入力か？のみ簡易チェック  daoにより）
     $errors = CustomerDAO::check($email_address, $password);
-    
     // 入力エラーがないならば
     if(count($errors) === 0){
         // 見つかれば
@@ -26,12 +25,14 @@
             }else{ // 見つからなければ
             // エラーメッセージをセッションに保存
             $_SESSION['error_message'] = '入力されたメールアドレスとパスワードを持った会員はいません';
+            // 画面遷移
             header('Location: login.php');
             exit;
         }
     }else{ // 入力エラーがあるならば
         // エラーメッセージをセッションに保存
         $_SESSION['errors'] = $errors;
+        // 画面遷移
         header('Location: login.php');
         exit;
     }

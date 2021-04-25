@@ -7,11 +7,8 @@
     require_once 'daos/cart_dao.php';
     // セッション開始
     session_start();
-    
     $login_customer = $_SESSION['login_customer'];
-    
     $my_purchases = PurchaseDAO::get_my_purchases($login_customer->id);
-    // var_dump($my_purchases);
     // viewファイルの表示
     include_once 'views/purchases_view.php';
 ?>

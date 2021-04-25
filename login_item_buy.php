@@ -5,9 +5,6 @@
     require_once 'daos/item_dao.php';
     require_once 'models/customer.php';
     require_once 'daos/cart_dao.php';
-    // セッション開始
-    // session_start();
-
     // // $idをGETで取得
     $id = null;
     if(isset($_GET['id'])){
@@ -15,10 +12,8 @@
     }
     // // ItemDAOを使い、idの商品情報取得 出力
     $item = ItemDAO::get_item_by_id($id);
-    // var_dump($item);
     // 選択されたidの商品情報をセッションで取得
     $_SESSION['item'] = $item;
-    // var_dump($_SESSION);
     // ログイン者の情報取得
     $login_customer = $_SESSION['login_customer'];
     // viewファイルの表示

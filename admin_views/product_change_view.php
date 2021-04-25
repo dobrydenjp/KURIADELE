@@ -16,24 +16,19 @@
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_b'>ログアウト</a>
                 </span>    
-                
                 <span class='col-lg-1 px-0 info'>
                     <form method='POST' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                
-            
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
-                        <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>
                     </div>
                 </span>
             </div>
         </div>
-        
         <div>
             <p class=customer>商品情報登録</p>
         </div>
@@ -75,16 +70,11 @@
                         <input type='text' name='description' class='form-control'/>
                     </div>
             </div>
-        
-            
-            
             <div class='enroll_1'>
                 <input type='submit' value='登録'/>
             </div>
-            
         </form>
         <div class='customer'>登録内容確認</div>
-        
         <!--商品情報変更画面から遷移  変更したものを表示する設定-->
         <table class='container-fluid table col-lg-6'>
             <div class='row'>
@@ -98,22 +88,16 @@
                         <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
                         <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
                     </tr>
-                                
                     <?php endforeach; ?>
                 </tbody>
             </div>
         </table>
-        
         <div class='footer '>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='product.php'>商品一覧</a></li>
-            </ul>
-            <ul><span>サポート</span>
-                <li><a href='contact.php'>お問い合わせ</a></li>
             </ul>
         </div>
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>

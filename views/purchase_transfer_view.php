@@ -17,14 +17,11 @@
                     <a href='purchases.php' class='span_d'>購入履歴</a>
                     <a href='logout.php' class='span_d'>ログアウト</a>
                 </span>
-                
                 <span class='col-lg-1 px-0 info'>
-                    <form method='GET' action='search.php' class='info'>
+                    <form method='GET' action='login_search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                
-            
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='login_company.php'>KURIADELEについて</a>
@@ -39,9 +36,7 @@
             <p><?= $pay_message ?></p>
         <?php endif ;?>
         <div class='buy_1'>支払方法はお振込みのみです</div>
-        
         <P class='customer_1'>お振込み口座</P>
-        
         <table class='container-fluid table col-lg-4'>
             <div class='row'>
                 <tbody>
@@ -64,15 +59,12 @@
                 </tbody>
             </div>
         </table>    
-            
-        
         <form action='check.php' method='POST' class='purchase'>
             <input type='submit' value='入力内容確認' class='btn-gradient'/>
         </form>
-        <div class='footer '>
+        <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='login_company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='login_product.php'>商品一覧</a></li>

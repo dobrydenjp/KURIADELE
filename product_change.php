@@ -10,12 +10,12 @@
     $login_admin = $_SESSION['login_admin'];
     // 登録できないメッセージ表示
     $errors = $_SESSION['errors'];
-    //破棄
+    // 1度のみ表示
     $_SESSION['errors'] = null;
-    // var_dump($errors);
+    //
     // 無事に商品登録完了したメッセージ表示
     $flash_message = $_SESSION['register_message'];
-    // 破棄
+    // 1度のみ表示
     $_SESSION['register_message'] = null;
     // idをGETで取得
     // $idをnullにする
@@ -26,7 +26,6 @@
     }
     // 登録した全ての商品情報表示する
     $items = ItemDAO::get_all_items();
-    // var_dump($items);
     // viewファイルの表示
     include_once 'admin_views/product_change_view.php';
 ?>

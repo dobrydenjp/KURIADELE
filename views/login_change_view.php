@@ -17,14 +17,11 @@
                     <a href='purchases.php' class='span_d'>購入履歴</a>
                     <a href='logout.php' class='span_d'>ログアウト</a>
                 </span>
-                
                 <span class='col-lg-1 px-0 info'>
-                    <form method='GET' action='search.php' class='info'>
+                    <form method='GET' action='login_search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                
-            
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='login_company.php'>KURIADELEについて</a>
@@ -43,14 +40,11 @@
         <?php endif; ?>
         <!--顧客情報更新メッセージ 表示-->
         <?php if($update_message !== null): ?>
-            <p><?= $update_message ?></p>
+            <p><?= $message ?></p>
         <?php endif; ?>
-            
-        
         <form method='POST' action='login_update.php'>
             <p class='caution'>入力フォームには、現在の登録情報を記載しております。</p>
             <div class='customer_information form-group row '>
-                
                 <label class='col-lg-4 col-form-label'>お名前</label>
                     <div class="col-lg-4 col-12">
                         <input type='text' name='name' class='form-control' value='<?= $login_customer->name ?>'/>
@@ -74,7 +68,6 @@
                         <input type="text" name="address" class='form-control' value='<?= $login_customer->address ?>'/>
                     </div>
             </div>
-            
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>お電話番号</label>
                     <div class="col-lg-4 col-12">
@@ -93,21 +86,13 @@
                         <input type='password' name='password' class='form-control'/>
                     </div>
             </div> 
-            
-            
             <div class='enroll_1'>
                 <input type='submit' value='登録' class='btn-gradient'/>
             </div>
-            
         </form>
-        
-        
-        
-        
-        <div class='footer '>
+        <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='login_company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='login_product.php'>商品一覧</a></li>

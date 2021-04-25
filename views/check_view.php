@@ -17,14 +17,11 @@
                     <a href='purchases.php' class='span_d'>購入履歴</a>
                     <a href='logout.php' class='span_d'>ログアウト</a>
                 </span>
-                
                 <span class='col-lg-1 px-0 info'>
-                    <form method='GET' action='search.php' class='info'>
+                    <form method='GET' action='login_search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                
-            
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='login_company.php'>KURIADELEについて</a>
@@ -34,7 +31,6 @@
                 </span>
             </div>
         </div>
-        
         <div class='customer'>入力内容確認</div>
         <table class='container-fluid table col-lg-7'>
             <div class='row'>
@@ -52,21 +48,17 @@
                 </tbody>            
             </div>
         </table>
-
-            <div class='container-fluid table col-lg-7 table_money'>
-                <h5>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></h5>
-                <h4>消費税込 合計金額: ￥<?= CartDAO::get_total_price($my_carts)* 1.08 ?>  </h4>
-            </div>
-            <p class='purchase'>ご入力された内容にお間違いがない方は次にお進みください</p>
-        
+        <div class='container-fluid table col-lg-7 table_money'>
+            <h5>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></h5>
+            <h4>消費税込 合計金額: ￥<?= CartDAO::get_total_price($my_carts)* 1.08 ?>  </h4>
+        </div>
+        <p class='purchase'>ご入力された内容にお間違いがない方は次にお進みください</p>
         <form mathod='POST' action='check_mate.php' class='purchase'>
             <input type="submit" value="最終確認" class='btn-gradient'/>
         </form>
-        
-        <div class='footer '>
+        <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='login_company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='login_product.php'>商品一覧</a></li>

@@ -10,12 +10,6 @@
     // ログイン者の情報取得
     $login_customer = $_SESSION['login_customer'];
     $customer_id = $login_customer->id;
-    var_dump($customer_id);
-    
-    
-    
-    
-    
     // 購入ボタンを押す
     // 購入したい商品の情報が次のページ以降に反映
     // 購入と同時に商品の在庫数が減る

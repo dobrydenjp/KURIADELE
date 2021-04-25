@@ -17,14 +17,11 @@
                     <a href='purchases.php' class='span_d'>購入履歴</a>
                     <a href='logout.php' class='span_d'>ログアウト</a>
                 </span>
-                
                 <span class='col-lg-1 px-0 info'>
-                    <form method='GET' action='search.php' class='info'>
+                    <form method='GET' action='login_search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                
-            
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='login_company.php'>KURIADELEについて</a>
@@ -34,20 +31,14 @@
                 </span>
             </div>
         </div>
-
         <div class='top_1'>
-    
             <div class='top_a'>満足の極みへ</div>
             <div class='top_b'><img src='camera.jpg' alt='camera'></img></div>
         </div>
-        
-        
-        
         <!--ログイン者のメッセージ表示-->
         <?php if($login_message !== null): ?>
             <p><?= $login_message ?></p>
         <?php endif; ?>
-        
         <!--検索フォーム入力エラーメッセージ表示-->
         <?php if($search_errors!== null): ?>
             <p><?= $search_errors ?></p>
@@ -55,27 +46,15 @@
         <div class='top_2'>
             <h4 class='customer'>取扱商品</h4>
             <div class='top_c'><a href='login_product.php'><img src='upload/items/<?= $items->image ?>'></img></a></div>
-            
         </div>
-        
-        
         <div class='top_3'>
             <h4 class='customer'>KURIADELEnews</h1>
             <h3 class='top_d'>今日のニュース</h1>
-            
             <h4 class='top_e'><?= $news->days ?>        <?= $news->news ?></h4>
-            
         </div>
-        
-        
-       
-
-        
-        
-        <div class='footer '>
+        <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='login_company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='login_product.php'>商品一覧</a></li>

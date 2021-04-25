@@ -16,14 +16,11 @@
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_b'>ログアウト</a>
                 </span>    
-                
                 <span class='col-lg-1 px-0 info'>
                     <form method='POST' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                
-            
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
@@ -33,22 +30,20 @@
                 </span>
             </div>
         </div>
-        
         <div class='customer'>振込み先情報</div>
         <!--$error_message がnullでないならば-->
         <?php if($error_message !== null): ?>
+            <!--入力エラーメッセージ-->
             <?php foreach($error_message as $errors): ?>
                 <!--$error_message  表示する-->
                 <p><?= $errors ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
-        
         <!-- $bank_message がnullでないならば-->
         <?php if($bank_message !== null): ?>
-        <!--$bank_message 表示する-->
+        <!--銀行口座情報登録メッセージ表示する-->
             <P><?= $bank_message ?></P>
         <?php endif; ?>
-        
         <form method='POST' action='registration_transfer.php' enctype="multipart/form-data">
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>銀行名</label>
@@ -83,21 +78,14 @@
             <div class='top_d'>
                 <input type='submit' value='登録' class='btn-gradient'/>
             </div>
-
-            
         </form>
-        
-        
-        <div class='footer '>
+
+        <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='product.php'>商品一覧</a></li>
-            </ul>
-            <ul><span>サポート</span>
-                <li><a href='contact.php'>お問い合わせ</a></li>
             </ul>
         </div>
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>

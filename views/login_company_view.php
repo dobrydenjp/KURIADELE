@@ -17,14 +17,11 @@
                     <a href='purchases.php' class='span_d'>購入履歴</a>
                     <a href='logout.php' class='span_d'>ログアウト</a>
                 </span>
-                
                 <span class='col-lg-1 px-0 info'>
-                    <form method='GET' action='search.php' class='info'>
+                    <form method='GET' action='login_search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                
-            
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='login_company.php'>KURIADELEについて</a>
@@ -34,24 +31,13 @@
                 </span>
             </div>
         </div>
-        
-        <div ><p class=customer>企業情報</p></div>
-        
-        
-        
-        
+        <div><p class=customer>企業情報</p></div>
         <div class=corporation>KURIADELEとは</div><label  class=company><?= $company->description ?></label>
         <div class=corporation>代表挨拶</div><label class=company><?= $company->greeting ?></label>
         <div class=corporation>事業計画</div><label class=company><?= $company->plan ?></label>
-        
-        
-                                
-        
-        
-        <div class='footer '>
+        <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='login_company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='login_product.php'>商品一覧</a></li>

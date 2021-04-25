@@ -7,14 +7,12 @@
     // session_start();
     // 入力項目エラーメッセージ表示
     $news_error = $_SESSION['news_error'];
-    // 破棄
+    // 1度のみ表示
     $_SESSION['news_error'] = null;
-    // var_dump($news_error);
     // 保存できた時のメッセージ表示
     $news_message = $_SESSION['news_message'];
-    // 破棄
+    // 1度のみ表示
     $_SESSION['news_message'] = null;
-    // var_dump($news_message);
     // idをGETで取得
     // $idをnullにする
     $id = null;
@@ -23,7 +21,6 @@
     }
     // newsの情報取得
     $news = NewsDAO::get_news_id($id);
-    // var_dump($news);
     // viewファイルの表示
     include_once 'admin_views/KURIADELE_news_view.php';
 ?>

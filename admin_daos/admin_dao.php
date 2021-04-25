@@ -31,7 +31,58 @@
             // 実行結果さようなら
             $stmp = null;
         }
+        // 管理者登録メソッド
+        public static function admin_insert($admin){
+            $pdo = null;
+            $stmp = null;
+            try{
+            // データベースに接続する神様取得
+            $pdo = self::get_connection();
+            // INSERT文を実行する準備（名前、年齢はわざとあやふやにしておく）
+            $stmt = $pdo -> prepare("INSERT INTO admins (name, email_address, password) VALUES (:name, :email_address, :password)");
+            // バインド処理（あやふやだった名前、年齢を実データで埋める）
+            $stmt->bindParam(':name', $admin->name, PDO::PARAM_STR);
+            $stmt->bindParam(':email_address', $admin->email_address, PDO::PARAM_INT);
+            $stmt->bindParam(':password', $admin->password, PDO::PARAM_INT);
+            // INSERT文本番実行
+            $stmt->execute();
+            
+            return '管理者登録が完了しました';
+            
+            }catch(PDOException $e){
+                
+                return "問題が発生しました<br>" . $e->getMessage();
+                
+            }finally{
+               self::close_connection($pdo, $stmp); 
+            }
+            
+        }
         
+        // 管理者登録 入力チェック
+        public static function validate_sign_up($admin){
+            $pdo = null;
+            $stmp = null;
+            // public $name;
+            // public $email_address;
+            // public $password;
+            $error_message = array();
+            // 銀行名を入力しない場合のメッセージ
+            if($admin->name === ''){
+                $error_message[] = 'お名前を入力してください';
+            }
+            // 支店名を入力しない場合のメッセージ
+            if($admin->email_address === ''){
+                $error_message[] = 'メールアドレスを入力してください';
+            }elseif(!preg_match('/^[a-zA-Z0-9_.+-]+[@][a-zA-Z0-9.-]+$/', $admin->email_address)){
+                $error_message[] = 'メールアドレスは所定の書式をお守りください';
+            }
+            // 預金科目を入力しない場合のメッセージ
+            if(strlen($admin->password) < 5){
+                $error_message[] = 'パスワードは5文字以上で入力してください';
+            }
+            return $error_message;
+        }
         
         
         // メールアドレスとパスワードによって、管理者情報を取得する

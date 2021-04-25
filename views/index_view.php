@@ -16,7 +16,6 @@
                     <a href='contact.php'class='span_b'>お問い合わせ</a>
                     <a href='login.php'class='span_b'>ログイン</a>
                 </span>    
-                
                 <span class='col-lg-1 px-0 info'>
                     <form method='GET' action='search.php' class='info'>
                         <input type='search' name='name'/>
@@ -31,7 +30,6 @@
                 </span>
             </div>
         </div>
-
         <div class='top_1'>
             <div class='top_a'>満足の極みへ</div>
             <div class='top_b'><img src='camera.jpg' alt='camera'></img></div>
@@ -45,11 +43,9 @@
             <h3 class='top_d'>KURIADELE最新ニュース</h1>
             <h4 class='top_e'><?= $news->days ?>        <?= $news->news ?></h4>
         </div>
-
-        <div class='footer '>
+        <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='product.php'>商品一覧</a></li>

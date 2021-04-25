@@ -11,26 +11,22 @@
     $email_address = $_POST['email_address'];
     // $contacts命誕生
     $contacts = new Contact($name, $subject, $contact, $email_address);
-    // var_dump($contacts);
     // 入力エラーチェック
     $contact_error = ContactDAO::validate($contacts);
-    
-    
-    // // 入力エラーがないならば
+    // 入力エラーがないならば
     if(count($contact_error) === 0){
         // 質問事項登録する
         ContactDAO::insert($contacts);
-        // var_dump($contacts);
         // メッセージ表示
         $_SESSION['contact_message'] = 'ご質問ありがとうございます。ご返信にはお時間を頂きます。よろしくお願い致します。';
-        // var_dump($contacts);
-        header('Location: contacts.php');
+        // 画面遷移
+        header('Location: contact.php');
         exit;
     }else{ // 入力エラーがあるならば
-    //         // エラーメッセージ表示
+        // エラーメッセージ表示
         $_SESSION['contact_error'] = $contact_error;
-        // var_dump($contact_error);
-        header('Location: contacts.php');
+        // 画面遷移
+        header('Location: contact.php');
         exit;
     }
 ?>

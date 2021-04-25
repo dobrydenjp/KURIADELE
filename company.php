@@ -12,7 +12,6 @@
     }
     // 現在の企業情報表示
     $company = CompanyDAO::get_companys_id($id);
-    // var_dump($company);
     // viewファイルの表示
     include_once 'views/company_view.php';
 ?>

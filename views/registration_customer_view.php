@@ -10,7 +10,6 @@
     <body>
         <div class='col-lg-12'>
             <div class='header row'>
-        
                 <span class='com'>KURIADELE</span>
                 <span class='info_1'><a href='product.php'>商品情報</a></span>
                 <span class='info_2'><a href='contact.php'>お問い合わせ</a></span>
@@ -22,7 +21,6 @@
                         <input type='text' name=''/><input type='submit' name='' value='検索'/>
                     </form>
                 </span>
-            
                 <button type='button' class='btn btn-light dropdown-toggle' data-toggle='dropdown'>
                 </button>
                 <div class='dropdown-menu'>
@@ -32,17 +30,14 @@
                 </div>
             </div>
         </div>
-
-
         <div class='customer_1'>登録完了しました</div>
         <div class='customer_1'>これからもよろしくお願い致します</div>
         <a href='index.php'>
             <div class='corporation_1'>TOPページへ戻る</div>
         </a>
-         <div class='footer '>
+         <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='product.php'>商品一覧</a></li>

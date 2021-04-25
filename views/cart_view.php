@@ -17,14 +17,11 @@
                     <a href='purchases.php' class='span_d'>購入履歴</a>
                     <a href='logout.php' class='span_d'>ログアウト</a>
                 </span>
-                
                 <span class='col-lg-1 px-0 info'>
-                    <form method='GET' action='search.php' class='info'>
+                    <form method='GET' action='login_search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                
-            
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='login_company.php'>KURIADELEについて</a>
@@ -39,27 +36,25 @@
         <?php if($cart_message !== null): ?>
             <P><?= $cart_message ?></P>
         <?php endif; ?>
-        
         <!--商品の個数変更したメッセージ表示-->
         <?php if($number_message !== null): ?>
             <p><?= $number_message ?></p>
         <?php endif; ?>
-        
         <!--商品を削除したメッセージ表示-->
         <?php if($delete_message !== null): ?>
             <p><?= $delete_message ?></p>
         <?php endif; ?>
+        <!--同一商品を追加したメッセージ表示-->
+         <?php if($update_message !== null): ?>
+            <p><?= $update_message ?></p>
+        <?php endif; ?>
         <!--$login_customerがnull空でない時に実行-->
         <?php if($login_customer !== null): ?>
-        
             <table class='container-fluid table col-lg-7'>
-                       
                 <div class='row'>
                     <tbody>
-                        
                         <!--商品をカートに入れた順番に商品を表示-->
                         <?php foreach($my_carts as $cart): ?>
-                            
                         <tr>
                             <td class='cart_td'>カート番号:<?= $cart->id ?></td>
                             <td ><img src='upload/items/<?= $cart->get_item()->image ?>' class='carts_img'></img></td>
@@ -68,7 +63,6 @@
                             <td class='table_td'>在庫数：<?= $cart->get_item()->stock ?></p></td>
                             <td class='table_td'>購入数：<?= $cart->number ?>&ensp;個</p></td>
                             <td class='table_td'>
-                            
                                 <form method='POST' action='cart_update.php' class='select_td'>    
                                     <select name='number' class='select_box '>
                                         <?php for($i = 1; $i <= $cart->get_item()->stock; $i++): ?>
@@ -84,19 +78,14 @@
                             <td class='table_td'>小計: ￥<?= $cart->number * $cart->get_item()->price ?>&ensp;円</td>
                         </tr>     
                         <?php endforeach; ?>
-                        
                     </tbody>            
                 </div>
-                
-            </table>          
-                      
-
+            </table>
             <div class='container-fluid table col-lg-7 table_money'>
                 <p>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></p>
                 <p>消費税込 合計金額: ￥<?= CartDAO::get_total_price($my_carts)* 1.08 ?></p>
                 <!--カート商品がない場合に実行-->
                 <?php if($my_carts->id > 0): ?>   
-                    
                     <form method='POST' action='purchase_new.php'>
                         <input type='hidden' name='id' value='<?= $cart->id ?>'>
                         <input type='submit' value='決定' class='btn-gradientclass'/>
@@ -106,11 +95,9 @@
                 <?php endif; ?>
             </div>
         <?php endif; ?>
-
-        <div class='footer '>
+        <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='login_company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='login_product.php'>商品一覧</a></li>

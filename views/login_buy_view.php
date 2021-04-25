@@ -17,14 +17,11 @@
                     <a href='purchases.php' class='span_d'>購入履歴</a>
                     <a href='logout.php' class='span_d'>ログアウト</a>
                 </span>
-                
                 <span class='col-lg-1 px-0 info'>
-                    <form method='GET' action='search.php' class='info'>
+                    <form method='GET' action='login_search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                
-            
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='login_company.php'>KURIADELEについて</a>
@@ -34,13 +31,10 @@
                 </span>
             </div>
         </div>
-
         <p class='customer'>商品情報 詳細</p>
         <table class='container-fluid table col-lg-6'>
             <div class='row'>
                 <tbody>
-                    
-                    
                     <tr>
                         <td class='table_td'><?= $item->id ?></td>
                         <td><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
@@ -53,15 +47,14 @@
                         <?php if($item->stock > 0): ?>
                         <!--$login_customerがnull空でない時に実行-->
                         <?php if($login_customer !== null): ?>
-                          
                             <form method='POST' action='cart_in.php'>
                                 <select class='select_box' name="number">
                                     <?php for($i = 1; $i <= $item->stock; $i++): ?>
                                         <option value='<?= $i ?>'><?= $i ?></option>
                                     <?php endfor; ?>
-                                    
                                 個</select>
                                 <input type='submit' value='カートに入れる'>
+                                <input type='hidden' name='id' value='<?= $cart->id ?>'>
                                 <input type="hidden" name='customer_id' value="<?= $login_customer->id ?>">
                                 <input type="hidden" name='item_stock' value="<?= $item->stock ?>">
                                 <input type="hidden" name="item_id" value="<?= $item->id ?>">
@@ -71,18 +64,13 @@
                         <?php else: ?>
                         <p>現在、在庫はありません。入荷をお待ちください。</p>
                         <?php endif; ?> 
-
                     </tr>
-                    
                 </tbody>
             </div>
         </table>
-    
-
-        <div class='footer '>
+        <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='login_company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='login_product.php'>商品一覧</a></li>

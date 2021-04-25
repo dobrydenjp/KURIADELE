@@ -16,7 +16,6 @@
                     <a href='contact.php'class='span_b'>お問い合わせ</a>
                     <a href='login.php'class='span_b'>ログイン</a>
                 </span>    
-                
                 <span class='col-lg-1 px-0 info'>
                     <form method='GET' action='search.php' class='info'>
                         <input type='search' name='name'/>
@@ -31,19 +30,14 @@
                 </span>
             </div>
         </div>
-        
         <br>
         <br>
-        <div class='customer'>
-            
-            新規会員登録
-        </div>
+        <div class='customer'>新規会員登録</div>
         <?php if($errors !== null): ?>
-                <?php foreach($errors as $error): ?>
-                    <p><?= $error ?></p>
-                <?php endforeach; ?>
-            <?php endif; ?>
-            
+            <?php foreach($errors as $error): ?>
+                <p><?= $error ?></p>
+            <?php endforeach; ?>
+        <?php endif; ?>
         <form method='POST' action='registration_new.php'>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>お名前</label>
@@ -88,18 +82,13 @@
                         <input type='password' name='password' class='form-control'/>
                     </div>
             </div> 
-            
-            
             <div class='enroll_1'>
                 <input type='submit' value='登録'/>
             </div>
-            
         </form>
-        
-       <div class='footer '>
+       <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='product.php'>商品一覧</a></li>

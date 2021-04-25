@@ -16,7 +16,6 @@
                     <a href='contact.php'class='span_b'>お問い合わせ</a>
                     <a href='login.php'class='span_b'>ログイン</a>
                 </span>    
-                
                 <span class='col-lg-1 px-0 info'>
                     <form method='GET' action='search.php' class='info'>
                         <input type='search' name='name'/>
@@ -31,24 +30,13 @@
                 </span>
             </div>
         </div>
-        
-        <div ><p class=customer>企業情報</p></div>
-        
-        
-        
-        
+        <div><p class=customer>企業情報</p></div>
         <div class=corporation>KURIADELEとは</div><label  class=company><?= $company->description ?></label>
         <div class=corporation>代表挨拶</div><label class=company><?= $company->greeting ?></label>
         <div class=corporation>事業計画</div><label class=company><?= $company->plan ?></label>
-        
-        
-                                
-        
-        
-        <div class='footer '>
+        <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='product.php'>商品一覧</a></li>

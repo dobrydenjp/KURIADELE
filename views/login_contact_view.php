@@ -17,14 +17,11 @@
                     <a href='purchases.php' class='span_d'>購入履歴</a>
                     <a href='logout.php' class='span_d'>ログアウト</a>
                 </span>
-                
                 <span class='col-lg-1 px-0 info'>
-                    <form method='GET' action='search.php' class='info'>
+                    <form method='GET' action='login_search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                
-            
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='login_company.php'>KURIADELEについて</a>
@@ -34,9 +31,7 @@
                 </span>
             </div>
         </div>
-
         <p class='customer'>お問い合わせフォーム</p>
-        
         <div class='question'>ご質問・ご要望があればご連絡ください。</div>
         <?php if($my_contact_error !== null): ?>
             <?php foreach($my_contact_error as $error): ?>
@@ -46,7 +41,6 @@
         <?php if($my_contact_message !== null): ?>
                 <p><?= $my_contact_message ?></p>
         <?php endif; ?>
-        
         <form method='POST' action='login_contact_new.php'>
             <div class='question_2'>お名前  <input type='text' name='name' class='submit' value='<?= $login_customer->name ?>'/></div>
             <div class='question_2'>件名  <input type='text' name='subject' class='submit' /></div> 
@@ -54,10 +48,9 @@
             <div class='question_2 question_5'>メールアドレス <input type='text' name='email_address' class='submit' value='<?= $login_customer->email_address ?>'/></div>
             <div class='top_d'><input type='submit' value='送信' class='btn-gradient'/></div>
         </form>  
-        <div class='footer '>
+        <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='login_company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='login_product.php'>商品一覧</a></li>

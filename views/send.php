@@ -15,8 +15,7 @@
                     <a href='product.php 'class='span_b'>商品情報</a>
                     <a href='contact.php'class='span_b'>お問い合わせ</a>
                     <a href='login.php'class='span_b'>ログイン</a>
-                </span>    
-                
+                </span>
                 <span class='col-lg-1 px-0 info'>
                     <form method='GET' action='search.php' class='info'>
                         <input type='search' name='name'/>
@@ -31,18 +30,12 @@
                 </span>
             </div>
         </div>
-        
-        
             <div class='customer_1'>お問い合わせありがとうございます。</div>
-            
             <div class='customer_1'>ご回答はご登録メールにてご返信致します。</div>
-        
-        
-        
-        <div class='footer '>
+
+        <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='product.php'>商品一覧</a></li>

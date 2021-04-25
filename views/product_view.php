@@ -16,14 +16,11 @@
                     <a href='contact.php'class='span_b'>お問い合わせ</a>
                     <a href='login.php'class='span_b'>ログイン</a>
                 </span>    
-                
                 <span class='col-lg-1 px-0 info'>
-                    <form method='POST' action='search.php' class='info'>
+                    <form method='GET' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                
-            
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='company.php'>KURIADELEについて</a>
@@ -33,11 +30,11 @@
                 </span>
             </div>
         </div>
-        
         <div class='customer'>取り扱い商品<br>一覧</div>
-        
-        
-        
+        <!--キーワードに類似した商品表示-->
+        <?php if($message !== ''): ?>
+            <p><?= $message ?></p>
+        <?php endif; ?>
         <table class='container-fluid table col-lg-6'>
             <div class='row'>
                 <tbody>
@@ -53,18 +50,13 @@
                             <td class='table_td'> <a href='buy.php?id=<?= $item->id ?>'>詳細ページへ</a></td>
                         </form>
                     </tr>
-                        
-                    
                     <?php endforeach; ?>
                 </tbody>
             </div>
         </table>
-        
-
-        <div class='footer '>
+        <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='product.php'>商品一覧</a></li>

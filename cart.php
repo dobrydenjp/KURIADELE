@@ -21,12 +21,11 @@
     // var_dump($my_carts);
     $_SESSION['my_carts'] = $my_carts;
     $cart = $_SESSION['my_carts'];
-
+    // var_dump($cart);
     
     // カートに何もない状態でも決定ボタンが押せてしまいます。
     // カートに商品が入っていなければ
-    
-    
+
     // 商品が入っていれば
     // 購入ボタンが出る
     // var_dump($count);
@@ -36,11 +35,7 @@
     $_SESSION['number_message'] = null;
     // var_dump($number_message);
     // $updateをセッションで取得　空にする
-    $id = null;
-    // $idをGETで取得
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-    }
+    
     
     // 商品個数変更後の数字表示 
     // $number = $_SESSION['number'];
@@ -56,12 +51,14 @@
     $_SESSION['stock_message'] = '商品の在庫が足りません';
     $stock_message = $_SESSION['stock_message'];
     // var_dump($stock_message);
-    
-    
-    
+    // カートに同一商品を追加した場合のメッセージ取得
+    $update_message = $_SESSION['update_message'];
+    // var_dump($_SESSION);
+    $id = null;
+    // $idをGETで取得
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
     // viewファイルの表示
     include_once 'views/cart_view.php';
-    
-    
-    // カート・入力内容確認・最終確認 個数変更できるようにする
 ?>

@@ -62,6 +62,8 @@
         
         // 顧客番号を指定した場合の購入情報を取得するメソッド
         public static function get_my_purchases($customer_id){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();

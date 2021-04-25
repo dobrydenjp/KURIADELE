@@ -49,7 +49,7 @@
                 
                 // INSERT文本番実行
                 $stmt->execute();
-                // print 'OK';
+                // 
                 return "カートに追加しました";
                 
             }catch(PDOException $e){
@@ -151,7 +151,8 @@
                self::close_connection($pdo, $stmp); 
             }
         }
-        // 選択した商品の個数を変更するメソッド
+        
+        // 指定した商品の個数を変更するメソッド
         public static function update($id, $number){
             $pdo = null;
             $stmp = null;
@@ -176,39 +177,58 @@
                 self::close_connection($pdo, $stmp);
             }
         }
-        // 顧客番号を指定した場合の item_id を取得するメソッド
-        public static function find_cart($item_id, $number, $customer_id){
+        // // 顧客番号を指定した場合の item_id を取得するメソッド
+        // public static function find_cart($customer_id, $item_id){
+        //     $pdo = null;
+        //     $stmp = null;
+        //     try{
+        //         // データベースに接続する神様取得
+        //         $pdo = self::get_connection();
+        //         // update文を実行する準備（数字はわざとあやふやにする
+        //         $stmt= $pdo -> prepare('SELECT * FROM carts WHERE customer_id=:customer_id AND item_id=:item_id');
+        //         // バインド処理（あやふやだった数字を実データで埋める）
+        //         $stmt->bindValue(':item_id', $item_id, PDO::PARAM_INT);
+        //         $stmt->bindValue(':customer_id', $customer_id, PDO::PARAM_INT);
+                
+        //         // SELECT文本番実行
+        //         $stmt->execute();
+        //         // フェッチの結果を、Cartクラスのインスタンスにマッピングする
+        //         $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Cart');
+                
+        //         // カート情報を取得
+        //         $find_cart = $stmt->fetch();
+                
+        //         return $find_cart;
+        //     }catch(PDOException $e){
+                
+        //         return "問題が発生しました<br>" . $e->getMessage();
+                
+        //     }finally{
+        //       self::close_connection($pdo, $stmp); 
+        //     }
+        // }
+        // 選択した商品が同一商品の個数を追加するメソッド
+        public static function update_item($id, $number){
             $pdo = null;
             $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
-                print 'OK1';
                 // update文を実行する準備（数字はわざとあやふやにする
-                $stmt= $pdo -> prepare('SELECT item_id,SUM(number) as number FROM carts WHERE customer_id=:customer_id GROUP BY item_id:item_id');
-                                     
-                print 'OK2';
+                $stmt= $pdo -> prepare('UPDATE carts SET number=(number + :number) WHERE id=:id');
                 // バインド処理（あやふやだった数字を実データで埋める）
-                $stmt->bindValue(':item_id', $item_id, PDO::PARAM_INT);
                 $stmt->bindValue(':number', $number, PDO::PARAM_INT);
-                $stmt->bindValue(':customer_id', $customer_id, PDO::PARAM_INT);
-                print 'OK3';
-                // print 'OK3'までは表示されます
-                // var_dump ($customer_id);
-                
-                // SELECT文本番実行
+                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+                // update本番実行
                 $stmt->execute();
-                print 'OK4';
-                
-                
-                return 'カート追加しました';
+                return '商品を追加しました。';
                 
             }catch(PDOException $e){
                 
                 return "問題が発生しました<br>" . $e->getMessage();
                 
             }finally{
-               self::close_connection($pdo, $stmp); 
+                self::close_connection($pdo, $stmp);
             }
         }
 

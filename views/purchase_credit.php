@@ -8,35 +8,30 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='col-12'>
-            <div class='header'>
-        
-                <span class='com'>KURIADELE</span>
-                
-                <span class='info_1'><a href='product.php'>商品情報</a></span>
-                <span class='info_2'><a href='contacts.php'>お問い合わせ</a></span>
-                <span class='info_2'><a href='login.php'>ログイン</a></span>
-                <span class='info_2'><a href='index.php'>TOPページへ</a></span>
-                <span class='info_2'><a href='cart.php'>カート</a></span>
-                <span class='info'>
-                    <form method='POST' action='送信先'>
-                        <input type='text' name=''/><input type='submit' name='' value='検索'/>
-                    </form>
+        <div class='container-fluid sticky-top'>
+            <div class='row header'>
+                <a href='mypage.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
+                <span class='offset-lg-4 col-lg-3 px-0 span_c'>
+                    <a href='login_contact.php' class='span_d'>お問い合わせ</a>
+                    <a href='cart.php' class='span_d'>カート</a>
+                    <a href='purchases.php' class='span_d'>購入履歴</a>
+                    <a href='logout.php' class='span_d'>ログアウト</a>
                 </span>
-            
-                <div class='dropdown-menu_button'>
-                    <button type='button' class='btn btn-light dropdown-toggle' data-toggle='dropdown'>
-                    </button>
-                    <div class='dropdown-menu'>
-                        <a class='dropdown-item' href='#'><a href='company.php'>KURIADELEについて</a>
-                        <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
-                        <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>
+                <span class='col-lg-1 px-0 info'>
+                    <form method='GET' action='login_search.php' class='info'>
+                        <input type='search' name='name'/>
+                        <input type='submit' value='検索'/>
+                    </form>
+                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
+                    <div class="dropdown-menu">
+                        <a class='dropdown-item' href='#'><a href='login_company.php'>KURIADELEについて</a>
+                        <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
+                        <a class='dropdown-item' href='#'><a href='login_contact.php'>サポート</a>
                     </div>
-                </div>
+                </span>
             </div>
         </div>
         <div class='customer'>ご購入手続き</div>
-        
             <div class='buy_1'>支払方法はクレジットカードのみです</div>
             <div class='container'>
                 <div class='buy_1'>決済カード情報</div>
@@ -47,17 +42,13 @@
                                 <div class='col-3 '>
                                     <input type="text" id='card-number' class='form-control' required/>
                                 </div>
-                            
                         </div>
-                       
                         <div class='form-group row'>
                             <label class='col-2 offset-3 col-form-label'>セキュリティコード *</label>
                                 <div class=' col-2 '>
                                     <input type="text" id='cvc' class='form-control' required/>
                                 </div>
-                            
                         </div>
-                
                         <div class='form-group row'>
                             <label class='col-2 offset-3 col-form-label'>カード有効期限 *</label>
                                 <div class='col-2 '>
@@ -69,11 +60,8 @@
                                 <!--<label class='col-2 col-form-label'>-->
                                     年<input type="text" id='exp_year' placeholder='2021' class='form-control' required/>
                                 <!--</label>-->
-                            
-                                
                                 </div>
                         </div>
-                
                         <div class='form-group row'>
                             <label class='col-2 offset-3 col-form-label'>カード名義 *</label>
                             <div class='col-4 '>
@@ -85,10 +73,9 @@
                         </label>
                     </form>    
             </div>    
-        <div class='footer '>
+        <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='login_company.php'>企業紹介</a></li>
-
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='login_product.php'>商品一覧</a></li>

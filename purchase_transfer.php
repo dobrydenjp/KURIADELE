@@ -16,7 +16,7 @@
     // var_dump($get_bank);
     // 支払銀行確認メッセージ表示
     $pay_message = $_SESSION['pay_message'];
-    // 破棄
+    // 1度のみ表示
     $_SESSION['pay_message'] = null;
     // viewファイルの表示
     include_once 'views/purchase_transfer_view.php';

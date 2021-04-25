@@ -27,9 +27,7 @@
         header('Location: purchase_transfer.php');
         exit;
     }
-    
-    
-   
+
     // 在庫が0個になる場合
     // カートに入っているもの同じ商品の在庫以上は購入ができないようにする
     // var_dump($_POST);
