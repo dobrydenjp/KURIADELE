@@ -42,44 +42,44 @@
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>お名前</label>
                     <div class="col-lg-4 col-12">
-                        <input type='text' name='name' class='form-control'/>
+                        <input type='text' name='name' class='form-control' placeholder='田中　太郎'/>
                     </div>
             </div>
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>フリガナ</label>
                     <div class="col-lg-4 col-12">
-                        <input type='text' name='kana_name' class='form-control'/>
+                        <input type='text' name='kana_name' class='form-control' placeholder='タナカ　タロウ'/>
                     </div>
             </div>
             <div class='customer_information form-group row'>
                 <label class='col-lg-4 col-form-label'>郵便番号</label>
                     <div class="col-lg-2 col-4">
-                        <input type='text' name='postal_code' class='form-control'/>
+                        <input type='text' name='postal_code' class='form-control' placeholder='163-8001'/>
                     </div>
             </div>
             <div class='customer_information form-group row'>
                 <label class='col-lg-4 col-form-label'>住所</label>
                     <div class="col-lg-4 col-12">
-                        <input type="text" name="address" class='form-control'/>
+                        <input type="text" name="address" class='form-control' placeholder='東京都新宿区西新宿2-8-1'/>
                     </div>
             </div>
             
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>お電話番号</label>
                     <div class="col-lg-4 col-12">
-                        <input type='text' name='tel' class='form-control'/>
+                        <input type='text' name='tel' class='form-control' placeholder='000-000-0000'/>
                     </div>
             </div>
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>メールアドレス(ログインＩＤになります)</label>
                     <div class="col-lg-4 col-12">
-                        <input type='text' name='email_address' class='form-control'/>
+                        <input type='text' name='email_address' class='form-control' placeholder='tanaka-123@gmail.com'/>
                     </div>
                 </div>
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>ログインパスワード</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='password' name='password' class='form-control'/>
+                        <input type='password' name='password' class='form-control' placeholder='12345'/>
                     </div>
             </div> 
             <div class='enroll_1'>

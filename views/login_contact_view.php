@@ -39,7 +39,7 @@
             <?php endforeach; ?>
         <?php endif; ?>
         <?php if($my_contact_message !== null): ?>
-                <p><?= $my_contact_message ?></p>
+                <p class='question'><?= $my_contact_message ?></p>
         <?php endif; ?>
         <form method='POST' action='login_contact_new.php'>
             <div class='question_2'>お名前  <input type='text' name='name' class='submit' value='<?= $login_customer->name ?>'/></div>

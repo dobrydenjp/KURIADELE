@@ -5,10 +5,15 @@
     $error = $_SESSION['error'];
     // 1度のみ表示
     $_SESSION['error'] = null;
+    
+    if(isset($_SESSSION['error'])){
+     $errorr = $_SESSION['error'];
+    }
     // ログアウトメッセージ表示
     $logout_message = $_SESSION['logout_message'];
     // 1度のみ表示
     $_SESSION['logout_message'] = null; 
+    
     // viewファイルの表示
     include_once 'admin_views/admin_login_view.php';
 ?>

@@ -1,6 +1,6 @@
 <?php
     // 外部ファイル読込
-    require_once 'daos/company_dao.php';
+    require_once 'admin_daos/company_dao.php';
     // セッション開始
     session_start();
     // 入力情報取得

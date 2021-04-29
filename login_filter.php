@@ -10,4 +10,7 @@
         header('Location: index.php');
         exit;
     }
+    if(isset($_SESSSION['login_customer'])){
+        $login_customer = $_SESSION['login_customer'];
+    }
 ?>

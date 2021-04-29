@@ -11,11 +11,16 @@
     $error_message = $_SESSION['error_message'];
     // 1度のみ表示
     $_SESSION['error_message'] = null;
-    // var_dump($error_message);
     // 銀行口座を登録した際 bank_message をセッションから取得・表示
     $bank_message = $_SESSION['bank_message'];
     // 1度のみ表示
     $_SESSION['bank_message'] = null;
+    
+    if(isset($_SESSSION['bank_message'])){
+        $bank_message = $_SESSION['bank_message'];
+        
+    }
+    
     // idをGETで取得
     // $idをnullにする
     $id = null;

@@ -20,6 +20,7 @@
         // メッセージ
         $message = 'キーワードを入力して検索ボタンを押してください。';
     }
+    
     // 呼び込み
     include 'login_product.php';
 ?>

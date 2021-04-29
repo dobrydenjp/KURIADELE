@@ -63,7 +63,7 @@
                 <tbody>
                     <?php foreach($my_purchases as $cart): ?>
                         <tr>
-                            <td class='img_td'><img src='upload/items/<?= $cart->get_item()->image ?>' class='product_2'></img></td>
+                            <td class='table_img'><img src='upload/items/<?= $cart->get_item()->image ?>' class='img_td'></img></td>
                             <td class='table_td'>商品名：<?= $cart->get_item()->name ?></td>
                             <td class='table_td'>商品番号：<?= $cart->get_item()->id ?></td>
                             <td class='table_td'>購入日時：<?= $cart->created_at ?></td>

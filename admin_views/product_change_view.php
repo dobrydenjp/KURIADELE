@@ -32,11 +32,13 @@
         <div>
             <p class=customer>商品情報登録</p>
         </div>
+        <!--商品登録ができない場合のメッセージ表示-->
         <?php if($errors !== null): ?>
             <?php foreach($errors as $error): ?>
                 <p><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
+        <!--商品登録完了したメッセージ表示-->
         <?= $flash_message?>
         <form method='POST' action='item_new.php' enctype="multipart/form-data">
             <div class='customer_information form-group row '>
@@ -82,7 +84,7 @@
                     <?php foreach($items as $item): ?>
                     <tr>
                         <td class='table_td'><?= $item->id ?></td>
-                        <td class='img_td'><img src='upload/items/<?= $item->image ?>' class='product_2'></img></td>
+                        <td class='table_img'><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
                         <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
                         <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
                         <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>

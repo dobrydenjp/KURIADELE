@@ -9,6 +9,9 @@
     $news_error = $_SESSION['news_error'];
     // 1度のみ表示
     $_SESSION['news_error'] = null;
+    if(isset($_SESSSION['news_error'])){
+        $news_error = $_SESSION['news_error'];
+    }
     // 保存できた時のメッセージ表示
     $news_message = $_SESSION['news_message'];
     // 1度のみ表示

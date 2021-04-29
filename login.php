@@ -3,6 +3,9 @@
     require_once 'daos/customer_dao.php';
     // セッション開始
     session_start();
+    if(isset($_SESSSION['done_message'])){
+     $contact_error = $_SESSION['done_message'];
+    }
     // 新規会員登録成功メッセージを取得
     $done_message = $_SESSION['done_message'];
     // 1度のみ表示

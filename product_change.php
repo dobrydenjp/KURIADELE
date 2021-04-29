@@ -17,6 +17,10 @@
     $flash_message = $_SESSION['register_message'];
     // 1度のみ表示
     $_SESSION['register_message'] = null;
+
+    if(isset($_SESSSION['register_message'])){
+     $flash_message = $_SESSION['register_message'];
+    }
     // idをGETで取得
     // $idをnullにする
     $id = null;

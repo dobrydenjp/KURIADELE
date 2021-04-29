@@ -31,14 +31,14 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>入力内容確認</div>
-        <table class='container-fluid table col-lg-7'>
+        <p class='customer'>入力内容確認</p>
+        <table class='container-fluid table col-lg-6'>
             <div class='row'>
                 <tbody>
                     <?php foreach($my_carts as $cart): ?>
                     <tr>
-                        <td class='cart_td'>カート番号:<?= $cart->id ?></td>
-                        <td ><img src='upload/items/<?= $cart->get_item()->image ?>' class='carts_img'></img></td>
+                        <td class='table_td'><?= $cart->id ?></td>
+                        <td class='table_img'><img src='upload/items/<?= $cart->get_item()->image ?>' class='img_td'></img></td>
                         <td class='table_td'>商品名：<?= $cart->get_item()->name ?></p></td>
                         <td class='table_td'>商品名：<?= $cart->get_item()->description ?></p></td>
                         <td class='table_td'>個数：<?= $cart->number ?>&ensp;個</p></td>

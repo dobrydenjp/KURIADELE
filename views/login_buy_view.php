@@ -37,7 +37,7 @@
                 <tbody>
                     <tr>
                         <td class='table_td'><?= $item->id ?></td>
-                        <td><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
+                        <td class='table_img'><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
                         <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
                         <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
                         <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
@@ -54,7 +54,7 @@
                                     <?php endfor; ?>
                                 個</select>
                                 <input type='submit' value='カートに入れる'>
-                                <input type='hidden' name='id' value='<?= $cart->id ?>'>
+
                                 <input type="hidden" name='customer_id' value="<?= $login_customer->id ?>">
                                 <input type="hidden" name='item_stock' value="<?= $item->stock ?>">
                                 <input type="hidden" name="item_id" value="<?= $item->id ?>">

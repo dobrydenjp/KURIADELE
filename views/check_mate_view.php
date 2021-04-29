@@ -32,11 +32,59 @@
             </div>
         </div>
         <div class='customer'>最終確認</div>
-        <div class=''>登録内容（ご希望商品・お届け先）にお間違いはありませんか？？</div>
+        <table class='container-fluid table col-lg-6'>
+            <div class='row'>
+                <tbody>
+                    <div class='question'>登録内容（ご希望商品・お届け先）にお間違いはありませんか？？</div>
+                    <!--登録内容（ご希望商品）の表示-->
+                    <?php foreach($my_carts as $cart): ?>
+                        <tr>
+                            <td class='cart_td'><?= $cart->id ?></td>
+                            <td class='table_img'><img src='upload/items/<?= $cart->get_item()->image ?>' class='img_td'></img></td>
+                            <td class='table_td'>商品名：<?= $cart->get_item()->name ?></p></td>
+                            <td class='table_td'>商品名：<?= $cart->get_item()->description ?></p></td>
+                            <td class='table_td'>個数：<?= $cart->number ?>&ensp;個</p></td>
+                            <td class='table_td'>小計: ￥<?= $cart->number * $cart->get_item()->price ?>&ensp;円</td>
+                        </tr>     
+                    <?php endforeach; ?>
+                </tbody>            
+            </div>
+        </table>
+        <div class='container-fluid table col-lg-6 table_money'>
+            <h5>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></h5>
+            <h4>消費税込 合計金額: ￥<?= CartDAO::get_total_price($my_carts)* 1.08 ?>  </h4>
+        </div>
+        <div class='customer'>お届け先</div>
+        <div class='question'></div>
+        <!--登録内容（お届け先）の表示-->
+        <table class='container-fluid list table col-lg-6 col-6'>
+            <div class='row'> 
+                <tbody>
+                    <tr>
+                        <th>お名前</th><td><?= $login_customer->name ?></td>
+                    </tr>
+                    <tr>
+                        <th>カタカナ</th><td><?= $login_customer->kana_name ?></td>
+                    </tr>
+                    <tr>
+                        <th>郵便番号</th><td><?= $login_customer->postal_code ?></td>
+                    </tr>
+                    <tr>
+                        <th>住所</th><td><?= $login_customer->address ?></td>
+                    </tr>
+                    <tr>
+                        <th>お電話番号</th><td><?= $login_customer->tel ?></td>
+                    </tr>
+                </tbody>
+            </div>
         
-        <div class=''>正しければ決定のボタンを押してください。</div>
+            
+        </table>
+   
+        
+        <div class='question'>正しければ決定のボタンを押してください。</div>
         <form method='POST' action='decide.php'>
-            <!--登録内容（ご希望商品・お届け先・クレジットカード内容）の表示-->
+            
             <div class='top_d'>
             <input type="submit" value="決定" class='btn-gradient'/></div>
         </form>

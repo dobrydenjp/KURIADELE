@@ -59,7 +59,7 @@
                 </tbody>
             </div>
         </table>    
-        <form action='check.php' method='POST' class='purchase'>
+        <form action='check.php' method='GET' class='purchase'>
             <input type='submit' value='入力内容確認' class='btn-gradient'/>
         </form>
         <div class='footer'>

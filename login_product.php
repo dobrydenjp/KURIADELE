@@ -14,6 +14,11 @@
     
     // 登録した全ての商品情報取得
     $items = ItemDAO::get_all_items();
+    
+    $message = null;
+    if(isset($message)){
+        $message;
+    }
      // viewファイルの表示
     include_once 'views/products.php';
 ?>       

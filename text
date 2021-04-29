@@ -42,7 +42,21 @@
         var_dump($_SESSION);
         // header('Location: cart.php');
         // exit;
-    // 
+    //  }else{
+            
+    //      // 既にカートに異なる商品が入ってあればカートインスタンス取得する
+    //      // cart命の誕生
+    //     $cart = new Cart($customer_id, $item_id, $item_stock, $number);
+    //     var_dump($cart);
+    //     //  // カートに1件登録
+    //     $cart = CartDAO::insert($cart);
+    //     $_SESSION['cart'] = $cart;
+    //     var_dump($cart);
+    //     $_SESSION['cart_message'] = '商品をカートに追加しました';
+    //     var_dump($_SESSION);
+    //     // header('Location: cart.php');
+    //     // exit;
+        
     }
     
     

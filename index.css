@@ -177,8 +177,8 @@ li {
     margin-top: 3%;
 }
 .question {
-    margin-left: 20%;
     margin-top: 3%;
+    text-align: center;
     
 }
 .question_2 {
@@ -277,8 +277,8 @@ li {
 }
 
 .img_td {
-    width: 50%;
-    margin-left: 12%;
+    width: 76%;
+    
     margin-top: 4%;
 }
 .table_td {
@@ -287,7 +287,9 @@ li {
     font-family: sans-serif;
     width: 100%;
 }
-
+.table_img{
+    width: 45%;
+}
 .product_4{
 
     margin-bottom: 7%;

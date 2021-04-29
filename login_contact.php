@@ -8,6 +8,10 @@
     $my_contact_error = $_SESSION['my_contact_error'];
     // 1度のみ表示
     $_SESSION['my_contact_error'] = null;
+    
+    if(isset($_SESSSION['my_contact_error'])){
+     $my_contact_error = $_SESSION['my_contact_error'];
+    }
     // 送信できた場合のメッセージ
     $my_contact_message = $_SESSION['my_contact_message'];
     // 1度のみ表示

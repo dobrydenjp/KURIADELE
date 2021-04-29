@@ -36,7 +36,7 @@
                 <tbody>
                     <tr>
                         <td class='table_td'><?= $item->id ?></td>
-                        <td><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
+                        <td class='table_img'><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
                         <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
                         <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
                         <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>

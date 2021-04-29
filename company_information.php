@@ -7,6 +7,11 @@
     $company_error = $_SESSION['company_error'];
     // 1度のみ表示
     $_SESSION['company_error'] = null;
+    
+    if(isset($_SESSSION['company_error'])){
+     $company_error = $_SESSION['company_error'];
+    }
+    
     // 企業情報登録コメント表示する
     $company_message = $_SESSION['company_message'];
     //1度のみ表示

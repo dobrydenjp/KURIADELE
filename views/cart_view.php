@@ -31,7 +31,7 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>買い物かご</div>
+        <p class='customer'>買い物かご</p>
         <!--商品をカートに追加したメッセージ表示-->
         <?php if($cart_message !== null): ?>
             <P><?= $cart_message ?></P>
@@ -50,14 +50,14 @@
         <?php endif; ?>
         <!--$login_customerがnull空でない時に実行-->
         <?php if($login_customer !== null): ?>
-            <table class='container-fluid table col-lg-7'>
+            <table class='container-fluid table col-lg-6'>
                 <div class='row'>
                     <tbody>
                         <!--商品をカートに入れた順番に商品を表示-->
                         <?php foreach($my_carts as $cart): ?>
                         <tr>
-                            <td class='cart_td'>カート番号:<?= $cart->id ?></td>
-                            <td ><img src='upload/items/<?= $cart->get_item()->image ?>' class='carts_img'></img></td>
+                            <td class='table_td'><?= $cart->id ?></td>
+                            <td class='table_img'><img src='upload/items/<?= $cart->get_item()->image ?>' class='img_td'></img></td>
                             <td class='table_td'>商品名：<?= $cart->get_item()->name ?></p></td>
                             <td class='table_td'>商品説明：<?= $cart->get_item()->description ?></p></td>
                             <td class='table_td'>在庫数：<?= $cart->get_item()->stock ?></p></td>
@@ -85,7 +85,7 @@
                 <p>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></p>
                 <p>消費税込 合計金額: ￥<?= CartDAO::get_total_price($my_carts)* 1.08 ?></p>
                 <!--カート商品がない場合に実行-->
-                <?php if($my_carts->id > 0): ?>   
+                <?php if(count($my_carts) > 0): ?>   
                     <form method='POST' action='purchase_new.php'>
                         <input type='hidden' name='id' value='<?= $cart->id ?>'>
                         <input type='submit' value='決定' class='btn-gradientclass'/>

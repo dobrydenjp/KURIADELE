@@ -148,11 +148,13 @@
         
         // 購入時該当商品の在庫を 減らす
         public static function decrement_stock($cart){
+            $pdo = null;
+            $stmp = null;
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
                 // INSERT文を実行する準備（データはわざとあやふやにしておく）
-                $stmt = $pdo -> prepare("UPDATE items SET stock=(stock - :number) WHERE id=:id");
+                $stmt = $pdo -> prepare("UPDATE items SET stock =(stock - :number) WHERE id=:id");
                 
                 // バインド処理（あやふやだった箇所実データで埋める）
                 $stmt->bindParam(':number', $cart->number, PDO::PARAM_INT);
@@ -160,7 +162,7 @@
                 
                 // UPDATE文本番実行
                 $stmt->execute();
-    
+                
             }catch(PDOException $e){
                 
                 return "問題が発生しました<br>" . $e->getMessage();
