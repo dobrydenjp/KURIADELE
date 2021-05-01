@@ -32,6 +32,10 @@
             </div>
         </div>
         <div class='customer'>最終確認</div>
+        <!--1部の商品が無い場合のメッセージ表示-->
+        <?php if($message !== null): ?>
+            <P><?= $message ?></P>
+        <?php endif; ?>
         <table class='container-fluid table col-lg-6'>
             <div class='row'>
                 <tbody>
@@ -77,16 +81,12 @@
                     </tr>
                 </tbody>
             </div>
-        
-            
         </table>
-   
-        
         <div class='question'>正しければ決定のボタンを押してください。</div>
         <form method='POST' action='decide.php'>
-            
             <div class='top_d'>
             <input type="submit" value="決定" class='btn-gradient'/></div>
+            <input type='hidden' name='item_id' value='<?= $cart->item_id ?>'>
         </form>
         <div class='footer'>
             <ul><span>KURIADELEについて</span><br>

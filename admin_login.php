@@ -6,8 +6,8 @@
     // 1度のみ表示
     $_SESSION['error'] = null;
     
-    if(isset($_SESSSION['error'])){
-     $errorr = $_SESSION['error'];
+    if(isset($_SESSION['error'])){
+     $error = $_SESSION['error'];
     }
     // ログアウトメッセージ表示
     $logout_message = $_SESSION['logout_message'];

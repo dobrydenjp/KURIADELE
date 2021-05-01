@@ -13,17 +13,17 @@
     var_dump($login_customer);
     // ログイン者のidからカート情報を取得
     $my_carts = CartDAO::get_my_carts($login_customer->id);
-    var_dump($my_carts);
-    // 選択された商品情報取得
-    $item = $_SESSION['item'];
-    var_dump($item);
-    if($item->stock - $my_carts->number <= 0){
-        // 購入できないというメッセージ表示
-        $_SESSION['stock_message'] = '在庫がありません。商品をご確認ください。';
-        // var_dump($_SESSION);
-    //     header('Location: cart.php');
-    //     exit;
-    }
+    // var_dump($my_carts);
+    // // 選択された商品情報取得
+    // $item = $_SESSION['item'];
+    // var_dump($item);
+    // if($item->stock - $my_carts->number <= 0){
+    //     // 購入できないというメッセージ表示
+    //     $_SESSION['stock_message'] = '在庫がありません。商品をご確認ください。';
+    //     // var_dump($_SESSION);
+        // header('Location: cart.php');
+        // exit;
+    // }
     // 購入したい物が在庫以上ならば
 
     // 在庫が0個になる場合
@@ -38,8 +38,8 @@
     //     // var_dump($_SESSION);
     // }else{ // 在庫があるならば
     //         // 次のページへ進む
-        // header('Location: purchase_transfer.php');
-        // exit;
+        header('Location: purchase_transfer.php');
+        exit;
     // }
 
     

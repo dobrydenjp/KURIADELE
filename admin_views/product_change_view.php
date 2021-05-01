@@ -76,8 +76,10 @@
                 <input type='submit' value='登録'/>
             </div>
         </form>
-        <div class='customer'>登録内容確認</div>
-        <!--商品情報変更画面から遷移  変更したものを表示する設定-->
+        <p class='customer'>登録内容確認</p>
+        <?php if($delete_message !== null): ?>
+            <p><?= $delete_message ?></p>
+        <?php endif; ?>
         <table class='container-fluid table col-lg-6'>
             <div class='row'>
                 <tbody>
@@ -89,8 +91,16 @@
                         <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
                         <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
                         <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
+                        <td class='table_td'>
+                            <form method='POST' action='product_delete.php' class='select_td'>
+                                <input type='submit' value='削除' class='button'/>
+                                <input type='hidden' name='id' value='<?= $item->id ?>'>
+                            </form>
+                        </td>
                     </tr>
+                    
                     <?php endforeach; ?>
+                    
                 </tbody>
             </div>
         </table>

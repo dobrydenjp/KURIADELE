@@ -6,6 +6,10 @@
     // セッション情報 login_adminというニックネーム取得
     $login_admin = $_SESSION['login_admin'];
     
+    if(isset($_SESSION['login_admin'])){
+     $login_admin = $_SESSION['login_admin'];
+    }
+    
     // $login_adminがnullの場合
     if($login_admin === null){
         // ログインできないメッセージ表示

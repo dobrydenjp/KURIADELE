@@ -33,7 +33,7 @@
     // 1度のみ表示
     $_SESSION['search_errors'] = null;
     
-    if(isset($_SESSSION['search_errors'])){
+    if(isset($_SESSION['search_errors'])){
      $search_errors = $_SESSION['search_errors'];
     }
     // viewファイルの表示

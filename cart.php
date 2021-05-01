@@ -14,7 +14,7 @@
     // 一度のみ表示
     $_SESSION['cart_message'] = null;
     
-    if(isset($_SESSSION['cart_message'])){
+    if(isset($_SESSION['cart_message'])){
      $cart_message = $_SESSION['cart_message'];
     }
     // ログイン者のidからカート情報を取得
@@ -51,7 +51,7 @@
     $_SESSION['update_message'] = null;
     
     $update_message = null;
-    if(isset($_SESSSION['update_message'])){
+    if(isset($_SESSION['update_message'])){
      $update_message = $_SESSION['update_message'];
     }
     $id = null;

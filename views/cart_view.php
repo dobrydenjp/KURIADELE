@@ -74,7 +74,7 @@
                                     <input type='submit' value='変更' class='button'/>
                                     <a href='cart_delete.php?id=<?= $cart->id ?>' class='button'>削除</a>
                                 </form>
-                            </td>    
+                            </td>
                             <td class='table_td'>小計: ￥<?= $cart->number * $cart->get_item()->price ?>&ensp;円</td>
                         </tr>     
                         <?php endforeach; ?>
