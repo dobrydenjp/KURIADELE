@@ -14,6 +14,7 @@
     // 一度のみ表示
     $_SESSION['cart_message'] = null;
     
+    $cart_message = null;
     if(isset($_SESSION['cart_message'])){
      $cart_message = $_SESSION['cart_message'];
     }

@@ -8,6 +8,7 @@
     // 1度のみ表示
     $_SESSION['company_error'] = null;
     
+    $company_error = null;
     if(isset($_SESSION['company_error'])){
      $company_error = $_SESSION['company_error'];
     }
@@ -15,6 +16,11 @@
     $company_message = $_SESSION['company_message'];
     //1度のみ表示
     $_SESSION['company_message'] = null;
+    
+    $company_message = null;
+    if(isset($_SESSION['company_message'])){
+     $company_message = $_SESSION['company_message'];
+    }
     // idをGETで取得
     $id = null;
     if(isset($_GET['id'])){

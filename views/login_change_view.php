@@ -38,10 +38,6 @@
                 <p><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
-        <!--顧客情報更新メッセージ 表示-->
-        <?php if($update_message !== null): ?>
-            <p><?= $message ?></p>
-        <?php endif; ?>
         <form method='POST' action='login_update.php'>
             <p class='caution'>入力フォームには、現在の登録情報を記載しております。</p>
             <div class='customer_information form-group row '>
@@ -66,7 +62,6 @@
                 <label class='col-lg-4 col-form-label'>住所</label>
                     <div class="col-lg-4 col-12">
                         <input type="text" name="address" class='form-control' value='<?= $login_customer->address ?>'/>
-                    </div>
             </div>
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>お電話番号</label>

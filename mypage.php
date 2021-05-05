@@ -33,9 +33,11 @@
     // 1度のみ表示
     $_SESSION['search_errors'] = null;
     
+    $search_errors = null;
     if(isset($_SESSION['search_errors'])){
      $search_errors = $_SESSION['search_errors'];
     }
+    
     // viewファイルの表示
     include_once 'views/mypage_view.php';
 ?>

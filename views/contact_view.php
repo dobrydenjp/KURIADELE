@@ -33,13 +33,15 @@
         <div class='question' >
             何かありましたらご連絡ください。
         </div>
+        <!--質問項目入力エラーメッセージ表示-->
         <?php if($contact_error !== null): ?>
             <?php foreach($contact_error as $error): ?>
                 <p><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
+        <!--送信できた場合のメッセージ-->
         <?php if($contact_message !== null): ?>
-                <p><?= $contact_message ?></p>
+            <p><?= $contact_message ?></p>
         <?php endif; ?>
         <form method='POST' action='contact_new.php'>
             <div class='question_2'>お名前  <input type='text' name='name' class='submit' /></div>

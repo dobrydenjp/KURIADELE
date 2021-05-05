@@ -5,9 +5,11 @@
     // セッション開始
     session_start();
     // 前のページから商品id 取得
-    $id = $_GET['id'];
+    $id = $_POST['id'];
+    
     // CartDAOを使ってカートのid削除する
     $delete = CartDAO::delete_cart($id);
+    // var_dump($delete);
     // 削除したメッセージ保存
     $_SESSION['delete_message'] = 'カート番号' . $id . 'の商品を削除しました。';
     // 画面遷移

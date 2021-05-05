@@ -18,6 +18,11 @@
     $pay_message = $_SESSION['pay_message'];
     // 1度のみ表示
     $_SESSION['pay_message'] = null;
+    
+    $pay_message = null;
+    if(isset($_SESSION['pay_message'])){
+     $pay_message = $_SESSION['pay_message'];
+    }
     // viewファイルの表示
     include_once 'views/purchase_transfer_view.php';
 

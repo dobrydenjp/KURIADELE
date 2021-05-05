@@ -12,6 +12,7 @@
     // 1度のみ表示
     $_SESSION['error_message'] = null;
     
+    
     if(isset($_SESSSION['error_message'])){
         $error_message = $_SESSION['error_message'];
         
@@ -21,6 +22,7 @@
     // 1度のみ表示
     $_SESSION['bank_message'] = null;
     
+    $bank_message = null;
     if(isset($_SESSSION['bank_message'])){
         $bank_message = $_SESSION['bank_message'];
         

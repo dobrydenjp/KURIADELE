@@ -2,7 +2,7 @@
 <html lang='ja'>
     <head>
         <meta charset='UTF-8'>
-        <title>取り扱い商品 一覧</title>
+        <title>お客様情報変更</title>
         <link rel='stylesheet' href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -31,33 +31,13 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>取り扱い商品<br>一覧</div>
-        <!--キーワードに類似した商品表示するメッセージ表示-->
-        <?php if($message !== ''): ?>
-            <p><?= $message ?></p>
+        <div class='customer'>お客様情報変更</div>
+        <!--顧客情報更新メッセージ 表示-->
+        <?php if($update_message !== null): ?>
+            <p><?= $update_message ?></p>
         <?php endif; ?>
-        <table class='container-fluid table col-lg-6'>
-            <div class='row'>
-                <tbody>
-                    <?php foreach($items as $item): ?>
-                    <tr>
-                        <td class='table_td'><?= $item->id ?></td>
-                        <td class='table_img'><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
-                        <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
-                        <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
-                        <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
-                        <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
-                        <td class='table_td'>
-                            <form method='GET' action='login_item_buy.php'>
-                                <input type='submit' value='詳細ページへ'>
-                                <input type="hidden" name='id' value="<?= $item->id ?>">
-                            </form>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </div>
-        </table>
+        
+        
         <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='login_company.php'>企業紹介</a></li>

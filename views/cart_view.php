@@ -72,18 +72,21 @@
                                     <input type='hidden' name='id' value='<?= $cart->id ?>'>
                                     <input type='hidden' name='item_id' value='<?= $cart->item_id ?>'>
                                     <input type='submit' value='変更' class='button'/>
-                                    <a href='cart_delete.php?id=<?= $cart->id ?>' class='button'>削除</a>
+                                </form>
+                                <form method='POST' action='cart_delete.php' class='delete'>
+                                    <input type='hidden' name='id' value='<?= $cart->id ?>'>
+                                    <input type='submit' value='削除' class='button'/>
                                 </form>
                             </td>
-                            <td class='table_td'>小計: ￥<?= $cart->number * $cart->get_item()->price ?>&ensp;円</td>
+                            <td class='table_td'>小計：￥<?= $cart->number * $cart->get_item()->price ?>&ensp;円</td>
                         </tr>     
                         <?php endforeach; ?>
                     </tbody>            
                 </div>
             </table>
             <div class='container-fluid table col-lg-7 table_money'>
-                <p>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></p>
-                <p>消費税込 合計金額: ￥<?= CartDAO::get_total_price($my_carts)* 1.08 ?></p>
+                <p>合計金額：￥<?= CartDAO::get_total_price($my_carts) ?></p>
+                <p>消費税込&ensp;合計金額：￥<?= CartDAO::get_total_price($my_carts)* 1.08 ?></p>
                 <!--カート商品がない場合に実行-->
                 <?php if(count($my_carts) > 0): ?>   
                     <form method='POST' action='purchase_new.php'>

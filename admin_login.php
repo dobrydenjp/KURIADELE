@@ -1,11 +1,12 @@
 <?php
+
     // セッション開始
     session_start();
     // ログインにて入力ミスの場合にエラーメッセージ表示
     $error = $_SESSION['error'];
     // 1度のみ表示
     $_SESSION['error'] = null;
-    
+    $error = null;
     if(isset($_SESSION['error'])){
      $error = $_SESSION['error'];
     }

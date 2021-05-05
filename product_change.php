@@ -20,8 +20,9 @@
     $flash_message = $_SESSION['register_message'];
     // 1度のみ表示
     $_SESSION['register_message'] = null;
-
-    if(isset($_SESSSION['register_message'])){
+    
+    $flash_message = null;
+    if(isset($_SESSION['register_message'])){
      $flash_message = $_SESSION['register_message'];
     }
     // 登録している商品を削除したメッセージ表示
@@ -29,7 +30,8 @@
     // 1度のみ表示
     $_SESSION['delete_message'] = null;
     
-    if(isset($_SESSSION['delete_message'])){
+    $delete_message = null;
+    if(isset($_SESSION['delete_message'])){
      $delete_message = $_SESSION['delete_message'];
     }
     // idをGETで取得

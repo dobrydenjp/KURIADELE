@@ -9,6 +9,8 @@
     $news_error = $_SESSION['news_error'];
     // 1度のみ表示
     $_SESSION['news_error'] = null;
+    
+    $news_error = null;
     if(isset($_SESSION['news_error'])){
         $news_error = $_SESSION['news_error'];
     }
@@ -16,6 +18,11 @@
     $news_message = $_SESSION['news_message'];
     // 1度のみ表示
     $_SESSION['news_message'] = null;
+    
+    $news_message = null;
+    if(isset($_SESSION['news_message'])){
+        $news_message = $_SESSION['news_message'];
+    }
     // idをGETで取得
     // $idをnullにする
     $id = null;

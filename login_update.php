@@ -3,8 +3,6 @@
     require_once 'login_filter.php';
     // 外部ファイル読込
     require_once 'daos/customer_dao.php';
-    // セクション開始
-    session_start(); 
     // ログイン者の情報取得
     $login_customer = $_SESSION['login_customer'];
     // 入力された情報を保存
@@ -23,8 +21,8 @@
     if(count($errors) === 0){
         // 会員情報変更の更新
         CustomerDAO::update($customer_update, $login_customer->id);
-        $_SESSION['update_message'] = '会員情報を変更しました';
-        header('Location: login_change.php');
+        $_SESSION['update_message'] = '会員情報を変更しました。ご確認お願いします';
+        header('Location: customer_change.php');
         exit;
     }else{
         // セッションにエラーメッセージをセット
