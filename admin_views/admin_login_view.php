@@ -30,12 +30,12 @@
         </div>
         <div class='customer'>管理者ページログイン</div>
         <!--ログインエラーメッセージ-->
-        <?php if($error !== null): ?>
-            <p><?= $error ?></p>
+        <?php if($error_message !== null): ?>
+            <p><?= $error_message ?></p>
         <?php endif; ?>
         <!--ログアウトメッセージ-->
-        <?php if($logout_message !== null): ?>
-            <p><?= $logout_message ?></p>
+        <?php if($flash_message !== null): ?>
+            <p><?= $flash_message ?></p>
         <?php endif; ?>
         <form action='admin_new.php' method='POST'>
             <div class='login_2'>

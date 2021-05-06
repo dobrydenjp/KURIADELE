@@ -14,7 +14,7 @@
     // 商品個数変更後の個数取得
     $_SESSION['number'] = $update;
     // // 画面遷移
-    $_SESSION['number_message'] = 'カート番号' . $id . '商品番号' . $item_id . 'の個数を' . $number . '個に変更しました';
+    $_SESSION['flash_message'] = 'カート番号' . $id . '商品番号' . $item_id . 'の個数を' . $number . '個に変更しました';
     // 画面遷移
     header('Location: cart.php');
     exit;

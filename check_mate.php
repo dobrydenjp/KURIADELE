@@ -11,10 +11,10 @@
     // カートに入っている商品取得
     $my_carts = CartDAO::get_my_carts($login_customer->id);
     // 商品がないメッセージ取得
-    $message = $_SESSION['message'];
+    $flash_message = $_SESSION['flash_message'];
     // 1度のみ表示
-    $_SESSION['message'] = null;
-    // var_dump($message);
+    $_SESSION['flash_message'] = null;
+
     // viewファイルの表示
     include_once 'views/check_mate_view.php';
 ?>

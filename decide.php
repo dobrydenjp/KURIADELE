@@ -21,14 +21,11 @@
         $item_id = $cart->item_id;
         // itemDAOを使って商品情報を取得する
         $item = itemDAO::get_item_by_id($item_id);
-        // var_dump($cart);
-        // var_dump($item);
         
         // もし商品の在庫数より、購入希望数が多ければ
         if($cart->number > $item->stock){
             // 在庫数が足りなければ足りないメッセージ表示
-            $_SESSION['message'] = '商品番号' . $item_id . 'の在庫がありません。ご確認お願いします。';
-            // var_dump($_SESSION);
+            $_SESSION['flash_message'] = '商品番号' . $item_id . 'の在庫がありません。ご確認お願いします。';
             header('Location: check_mate.php');
             exit;
         }else{

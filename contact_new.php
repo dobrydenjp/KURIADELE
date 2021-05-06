@@ -18,13 +18,13 @@
         // 質問事項登録する
         ContactDAO::insert($contacts);
         // メッセージ表示
-        $_SESSION['contact_message'] = 'ご質問ありがとうございます。ご返信にはお時間を頂きます。よろしくお願い致します。';
+        $_SESSION['flash_message'] = 'ご質問ありがとうございます。ご返信にはお時間を頂きます。よろしくお願い致します。';
         // 画面遷移
         header('Location: contact.php');
         exit;
     }else{ // 入力エラーがあるならば
         // エラーメッセージ表示
-        $_SESSION['contact_error'] = $contact_error;
+        $_SESSION['error_message'] = $contact_error;
         // 画面遷移
         header('Location: contact.php');
         exit;

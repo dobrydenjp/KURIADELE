@@ -114,29 +114,6 @@
                self::close_connection($pdo, $stmp); 
             }
         }
-        // idから1つの商品を削除する
-        public static function delete_item($id){
-            $pdo = null;
-            $stmp = null;
-            try{
-                // データベースに接続する神様取得
-                $pdo = self::get_connection();
-                // DELETE文を実行する準備
-                $stmt = $pdo -> prepare("DELETE FROM items WHERE id=:id");
-                // バインド処理（あやふやだった箇所を実データで埋める）
-                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-                
-                // DELETE文本番実行
-                $stmt->execute();
-                return '削除しました';
-            }catch(PDOException $e){
-                
-                return "問題が発生しました<br>" . $e->getMessage();
-                
-            }finally{
-               self::close_connection($pdo, $stmp); 
-            }
-        }
         //idから1つの商品を取得する
         public static function get_item_by_id($id){
             $pdo = null;

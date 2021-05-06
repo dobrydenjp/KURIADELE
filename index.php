@@ -2,6 +2,18 @@
     // 外部ファイル読込
     require_once 'admin_daos/news_dao.php';
     require_once 'daos/item_dao.php';
+    // セッション開始
+    session_start();
+    // ログアウトメッセージ表示
+    $flash_message = $_SESSION['flash_message'];
+    // 一度のみ表示
+    $_SESSION['flash_message'] = null;
+    
+    // $flash_message = null;
+    // if(isset($_SESSION['flash_message'])){
+    //  $flash_message = $_SESSION['flash_message'];
+    // }
+    
     // idをnullにする
     // GETでid取得
     $id = null;

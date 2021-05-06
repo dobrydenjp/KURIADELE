@@ -33,8 +33,8 @@
         </div>
         <div class='customer'>取り扱い商品<br>一覧</div>
         <!--キーワードに類似した商品表示するメッセージ表示-->
-        <?php if($message !== ''): ?>
-            <p><?= $message ?></p>
+        <?php if($flash_message !== ''): ?>
+            <p><?= $flash_message ?></p>
         <?php endif; ?>
         <table class='container-fluid table col-lg-6'>
             <div class='row'>

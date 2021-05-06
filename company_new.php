@@ -16,13 +16,13 @@
         // 企業情報を登録する
         CompanyDAO::insert($company);
         // メッセージ表示
-        $_SESSION['company_message'] = '登録が完了しました';
+        $_SESSION['flash_message'] = '登録が完了しました';
         // 画面遷移
         header('Location: company_information.php');
         exit;
     }else{ // 入力エラーがあるならば
     //       // エラーメッセージ表示
-        $_SESSION['company_error'] = $company_error;
+        $_SESSION['error_message'] = $company_error;
         // 画面遷移
         header('Location: company_information.php');
         exit;

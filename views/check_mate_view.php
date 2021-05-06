@@ -33,8 +33,8 @@
         </div>
         <div class='customer'>最終確認</div>
         <!--1部の商品が無い場合のメッセージ表示-->
-        <?php if($message !== null): ?>
-            <P><?= $message ?></P>
+        <?php if($flash_message !== null): ?>
+            <P><?= $flash_message ?></P>
         <?php endif; ?>
         <table class='container-fluid table col-lg-6'>
             <div class='row'>

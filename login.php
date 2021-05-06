@@ -5,32 +5,29 @@
     session_start();
     
     // 新規会員登録成功メッセージを取得
-    $done_message = $_SESSION['done_message'];
+    $flash_message = $_SESSION['flash_message'];
     // 1度のみ表示
-    $_SESSION['done_message'] = null;
+    $_SESSION['flash_message'] = null;
     
-    $done_message = null;
-    if(isset($_SESSION['done_message'])){
-     $contact_error = $_SESSION['done_message'];
-    }
+    // $done_message = null;
+    // if(isset($_SESSION['done_message'])){
+    //  $contact_error = $_SESSION['done_message'];
+    // }
     // 入力エラーメッセージ取得
+    $error_message = $_SESSION['error_message'];
+    // 1度のみ表示
+    $_SESSION['error_message'] = null;
+
+    // // 顧客がいないというメッセージ取得
+    // 出力されない
     $errors = $_SESSION['errors'];
     // 1度のみ表示
     $_SESSION['errors'] = null;
     
-    $errors = null;
-    if(isset($_SESSION['errors'])){
-     $contact_error = $_SESSION['errors'];
-    }
-    // 顧客がいないというメッセージ取得
-    $error_message = $_SESSION['error_message'];
-    // 1度のみ表示
-    $_SESSION['error_message'] = null;
-    
-    $error_message = null;
-    if(isset($_SESSION['error_message'])){
-     $contact_error = $_SESSION['error_message'];
-    }
+    // $errors = null;
+    // if(isset($_SESSION['errors'])){
+    //  $errors = $_SESSION['errors'];
+    // }
     // viewファイルの表示
     include_once 'views/login_view.php';
 ?>

@@ -32,12 +32,10 @@
             </div>
         </div>
         <div class='customer'>お客様情報変更</div>
-        <!--顧客情報更新メッセージ 表示-->
-        <?php if($update_message !== null): ?>
-            <p><?= $update_message ?></p>
+        <!--顧客情報更新完了メッセージ 表示-->
+        <?php if($flash_message !== null): ?>
+            <p><?= $flash_message ?></p>
         <?php endif; ?>
-        
-        
         <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='login_company.php'>企業紹介</a></li>

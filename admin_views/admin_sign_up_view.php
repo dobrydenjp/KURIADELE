@@ -32,8 +32,8 @@
             管理者会員登録
         </div>
         <!--管理者会員登録したメッセージ表示-->
-        <?php if($admin_message !== null): ?>
-            <p><?= $admin_message ?></p>
+        <?php if($flash_message !== null): ?>
+            <p><?= $flash_message ?></p>
         <?php endif; ?>
         <!--入力エラーメッセージ表示-->
         <?php if($error_message !== null): ?>

@@ -30,21 +30,21 @@
             </div>
         </div>
         <div class='customer'>企業情報変更</div>
-        <?php if($company_error !== null): ?>
-            <?php foreach($company_error as $error): ?>
+        <!--企業情報入力エラーメッセージ表示-->
+        <?php if($error_message !== null): ?>
+            <?php foreach($error_message as $error): ?>
                 <p><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
-        
-        <?php if($company_message !== null): ?>
-            <p><?= $company_message ?></p>
+        <!--企業情報入力完了メッセージ表示-->
+        <?php if($flash_message !== null): ?>
+            <p><?= $flash_message ?></p>
         <?php endif; ?>
-        <!--削除追加  更新機能つける-->
         <form method='POST' action='company_new.php' class='top_d'>
             <p class='company_info'>KURIADELEとは</p><textarea name="description" cols="30" rows="5" placeholder='<?= $company->description ?>'></textarea>
             <p>代表挨拶<input type="text" name="greeting" value='<?= $company->greeting ?>'/></p>
             <p>事業計画<input type="text" name="plan" value='<?= $company->plan ?>'/></p>
-            <div class=''>
+            <div>
                 <input type="submit" value="更新" class='btn-gradient'/>
             </div>
         </form>

@@ -36,8 +36,8 @@
         <br>
         <br>
         <!--新規登録成功のメッセージ表示-->
-        <?php if($done_message !== null): ?>
-            <p><?= $dene_message ?></p>
+        <?php if($flash_message !== null): ?>
+            <p><?= $flash_message ?></p>
         <?php endif; ?>
 
         <div class='login_1'>ＭＹページログイン</div>

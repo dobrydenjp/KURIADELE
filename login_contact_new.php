@@ -20,12 +20,12 @@
         // 質問事項登録する
         ContactDAO::insert($contacts);
         // メッセージ表示
-        $_SESSION['my_contact_message'] = 'ご質問ありがとうございます。ご返信にはお時間を頂きます。よろしくお願い致します。';
+        $_SESSION['flash_message'] = 'ご質問ありがとうございます。ご返信にはお時間を頂きます。よろしくお願い致します。';
         header('Location: login_contact.php');
         exit;
     }else{ // 入力エラーがあるならば
         // エラーメッセージ表示
-        $_SESSION['my_contact_error'] = $contact_error;
+        $_SESSION['error_message'] = $contact_error;
         header('Location: login_contact.php');
         exit;
     }

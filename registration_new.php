@@ -20,13 +20,13 @@
         // 顧客情報をデータベースに保存する
         CustomerDAO::insert($customer);
         // 新規会員登録メッセージをセッションに保存
-        $_SESSION['done_message'] = $name . 'さんの登録が完了しました';
+        $_SESSION['flash_message'] = $name . 'さんの登録が完了しました';
         // ログイン画面に遷移
         header('Location: login.php');
         exit;
     }else{ // 入力エラーが１つでもあれば
         // エラーメッセージ配列をセッションに保存する
-        $_SESSION['errors'] = $errors;
+        $_SESSION['error_message'] = $errors;
         // 画面遷移
         header('Location: sign_up.php');
         exit;

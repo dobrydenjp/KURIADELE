@@ -33,16 +33,16 @@
         <div class='customer'>振込み先情報</div>
         <!--$error_message がnullでないならば-->
         <?php if($error_message !== null): ?>
-            <!--入力エラーメッセージ-->
+            <!--入力エラーメッセージ表示-->
             <?php foreach($error_message as $errors): ?>
                 <!--$error_message  表示する-->
                 <p><?= $errors ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
-        <!-- $bank_message がnullでないならば-->
-        <?php if($bank_message !== null): ?>
-        <!--銀行口座情報登録メッセージ表示する-->
-            <P><?= $bank_message ?></P>
+        <!-- $flash_message がnullでないならば-->
+        <?php if($flash_message !== null): ?>
+        <!--銀行口座情報登録メッセージ表示-->
+            <P><?= $flash_message ?></P>
         <?php endif; ?>
         <form method='POST' action='registration_transfer.php' enctype="multipart/form-data">
             <div class='customer_information form-group row '>

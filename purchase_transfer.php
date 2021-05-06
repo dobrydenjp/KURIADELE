@@ -13,16 +13,6 @@
     }
     // 現在の口座情報を表示する
     $get_bank = Admindao::get_bank_by_id($id);
-    // var_dump($get_bank);
-    // 支払銀行確認メッセージ表示
-    $pay_message = $_SESSION['pay_message'];
-    // 1度のみ表示
-    $_SESSION['pay_message'] = null;
-    
-    $pay_message = null;
-    if(isset($_SESSION['pay_message'])){
-     $pay_message = $_SESSION['pay_message'];
-    }
     // viewファイルの表示
     include_once 'views/purchase_transfer_view.php';
 

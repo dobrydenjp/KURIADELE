@@ -32,9 +32,9 @@
             </div>
         </div>
         <div class='customer'>お客様情報変更</div>
-        <!--顧客情報変更エラーメッセージ表示-->
-        <?php if(count($errors) !== 0): ?>
-            <?php foreach($errors as $error): ?>
+        <!--顧客情報変更入力エラーメッセージ表示-->
+        <?php if(count($error_message) !== 0): ?>
+            <?php foreach($error_message as $error): ?>
                 <p><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
@@ -62,6 +62,7 @@
                 <label class='col-lg-4 col-form-label'>住所</label>
                     <div class="col-lg-4 col-12">
                         <input type="text" name="address" class='form-control' value='<?= $login_customer->address ?>'/>
+                    </div>
             </div>
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>お電話番号</label>
@@ -74,7 +75,7 @@
                     <div class="col-lg-4 col-12">
                         <input type='text' name='email_address' class='form-control' value='<?= $login_customer->email_address ?>'/>
                     </div>
-                </div>
+            </div>
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>ログインパスワード</label>
                     <div class='col-lg-4 col-12'>

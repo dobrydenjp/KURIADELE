@@ -4,23 +4,23 @@
     // 外部ファイル読込
     require_once 'admin_daos/company_dao.php';
     // 企業情報入力エラーメッセージ表示
-    $company_error = $_SESSION['company_error'];
+    $error_message = $_SESSION['error_message'];
     // 1度のみ表示
-    $_SESSION['company_error'] = null;
+    $_SESSION['error_message'] = null;
     
-    $company_error = null;
-    if(isset($_SESSION['company_error'])){
-     $company_error = $_SESSION['company_error'];
-    }
+    // $error_message = null;
+    // if(isset($_SESSION['error_message'])){
+    //  $error_message = $_SESSION['error_message'];
+    // }
     // 企業情報登録コメント表示する
-    $company_message = $_SESSION['company_message'];
+    $flash_message = $_SESSION['flash_message'];
     //1度のみ表示
-    $_SESSION['company_message'] = null;
+    $_SESSION['flash_message'] = null;
     
-    $company_message = null;
-    if(isset($_SESSION['company_message'])){
-     $company_message = $_SESSION['company_message'];
-    }
+    // $flash_message = null;
+    // if(isset($_SESSION['flash_message'])){
+    //  $flash_message = $_SESSION['flash_message'];
+    // }
     // idをGETで取得
     $id = null;
     if(isset($_GET['id'])){

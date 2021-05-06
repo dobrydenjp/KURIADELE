@@ -31,7 +31,7 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>購入履歴</div>
+        <p class='customer'>購入履歴</p>
         <table class='container-fluid table col-lg-11'>
             <div class='row'>
                 <tbody>

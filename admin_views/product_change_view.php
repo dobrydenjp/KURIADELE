@@ -33,13 +33,13 @@
             <p class=customer>商品情報登録</p>
         </div>
         <!--商品登録ができない場合のメッセージ表示-->
-        <?php if($errors !== null): ?>
-            <?php foreach($errors as $error): ?>
+        <?php if($error_message !== null): ?>
+            <?php foreach($error_message as $error): ?>
                 <p><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
         <!--商品登録完了したメッセージ表示-->
-        <?= $flash_message?>
+        <?= $flash_message ?>
         <form method='POST' action='item_new.php' enctype="multipart/form-data">
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>商品名</label>
@@ -77,9 +77,6 @@
             </div>
         </form>
         <p class='customer'>登録内容確認</p>
-        <?php if($delete_message !== null): ?>
-            <p><?= $delete_message ?></p>
-        <?php endif; ?>
         <table class='container-fluid table col-lg-6'>
             <div class='row'>
                 <tbody>
@@ -91,12 +88,6 @@
                         <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
                         <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
                         <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
-                        <td class='table_td'>
-                            <form method='POST' action='product_delete.php' class='select_td'>
-                                <input type='submit' value='削除' class='button'/>
-                                <input type='hidden' name='id' value='<?= $item->id ?>'>
-                            </form>
-                        </td>
                     </tr>
                     
                     <?php endforeach; ?>

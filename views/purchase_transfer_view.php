@@ -32,9 +32,6 @@
             </div>
         </div>
         <div class='customer'>ご購入手続き</div>
-        <?php if($pay_message !== null): ?>
-            <p><?= $pay_message ?></p>
-        <?php endif ;?>
         <div class='buy_1'>支払方法はお振込みのみです</div>
         <P class='customer_1'>お振込み口座</P>
         <table class='container-fluid table col-lg-4'>
@@ -55,7 +52,6 @@
                     <tr>
                         <th>口座名義人<td class='table_td'><?= $get_bank->kana_name ?></td></th>
                     </tr>
-   
                 </tbody>
             </div>
         </table>    

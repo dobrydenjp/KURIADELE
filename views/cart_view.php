@@ -32,21 +32,12 @@
             </div>
         </div>
         <p class='customer'>買い物かご</p>
-        <!--商品をカートに追加したメッセージ表示-->
-        <?php if($cart_message !== null): ?>
-            <P><?= $cart_message ?></P>
-        <?php endif; ?>
-        <!--商品の個数変更したメッセージ表示-->
-        <?php if($number_message !== null): ?>
-            <p><?= $number_message ?></p>
-        <?php endif; ?>
-        <!--商品を削除したメッセージ表示-->
-        <?php if($delete_message !== null): ?>
-            <p><?= $delete_message ?></p>
-        <?php endif; ?>
-        <!--同一商品を追加したメッセージ表示-->
-         <?php if($update_message !== null): ?>
-            <p><?= $update_message ?></p>
+        <!--商品をカートに追加-->
+        <!--商品の個数変更-->
+        <!--商品を削除-->
+        <!--同一商品を追加メッセージ表示-->
+        <?php if($flash_message !== null): ?>
+            <P><?= $flash_message ?></P>
         <?php endif; ?>
         <!--$login_customerがnull空でない時に実行-->
         <?php if($login_customer !== null): ?>

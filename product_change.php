@@ -9,31 +9,17 @@
     // ログイン者の情報をセッションに保存
     $login_admin = $_SESSION['login_admin'];
     // 登録できないメッセージ表示
-    $errors = $_SESSION['errors'];
+    $error_message = $_SESSION['error_message'];
     // 1度のみ表示
-    $_SESSION['errors'] = null;
-    if(isset($_SESSION['errors'])){
-     $errors = $_SESSION['errors'];
+    $_SESSION['error_message'] = null;
+    if(isset($_SESSION['error_message'])){
+     $error_message = $_SESSION['error_message'];
     }
     //
     // 無事に商品登録完了したメッセージ表示
-    $flash_message = $_SESSION['register_message'];
+    $flash_message = $_SESSION['flash_message'];
     // 1度のみ表示
-    $_SESSION['register_message'] = null;
-    
-    $flash_message = null;
-    if(isset($_SESSION['register_message'])){
-     $flash_message = $_SESSION['register_message'];
-    }
-    // 登録している商品を削除したメッセージ表示
-    $delete_message = $_SESSION['delete_message'];
-    // 1度のみ表示
-    $_SESSION['delete_message'] = null;
-    
-    $delete_message = null;
-    if(isset($_SESSION['delete_message'])){
-     $delete_message = $_SESSION['delete_message'];
-    }
+    $_SESSION['flash_message'] = null;
     // idをGETで取得
     // $idをnullにする
     $id = null;

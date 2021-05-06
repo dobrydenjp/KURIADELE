@@ -30,14 +30,15 @@
             </div>
         </div>
         <div class='customer'>KURIADELEnews 更新</div>
-        <?php if($news_error !== null): ?>
-            <?php foreach($news_error as $error): ?>
+        <!--ニュース更新できないエラーメッセージ表示-->
+        <?php if($error_message !== null): ?>
+            <?php foreach($error_message as $error): ?>
                 <p><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
-        
-        <?php if($news_message !== null): ?>
-            <p><?= $news_message ?></p>
+        <!--ニュース更新完了メッセージ表示-->
+        <?php if($flash_message !== null): ?>
+            <p><?= $flash_message ?></p>
         <?php endif; ?>
         <form method='POST' action='news.php' enctype="multipart/form-data">
             <div class='customer_information form-group row '>

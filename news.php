@@ -14,12 +14,12 @@
         // news登録する
         NewsDAO::insert($news);
         // 登録したメッセージ表示
-        $_SESSION['news_message'] = '登録が完了しました';
+        $_SESSION['flash_message'] = '登録が完了しました';
         header('Location: KURIADELE_news.php');
         exit;
     }else{ // 入力エラーがあるならば
         // エラーメッセージ表示
-        $_SESSION['news_error'] = $news_error;
+        $_SESSION['error_message'] = $news_error;
         header('Location: KURIADELE_news.php');
         exit;
     }

@@ -31,9 +31,8 @@
                 </span>
             </div>
         </div>
-        <div class='customer_1'>ご注文ありがとうございました。</div>
-            
-        <div class='customer_1'>またどうぞよろしくお願い致します。</div>
+        <p class='customer_1'>ご注文ありがとうございました。</p>
+        <p class='customer_1'>またどうぞよろしくお願い致します。</p>
         <a href='mypage.php'>
             <div class='corporation_1'>TOPページへ戻る</div>
         </a>

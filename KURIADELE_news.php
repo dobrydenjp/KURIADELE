@@ -6,23 +6,23 @@
     // セッション開始
     // session_start();
     // 入力項目エラーメッセージ表示
-    $news_error = $_SESSION['news_error'];
+    $error_message = $_SESSION['error_message'];
     // 1度のみ表示
-    $_SESSION['news_error'] = null;
+    $_SESSION['error_message'] = null;
     
-    $news_error = null;
-    if(isset($_SESSION['news_error'])){
-        $news_error = $_SESSION['news_error'];
-    }
+    // $error_message = null;
+    // if(isset($_SESSION['error_message'])){
+    //     $error_message = $_SESSION['error_message'];
+    // }
     // 保存できた時のメッセージ表示
-    $news_message = $_SESSION['news_message'];
+    $flash_message = $_SESSION['flash_message'];
     // 1度のみ表示
-    $_SESSION['news_message'] = null;
+    $_SESSION['flash_message'] = null;
     
-    $news_message = null;
-    if(isset($_SESSION['news_message'])){
-        $news_message = $_SESSION['news_message'];
-    }
+    // $flash_message = null;
+    // if(isset($_SESSION['flash_message'])){
+    //     $flash_message = $_SESSION['flash_message'];
+    // }
     // idをGETで取得
     // $idをnullにする
     $id = null;

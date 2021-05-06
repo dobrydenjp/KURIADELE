@@ -25,7 +25,8 @@
         // cart_daoを使い個数を追加する
                                                     // 現在の数　　　変更後の個数
         $flash_message = CartDAO::update($cart->id, $cart->number + $number);
-        $_SESSION['cart_message'] = $flash_message;
+        $_SESSION['flash_message'] = $flash_message;
+        // var_dump($flash_message);
         header('Location: cart.php');
         exit;
     }else{
@@ -35,8 +36,7 @@
 
          // カートに1件登録
         $flash_message = CartDAO::insert($cart);
-        // $_SESSION['flash_messag'] = $flash_message;
-        $_SESSION['cart_message'] = $flash_message;
+        $_SESSION['flash_message'] = $flash_message;
         header('Location: cart.php');
         exit;
     }

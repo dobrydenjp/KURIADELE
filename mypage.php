@@ -27,17 +27,6 @@
     $items = $items[$rand];
     // newsの情報取得
     $news = NewsDAO::get_news_id($id);
-    // var_dump($news);
-    // 検索フォーム入力エラーメッセージ表示
-    $search_errors = $_SESSION['search_errors'];
-    // 1度のみ表示
-    $_SESSION['search_errors'] = null;
-    
-    $search_errors = null;
-    if(isset($_SESSION['search_errors'])){
-     $search_errors = $_SESSION['search_errors'];
-    }
-    
     // viewファイルの表示
     include_once 'views/mypage_view.php';
 ?>

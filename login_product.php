@@ -14,10 +14,10 @@
     
     // 登録した全ての商品情報取得
     $items = ItemDAO::get_all_items();
-    var_dump($message);
-    $message = null;
-    if(isset($message)){
-        $message;
+    
+    $flash_message = null;
+    if(isset($_SESSION['flash_message'])){
+        $flash_message = $_SESSION['flash_message'];
     }
      // viewファイルの表示
     include_once 'views/products.php';

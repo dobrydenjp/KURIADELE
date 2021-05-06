@@ -5,18 +5,13 @@
     require_once 'admin_daos/contact_dao.php';
     require_once 'daos/customer_dao.php';
     // 質問項目入力エラーメッセージ表示
-    $my_contact_error = $_SESSION['my_contact_error'];
+    $error_message = $_SESSION['error_message'];
     // 1度のみ表示
-    $_SESSION['my_contact_error'] = null;
-    
-     $my_contact_error = null;
-    if(isset($_SESSION['my_contact_error'])){
-     $my_contact_error = $_SESSION['my_contact_error'];
-    }
+    $_SESSION['error_message'] = null;
     // 送信できた場合のメッセージ
-    $my_contact_message = $_SESSION['my_contact_message'];
+    $flash_message = $_SESSION['flash_message'];
     // 1度のみ表示
-    $_SESSION['my_contact_message'] = null;
+    $_SESSION['flash_message'] = null;
     // idをnullで取得
     $id = null;
     // $idをGETで取得

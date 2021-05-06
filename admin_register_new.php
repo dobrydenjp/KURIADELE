@@ -16,7 +16,7 @@
         // 管理者情報を保存
         AdminDAO::admin_insert($admin);
         // 管理者登録をしたメッセージを保存
-        $_SESSION['admin_message'] = $name . 'さんの登録が完了しました。';
+        $_SESSION['flash_message'] = $name . 'さんの登録が完了しました。';
         // 画面遷移
         header('Location: admin_sign_up.php');
         exit;

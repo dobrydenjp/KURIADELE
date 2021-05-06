@@ -4,23 +4,15 @@
     // セッション開始
     session_start();
     // 質問項目入力エラーメッセージ表示
-    $contact_error = $_SESSION['contact_error'];
+    $error_message = $_SESSION['error_message'];
     // 1度のみ表示
-    $_SESSION['contact_error'] = null;
-    
-    $contact_error = null;
-    if(isset($_SESSION['contact_error'])){
-     $contact_error = $_SESSION['contact_error'];
-    }
+    $_SESSION['error_message'] = null;
+
     // 送信できた場合のメッセージ
-    $contact_message = $_SESSION['contact_message'];
+    $flash_message = $_SESSION['flash_message'];
     // 1度のみ表示
-    $_SESSION['contact_message'] = null;
-    
-    $contact_message = null;
-    if(isset($_SESSION['contact_message'])){
-     $contact_message = $_SESSION['contact_message'];
-    }
+    $_SESSION['flash_message'] = null;
+
     // viewファイルの表示
     include_once 'views/contact_view.php';
 ?>

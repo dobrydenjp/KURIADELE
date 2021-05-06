@@ -20,7 +20,7 @@
         // 追加した口座情報を bank_message へ
         $bank_message = AdminDAO::insert($bank);
         // 銀行口座を登録した際にbank_messageを表示する
-        $_SESSION['bank_message'] = $bank_message;
+        $_SESSION['flash_message'] = $bank_message;
         header('Location: transfer_bank.php');
         exit;
     }else{  // 入力エラーがあるならば

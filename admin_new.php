@@ -16,7 +16,7 @@
         header('Location: admin_index.php');
         exit;
     }else{ // いなければ
-            $_SESSION['error'] = 'ログインできません';
+            $_SESSION['error_message'] = 'ログインできません';
         // 画面遷移
         header('Location: admin_login.php');
         exit;

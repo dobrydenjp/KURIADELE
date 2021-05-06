@@ -33,8 +33,8 @@
         <br>
         <br>
         <div class='customer'>新規会員登録</div>
-        <?php if($errors !== null): ?>
-            <?php foreach($errors as $error): ?>
+        <?php if($error_message !== null): ?>
+            <?php foreach($error_message as $error): ?>
                 <p><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>

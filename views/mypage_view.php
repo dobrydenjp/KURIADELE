@@ -35,13 +35,9 @@
             <div class='top_a'>満足の極みへ</div>
             <div class='top_b'><img src='camera.jpg' alt='camera'></img></div>
         </div>
-        <!--ログイン者のメッセージ表示-->
+        <!--ログイン者名表示-->
         <?php if($login_message !== null): ?>
             <p><?= $login_message ?></p>
-        <?php endif; ?>
-        <!--検索フォーム入力エラーメッセージ表示-->
-        <?php if($search_errors!== null): ?>
-            <p><?= $search_errors ?></p>
         <?php endif; ?>
         <div class='top_2'>
             <h4 class='customer'>取扱商品</h4>

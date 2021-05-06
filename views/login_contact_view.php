@@ -33,13 +33,13 @@
         </div>
         <p class='customer'>お問い合わせフォーム</p>
         <div class='question'>ご質問・ご要望があればご連絡ください。</div>
-        <?php if($my_contact_error !== null): ?>
-            <?php foreach($my_contact_error as $error): ?>
+        <?php if($error_message !== null): ?>
+            <?php foreach($error_message as $error): ?>
                 <p><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
-        <?php if($my_contact_message !== null): ?>
-                <p class='question'><?= $my_contact_message ?></p>
+        <?php if($flash_message !== null): ?>
+                <p class='question'><?= $flash_message ?></p>
         <?php endif; ?>
         <form method='POST' action='login_contact_new.php'>
             <div class='question_2'>お名前  <input type='text' name='name' class='submit' value='<?= $login_customer->name ?>'/></div>

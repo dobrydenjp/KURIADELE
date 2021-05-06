@@ -34,6 +34,8 @@
         
         // 問い合わせ内容を1件登録するメソッド
         public static function insert($contacts){
+            $pdo = null;
+            $stmp = null;
             try{
                 // print 'OK';
                 // データベースに接続する神様取得

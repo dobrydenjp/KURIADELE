@@ -27,13 +27,13 @@
         // 商品を登録する
         ItemDAO::insert($item);
         // エラーがない場合
-        $_SESSION['register_message'] = '商品の登録が完了しました。内容確認';
+        $_SESSION['flash_message'] = '商品の登録が完了しました。';
         // 画面遷移
         header('Location: product_change.php');
         exit;
     }else{
         // それ以外  間違いがある場合  エラーメッセージ表示
-        $_SESSION['errors'] = $errors;
+        $_SESSION['error_message'] = $errors;
         // 画面遷移
         header('Location: product_change.php');
         exit;

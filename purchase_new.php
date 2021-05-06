@@ -9,8 +9,6 @@
     // session_start();
     // ログイン者の情報保存 login_check.phpからのセッション取得
     $login_customer = $_SESSION['login_customer'];
-    
-    var_dump($login_customer);
     // ログイン者のidからカート情報を取得
     $my_carts = CartDAO::get_my_carts($login_customer->id);
     // var_dump($my_carts);
@@ -41,7 +39,4 @@
         header('Location: purchase_transfer.php');
         exit;
     // }
-
-    
-    // var_dump($_POST);
 ?>
