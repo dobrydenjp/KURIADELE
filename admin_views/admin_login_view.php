@@ -28,7 +28,7 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>管理者ページログイン</div>
+        <p class='customer'>管理者ページログイン</p>
         <!--ログインエラーメッセージ-->
         <?php if($error_message !== null): ?>
             <p><?= $error_message ?></p>

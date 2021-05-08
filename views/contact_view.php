@@ -30,9 +30,8 @@
                 </span>
             </div>
         </div>
-        <div class='question' >
-            何かありましたらご連絡ください。
-        </div>
+        <p class='customer'>お問い合わせフォーム</p>
+        <p class='question'>何かありましたらご連絡ください。</p>
         <!--質問項目入力エラーメッセージ表示-->
         <?php if($error_message !== null): ?>
             <?php foreach($error_message as $error): ?>

@@ -30,8 +30,8 @@
                 </span>
             </div>
         </div>
-            <div class='customer_1'>お問い合わせありがとうございます。</div>
-            <div class='customer_1'>ご回答はご登録メールにてご返信致します。</div>
+            <p class='customer_1'>お問い合わせありがとうございます。</p>
+            <p class='customer_1'>ご回答はご登録メールにてご返信致します。</p>
 
         <div class='footer'>
             <ul><span>KURIADELEについて</span><br>

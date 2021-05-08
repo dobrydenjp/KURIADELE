@@ -30,7 +30,7 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>取り扱い商品<br>一覧</div>
+        <p class='customer'>取り扱い商品<br>一覧</p>
         <!--キーワードに類似した商品を表示したメッセージ表示-->
         <?php if($flash_message !== ''): ?>
             <p><?= $flash_message ?></p>

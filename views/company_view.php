@@ -30,7 +30,7 @@
                 </span>
             </div>
         </div>
-        <div><p class=customer>企業情報</p></div>
+        <p class=customer>企業情報</p>
         <div class=corporation>KURIADELEとは</div><label  class=company><?= $company->description ?></label>
         <div class=corporation>代表挨拶</div><label class=company><?= $company->greeting ?></label>
         <div class=corporation>事業計画</div><label class=company><?= $company->plan ?></label>

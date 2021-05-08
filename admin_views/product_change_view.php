@@ -29,9 +29,7 @@
                 </span>
             </div>
         </div>
-        <div>
-            <p class=customer>商品情報登録</p>
-        </div>
+        <p class=customer>商品情報登録</p>
         <!--商品登録ができない場合のメッセージ表示-->
         <?php if($error_message !== null): ?>
             <?php foreach($error_message as $error): ?>
@@ -88,6 +86,26 @@
                         <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
                         <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
                         <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
+                        <td class='table_td'>
+                                    <!--商品が表示されていない（0の）場合に実行-->
+                                    <?php if($item->flag !== 0): ?>
+                                        <form method='POST' action='flag.php' class='select_td'>
+                                            <input type='submit' value='公開にする' class='button'/>
+                                            <input type='hidden' name='flag' value='1'>
+                                            <input type='hidden' name='id' value='<?= $item->id ?>'>
+                                        </form>
+                                    <?php else: ?>
+                                        <form method='POST' action='flag.php' class='select_td'>
+                                            <input type='submit' value='非公開にする' class='button'/>
+                                            <input type='hidden' name='flag' value='0'>
+                                            <input type='hidden' name='id' value='<?= $item->id ?>'>
+                                        </form>
+                                    <?php endif; ?>
+                                
+                            
+                                
+                            
+                        </td>
                     </tr>
                     
                     <?php endforeach; ?>

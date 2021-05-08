@@ -31,7 +31,7 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>お客様情報変更</div>
+        <p class='customer'>お客様情報変更</p>
         <!--顧客情報変更入力エラーメッセージ表示-->
         <?php if(count($error_message) !== 0): ?>
             <?php foreach($error_message as $error): ?>

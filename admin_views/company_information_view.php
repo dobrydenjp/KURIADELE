@@ -29,7 +29,7 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>企業情報変更</div>
+        <p class='customer'>企業情報変更</p>
         <!--企業情報入力エラーメッセージ表示-->
         <?php if($error_message !== null): ?>
             <?php foreach($error_message as $error): ?>

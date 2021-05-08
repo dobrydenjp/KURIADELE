@@ -13,12 +13,10 @@
     $number = $_POST['number'];
     // 前のページ（carts.php）から変更後の商品番号を取得
     $item_id = $_POST['item_id'];
-    // var_dump($_POST);
     // ログイン者のidで今カートに入れようとしている商品を含むカートがあるか情報を取得
     // 私が選択した商品が既にカートあるかピンポイントで探す
     $cart = CartDAO::find_cart($login_customer->id, $item_id);
     // falseでなければ情報が入っている
-    // var_dump($cart);
     // // もし、選択した商品が既にカートに入っている　cartsテーブルに存在すれば
     if($cart !== false){
         // カート情報の更新処理をする

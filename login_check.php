@@ -3,7 +3,6 @@
     require_once 'daos/customer_dao.php';
     // セッション開始
     session_start();
-    // var_dump($_POST);
     // 入力されたメールアドレス・パスワードを取得する
     $email_address = $_POST['email_address'];
     $password = $_POST['password'];

@@ -28,7 +28,7 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>管理者ページ</div>
+        <p class='customer'>管理者ページ</p>
         <br>
         <div class='admin_a'><a href='product_change.php'>商品情報登録</a></div>
         <div class='admin_b'><a href='inquiry_check.php'>お問い合わせ確認</a></div>

@@ -238,5 +238,33 @@
                 self::close_connection($pdo, $stmp);
             }
         }
+        // // 指定した商品の公開非公開を変更するメソッド
+        // // $id: 商品番号
+        // // $flag: 選択したフラグ
+        public static function update($id, $flag){
+            $pdo = null;
+            $stmp = null;
+            try{
+                // データベースに接続する神様取得
+                $pdo = self::get_connection();
+                // update文を実行する準備（数字はわざとあやふやにする
+                $stmt= $pdo -> prepare('UPDATE items SET flag=:flag WHERE id=:id');
+                // バインド処理（あやふやだった数字を実データで埋める）
+                $stmt->bindValue(':flag', $flag, PDO::PARAM_INT);
+                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+                // update本番実行
+                $stmt->execute();
+                
+                // return $item;
+                
+            }catch(PDOException $e){
+                
+                return "問題が発生しました<br>" . $e->getMessage();
+                
+            }finally{
+                self::close_connection($pdo, $stmp);
+            }
+        }
+        
     }
 ?>

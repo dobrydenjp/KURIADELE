@@ -29,7 +29,7 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>お問い合わせ確認</div>
+        <p class='customer'>お問い合わせ確認</p>
         <?php foreach($contacts as $contact): ?>
             <div class='inquiry'>
                 <h6 class='inquiry_id'><?= $contact->id ?></h6>

@@ -9,15 +9,19 @@
     // 1度のみ表示
     $_SESSION['flash_message'] = null;
     
-    // $done_message = null;
-    // if(isset($_SESSION['done_message'])){
-    //  $contact_error = $_SESSION['done_message'];
+    // $flash_message = null;
+    // if(isset($_SESSION['flash_message'])){
+    //  $flash_message = $_SESSION['flash_message'];
     // }
     // 入力エラーメッセージ取得
     $error_message = $_SESSION['error_message'];
     // 1度のみ表示
     $_SESSION['error_message'] = null;
 
+    // $error_message = null;
+    // if(isset($_SESSION['error_message'])){
+    //  $error_message = $_SESSION['error_message'];
+    // }
     // // 顧客がいないというメッセージ取得
     // 出力されない
     $errors = $_SESSION['errors'];

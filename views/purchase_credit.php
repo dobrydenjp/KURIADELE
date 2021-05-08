@@ -31,7 +31,7 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>ご購入手続き</div>
+        <p class='customer'>ご購入手続き</p>
             <div class='buy_1'>支払方法はクレジットカードのみです</div>
             <div class='container'>
                 <div class='buy_1'>決済カード情報</div>

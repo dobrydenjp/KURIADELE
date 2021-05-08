@@ -30,7 +30,7 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>振込み先情報</div>
+        <p class='customer'>振込み先情報</p>
         <!--$error_message がnullでないならば-->
         <?php if($error_message !== null): ?>
             <!--入力エラーメッセージ表示-->

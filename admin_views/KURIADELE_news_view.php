@@ -29,7 +29,7 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>KURIADELEnews 更新</div>
+        <p class='customer'>KURIADELEnews 更新</p>
         <!--ニュース更新できないエラーメッセージ表示-->
         <?php if($error_message !== null): ?>
             <?php foreach($error_message as $error): ?>

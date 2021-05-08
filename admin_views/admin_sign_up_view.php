@@ -13,7 +13,7 @@
                 <a href='admin_index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
                 <span class='offset-lg-4 col-lg-3 px-0 span_a'>
                     <a href='index.php' class='span_b'>顧客TOP</a>
-                    <a href='admin_sign_up.php' class='span_b'>新規登録</a>
+                    <a href='admin_login.php' class='span_b'>ログイン</a>
                 </span>    
                 <span class='col-lg-1 px-0 info'>
                     <form method='POST' action='search.php' class='info'>
@@ -28,9 +28,7 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>
-            管理者会員登録
-        </div>
+        <p class='customer'>管理者会員登録</p>
         <!--管理者会員登録したメッセージ表示-->
         <?php if($flash_message !== null): ?>
             <p><?= $flash_message ?></p>

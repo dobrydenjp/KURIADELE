@@ -29,7 +29,7 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>お客様情報</div>
+        <p class='customer'>お客様情報</p>
         <table class='container-fluid list table col-lg-6 col-6'>
             <div class='row'> 
                 <tbody>

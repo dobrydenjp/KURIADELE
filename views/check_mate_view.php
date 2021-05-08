@@ -31,7 +31,7 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>最終確認</div>
+        <p class='customer'>最終確認</p>
         <!--1部の商品が無い場合のメッセージ表示-->
         <?php if($flash_message !== null): ?>
             <P><?= $flash_message ?></P>

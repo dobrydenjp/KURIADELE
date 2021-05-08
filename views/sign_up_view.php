@@ -32,7 +32,7 @@
         </div>
         <br>
         <br>
-        <div class='customer'>新規会員登録</div>
+        <p class='customer'>新規会員登録</p>
         <?php if($error_message !== null): ?>
             <?php foreach($error_message as $error): ?>
                 <p><?= $error ?></p>

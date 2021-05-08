@@ -29,7 +29,7 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>お客様一覧</div>
+        <p class='customer'>お客様一覧</p>
             <div class='container-fluid  col-lg-10'>
                 <table class='table table-hover '>
                     <thead >

@@ -31,8 +31,9 @@
                 </span>
             </div>
         </div>
-        <div class='customer'>ご購入手続き</div>
-        <div class='buy_1'>支払方法はお振込みのみです</div>
+        <p class='customer'>ご購入手続き</p>
+        <p class='buy_1'>支払方法はお振込みのみです</p>
+        <p class='buy_1'>ご購入後、下記口座へお振込みをお願い致します。</p>
         <P class='customer_1'>お振込み口座</P>
         <table class='container-fluid table col-lg-4'>
             <div class='row'>

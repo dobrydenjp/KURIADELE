@@ -39,7 +39,6 @@
         <?php if($flash_message !== null): ?>
             <p><?= $flash_message ?></p>
         <?php endif; ?>
-
         <div class='login_1'>ＭＹページログイン</div>
         <!--入力したメールアドレスとパスワードが登録と違う場合のエラーメッセージ表示-->
         <?php if($error_message !== null): ?>
@@ -51,7 +50,7 @@
                 <p><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
-        <form action='./login_check.php' method='POST'>
+        <form action='login_check.php' method='POST'>
             <div class='login_2'>
                 メールアドレス&emsp;<input type='text' name='email_address' /><br><br>
                 パスワード&emsp;&emsp;&emsp;<input type='password' name='password'/><br>
