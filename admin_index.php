@@ -9,8 +9,13 @@
     require_once 'daos/item_dao.php';
     // ログイン者の情報をセッションに保存
     $login_admin = $_SESSION['login_admin'];
+    
     // login_messsage をセッションから取得
     $login_message = $_SESSION['login_message'];
+    // var_dump($login_message);
+    if(isset($_SESSION['login_message'])){
+        $login_message = $_SESSION['login_message'];
+    }
     // idをGETで取得
     // $idをnullにする
     $id = null;

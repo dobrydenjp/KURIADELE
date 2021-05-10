@@ -97,7 +97,7 @@
                 // SELECT文を実行
                 $stmt = $pdo -> query("SELECT * FROM items");
                 
-                // フェッチの結果を、Userクラスのインスタンスにマッピングする
+                // フェッチの結果を、Itemクラスのインスタンスにマッピングする
                 $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Item');
                 
                 // 全商品情報を取得
@@ -241,7 +241,9 @@
         // // 指定した商品の公開非公開を変更するメソッド
         // // $id: 商品番号
         // // $flag: 選択したフラグ
-        public static function update($id, $flag){
+        public static function change_flag($id, $flag){
+            // flag = 1; 公開
+            // flag = 0;　非公開
             $pdo = null;
             $stmp = null;
             try{
@@ -255,16 +257,50 @@
                 // update本番実行
                 $stmt->execute();
                 
-                // return $item;
-                
+                if((int)($flag) === 0){
+                    return 'idが' . $id . 'の商品を非公開にしました。';
+                }else{
+                    return 'idが' . $id . 'の商品を公開にしました。';
+                }
             }catch(PDOException $e){
-                
+
                 return "問題が発生しました<br>" . $e->getMessage();
-                
+
             }finally{
                 self::close_connection($pdo, $stmp);
             }
         }
+            // flagが1である商品を取得するメソッド
+            public static function select_all_items($flag){
+            // flag = 1; 公開
+            // flag = 0;　非公開
+            $pdo = null;
+            $stmp = null;
+            try{
+                // データベースに接続する神様取得
+                $pdo = self::get_connection();
+                // SELECT文を実行する あいまいなまま準備する
+                $stmt = $pdo->prepare('SELECT * from items WHERE flag=1');
+                // バインド処理
+                $stmt->bindValue(':flag', $flag, PDO::PARAM_INT);
+                // 本番実行
+                $stmt->execute();
+                // フェッチの結果をItemクラスのインスタンスにマッピングする
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Item');
+                // 全商品データをItemクラスのインスタンス配列で取得
+                $items = $stmt->fetchAll();
+                // Itemクラスのインスタンス配列を返す
+                return $items;
+            }catch(PDOException $e){
+                // とりあえずnullの配列を返す
+                return null;
+            
+            }finally{
+                // 神様さようなら
+                self::close_connection($pdo, $stmp);
+            }
+        }
+
         
     }
 ?>

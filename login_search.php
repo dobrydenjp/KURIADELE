@@ -18,7 +18,7 @@
         $_SESSION['flash_message'] = 'キーワード' . $keyword . 'で検索しました' . count($items) . '件ヒットしました。';
     }else{ // 空ならば
         // 全ての商品を取得
-        $items = ItemDAO::get_all_items();
+        $items = ItemDAO::select_all_items($flag);
         // メッセージ
         $_SESSION['flash_message'] = 'キーワードを入力して検索ボタンを押してください。';
     }

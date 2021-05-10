@@ -1,6 +1,6 @@
 <?php
     // 外部ファイル読込
-    require_once 'daos/customer_dao.php';
+    // require_once 'daos/customer_dao.php';
     // セッション開始
     session_start();
     
@@ -29,9 +29,9 @@
     $_SESSION['errors'] = null;
     
     // $errors = null;
-    // if(isset($_SESSION['errors'])){
-    //  $errors = $_SESSION['errors'];
-    // }
+    if(isset($_SESSION['errors'])){
+     $errors = $_SESSION['errors'];
+    }
     // viewファイルの表示
     include_once 'views/login_view.php';
 ?>

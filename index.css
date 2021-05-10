@@ -53,12 +53,15 @@ a.logo:hover {
 }
 
 .top_2 {
-    height: 55%;
+    height: 50%;
     border-bottom: 1px black solid;
 }
 .top_c {
     
     text-align: center;
+}
+.img_top {
+    width: 25%;
 }
 .top_3 {
     height: 8%;
@@ -280,7 +283,6 @@ li {
 
 .img_td {
     width: 76%;
-    
     margin-top: 4%;
 }
 .table_td {

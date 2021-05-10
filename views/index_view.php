@@ -40,12 +40,12 @@
         <?php endif; ?>
         <div class='top_2'>
             <h4 class='customer'>取扱商品</h4>
-            <div class='top_c'><a href='product.php'><img src='upload/items/<?= $items->image ?>'></img></a></div>
+            <p class='top_c'><a href='product.php'><img src='upload/items/<?= $items->image ?>' class='img_top'></img></a></p>
         </div>
         <div class='top_3'>
             <h4 class='customer'>KURIADELEnews</h4>
-            <h3 class='top_d'>KURIADELE最新ニュース</h1>
-            <h4 class='top_e'><?= $news->days ?>        <?= $news->news ?></h4>
+            <h4 class='top_d'>KURIADELE最新ニュース</h1>
+            <h5 class='top_e'><?= $news->days ?>&ensp;&ensp;<?= $news->news ?></h4>
         </div>
         <div class='footer'>
             <ul><span>KURIADELEについて</span><br>

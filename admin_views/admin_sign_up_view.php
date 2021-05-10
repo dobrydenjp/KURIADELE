@@ -14,18 +14,7 @@
                 <span class='offset-lg-4 col-lg-3 px-0 span_a'>
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_login.php' class='span_b'>ログイン</a>
-                </span>    
-                <span class='col-lg-1 px-0 info'>
-                    <form method='POST' action='search.php' class='info'>
-                        <input type='search' name='name'/>
-                        <input type='submit' value='検索'/>
-                    </form>
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
-                    <div class="dropdown-menu">
-                        <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
-                        <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
-                    </div>
-                </span>
+                </span>   
             </div>
         </div>
         <p class='customer'>管理者会員登録</p>

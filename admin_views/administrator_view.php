@@ -16,7 +16,7 @@
                     <a href='admin_logout.php' class='span_b'>ログアウト</a>
                 </span>
                 <span class='col-lg-1 px-0 info'>
-                    <form method='POST' action='search.php' class='info'>
+                    <form method='GET' action='admin_search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>

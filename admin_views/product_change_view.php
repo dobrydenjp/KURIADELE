@@ -17,7 +17,7 @@
                     <a href='admin_logout.php' class='span_b'>ログアウト</a>
                 </span>    
                 <span class='col-lg-1 px-0 info'>
-                    <form method='POST' action='search.php' class='info'>
+                    <form method='GET' action='admin_search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
@@ -37,6 +37,7 @@
             <?php endforeach; ?>
         <?php endif; ?>
         <!--商品登録完了したメッセージ表示-->
+        <!--商品を公開・非公開にしたメッセージ表示-->
         <?= $flash_message ?>
         <form method='POST' action='item_new.php' enctype="multipart/form-data">
             <div class='customer_information form-group row '>
@@ -80,36 +81,30 @@
                 <tbody>
                     <?php foreach($items as $item): ?>
                     <tr>
-                        <td class='table_td'><?= $item->id ?></td>
+                        <td class='table_td'>商品番号：&emsp;<?= $item->id ?></td>
                         <td class='table_img'><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
                         <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
                         <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
                         <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
                         <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
                         <td class='table_td'>
-                                    <!--商品が表示されていない（0の）場合に実行-->
-                                    <?php if($item->flag !== 0): ?>
-                                        <form method='POST' action='flag.php' class='select_td'>
-                                            <input type='submit' value='公開にする' class='button'/>
-                                            <input type='hidden' name='flag' value='1'>
-                                            <input type='hidden' name='id' value='<?= $item->id ?>'>
-                                        </form>
-                                    <?php else: ?>
-                                        <form method='POST' action='flag.php' class='select_td'>
-                                            <input type='submit' value='非公開にする' class='button'/>
-                                            <input type='hidden' name='flag' value='0'>
-                                            <input type='hidden' name='id' value='<?= $item->id ?>'>
-                                        </form>
-                                    <?php endif; ?>
-                                
-                            
-                                
-                            
+                            <!--商品が表示されていない（0の）場合に実行-->
+                            <?php if((int)($item->flag) === 0): ?>
+                                <form method='POST' action='flag.php' class='select_td'>
+                                    <input type='submit' value='公開にする' class='button'/>
+                                    <input type='hidden' name='flag' value='1'>
+                                    <input type='hidden' name='id' value='<?= $item->id ?>'>
+                                </form>
+                            <?php else: ?>
+                                <form method='POST' action='flag.php' class='select_td'>
+                                    <input type='submit' value='非公開にする' class='button'/>
+                                    <input type='hidden' name='flag' value='0'>
+                                    <input type='hidden' name='id' value='<?= $item->id ?>'>
+                                </form>
+                            <?php endif; ?>
                         </td>
                     </tr>
-                    
                     <?php endforeach; ?>
-                    
                 </tbody>
             </div>
         </table>

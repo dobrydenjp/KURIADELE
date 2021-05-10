@@ -15,8 +15,8 @@
     if(isset($_SESSION['error_message'])){
      $error_message = $_SESSION['error_message'];
     }
-    //
     // 無事に商品登録完了したメッセージ表示
+    // 商品を公開・非公開にしたメッセージ表示
     $flash_message = $_SESSION['flash_message'];
     // 1度のみ表示
     $_SESSION['flash_message'] = null;

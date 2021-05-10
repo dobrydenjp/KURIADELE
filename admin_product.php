@@ -19,5 +19,5 @@
     }
     
     // viewファイルの表示
-    include_once 'views/product_view.php';
+    include_once 'admin_views/admin_product_view.php';
 ?>
