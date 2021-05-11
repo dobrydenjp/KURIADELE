@@ -7,20 +7,10 @@
     $error_message = $_SESSION['error_message'];
     // 1度のみ表示
     $_SESSION['error_message'] = null;
-    
-    // $error_message = null;
-    // if(isset($_SESSION['error_message'])){
-    //  $error_message = $_SESSION['error_message'];
-    // }
     // 企業情報登録コメント表示する
     $flash_message = $_SESSION['flash_message'];
     //1度のみ表示
     $_SESSION['flash_message'] = null;
-    
-    // $flash_message = null;
-    // if(isset($_SESSION['flash_message'])){
-    //  $flash_message = $_SESSION['flash_message'];
-    // }
     // idをGETで取得
     $id = null;
     if(isset($_GET['id'])){

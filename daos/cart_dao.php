@@ -5,25 +5,20 @@
     class CartDAO{
         // データベースと接続を行うメソッド
         private static function get_connection(){
-            
             // データベース接続情報      
             $dsn = "mysql:host=localhost;dbname=KURIADELE";
             $db_username = "root";
             $db_password = "";
-        
             $options = array(
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,        // 失敗したら例外を投げる
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_CLASS,   //デフォルトのフェッチモードはクラス
                 PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',   //MySQL サーバーへの接続時に実行するコマンド
             );
-        
             // データベースを扱う万能の神様誕生
             $pdo = new PDO($dsn, $db_username, $db_password, $options);
-            
             // 神様はいあげる
             return $pdo;
         }
-    
         // データベースとの切断を行うメソッド
         private static function close_connection($pdo, $stmp){
             // 神様さようなら
@@ -31,7 +26,6 @@
             // 実行結果さようなら
             $stmp = null;
         }
-    
         // カートに1件登録するメソッド
         public static function insert($cart){
             $pdo = null;
@@ -46,17 +40,15 @@
                 $stmt->bindValue(':item_id', $cart->item_id, PDO::PARAM_INT);
                 $stmt->bindValue(':item_stock', $cart->item_stock, PDO::PARAM_INT);
                 $stmt->bindValue(':number', $cart->number, PDO::PARAM_INT);
-                
                 // INSERT文本番実行
-                $stmt->execute();
-                // 
-                return "カートに追加しました";
                 
+                $stmt->execute();
+                return "カートに追加しました";
             }catch(PDOException $e){
                 
                 return "問題が発生しました<br>" . $e->getMessage();
-                
             }finally{
+                
                self::close_connection($pdo, $stmp); 
             }
         }
@@ -168,7 +160,7 @@
                 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
                 // update本番実行
                 $stmt->execute();
-                // print 'OK';
+                
                 return '商品個数変更致しました';
                 
             }catch(PDOException $e){

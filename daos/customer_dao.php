@@ -111,9 +111,7 @@
                 $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Customer');
                 // 顧客情報をCustomerクラスのインスタンスで取得
                 $customer = $stmt->fetch();
-    
-                
-                
+
                 return $customer;
             }catch(PDOException $e){
                 
@@ -180,8 +178,6 @@
             // public $email_address;
             // public $password;
             // 空の配列用意
-            // var_dump($customer->email_address);
-            // var_dump($customer->password);
             $errors = array();
             // $customer->email_address === ''ならばエラーメッセージ表示する
             // メールアドレスチェック
@@ -196,17 +192,13 @@
                 $errors[] = 'パスワードは正しく入力してください'; 
             }
             return $errors;
-            
-        
-        
+
         }
         // 登録されている会員情報を変更するメソッド
         public static function update($customer_update, $id){
             $pdo = null;
             $stmp = null;
             try{
-                // var_dump($customer_update);
-                // var_dump($login_customer);
                 // データベースに接続する神様
                 $pdo = self::get_connection();
                 // update文を実行する準備（名前・カナ・郵便番号・住所・電話番号・メールアドレス・パスワードはあやふやにする）
@@ -220,12 +212,9 @@
                 $stmt->bindParam(':email_address', $customer_update->email_address, pdo::PARAM_STR);
                 $stmt->bindParam(':password', $customer_update->password, pdo::PARAM_STR);
                 $stmt->bindParam(':id', $id, pdo::PARAM_INT);
-                // print 'OK';
 
                 // update本番実行
                 $stmt->execute();
-                // print 'OK';
-                // return array($customer_update, $login_customer);
             
             }catch(PDOException $e){
                 return'問題が発生しました';

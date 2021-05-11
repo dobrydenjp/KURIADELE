@@ -7,5 +7,4 @@
     // 画面遷移
     header('Location: admin_login.php');
     exit;
-    
 ?>

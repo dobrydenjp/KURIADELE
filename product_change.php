@@ -4,8 +4,6 @@
     // 外部ファイル読込
     require_once 'admin_daos/admin_dao.php';
     require_once 'daos/item_dao.php';
-    // セッション開始
-    // session_start();
     // ログイン者の情報をセッションに保存
     $login_admin = $_SESSION['login_admin'];
     // 登録できないメッセージ表示

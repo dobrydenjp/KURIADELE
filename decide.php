@@ -21,7 +21,6 @@
         $item_id = $cart->item_id;
         // itemDAOを使って商品情報を取得する
         $item = itemDAO::get_item_by_id($item_id);
-        
         // もし商品の在庫数より、購入希望数が多ければ
         if($cart->number > $item->stock){
             // 在庫数が足りなければ足りないメッセージ表示
@@ -30,12 +29,10 @@
             exit;
         }else{
             $purchase = new Purchase($cart->customer_id, $cart->item_id, $cart->number);
-            // var_dump($purchase);
             //トランザクション処理を開始
             // $pdo = CartDAO::get_connection()
             // $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // $pdo->beginTransaction();
-            
             // 購入履歴登録
             PurchaseDAO::insert($purchase);
             // 在庫数減少
@@ -45,13 +42,8 @@
             // 在庫数があれば、購入できる（次のページへ）
             header('Location: decide.php');
             exit;
-        
         }
     }
-    
-    // var_dump($my_carts);
-    
-    
     // 在庫減少した時に在庫が0以下にならない
     // viewファイルの表示
     include_once 'views/decide_view.php';

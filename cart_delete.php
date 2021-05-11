@@ -6,7 +6,6 @@
     session_start();
     // 前のページから商品id 取得
     $id = $_POST['id'];
-    
     // CartDAOを使ってカートのid削除する
     $delete = CartDAO::delete_cart($id);
     // var_dump($delete);

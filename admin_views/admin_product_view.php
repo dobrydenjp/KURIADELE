@@ -2,7 +2,7 @@
 <html lang='ja'>
     <head>
         <meta charset='UTF-8'>
-        <title>管理者TOPページ</title>
+        <title>商品一覧ページ</title>
         <link rel='stylesheet' href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -46,7 +46,7 @@
                         <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
                         <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
                         <form method='POST' action='item_new.php'>
-                            <td class='table_td'> <a href='buy.php?id=<?= $item->id ?>'>詳細ページへ</a></td>
+                            <td class='table_td'> <a href='admin_buy.php?id=<?= $item->id ?>'>詳細ページへ</a></td>
                         </form>
                     </tr>
                     <?php endforeach; ?>

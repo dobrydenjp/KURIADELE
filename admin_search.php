@@ -6,10 +6,6 @@
     require_once 'daos/item_dao.php';
     // 入力された情報を保存
     $keyword = $_GET['name'];
-
-    // if(isset($_GET['name'])){
-    //     $keyword = $_GET['name'];
-    // }
     $items = ItemDAO::find_by_keyword($keyword);
     // 入力されたキーワードが空でなければ
     if($keyword !== ''){

@@ -79,13 +79,12 @@
                 <input type='submit' value='登録' class='btn-gradient'/>
             </div>
         </form>
-
         <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='company.php'>企業紹介</a></li>
             </ul>
             <ul><span>取扱商品</span>
-                <li><a href='product.php'>商品一覧</a></li>
+                <li><a href='admin_product.php'>商品一覧</a></li>
             </ul>
         </div>
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>

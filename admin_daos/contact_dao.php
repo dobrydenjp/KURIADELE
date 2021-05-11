@@ -79,19 +79,16 @@
             // 件名入力していない場合のメッセージ
             if($contacts->subject === ''){
                 $contact_error[] = '件名を入力してください';
-                // var_dump($contact_error);
             }
             // 内容入力していない場合のメッセージ
             if($contacts->contact === ''){
                 $contact_error[] = '内容を入力してください';
-                // var_dump($contact_error);
             }
             // メールアドレス入力していない場合のメッセージ
             if($contacts->email_address === ''){
                 $contact_error[] = '返信用メールアドレスを入力してください';
             }elseif(!preg_match('/^[a-zA-Z0-9_.+-]+[@][a-zA-Z0-9.-]+$/', $contacts->email_address)){
                 $contact_error[] = 'メールアドレスは所定の書式をお守りください';
-                // var_dump($contact_error);
             }
             
             return $contact_error;

@@ -20,7 +20,6 @@
     if(isset($_SESSION['flash_message'])){
         $flash_message = $_SESSION['flash_message'];
     }
-    
      // viewファイルの表示
     include_once 'views/products.php';
 ?>       

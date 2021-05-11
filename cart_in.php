@@ -7,7 +7,6 @@
     session_start();
     // ログイン者の情報保存 login_check.phpからのセッション受取
     $login_customer = $_SESSION['login_customer'];
-    
     // 入力した情報をPOSTにて保存
     // 前のページ（carts.php）から変更後の個数を取得
     $number = $_POST['number'];
@@ -31,7 +30,6 @@
         // 新規カート追加処理
         // cart命の誕生
         $cart = new Cart($login_customer->id, $item_id, $number, $number);
-
          // カートに1件登録
         $flash_message = CartDAO::insert($cart);
         $_SESSION['flash_message'] = $flash_message;

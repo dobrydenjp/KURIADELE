@@ -3,7 +3,6 @@
     require_once 'login_filter.php';
     // 外部ファイル読込
     require_once 'admin_daos/admin_dao.php';
-
     // idをGETで取得
     $id = null;
     // $idをGETで取得

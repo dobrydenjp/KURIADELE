@@ -7,12 +7,10 @@
     $error_message = $_SESSION['error_message'];
     // 1度のみ表示
     $_SESSION['error_message'] = null;
-
     // 送信できた場合のメッセージ
     $flash_message = $_SESSION['flash_message'];
     // 1度のみ表示
     $_SESSION['flash_message'] = null;
-
     // viewファイルの表示
     include_once 'views/contact_view.php';
 ?>

@@ -121,23 +121,18 @@
             $pdo = null;
             $stmp = null;
             try{
-                // print 'OK';
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
-                // print 'OK1';
                 // INSERT文を実行する準備（名前、年齢はわざとあやふやにしておく）
                 $stmt = $pdo -> prepare("INSERT INTO bank (bank_name, branch_name, account, NO, kana_name) VALUES (:bank_name, :branch_name, :account, :NO, :kana_name)");
-                // print 'OK2';
                 // バインド処理（あやふやだった名前、年齢を実データで埋める）
                 $stmt->bindParam(':bank_name', $bank->bank_name, PDO::PARAM_STR);
                 $stmt->bindParam(':branch_name', $bank->branch_name, PDO::PARAM_STR);
                 $stmt->bindParam(':account', $bank->account, PDO::PARAM_STR);
                 $stmt->bindParam(':NO', $bank->NO, PDO::PARAM_INT);
                 $stmt->bindParam(':kana_name', $bank->kana_name, PDO::PARAM_STR);
-                // print 'OK3';
                 // INSERT文本番実行
                 $stmt->execute();
-                // print 'OK4';
                 return '銀行口座を登録しました';
 
             }catch(PDOException $e){

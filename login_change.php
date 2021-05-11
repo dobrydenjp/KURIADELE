@@ -9,7 +9,6 @@
     $error_message = $_SESSION['error_message'];
     // 1度のみ表示
     $_SESSION['error_message'] = null;
-    
     // viewファイルの表示
     include_once 'views/login_change_view.php';
 ?>

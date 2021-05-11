@@ -7,8 +7,6 @@
     require_once 'daos/customer_dao.php';
     require_once 'admin_daos/news_dao.php';
     require_once 'daos/item_dao.php';
-    // セッション開始
-    // session_start();
     // login_checkよりlogin_messsage をセッションから取得
     $login_message = $_SESSION['login_message'];
     // ログイン者の情報  セッションに保存

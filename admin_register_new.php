@@ -21,7 +21,6 @@
         header('Location: admin_sign_up.php');
         exit;
     }else{ // 入力エラーが１つでもあるならば
-    
         // 管理者登録をしたメッセージを保存
         $_SESSION['error_message'] = $error_message;
         // 画面遷移
