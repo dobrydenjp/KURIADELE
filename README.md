@@ -23,12 +23,12 @@ login/logout 機能：新規登録後、「メールアドレス」「パスワ�
                 上記項目での管理ができます。
                 
 ## 設計図
-plan_1.jpg
-plan_2.jpg
-plan_3.jpg
+![plan_1](https://user-images.githubusercontent.com/70011422/117910982-e99e0880-b317-11eb-9658-24e1a8e3c630.jpg)
+![plan_2](https://user-images.githubusercontent.com/70011422/117911056-0afef480-b318-11eb-8443-a0f958506c04.jpg)
+![plan_3](https://user-images.githubusercontent.com/70011422/117911081-181be380-b318-11eb-9577-349d27df1a5d.jpg)
 
 ## データベース図
-plan_4.jpg
+![plan_4](https://user-images.githubusercontent.com/70011422/117911107-2407a580-b318-11eb-8cfb-8f466eb15d54.jpg)
 
 
 ## エピソード
