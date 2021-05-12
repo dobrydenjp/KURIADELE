@@ -66,21 +66,22 @@
             try{
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
+                
                 // INSERT文を実行する準備（名前、年齢はわざとあやふやにしておく）
                 $stmt = $pdo -> prepare("INSERT INTO customers (name, kana_name, postal_code, address, tel, email_address, password) VALUES (:name, :kana_name, :postal_code, :address, :tel, :email_address, :password)");
-                // $name='', $kana_name='', $postal_code='', $address='', $tel='', $email_address='', $password=''
+                
                 // バインド処理（あやふやだった名前、年齢を実データで埋める）
                 $stmt->bindParam(':name', $customer->name, PDO::PARAM_STR);
                 $stmt->bindParam(':kana_name', $customer->kana_name, PDO::PARAM_STR);
                 $stmt->bindParam(':postal_code', $customer->postal_code, PDO::PARAM_STR);
                 $stmt->bindParam(':address', $customer->address, PDO::PARAM_STR);
-                $stmt->bindParam(':tel', $customer->address, PDO::PARAM_STR);
+                $stmt->bindParam(':tel', $customer->tel, PDO::PARAM_STR);
                 $stmt->bindParam(':email_address', $customer->email_address, PDO::PARAM_STR);
                 $stmt->bindParam(':password', $customer->password, PDO::PARAM_STR);
                 
                 // INSERT文本番実行
                 $stmt->execute();
-    
+                
                 return "会員登録が完了しました";
                 
             }catch(PDOException $e){
@@ -170,7 +171,7 @@
             if(strlen($customer->password) < 5){
                 $errors[] = 'パスワードは5文字以上で入力してください';
             }
-            // k完成したエラー配列を返す registration_new.phpへ
+            // 完成したエラー配列を返す registration_new.phpへ
             return $errors;
         }
         // メールアドレスとパスワードログイン入力値チェック

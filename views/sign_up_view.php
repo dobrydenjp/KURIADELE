@@ -38,17 +38,18 @@
                 <p><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
+        
         <form method='POST' action='registration_new.php'>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>お名前</label>
                     <div class="col-lg-4 col-12">
-                        <input type='text' name='name' class='form-control' placeholder='田中　太郎'/>
+                        <input type='text' name='name' class='form-control' placeholder='田中  太郎'/>
                     </div>
             </div>
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>フリガナ</label>
                     <div class="col-lg-4 col-12">
-                        <input type='text' name='kana_name' class='form-control' placeholder='タナカ　タロウ'/>
+                        <input type='text' name='kana_name' class='form-control' placeholder='タナカ  タロウ'/>
                     </div>
             </div>
             <div class='customer_information form-group row'>
@@ -63,7 +64,6 @@
                         <input type="text" name="address" class='form-control' placeholder='東京都新宿区西新宿2-8-1'/>
                     </div>
             </div>
-            
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>お電話番号</label>
                     <div class="col-lg-4 col-12">

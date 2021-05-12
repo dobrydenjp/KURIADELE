@@ -13,7 +13,7 @@
     // falseと$adminの値または型が等しくない 同じではない時
     if($admin !== false){
          // セッション情報 login_adminというニックネームを保存
-        $_SESSION['login_message'] = $admin->name . '様　こんにちは';
+        $_SESSION['admin_message'] = $admin->name . '様　こんにちは';
         // 画面遷移
         header('Location: admin_index.php');
         exit;

@@ -41,7 +41,7 @@
         <?php endif; ?>
         <div class='top_2'>
             <h4 class='customer'>取扱商品</h4>
-            <p class='top_c'><a href='product.php'><img src='upload/items/<?= $items->image ?>' class='img_top'></img></a></p>
+            <p class='top_c'><a href='login_product.php'><img src='upload/items/<?= $items->image ?>' class='img_top'></img></a></p>
         </div>
         <div class='top_3'>
             <h4 class='customer'>KURIADELEnews</h4>

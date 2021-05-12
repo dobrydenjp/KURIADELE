@@ -243,7 +243,7 @@
         // // $flag: 選択したフラグ
         public static function change_flag($id, $flag){
             // flag = 1; 公開
-            // flag = 0;　非公開
+            // flag = 0; 非公開
             $pdo = null;
             $stmp = null;
             try{
@@ -273,7 +273,7 @@
             // flagが1である商品を取得するメソッド
             public static function select_all_items($flag){
             // flag = 1; 公開
-            // flag = 0;　非公開
+            // flag = 0; 非公開
             $pdo = null;
             $stmp = null;
             try{

@@ -33,8 +33,8 @@
             <div class='top_a'>満足の極みへ</div>
             <div class='top_b'><img src='camera.jpg' alt='camera'></img></div>
         </div>
-        <?php if($login_message !== null): ?>
-            <p><?= $login_message ?></p>
+        <?php if($admin_message !== null): ?>
+            <p><?= $admin_message ?></p>
         <?php endif; ?>
         <div class='top_2'>
             <h4 class='customer'>取扱商品</h4>
