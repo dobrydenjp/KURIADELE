@@ -34,7 +34,27 @@ login/logout 機能：新規登録後、「メールアドレス」「パスワ�
 動画をご覧ください。
 
 ## 動画
-![movie_1](https://user-images.githubusercontent.com/70011422/117955744-508ce300-b353-11eb-9417-fc5538e11183.gif)
+非会員 商品ページ
+![not_customer_product](https://user-images.githubusercontent.com/70011422/118083596-2b06e480-b3fa-11eb-98a5-60676d89cfb7.gif)
+
+新規登録 ログイン
+![customer_login](https://user-images.githubusercontent.com/70011422/118083786-8507aa00-b3fa-11eb-936c-5b3963b0ee41.gif)
+
+会員 ログイン 商品ページ カート 購入
+![login_cart_pur](https://user-images.githubusercontent.com/70011422/118083762-715c4380-b3fa-11eb-94d5-6622864284ca.gif)
+
+
+管理者 商品登録
+![admin_product_set](https://user-images.githubusercontent.com/70011422/118083898-aff1fe00-b3fa-11eb-9534-4f808775a2c3.gif)
+
+管理者 顧客確認 news登録
+![admin_customer_news](https://user-images.githubusercontent.com/70011422/118083996-de6fd900-b3fa-11eb-9737-206d9b0b7a23.gif)
+
+管理者 問合せ 企業情報
+![admin_question_KURIADELE](https://user-images.githubusercontent.com/70011422/118083940-c5672800-b3fa-11eb-96f7-3e489dde17bd.gif)
+
+管理者 支払銀行登録
+![admin_bank](https://user-images.githubusercontent.com/70011422/118084700-1cb9c800-b3fc-11eb-8657-c5f011e4ee0e.gif)
 
 ## エピソード
 

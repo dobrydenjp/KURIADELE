@@ -8,6 +8,10 @@
     $flash_message = $_SESSION['flash_message'];
     // 一度のみ表示
     $_SESSION['flash_message'] = null;
+    
+    if(isset($_SESSION['flash_message'])){
+        $flash_message = $_SESSION['flash_message'];
+    }
     // idをnullにする
     // GETでid取得
     $id = null;

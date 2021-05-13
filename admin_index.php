@@ -9,6 +9,7 @@
     $login_admin = $_SESSION['login_admin'];
     // login_messsage をセッションから取得
     $admin_message = $_SESSION['admin_message'];
+    
     if(isset($_SESSION['admin_message'])){
         $admin_message = $_SESSION['admin_message'];
     }
