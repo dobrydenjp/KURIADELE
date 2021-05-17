@@ -10,9 +10,10 @@
     <body>
         <div class='container-fluid sticky-top'>
             <div class='row header'>
-                <a href='mypage.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='offset-lg-4 col-lg-3 px-0 span_c'>
+                <a href='mypage.php' class='logo'><span class='col-lg-2'>KURIADELE</span></a>
+                <span class='col-lg-5 offset-lg-2 px-0 span_a'>
                     <a href='login_contact.php' class='span_d'>お問い合わせ</a>
+                    <a href='login_product.php' class='span_d'>商品一覧</a>
                     <a href='cart.php' class='span_d'>カート</a>
                     <a href='purchases.php' class='span_d'>購入履歴</a>
                     <a href='logout.php' class='span_d'>ログアウト</a>
@@ -52,10 +53,14 @@
             <h5>合計金額: ￥<?= CartDAO::get_total_price($my_carts) ?></h5>
             <h4>消費税込 合計金額: ￥<?= CartDAO::get_total_price($my_carts)* 1.08 ?>  </h4>
         </div>
-        <p class='purchase'>ご入力された内容にお間違いがない方は次にお進みください</p>
-        <form mathod='POST' action='check_mate.php' class='purchase'>
-            <input type="submit" value="最終確認" class='btn-gradient'/>
-        </form>
+        <p class='top_e'>ご入力された内容にお間違いがない方は次にお進みください</p>
+        <div class='top_c'>
+            <p class='purchase'><a href='cart.php' class='btn-gradient'>カートへ戻る</a></p>
+            <form mathod='POST' action='check_mate.php' class='purchase'>
+                <input type="submit" value="最終確認" class='btn-gradient'/>
+            </form>
+        </div>
+        
         <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='login_company.php'>企業紹介</a></li>

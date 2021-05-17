@@ -34,11 +34,10 @@
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
                 // INSERT文を実行する準備（名前、年齢はわざとあやふやにしておく）
-                $stmt = $pdo -> prepare("INSERT INTO carts(customer_id, item_id, item_stock, number) VALUES(:customer_id, :item_id, :item_stock, :number)");
+                $stmt = $pdo -> prepare("INSERT INTO carts(customer_id, item_id, number) VALUES(:customer_id, :item_id, :number)");
                 // バインド処理（あやふやだった箇所を実データで埋める）
                 $stmt->bindValue(':customer_id', $cart->customer_id, PDO::PARAM_INT);
                 $stmt->bindValue(':item_id', $cart->item_id, PDO::PARAM_INT);
-                $stmt->bindValue(':item_stock', $cart->item_stock, PDO::PARAM_INT);
                 $stmt->bindValue(':number', $cart->number, PDO::PARAM_INT);
                 // INSERT文本番実行
                 

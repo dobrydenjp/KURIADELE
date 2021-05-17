@@ -10,8 +10,8 @@
     <body>
         <div class='container-fluid sticky-top'>
             <div class='row header'>
-                <a href='mypage.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='offset-lg-4 col-lg-3 px-0 span_c'>
+                <a href='mypage.php' class='logo'><span class='col-lg-2'>KURIADELE</span></a>
+                <span class='col-lg-4 offset-lg-3 px-0 span_a'>
                     <a href='login_contact.php' class='span_d'>お問い合わせ</a>
                     <a href='cart.php' class='span_d'>カート</a>
                     <a href='purchases.php' class='span_d'>購入履歴</a>

@@ -4,6 +4,8 @@
     // 外部ファイル読込
     require_once 'admin_daos/contact_dao.php';
     require_once 'daos/customer_dao.php';
+    // ログイン者の情報取得
+    $login_customer = $_SESSION['login_customer'];
     // 質問項目入力エラーメッセージ表示
     $error_message = $_SESSION['error_message'];
     // 1度のみ表示

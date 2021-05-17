@@ -4,23 +4,28 @@
     // // 外部ファイル読込
     require_once 'daos/item_dao.php';
     require_once 'models/customer.php';
+    // ログイン者の情報保存 login_check.phpからのセッション
+    $login_customer = $_SESSION['login_customer'];
     // // $idをGETで取得
     $id = null;
     if(isset($_GET['id'])){
         $id = $_GET['id'];
     }
+    // 検索結果のメッセージ表示
+    $flash_message = $_SESSION['flash_message'];
+    // 1度のみ表示
+    $_SESSION['flash_message'] = null;
+    
     // itemsテーブルのflagが1である商品だけ持ってくる　DAOのメソッド
     // 表示したい商品を取得
-    $flag = null;
-    $items = ItemDAO::select_all_items($flag);
-    // ログイン者の情報保存 login_check.phpからのセッション
-    $login_customer = $_SESSION['login_customer'];
+    // $flag = null;
+    // $items = ItemDAO::select_all_items($flag);
     
-    $flash_message = null;
-    if(isset($_SESSION['flash_message'])){
-        $flash_message = $_SESSION['flash_message'];
-    }
+    
+    // if(isset($_SESSION['flash_message'])){
+    //     $flash_message = $_SESSION['flash_message'];
+    // }
      // viewファイルの表示
     include_once 'views/products.php';
-?>       
+?>
 

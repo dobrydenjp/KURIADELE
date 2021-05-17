@@ -10,9 +10,9 @@
     <body>
         <div class='container-fluid sticky-top'>
             <div class='row header'>
-                <a href='mypage.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='offset-lg-4 col-lg-3 px-0 span_c'>
-                    <a href='login_contact.php' class='span_d'>お問い合わせ</a>
+                <a href='mypage.php' class='logo'><span class='col-lg-2'>KURIADELE</span></a>
+                <span class='col-lg-4 offset-lg-3 px-0 span_a'>
+                    <a href='login_product.php' class='span_d'>商品一覧</a>
                     <a href='cart.php' class='span_d'>カート</a>
                     <a href='purchases.php' class='span_d'>購入履歴</a>
                     <a href='logout.php' class='span_d'>ログアウト</a>
@@ -42,10 +42,10 @@
                 <p class='question'><?= $flash_message ?></p>
         <?php endif; ?>
         <form method='POST' action='login_contact_new.php'>
-            <div class='question_2'>お名前  <input type='text' name='name' class='submit' value='<?= $login_customer->name ?>'/></div>
-            <div class='question_2'>件名  <input type='text' name='subject' class='submit' /></div> 
-            <div class='question_3'><p>内容</p>  <textarea name='contact' cols='50' rows='10'/></textarea></div>
-            <div class='question_2 question_5'>メールアドレス <input type='text' name='email_address' class='submit' value='<?= $login_customer->email_address ?>'/></div>
+            <div class='question_2'>お名前&ensp;<input type='text' name='name' class='submit' value='<?= $login_customer->name ?>'/></div>
+            <div class='question_2'>件名&ensp;&ensp;<input type='text' name='subject' class='submit' /></div> 
+            <div class='question_3'><p>内容</p>&ensp;<textarea name='contact' cols='50' rows='10'/></textarea></div>
+            <div class='question_2 question_5'>メールアドレス&ensp;<input type='text' name='email_address' class='submit' value='<?= $login_customer->email_address ?>'/></div>
             <div class='top_d'><input type='submit' value='送信' class='btn-gradient'/></div>
         </form>  
         <div class='footer'>

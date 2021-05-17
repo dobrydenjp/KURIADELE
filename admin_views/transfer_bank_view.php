@@ -48,31 +48,31 @@
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>銀行名</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='text' name='bank_name' class='form-control' placeholder='<?= $get_bank->bank_name ?>' />
+                        <input type='text' name='bank_name' class='form-control' value='<?= $get_bank->bank_name ?>' />
                     </div>
             </div>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>支店名</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='text' name='branch_name' class='form-control' placeholder='<?= $get_bank->branch_name ?>'/>
+                        <input type='text' name='branch_name' class='form-control' value='<?= $get_bank->branch_name ?>'/>
                     </div>
             </div>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>預金科目</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='text' name='account' class='form-control' placeholder='<?= $get_bank->account ?>'/>
+                        <input type='text' name='account' class='form-control' value='<?= $get_bank->account ?>'/>
                     </div>
             </div>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>口座番号</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='text' name='NO' class='form-control' placeholder='<?= $get_bank->NO ?>'/>
+                        <input type='text' name='NO' class='form-control' value='<?= $get_bank->NO ?>'/>
                     </div>
             </div>
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>口座名義人(カナ)</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='text' name='kana_name' class='form-control' placeholder='<?= $get_bank->kana_name ?>'/>
+                        <input type='text' name='kana_name' class='form-control' value='<?= $get_bank->kana_name ?>'/>
                     </div>
             </div>
             <div class='top_d'>

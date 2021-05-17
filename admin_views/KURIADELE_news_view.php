@@ -49,7 +49,7 @@
                     </div>
             </div>
             <div class='top_d'>
-                <input type='submit' value='更新' class='btn-gradient'/>
+                <input type='submit' value='登録' class='btn-gradient'/>
             </div>
         </form>
         <div class='footer'>

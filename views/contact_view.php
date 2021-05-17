@@ -10,13 +10,12 @@
     <body>
         <div class='container-fluid sticky-top'>
             <div class='row header'>
-                <a href='index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='offset-lg-4 col-lg-3 px-0 span_a'>
+                <a href='index.php' class='logo'><span class='col-lg-2'>KURIADELE</span></a>
+                <span class='col-lg-4 offset-lg-3 px-0 span_a'>
                     <a href='product.php 'class='span_b'>商品情報</a>
-                    <a href='contact.php'class='span_b'>お問い合わせ</a>
                     <a href='login.php'class='span_b'>ログイン</a>
                 </span>    
-                <span class='col-lg-1 px-0 info'>
+                <span class='col-lg-2 px-0 info'>
                     <form method='GET' action='search.php' class='info'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
