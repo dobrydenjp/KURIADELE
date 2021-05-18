@@ -23,7 +23,6 @@
                                                     // 現在の数　　　変更後の個数
         $flash_message = CartDAO::update($cart->id, $cart->number + $number);
         $_SESSION['flash_message'] = $flash_message;
-        // var_dump($flash_message);
         header('Location: cart.php');
         exit;
     }else{

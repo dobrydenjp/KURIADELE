@@ -11,20 +11,14 @@
     if(isset($_GET['id'])){
         $id = $_GET['id'];
     }
-    // 検索結果のメッセージ表示
+    // 公開されている商品取得
+    $items = ItemDAO::select_all_items();
+    // 検索したキーワードから商品一覧を取得する
+    $items = ItemDAO::find_by_keyword($keyword);
+    // 検索した結果のメッセージ取得
     $flash_message = $_SESSION['flash_message'];
     // 1度のみ表示
     $_SESSION['flash_message'] = null;
-    
-    // itemsテーブルのflagが1である商品だけ持ってくる　DAOのメソッド
-    // 表示したい商品を取得
-    // $flag = null;
-    // $items = ItemDAO::select_all_items($flag);
-    
-    
-    // if(isset($_SESSION['flash_message'])){
-    //     $flash_message = $_SESSION['flash_message'];
-    // }
      // viewファイルの表示
     include_once 'views/products.php';
 ?>

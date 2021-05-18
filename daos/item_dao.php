@@ -244,7 +244,7 @@
             }
         }
             // flagが1である商品を取得するメソッド
-            public static function select_all_items($flag){
+            public static function select_all_items(){
             // flag = 1; 公開
             // flag = 0; 非公開
             $pdo = null;
@@ -260,10 +260,12 @@
                 $items = $stmt->fetchAll();
                 // Itemクラスのインスタンス配列を返す
                 return $items;
+                
             }catch(PDOException $e){
                 // とりあえずnullの配列を返す
                 return null;
-            
+                
+                // return "問題が発生しました<br>" . $e->getMessage();
             }finally{
                 // 神様さようなら
                 self::close_connection($pdo, $stmp);
@@ -277,7 +279,7 @@
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
                 // SELECT文実行準備
-                $stmt = $pdo->prepare('SELECT * FROM items WHERE name LIKE :name');
+                $stmt = $pdo->prepare('SELECT * FROM items WHERE name LIKE :name AND flag=1');
                 // バインド処理
                 $stmt->bindValue(':name', '%' . $keyword . '%' , PDO::PARAM_STR);
                 // 本番実行
