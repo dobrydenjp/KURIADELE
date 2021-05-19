@@ -82,6 +82,12 @@
                     <?php foreach($items as $item): ?>
                     <tr>
                         <td class='table_td'>商品番号：&emsp;<?= $item->id ?></td>
+                        <td class='table_td'>
+                            <button>
+                                <a href='point_change.php?id=<?= $item->id ?>' >変更する</a>
+                            </button>
+                                
+                        </td>
                         <td class='table_img'><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
                         <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
                         <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
@@ -92,12 +98,14 @@
                             <?php if((int)($item->flag) === 0): ?>
                                 <form method='POST' action='flag.php' class='select_td'>
                                     <input type='submit' value='公開にする' class='button'/>
+                                    非公開中です。
                                     <input type='hidden' name='flag' value='1'>
                                     <input type='hidden' name='id' value='<?= $item->id ?>'>
                                 </form>
                             <?php else: ?>
                                 <form method='POST' action='flag.php' class='select_td'>
                                     <input type='submit' value='非公開にする' class='button'/>
+                                    公開中です。
                                     <input type='hidden' name='flag' value='0'>
                                     <input type='hidden' name='id' value='<?= $item->id ?>'>
                                 </form>

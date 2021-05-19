@@ -15,10 +15,16 @@
     $items = ItemDAO::select_all_items();
     // 検索したキーワードから商品一覧を取得する
     $items = ItemDAO::find_by_keyword($keyword);
+    $items = $_SESSION['items'];
+    var_dump($items);
+    
+    // 検索して表示される時とされない時がある
     // 検索した結果のメッセージ取得
     $flash_message = $_SESSION['flash_message'];
     // 1度のみ表示
     $_SESSION['flash_message'] = null;
+    // 
+    
      // viewファイルの表示
     include_once 'views/products.php';
 ?>

@@ -9,7 +9,7 @@
     if(isset($_GET['id'])){
         $id = $_GET['id'];
     }
-    // 選択した顧客のによって顧客情報を表示する
+    // 選択した顧客の顧客情報を表示する
     $customer = CustomerDAO::get_customer_by_id($id);
     // 選択した顧客が購入した商品を一覧表示する
     $my_purchases = PurchaseDAO::get_my_purchases($customer->id);

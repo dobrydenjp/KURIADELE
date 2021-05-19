@@ -299,5 +299,56 @@
                 self::close_connection($pdo, $stmp);
             }
         }
+        public static function update($id, $stock){
+            $pdo = null;
+            $stmp = null;
+            try{
+                // データベースに接続する神様
+                $pdo = self::get_connection();
+                // update文を実行する準備（名前・カナ・郵便番号・住所・電話番号・メールアドレス・パスワードはあやふやにする）
+                $stmt = $pdo->prepare('UPDATE items SET stock=:stock WHERE id=:id');
+                // バインド処理（あやふやだった名前・カナ・郵便番号・住所・電話番号・メールアドレス・パスワードを実データで埋める）
+                $stmt->bindValue(':stock', $stock, PDO::PARAM_INT);
+                $stmt->bindValue(':id', $id, pdo::PARAM_INT);
+                // update本番実行
+                $stmt->execute();
+                
+                return '在庫数を変更しました。';
+            }catch(PDOException $e){
+                return'問題が発生しました';
+            }finally{
+                self::close_connection($pdo, $stmp);
+            }
+        }
+        //idから1つの商品を取得する
+        public static function update_get_id($id){
+            $pdo = null;
+            $stmp = null;
+            try{
+                // データベースに接続する神様取得
+                $pdo = self::get_connection();
+                // SELECT文を実行する あいまいなまま準備する
+                $stmt = $pdo->prepare('SELECT * FROM items WHERE id=:id');
+                // バインド処理
+                $stmt->bindParam(':id', $id , PDO::PARAM_INT);
+                // 本番実行
+                $stmt->execute();
+                // フェッチの結果を、Itemクラスのインスタンスにマッピングする
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Item');
+                // 商品情報をItemクラスのインスタンスで取得
+                $item_update = $stmt->fetch();
+                
+                // Itemクラスのインスタンスを返す
+                return $item_update;
+                
+            }catch(PDOException $e){
+                // とりあえずnullの配列を返す
+                return null;
+            
+            }finally{
+                // 神様さようなら
+                self::close_connection($pdo, $stmp);
+            }
+        }
     }
 ?>
