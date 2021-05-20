@@ -231,9 +231,9 @@
                 $stmt->execute();
                 
                 if((int)($flag) === 0){
-                    return 'idが' . $id . 'の商品を非公開にしました。';
+                    return '商品番号が' . $id . 'の商品を非公開にしました。';
                 }else{
-                    return 'idが' . $id . 'の商品を公開にしました。';
+                    return '商品番号が' . $id . 'の商品を公開にしました。';
                 }
             }catch(PDOException $e){
 

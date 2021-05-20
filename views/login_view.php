@@ -37,17 +37,17 @@
         <br>
         <!--新規登録成功のメッセージ表示-->
         <?php if($flash_message !== null): ?>
-            <p><?= $flash_message ?></p>
+            <p class='message'><?= $flash_message ?></p>
         <?php endif; ?>
         <div class='login_1'>ＭＹページログイン</div>
         <!--入力したメールアドレスとパスワードが登録と違う場合のエラーメッセージ表示-->
         <?php if($error_message !== null): ?>
-            <p><?= $error_message ?></p>
+            <p class='error_message'><?= $error_message ?></p>
         <?php endif; ?>
         <!--入力していない場合やどちらかの入力の場合エラーメッセージ表示-->
         <?php if($errors !== null): ?>
             <?php foreach($errors as $error): ?>
-                <p><?= $error ?></p>
+                <p class='error_message'><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
         <form action='login_check.php' method='POST'>

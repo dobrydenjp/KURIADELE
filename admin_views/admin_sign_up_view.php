@@ -20,12 +20,12 @@
         <p class='customer'>管理者会員登録</p>
         <!--管理者会員登録したメッセージ表示-->
         <?php if($flash_message !== null): ?>
-            <p><?= $flash_message ?></p>
+            <p class='message'><?= $flash_message ?></p>
         <?php endif; ?>
         <!--入力エラーメッセージ表示-->
         <?php if($error_message !== null): ?>
             <?php foreach($error_message as $error): ?>
-                <p><?= $error ?></p>
+                <p class='error_message'><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
         <form method='POST' action='admin_register_new.php'>

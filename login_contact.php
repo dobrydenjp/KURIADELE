@@ -6,6 +6,8 @@
     require_once 'daos/customer_dao.php';
     // ログイン者の情報取得
     $login_customer = $_SESSION['login_customer'];
+    // idによって情報取得
+    $customer = CustomerDAO::get_customer_by_id($login_customer->id);
     // 質問項目入力エラーメッセージ表示
     $error_message = $_SESSION['error_message'];
     // 1度のみ表示

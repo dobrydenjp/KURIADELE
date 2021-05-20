@@ -35,17 +35,17 @@
         <div class='question'>ご質問・ご要望があればご連絡ください。</div>
         <?php if($error_message !== null): ?>
             <?php foreach($error_message as $error): ?>
-                <p><?= $error ?></p>
+                <p class='error_message'><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
         <?php if($flash_message !== null): ?>
-                <p class='question'><?= $flash_message ?></p>
+                <p class='message'><?= $flash_message ?></p>
         <?php endif; ?>
         <form method='POST' action='login_contact_new.php'>
-            <div class='question_2'>お名前&ensp;<input type='text' name='name' class='submit' value='<?= $login_customer->name ?>'/></div>
+            <div class='question_2'>お名前&ensp;<input type='text' name='name' class='submit' value='<?= $customer->name ?>'/></div>
             <div class='question_2'>件名&ensp;&ensp;<input type='text' name='subject' class='submit' /></div> 
             <div class='question_3'><p>内容</p>&ensp;<textarea name='contact' cols='50' rows='10'/></textarea></div>
-            <div class='question_2 question_5'>メールアドレス&ensp;<input type='text' name='email_address' class='submit' value='<?= $login_customer->email_address ?>'/></div>
+            <div class='question_2 question_5'>メールアドレス&ensp;<input type='text' name='email_address' class='submit' value='<?= $customer->email_address ?>'/></div>
             <div class='top_d'><input type='submit' value='送信' class='btn-gradient'/></div>
         </form>  
         <div class='footer'>

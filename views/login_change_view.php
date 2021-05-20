@@ -34,47 +34,48 @@
         </div>
         <p class='customer'>お客様情報変更</p>
         <!--顧客情報変更入力エラーメッセージ表示-->
+        <p class='caution'>入力フォームには、現在の登録情報を記載しております。</p>
         <?php if(count($error_message) !== 0): ?>
             <?php foreach($error_message as $error): ?>
-                <p><?= $error ?></p>
+                <p class='error_message'><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
         <form method='POST' action='login_update.php'>
-            <p class='caution'>入力フォームには、現在の登録情報を記載しております。</p>
+            
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>お名前</label>
                     <div class="col-lg-4 col-12">
-                        <input type='text' name='name' class='form-control' value='<?= $login_customer->name ?>'/>
+                        <input type='text' name='name' class='form-control' value='<?= $customer->name ?>'/>
                     </div>
             </div>
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>フリガナ</label>
                     <div class="col-lg-4 col-12">
-                        <input type='text' name='kana_name' class='form-control' value='<?= $login_customer->kana_name ?>'/>
+                        <input type='text' name='kana_name' class='form-control' value='<?= $customer->kana_name ?>'/>
                     </div>
             </div>
             <div class='customer_information form-group row'>
                 <label class='col-lg-4 col-form-label'>郵便番号</label>
                     <div class="col-lg-2 col-4">
-                        <input type='text' name='postal_code' class='form-control' value='<?= $login_customer->postal_code ?>'/>
+                        <input type='text' name='postal_code' class='form-control' value='<?= $customer->postal_code ?>'/>
                     </div>
             </div>
             <div class='customer_information form-group row'>
                 <label class='col-lg-4 col-form-label'>住所</label>
                     <div class="col-lg-4 col-12">
-                        <input type="text" name="address" class='form-control' value='<?= $login_customer->address ?>'/>
+                        <input type="text" name="address" class='form-control' value='<?= $customer->address ?>'/>
                     </div>
             </div>
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>お電話番号</label>
                     <div class="col-lg-4 col-12">
-                        <input type='text' name='tel' class='form-control' value='<?= $login_customer->tel ?>'/>
+                        <input type='text' name='tel' class='form-control' value='<?= $customer->tel ?>'/>
                     </div>
             </div>
             <div class='customer_information form-group row'>
                  <label class='col-lg-4 col-form-label'>メールアドレス(ログインＩＤになります)</label>
                     <div class="col-lg-4 col-12">
-                        <input type='text' name='email_address' class='form-control' value='<?= $login_customer->email_address ?>'/>
+                        <input type='text' name='email_address' class='form-control' value='<?= $customer->email_address ?>'/>
                     </div>
             </div>
             <div class='customer_information form-group row'>

@@ -31,7 +31,7 @@
         </div>
         <p class=customer>現在の登録</p>
         <?php if($flash_message !== null): ?>
-            <p><?= $flash_message ?></p>
+            <p class='message'><?= $flash_message ?></p>
         <?php endif; ?>
         <table class='container-fluid table col-lg-6'>
             <div class='row'>

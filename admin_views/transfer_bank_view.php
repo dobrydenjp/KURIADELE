@@ -35,14 +35,13 @@
         <?php if($error_message !== null): ?>
             <!--入力エラーメッセージ表示-->
             <?php foreach($error_message as $errors): ?>
-                <!--$error_message  表示する-->
-                <p><?= $errors ?></p>
+                <p class='error_message'><?= $errors ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
         <!-- $flash_message がnullでないならば-->
         <?php if($flash_message !== null): ?>
         <!--銀行口座情報登録メッセージ表示-->
-            <P><?= $flash_message ?></P>
+            <P class='message'><?= $flash_message ?></P>
         <?php endif; ?>
         <form method='POST' action='registration_transfer.php' enctype="multipart/form-data">
             <div class='customer_information form-group row '>

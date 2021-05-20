@@ -33,12 +33,10 @@
         <!--商品登録ができない場合のメッセージ表示-->
         <?php if($error_message !== null): ?>
             <?php foreach($error_message as $error): ?>
-                <p><?= $error ?></p>
+                <p class='error_message'><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
         <!--商品登録完了したメッセージ表示-->
-        <!--商品を公開・非公開にしたメッセージ表示-->
-        <?= $flash_message ?>
         <form method='POST' action='item_new.php' enctype="multipart/form-data">
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>商品名</label>
@@ -76,6 +74,8 @@
             </div>
         </form>
         <p class='customer'>登録内容確認</p>
+        <!--商品を公開・非公開にしたメッセージ表示-->
+        <p class='message'><?= $flash_message ?></p>
         <table class='container-fluid table col-lg-6'>
             <div class='row'>
                 <tbody>

@@ -33,12 +33,12 @@
         <!--企業情報入力エラーメッセージ表示-->
         <?php if($error_message !== null): ?>
             <?php foreach($error_message as $error): ?>
-                <p><?= $error ?></p>
+                <p class='error_message'><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
         <!--企業情報入力完了メッセージ表示-->
         <?php if($flash_message !== null): ?>
-            <p><?= $flash_message ?></p>
+            <p class='message'><?= $flash_message ?></p>
         <?php endif; ?>
         <form method='POST' action='company_new.php' class='top_d'>
             <p class='company_info'>KURIADELEとは</p><textarea name="description" cols="30" rows="5" placeholder='<?= $company->description ?>'></textarea>

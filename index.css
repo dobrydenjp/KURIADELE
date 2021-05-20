@@ -2,8 +2,6 @@
 .header {
     background-color: #BDD7EE;
     align-items: center;
-    
-    
 }
 .logo {
     font-size: 40px;
@@ -25,26 +23,11 @@ a.logo:hover {
 .info {
     display: flex;
 }
-
-
-.top_1 {
-    width: 100%;
-    display: flex;
-    border-bottom: 1px black solid;
-}
 .top_a {
-    position: relative;
-    width: 50%;
-    margin-left: 31%;
-    font-size: 35px;
-    margin-top: 16%;
-    
-}
-.top_b img {
-    
-    width: 299%;
-    height: 326px;
-    margin-left: -199%;
+    position: absolute;
+    margin-left: 12%;
+    font-size: 40px;
+    margin-top: 24%;
 }
 
 .top_2 {
@@ -60,8 +43,6 @@ a.logo:hover {
 }
 .top_3 {
     height: 8%;
-    
-    
 }
 
 .top_d {
@@ -77,8 +58,6 @@ a.logo:hover {
 
     margin-top: 3%;
 }
-
-
 
 .customer {
     display: inline-block;
@@ -99,6 +78,16 @@ a.logo:hover {
 .customer_information {
     text-align: center;
     padding-left: 15%;
+}
+.message {
+    margin-top: 3%;
+    text-align: center;
+    
+}
+.error_message {
+    text-align: center;
+    font-size: 10px;
+    color: #ec1c24;
 }
 .enroll_1 {
     /*text-align: center;*/
@@ -131,7 +120,6 @@ a.logo:hover {
     margin-left: 2%;
 }
 .purchase {
-    
     display: inline;
 }
 .purchase_id {
@@ -159,10 +147,7 @@ a.logo:hover {
 ul {
     width: 30%;
     font-size: 20px;
-    
 }
-
-
 li {
     font-size: 11px;
     margin-top: 5px;
@@ -175,11 +160,7 @@ li {
     text-align: center;
     margin-top: 1%;
 }
-.question {
-    margin-top: 3%;
-    text-align: center;
-    
-}
+
 .question_2 {
     margin-top: 2%;
     text-align: center;
@@ -350,5 +331,5 @@ li {
 }
 .caution {
     font-size: 9px;
-    margin-left: 47%;
+    text-align: center;
 }

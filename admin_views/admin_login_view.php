@@ -20,11 +20,11 @@
         <p class='customer'>管理者ページログイン</p>
         <!--ログインエラーメッセージ-->
         <?php if($error_message !== null): ?>
-            <p><?= $error_message ?></p>
+            <p class='error_message'><?= $error_message ?></p>
         <?php endif; ?>
         <!--ログアウトメッセージ-->
         <?php if($flash_message !== null): ?>
-            <p><?= $flash_message ?></p>
+            <p class='message'><?= $flash_message ?></p>
         <?php endif; ?>
         <form action='admin_new.php' method='POST'>
             <div class='login_2'>

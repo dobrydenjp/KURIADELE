@@ -38,7 +38,7 @@
         <!--商品を削除-->
         <!--同一商品を追加メッセージ表示-->
         <?php if($flash_message !== null): ?>
-            <p><?= $flash_message ?></p>
+            <p class='message'><?= $flash_message ?></p>
         <?php endif; ?>
         <!--$login_customerがnull空でない時に実行-->
         <?php if($login_customer !== null): ?>

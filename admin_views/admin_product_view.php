@@ -32,7 +32,7 @@
         <p class='customer'>取り扱い商品<br>一覧</p>
         <!--キーワードに類似した商品を表示したメッセージ表示-->
         <?php if($flash_message !== ''): ?>
-            <p><?= $flash_message ?></p>
+            <p class='message'><?= $flash_message ?></p>
         <?php endif; ?>
         <table class='container-fluid table col-lg-6'>
             <div class='row'>

@@ -33,12 +33,12 @@
         <!--ニュース更新できないエラーメッセージ表示-->
         <?php if($error_message !== null): ?>
             <?php foreach($error_message as $error): ?>
-                <p><?= $error ?></p>
+                <p class='error_message'><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
         <!--ニュース更新完了メッセージ表示-->
         <?php if($flash_message !== null): ?>
-            <p><?= $flash_message ?></p>
+            <p class='message'><?= $flash_message ?></p>
         <?php endif; ?>
         <form method='POST' action='news.php' enctype="multipart/form-data">
             <div class='customer_information form-group row '>

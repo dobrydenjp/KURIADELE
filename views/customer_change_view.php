@@ -35,8 +35,36 @@
         <p class='customer'>お客様情報変更</p>
         <!--顧客情報更新完了メッセージ 表示-->
         <?php if($flash_message !== null): ?>
-            <p><?= $flash_message ?></p>
+            <p class='message'><?= $flash_message ?></p>
         <?php endif; ?>
+        <p class='customer'>お客様登録状況</p>
+        <table class='container-fluid list table col-lg-6 col-6'>
+            <div class='row'> 
+                <tbody>
+                    <tr>
+                        <th>お名前</th><td><?= $customer->name ?></td>
+                    </tr>
+                    <tr>
+                        <th>カタカナ</th><td><?= $customer->kana_name ?></td>
+                    </tr>
+                    <tr>
+                        <th>郵便番号</th><td><?= $customer->postal_code ?></td>
+                    </tr>
+                    <tr>
+                        <th>住所</th><td><?= $customer->address ?></td>
+                    </tr>
+                    <tr>
+                        <th>お電話番号</th><td><?= $customer->tel ?></td>
+                    </tr>
+                    <tr>
+                        <th>メールアドレス</th><td><?= $customer->email_address ?></td>
+                    </tr>
+                    <tr>
+                        <th>パスワード</th><td><?= $customer->password ?></td>
+                    </tr>
+                </tbody>
+            </div>
+        </table>
         <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='login_company.php'>企業紹介</a></li>

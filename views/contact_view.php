@@ -34,12 +34,12 @@
         <!--質問項目入力エラーメッセージ表示-->
         <?php if($error_message !== null): ?>
             <?php foreach($error_message as $error): ?>
-                <p><?= $error ?></p>
+                <p class='error_message'><?= $error ?></p>
             <?php endforeach; ?>
         <?php endif; ?>
         <!--送信できた場合のメッセージ-->
         <?php if($flash_message !== null): ?>
-            <p><?= $flash_message ?></p>
+            <p class='message'><?= $flash_message ?></p>
         <?php endif; ?>
         <form method='POST' action='contact_new.php'>
             <div class='question_2'>お名前  <input type='text' name='name' class='submit' /></div>

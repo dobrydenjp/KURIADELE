@@ -29,9 +29,9 @@
                 </span>
             </div>
         </div>
-        <div class='top_1'>
+        <div>
             <div class='top_a'>満足の極みへ</div>
-            <div class='top_b'><img src='camera.jpg' alt='camera'></img></div>
+            <div><img src='siro.jpg' alt='camera'></img></div>
         </div>
         <?php if($admin_message !== null): ?>
             <p><?= $admin_message ?></p>
