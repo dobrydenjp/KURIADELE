@@ -2,7 +2,6 @@
     // 外部ファイル読込
     require_once 'daos/item_dao.php';
     // 登録した全ての商品情報取得
-    $items = ItemDAO::select_all_items();
     // idをGETで取得
     // $idをnullにする
     $id = null;
@@ -15,5 +14,5 @@
     // 1度のみ表示
     $_SESSION['flash_message'] = null;
     // viewファイルの表示
-    include_once 'views/product_view.php';
+    include_once 'admin_views/admin_product_view.php';
 ?>

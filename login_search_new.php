@@ -11,8 +11,6 @@
     if(isset($_GET['id'])){
         $id = $_GET['id'];
     }
-    // // 公開されている商品取得
-    $items = ItemDAO::select_all_items();
     // 検索した結果のメッセージ取得
     $flash_message = $_SESSION['flash_message'];
     // 1度のみ表示
@@ -20,4 +18,3 @@
      // viewファイルの表示
     include_once 'views/products.php';
 ?>
-

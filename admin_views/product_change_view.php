@@ -84,7 +84,7 @@
                         <td class='table_td'>商品番号：&emsp;<?= $item->id ?></td>
                         <td class='table_td'>
                             <button>
-                                <a href='point_change.php?id=<?= $item->id ?>' >変更する</a>
+                                <a href='item_change.php?id=<?= $item->id ?>' >変更する</a>
                             </button>
                                 
                         </td>
@@ -118,7 +118,7 @@
         </table>
         <div class='footer '>
             <ul><span>KURIADELEについて</span><br>
-                <li><a href='company.php'>企業紹介</a></li>
+                <li><a href='admin_company.php'>企業紹介</a></li>
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='admin_product.php'>商品一覧</a></li>

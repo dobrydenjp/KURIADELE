@@ -38,7 +38,7 @@
         <div class='admin_b'><a href='transfer_bank.php'>振込先入力</a></div>
         <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
-                <li><a href='company.php'>企業紹介</a></li>
+                <li><a href='admin_company.php'>企業紹介</a></li>
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='admin_product.php'>商品一覧</a></li>

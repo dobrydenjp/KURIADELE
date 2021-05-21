@@ -114,36 +114,7 @@
                self::close_connection($pdo, $stmp); 
             }
         }
-        //idから1つの商品を取得する
-        public static function get_item_by_id($id){
-            $pdo = null;
-            $stmp = null;
-            try{
-                // データベースに接続する神様取得
-                $pdo = self::get_connection();
-                // SELECT文を実行する あいまいなまま準備する
-                $stmt = $pdo->prepare('SELECT * FROM items WHERE id=:id');
-                // バインド処理
-                $stmt->bindParam(':id', $id , PDO::PARAM_INT);
-                // 本番実行
-                $stmt->execute();
-                // フェッチの結果を、Itemクラスのインスタンスにマッピングする
-                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Item');
-                // 商品情報をItemクラスのインスタンスで取得
-                $item = $stmt->fetch();
-                
-                // Itemクラスのインスタンスを返す
-                return $item;
-                
-            }catch(PDOException $e){
-                // とりあえずnullの配列を返す
-                return null;
-            
-            }finally{
-                // 神様さようなら
-                self::close_connection($pdo, $stmp);
-            }
-        }
+        
         
         // 購入時該当商品の在庫を 減らす
         public static function decrement_stock($cart){
@@ -263,7 +234,7 @@
                 
             }catch(PDOException $e){
                 // とりあえずnullの配列を返す
-                return null;
+                return "問題が発生しました<br>" . $e->getMessage();
                 
                 // return "問題が発生しました<br>" . $e->getMessage();
             }finally{
@@ -313,9 +284,12 @@
                 // update本番実行
                 $stmt->execute();
                 
-                return '在庫数を変更しました。';
+                return '商品番号' . $id . 'の在庫を' . $stock . '個に変更しました。';
+                
             }catch(PDOException $e){
-                return'問題が発生しました';
+                
+                return "問題が発生しました<br>" . $e->getMessage();
+                
             }finally{
                 self::close_connection($pdo, $stmp);
             }
@@ -340,6 +314,36 @@
                 
                 // Itemクラスのインスタンスを返す
                 return $item_update;
+                
+            }catch(PDOException $e){
+                // とりあえずnullの配列を返す
+                return null;
+            
+            }finally{
+                // 神様さようなら
+                self::close_connection($pdo, $stmp);
+            }
+        }
+        //idから1つの商品を取得する
+        public static function get_item_by_id($id){
+            $pdo = null;
+            $stmp = null;
+            try{
+                // データベースに接続する神様取得
+                $pdo = self::get_connection();
+                // SELECT文を実行する あいまいなまま準備する
+                $stmt = $pdo->prepare('SELECT * FROM items WHERE id=:id');
+                // バインド処理
+                $stmt->bindParam(':id', $id , PDO::PARAM_INT);
+                // 本番実行
+                $stmt->execute();
+                // フェッチの結果を、Itemクラスのインスタンスにマッピングする
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Item');
+                // 商品情報をItemクラスのインスタンスで取得
+                $item = $stmt->fetch();
+
+                // Itemクラスのインスタンスを返す
+                return $item;
                 
             }catch(PDOException $e){
                 // とりあえずnullの配列を返す

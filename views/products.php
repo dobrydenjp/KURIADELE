@@ -33,31 +33,32 @@
         </div>
         <p class='customer'>取り扱い商品<br>一覧</p>
         <!--キーワードに類似した商品表示するメッセージ表示-->
-        <?php if($flash_message !== null): ?>
+        <?php if($flash_message !== ''): ?>
             <p class='message'><?= $flash_message ?></p>
         <?php endif; ?>
         <table class='container-fluid table col-lg-6'>
             <div class='row'>
                 <tbody>
+                    
                     <!--商品一覧選択された時に実行-->
-
-                    <!--検索された時に実行-->
-                    <?php foreach($items as $item): ?>
-                        <tr>
-                            <td class='table_td'><?= $item->id ?></td>
-                            <td class='table_img'><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
-                            <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
-                            <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
-                            <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
-                            <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
-                            <td class='table_td'>
-                                <form method='GET' action='login_item_buy.php'>
-                                    <input type='submit' value='詳細ページへ'>
-                                    <input type="hidden" name='id' value="<?= $item->id ?>">
-                                </form>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
+                    
+                        <?php foreach($items as $item): ?>
+                            <tr>
+                                <td class='table_td'><?= $item->id ?></td>
+                                <td class='table_img'><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
+                                <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
+                                <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
+                                <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?>円</td>
+                                <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
+                                <td class='table_td'>
+                                    <form method='GET' action='login_item_buy.php'>
+                                        <input type='submit' value='詳細ページへ'>
+                                        <input type="hidden" name='id' value="<?= $item->id ?>">
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    
                 </tbody>
             </div>
         </table>

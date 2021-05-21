@@ -57,7 +57,7 @@
         <p class=customer>商品情報変更</p>
         
         <p class='login_2'>どの様に変更されますか？？</p>
-        <form method='POST' action='point_change_new.php' enctype="multipart/form-data">
+        <form method='GET' action='item_update.php' enctype="multipart/form-data">
             
             <!--<div class='customer_information form-group row '>-->
             <!--    <label class='col-lg-4 col-form-label'>商品名</label>-->
@@ -80,9 +80,9 @@
             <div class='customer_information form-group row'>
                 <label class='col-lg-4 col-form-label'>在庫数</label>
                     <div class='col-lg-4 col-12'>
-                        <input type='text' name='stock' class='form-control'/>
+                        <input type='text' name='stock' value='<?= $item->stock ?>' class='form-control'/>
                         <input type='hidden' name='id' value='<?= $item->id ?>'/>
-                        
+                       
                     </div>
             </div>
             
@@ -105,7 +105,7 @@
         </form>
         <div class='footer '>
             <ul><span>KURIADELEについて</span><br>
-                <li><a href='company.php'>企業紹介</a></li>
+                <li><a href='admin_company.php'>企業紹介</a></li>
             </ul>
             <ul><span>取扱商品</span>
                 <li><a href='admin_product.php'>商品一覧</a></li>

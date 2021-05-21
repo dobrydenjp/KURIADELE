@@ -2,7 +2,7 @@
 <html lang='ja'>
     <head>
         <meta charset='UTF-8'>
-        <title>KURIADELEnews</title>
+        <title>企業情報</title>
         <link rel='stylesheet' href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -29,29 +29,10 @@
                 </span>
             </div>
         </div>
-        <p class='customer'>KURIADELEnews 更新</p>
-        <!--ニュース更新できないエラーメッセージ表示-->
-        <?php if($error_message !== null): ?>
-            <?php foreach($error_message as $error): ?>
-                <p class='error_message'><?= $error ?></p>
-            <?php endforeach; ?>
-        <?php endif; ?>
-        <!--ニュース更新完了メッセージ表示-->
-        <?php if($flash_message !== null): ?>
-            <p class='message'><?= $flash_message ?></p>
-        <?php endif; ?>
-        <form method='POST' action='news.php' enctype="multipart/form-data">
-            <div class='customer_information form-group row '>
-                <label class='col-lg-4 col-form-label'>日付<br>News</label>
-                    <div class='col-lg-4 col-12'>
-                        <input type='date' name='days' class='form-control' value='<?= $news->days ?>'/>
-                        <input type='text' name='news' class='form-control' value='<?= $news->news ?>'/>
-                    </div>
-            </div>
-            <div class='top_d'>
-                <input type='submit' value='登録' class='btn-gradient'/>
-            </div>
-        </form>
+        <p class=customer>企業情報</p>
+        <div class=corporation>KURIADELEとは</div><label  class=company><?= $company->description ?></label>
+        <div class=corporation>代表挨拶</div><label class=company><?= $company->greeting ?></label>
+        <div class=corporation>事業計画</div><label class=company><?= $company->plan ?></label>
         <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='admin_company.php'>企業紹介</a></li>
