@@ -23,8 +23,8 @@
                     </form>
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
-                        <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
-                        <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
+                        <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
+                        <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
                     </div>
                 </span>
             </div>

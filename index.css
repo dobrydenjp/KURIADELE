@@ -35,7 +35,6 @@ a.logo:hover {
     border-bottom: 1px black solid;
 }
 .top_c {
-    
     text-align: center;
 }
 .img_top {
@@ -55,7 +54,6 @@ a.logo:hover {
 }
 
 .info_1 {
-
     margin-top: 3%;
 }
 
@@ -65,7 +63,6 @@ a.logo:hover {
     margin-top: 2%;
     margin-left: 20%;
     text-align: center;
-    
     width: 16%;
 }
 .customer_1{
@@ -122,9 +119,14 @@ a.logo:hover {
 .purchase {
     display: inline;
 }
+.purchase_tr {
+    display:table-cell;
+}
 .purchase_id {
     width: 6%;
     font-size: 11px;
+    text-align: center;
+    vertical-align: middle !important;
 }
 .purchase_img {
     padding-top: 2%;
@@ -132,9 +134,18 @@ a.logo:hover {
 }
 .purchase_td {
     font-size: 11px;
+    
     font-family: sans-serif;
-    width: 12%;
+    width: 16%;
     text-align: center;
+    vertical-align: middle !important
+}
+.purchase_number {
+    font-size: 11px;
+    font-family: sans-serif;
+    width: 9%;
+    text-align: center;
+    vertical-align: middle !important
 }
 
 .footer {
@@ -275,13 +286,9 @@ li {
     padding-left: 35px;
 
 }
-
 .table_money {
     text-align: right;
 }
-
-
-
 .admin {
     font-size: 18px;
     color: #0066c0;

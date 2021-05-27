@@ -4,6 +4,9 @@
     require_once 'daos/item_dao.php';
     // セッション開始
     session_start();
+    // 管理者ログアウト
+    $_SESSION['login_admin'] = null;
+    $_SESSION['admin_message'] = null;
     // ログアウトメッセージ表示
     $flash_message = $_SESSION['flash_message'];
     // 一度のみ表示

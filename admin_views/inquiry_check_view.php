@@ -23,22 +23,34 @@
                     </form>
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
-                        <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
-                        <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
+                        <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
+                        <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
                     </div>
                 </span>
             </div>
         </div>
         <p class='customer'>お問い合わせ確認</p>
-        <?php foreach($contacts as $contact): ?>
-            <div class='inquiry'>
-                <h6 class='inquiry_id'><?= $contact->id ?></h6>
-                <p>お名前：&emsp;&emsp;<?= $contact->name ?></p>
-                <p>件名：&emsp;&emsp;&emsp;<?= $contact->subject ?></p>
-                <p>内容：&emsp;&emsp;&emsp;<?= $contact->contact ?></p>
-                <p>返信メールアドレス：&emsp;<?= $contact->email_address ?></p>
+        
+        <table class='container-fluid table col-lg-12'>
+            <div class='row'>
+                <tr>
+                    <th class='top_c'>お問合せ番号</th>
+                    <th class='top_c'>お名前</th>
+                    <th class='top_c'>件名</th>
+                    <th class='top_c'>内容</th>
+                    <th class='top_c'>返信メールアドレス</th>
+                </tr>
+            <?php foreach($contacts as $contact): ?>
+                <tr>
+                    <td class='top_c'><a href='contact_customer.php?id=<?= $contact->id ?>'><?= $contact->id ?></td>
+                    <td class='top_c'><?= $contact->name ?>&emsp;様</td>
+                    <td class='top_c'><?= $contact->subject ?></td>
+                    <td><?= $contact->contact ?></td>
+                    <td><?= $contact->email_address ?></td>
+                </tr>
+            <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
+        </table>
         <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='admin_company.php'>企業紹介</a></li>

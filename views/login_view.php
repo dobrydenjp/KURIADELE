@@ -35,11 +35,11 @@
         </div>
         <br>
         <br>
+        <div class='login_1'>ＭＹページログイン</div>
         <!--新規登録成功のメッセージ表示-->
         <?php if($flash_message !== null): ?>
             <p class='message'><?= $flash_message ?></p>
         <?php endif; ?>
-        <div class='login_1'>ＭＹページログイン</div>
         <!--入力したメールアドレスとパスワードが登録と違う場合のエラーメッセージ表示-->
         <?php if($error_message !== null): ?>
             <p class='error_message'><?= $error_message ?></p>

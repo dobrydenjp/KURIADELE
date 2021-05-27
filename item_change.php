@@ -1,6 +1,8 @@
 <?php
     // 外部ファイル読込
     require_once 'daos/item_dao.php';
+    // セッション開始
+    session_start();
     // idをGETで取得
     $id = null;
     if(isset($_GET['id'])){

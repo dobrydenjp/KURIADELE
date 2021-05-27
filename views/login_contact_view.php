@@ -32,7 +32,7 @@
             </div>
         </div>
         <p class='customer'>お問い合わせフォーム</p>
-        <div class='question'>ご質問・ご要望があればご連絡ください。</div>
+        <p class='message'>ご質問・ご要望があればご連絡ください。</p>
         <?php if($error_message !== null): ?>
             <?php foreach($error_message as $error): ?>
                 <p class='error_message'><?= $error ?></p>

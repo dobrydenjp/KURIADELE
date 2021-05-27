@@ -10,5 +10,5 @@
         header('Location: index.php');
         exit;
     }
-    $login_customer = null;
+    // $login_customer = null;
 ?>

@@ -1,4 +1,6 @@
 <?php
+    // ログインフィルター
+    require_once 'admin_login_filter.php';
     //外部ファイル読込
     require_once 'daos/item_dao.php';
     $id = null;

@@ -36,16 +36,26 @@
         <table class='container-fluid table col-lg-11'>
             <div class='row'>
                 <tbody>
+                    <tr>
+                        <td class='purchase_id'>購入番号</td>
+                        <td class='purchase_id'>商品番号</td>
+                        <td class='purchase_id'>購入写真</td>
+                        <td class='purchase_id'>商品名</td>
+                        <td class='purchase_id'>購入日時</td>
+                        <td class='purchase_id'>個数</td>
+                        <td class='purchase_id'>小計</td>
+                        <td class='purchase_id'>消費税込金額</td>
+                    </tr>
                     <?php foreach($my_purchases as $cart): ?>
                     <tr>
-                        <td class='purchase_id'>購入番号:<?= $cart->id ?></td>
-                        <td class='purchase_id'>商品番号: <?= $cart->get_item()->id ?></td>
+                        <td class='purchase_id'><?= $cart->id ?></td>
+                        <td class='purchase_id'><?= $cart->get_item()->id ?></td>
                         <td class='purchase_td'><img src='upload/items/<?= $cart->get_item()->image ?>' class='purchase_img'></img></td>
-                        <td class='purchase_td'>商品名：<?= $cart->get_item()->name ?></td>
-                        <td class='purchase_td'>購入日時： <?= $cart->created_at ?></td>
-                        <td class='purchase_td'>個数：<?= $cart->number ?>&ensp;個</td>
-                        <td class='purchase_td'>小計: ￥<?= $cart->number * $cart->get_item()->price ?>円</td>
-                        <td class='purchase_td'>消費税込金額: ￥<?= CartDAO::get_total_price($my_purchases)* 1.08 ?>円</td>
+                        <td class='purchase_td'><?= $cart->get_item()->name ?></td>
+                        <td class='purchase_td'><?= $cart->created_at ?></td>
+                        <td class='purchase_number'><?= $cart->number ?>&ensp;個</td>
+                        <td class='purchase_number'>￥<?= $cart->number * $cart->get_item()->price ?>円</td>
+                        <td class='purchase_td'>￥<?= CartDAO::get_total_price($my_purchases)* 1.08 ?>円</td>
                     </tr>     
                     <?php endforeach; ?>
                 </tbody>            

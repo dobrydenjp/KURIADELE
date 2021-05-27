@@ -23,7 +23,7 @@
                     </form>
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
-                        <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
+                        <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
                     </div>
                 </span>
@@ -44,7 +44,6 @@
                 </tbody>
             </div>
         </table>
-        <h6 class='buy_2'>これより先はログイン後お手続きくださいませ。</h6>
         <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='company.php'>企業紹介</a></li>

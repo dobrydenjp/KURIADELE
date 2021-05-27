@@ -2,7 +2,7 @@
 <html lang='ja'>
     <head>
         <meta charset='UTF-8'>
-        <title>管理者ページ</title>
+        <title>管理者ページ 振込先</title>
         <link rel='stylesheet' href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -23,9 +23,8 @@
                     </form>
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
-                        <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
-                        <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
-                        <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>
+                        <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
+                        <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
                     </div>
                 </span>
             </div>
@@ -41,8 +40,9 @@
         <!-- $flash_message がnullでないならば-->
         <?php if($flash_message !== null): ?>
         <!--銀行口座情報登録メッセージ表示-->
-            <P class='message'><?= $flash_message ?></P>
+            <p class='message'><?= $flash_message ?></p>
         <?php endif; ?>
+        <p class='message'>※&emsp;現在の登録状況を表示しています&emsp;※</p> 
         <form method='POST' action='registration_transfer.php' enctype="multipart/form-data">
             <div class='customer_information form-group row '>
                 <label class='col-lg-4 col-form-label'>銀行名</label>

@@ -2,7 +2,7 @@
 <html lang='ja'>
     <head>
         <meta charset='UTF-8'>
-        <title>商品一覧ページ</title>
+        <title>お問い合わせ確認 詳細</title>
         <link rel='stylesheet' href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -23,37 +23,31 @@
                     </form>
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
-                        <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
+                        <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
                     </div>
                 </span>
             </div>
         </div>
-        <p class='customer'>取り扱い商品<br>一覧</p>
-        <!--キーワードに類似した商品を表示したメッセージ表示-->
-        <?php if($flash_message !== ''): ?>
-            <p class='message'><?= $flash_message ?></p>
-        <?php endif; ?>
-        <table class='container-fluid table col-lg-6'>
-            <div class='row'>
-                <tbody>
-                    <?php foreach($items as $item): ?>
-                    <tr>
-                        <td class='table_td'><?= $item->id ?></td>
-                        <td class='table_img'><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
-                        <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
-                        <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
-                        <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
-                        <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
-                        <form method='POST' action='item_new.php'>
-                            <td class='table_td'> <a href='admin_buy.php?id=<?= $item->id ?>'>詳細ページへ</a></td>
-                        </form>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </div>
+        <p class='customer'>お問い合わせ確認 詳細</p>
+        <table class='container-fluid list table col-lg-6'>
+            <tr>
+                <th>問い合わせ番号</th><td><?= $contact->id ?></td>
+            </tr>
+            <tr>
+                <th>お名前</th><td><?= $contact->name ?>&emsp;様</td>
+            </tr>
+            <tr>
+                <th>件名</th><td><?= $contact->subject ?></td>
+            </tr>
+            <tr>
+                <th>質問内容</th><td><?= $contact->contact ?></td>
+            </tr>
+            <tr>
+                <th>返信メールアドレス</th><td><?= $contact->email_address ?></td>
+            </tr>
         </table>
-        <div class='footer'>
+    <div class='footer'>
             <ul><span>KURIADELEについて</span><br>
                 <li><a href='admin_company.php'>企業紹介</a></li>
             </ul>

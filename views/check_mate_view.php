@@ -40,7 +40,7 @@
         <table class='container-fluid table col-lg-6'>
             <div class='row'>
                 <tbody>
-                    <div class='question'>登録内容（ご希望商品・お届け先）にお間違いはありませんか？？</div>
+                    <p class='message'>登録内容（ご希望商品・お届け先）にお間違いはありませんか？？</p>
                     <!--登録内容（ご希望商品）の表示-->
                     <?php foreach($my_carts as $cart): ?>
                         <tr>
@@ -83,7 +83,7 @@
                 </tbody>
             </div>
         </table>
-        <div class='question'>正しければ決定のボタンを押してください。</div>
+        <p class='message'>正しければ決定のボタンを押してください。</p>
         <div class='top_c'>
             <p class='purchase'><a href='cart.php' class='btn-gradient'>カートへ戻る</a></p>
             <form method='POST' action='decide.php' class='purchase'>

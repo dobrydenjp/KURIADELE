@@ -121,5 +121,35 @@
                self::close_connection($pdo, $stmp); 
             }
         }
+        // idから問合せ内容を取得する
+        public static function get_contact_id($id){
+            $pdo = null;
+            $stmp = null;
+            try{
+                // データベースに接続する神様取得
+                $pdo = self::get_connection();
+                // SELECT文実行
+                $stmt = $pdo -> prepare('SELECT * FROM contacts WHERE id=:id');
+                // バインド処理
+                $stmt -> bindParam(':id', $id, PDO::PARAM_INT);
+                // 本番実行
+                $stmt -> execute();
+                // フェッチの結果をContactクラスのインスタンスにマッピングする
+                $stmt -> setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Contact');
+                // idの情報取得
+                $contact = $stmt->fetch();
+                // id情報　返す
+                return $contact;
+                
+            }catch(PDOExeption $e){
+                
+                return null;
+                
+            }finally{
+                self::close_connection($pdo, $stmp);
+            }
+            
+            
+        }
     }
 ?>

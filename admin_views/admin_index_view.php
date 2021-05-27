@@ -23,18 +23,18 @@
                     </form>
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
-                        <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
-                        <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
+                        <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
+                        <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
                     </div>
                 </span>
             </div>
         </div>
         <div>
             <div class='top_a'>満足の極みへ</div>
-            <div><img src='siro.jpg' alt='camera'></img></div>
+            <div><img src='sakura.jpg' alt='sakura'></img></div>
         </div>
         <?php if($admin_message !== null): ?>
-            <p><?= $admin_message ?></p>
+            <p class='message'><?= $admin_message ?></p>
         <?php endif; ?>
         <div class='top_2'>
             <h4 class='customer'>取扱商品</h4>

@@ -2,7 +2,7 @@
 <html lang='ja'>
     <head>
         <meta charset='UTF-8'>
-        <title>企業情報  商品情報変更</title>
+        <title>企業情報 商品情報変更</title>
         <link rel='stylesheet' href='index.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -23,8 +23,8 @@
                     </form>
                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
-                        <a class='dropdown-item' href='#'><a href='company_philosophy.php'>KURIADELEについて</a>
-                        <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
+                        <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
+                        <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
                     </div>
                 </span>
             </div>
@@ -58,47 +58,13 @@
         
         <p class='login_2'>どの様に変更されますか？？</p>
         <form method='GET' action='item_update.php' enctype="multipart/form-data">
-            
-            <!--<div class='customer_information form-group row '>-->
-            <!--    <label class='col-lg-4 col-form-label'>商品名</label>-->
-            <!--        <div class='col-lg-4 col-12'>-->
-            <!--            <input type='text' name='name' class='form-control'/>-->
-            <!--        </div>-->
-            <!--</div>-->
-            <!--<div class='customer_information form-group row'>-->
-            <!--     <label class='col-lg-4 col-form-label'>商品画像</label>-->
-            <!--        <div class='col-lg-4 col-12'>-->
-            <!--            <input type='file' name='image'>-->
-            <!--        </div>-->
-            <!--</div>-->
-            <!--<div class='customer_information form-group row'>-->
-            <!--    <label class='col-lg-4 col-form-label'>金額</label>-->
-            <!--        <div class="col-lg-4 col-12">-->
-            <!--            <input type='text' name='price' class='form-control'/>-->
-            <!--        </div>-->
-            <!--</div>-->
             <div class='customer_information form-group row'>
                 <label class='col-lg-4 col-form-label'>在庫数</label>
                     <div class='col-lg-4 col-12'>
                         <input type='text' name='stock' value='<?= $item->stock ?>' class='form-control'/>
                         <input type='hidden' name='id' value='<?= $item->id ?>'/>
-                       
                     </div>
             </div>
-            
-            <!--<div class='customer_information form-group row'>-->
-            <!--     <label class='col-lg-4 col-form-label'>商品説明</label>-->
-            <!--        <div class='col-lg-4 col-12'>-->
-            <!--            <input type='text' name='description' class='form-control'/>-->
-            <!--        </div>-->
-            <!--</div>-->
-            <!--<div class='customer_information form-group row'>-->
-            <!--     <label class='col-lg-4 col-form-label'></label>-->
-            <!--        <div class='col-lg-4 col-12'>-->
-            <!--            <input type='checkbox' name='flag' value='1' class='form-control'/>公開にする-->
-            <!--            <input type='checkbox' name='flag' value='0' class='form-control'/>非公開にする-->
-            <!--        </div>-->
-            <!--</div>-->
             <div class='enroll_1'>
                 <input type='submit' value='登録'/>
             </div>
