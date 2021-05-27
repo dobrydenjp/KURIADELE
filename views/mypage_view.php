@@ -32,8 +32,8 @@
             </div>
         </div>
         <div class='top_1'>
-            <div class='top_a'>満足の極みへ</div>
-            <div><img src='sakura.jpg' alt='camera'></img></div>
+                <div class='top_a'>満足の極みへ</div>
+                <div><img src='sakura.jpg' alt='camera'></img></div>
         </div>
         <!--ログイン者名表示-->
         <?php if($login_message !== null): ?>

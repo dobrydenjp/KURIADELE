@@ -2,7 +2,7 @@
     // 外部ファイル読込
     require_once 'daos/item_dao.php';
     // セッション開始
-    // session_start();
+    session_start();
     // 入力情報の取得
     $id = $_GET['id'];
     $stock = $_GET['stock'];
