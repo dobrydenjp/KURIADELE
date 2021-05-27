@@ -160,7 +160,7 @@
                 // update本番実行
                 $stmt->execute();
                 
-                return '商品個数変更致しました';
+                return 'カート番号' . $id . 'の商品個数を' . $number . '個に致しました';
                 
             }catch(PDOException $e){
                 
