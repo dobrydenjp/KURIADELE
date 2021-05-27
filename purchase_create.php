@@ -1,4 +1,6 @@
 <?php
+    // ログインフィルター
+    require_once 'login_filter.php';
     // 外部ファイル読込
     require_once 'daos/cart_dao.php';
     require_once 'daos/customer_dao.php';
