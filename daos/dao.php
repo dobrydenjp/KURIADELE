@@ -6,6 +6,10 @@
         protected static function get_connection(){
             
             // データベース接続情報      
+            // $dsn = "mysql:host=mysql1.php.xdomain.ne.jp;dbname=dobryden_kuriadele";
+            // $db_username = "dobryden_kd";
+            // $db_password = "Hku1110ri";
+            
             $dsn = "mysql:host=localhost;dbname=KURIADELE";
             $db_username = "root";
             $db_password = "";

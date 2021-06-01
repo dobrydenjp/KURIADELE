@@ -35,16 +35,18 @@
         <a href='index.php'>
             <div class='corporation_1'>TOPページへ戻る</div>
         </a>
-         <div class='footer'>
-            <ul><span>KURIADELEについて</span><br>
-                <li><a href='company.php'>企業紹介</a></li>
-            </ul>
-            <ul><span>取扱商品</span>
-                <li><a href='product.php'>商品一覧</a></li>
-            </ul>
-            <ul><span>サポート</span>
-                <li><a href='contact.php'>お問い合わせ</a></li>
-            </ul>
+         <div class='container-fluid footer'>
+            <div class='row'>
+                <ul><span class='col-lg-4'>KURIADELEについて</span><br>
+                    <li><a href='company.php'>企業紹介</a></li>
+                </ul>
+                <ul><span class='col-lg-4'>取扱商品</span>
+                    <li><a href='product.php'>商品一覧</a></li>
+                </ul>
+                <ul><span class='col-lg-4'>サポート</span>
+                    <li><a href='contact.php'>お問い合わせ</a></li>
+                </ul>
+            </div>  
         </div>
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>
     <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous'></script>

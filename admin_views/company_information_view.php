@@ -8,16 +8,18 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='container-fluid sticky-top'>
-            <div class='row header'>
-                <a href='admin_index.php' class='logo'><span class='col-lg-2 '>KURIADELE</span></a>
-                <span class='offset-lg-4 col-lg-3 px-0 span_a'>
+        <div class='container-fluid header fixed-top'>
+            <div class='row'>
+                <span class='col-lg-3 col-xs-5'>
+                    <a href='admin_index.php' class='logo'>KURIADELE</a>
+                </span>
+                <span class='col-lg-6 hidden-xs span_a'>
                     <a href='administrator.php' class='span_b'>管理ページへ</a>
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_b'>ログアウト</a>
-                </span>    
-                <span class='col-lg-1 px-0 info'>
-                    <form method='GET' action='admin_search.php' class='info'>
+                </span>
+                <div class='col-lg-3 col-xs-7 span_c'>
+                    <form method='GET' action='admin_search.php'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
@@ -26,7 +28,7 @@
                         <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
                     </div>
-                </span>
+                </div>
             </div>
         </div>
         <p class='customer'>企業情報変更</p>
@@ -40,19 +42,18 @@
         <?php if($flash_message !== null): ?>
             <p class='message'><?= $flash_message ?></p>
         <?php endif; ?>
-        <form method='POST' action='company_new.php' class='top_d'>
-            <p class='company_info'>KURIADELEとは</p><textarea name="description" cols="30" rows="5" placeholder='<?= $company->description ?>'></textarea>
-            <p>代表挨拶<input type="text" name="greeting" value='<?= $company->greeting ?>'/></p>
-            <p>事業計画<input type="text" name="plan" value='<?= $company->plan ?>'/></p>
-            <div>
-                <input type="submit" value="更新" class='btn-gradient'/>
-            </div>
+        <form method='POST' action='company_new.php'>
+            <div class='question_2'><p>KURIADELEとは</p><textarea name="description" cols="30" rows="5" placeholder='<?= $company->description ?>'></textarea></div>
+            <div class='greeting'>代表挨拶&ensp;&ensp;<input type="text" name="greeting" class='greeting_text' value='<?= $company->greeting ?>'/></div>
+            <div class='greeting'>事業計画&ensp;&ensp;<input type="text" name="plan" class='greeting_text' value='<?= $company->plan ?>'/></div>
+            <div class='top_d'><input type="submit" value="更新" class='btn-gradient'/></div>
         </form>
-        <div class='footer'>
-            <ul><span>KURIADELEについて</span><br>
+        <div class='container-fluid footer'>
+            <div class='row'>
+            <ul><span class='col-lg-4'>KURIADELEについて</span><br>
                 <li><a href='admin_company.php'>企業紹介</a></li>
             </ul>
-            <ul><span>取扱商品</span>
+            <ul><span class='col-lg-4'>取扱商品</span>
                 <li><a href='admin_product.php'>商品一覧</a></li>
             </ul>
         </div>

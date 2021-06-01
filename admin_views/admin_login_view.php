@@ -8,10 +8,12 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-         <div class='container-fluid sticky-top'>
-            <div class='row header'>
-                <a href='admin_login.php' class='logo'><span class='col-lg-2'>KURIADELE</span></a>
-                <span class='offset-lg-4 col-lg-3 px-0 span_a'>
+         <div class='container-fluid header'>
+            <div class='row'>
+                <span class='col-lg-3 col-xs-5'>
+                    <a href='admin_login.php' class='logo'>KURIADELE</a>
+                </span>
+                <span class='col-lg-6 hidden-xs span_a'>
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_sign_up.php' class='span_b'>新規登録</a>
                 </span>    
@@ -33,13 +35,15 @@
                 <p class='top_d'><input type='submit' value='login' class='btn-gradient'/></p>
             </div>
         </form>
-        <div class='footer'>
-            <ul><span>KURIADELEについて</span><br>
-                <li><a href='admin_company.php'>企業紹介</a></li>
-            </ul>
-            <ul><span>取扱商品</span>
-                <li><a href='admin_product.php'>商品一覧</a></li>
-            </ul>
+        <div class='container-fluid footer'>
+            <div class='row'>
+                <ul><span class='col-lg-4'>KURIADELEについて</span><br>
+                    <li><a href='admin_company.php'>企業紹介</a></li>
+                </ul>
+                <ul><span class='col-lg-4'>取扱商品</span>
+                    <li><a href='admin_product.php'>商品一覧</a></li>
+                </ul>
+            </div>  
         </div>
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>
     <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous'></script>
