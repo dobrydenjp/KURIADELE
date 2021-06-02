@@ -8,9 +8,8 @@
     $id = $_POST['id'];
     // CartDAOを使ってカートのid削除する
     $delete = CartDAO::delete_cart($id);
-    // var_dump($delete);
     // 削除したメッセージ保存
-    $_SESSION['flash_message'] = 'カート番号' . $id . 'の商品を削除しました。';
+    $_SESSION['flash_message'] = 'カート番号　' . $id . '番　の商品を削除しました。';
     // 画面遷移
     header('Location: cart.php') ;
     exit;

@@ -3,7 +3,6 @@
     require_once 'admin_daos/admin_dao.php';
     // セッション開始
     session_start();
-    // var_dump($_POST);
     // 入力情報を保存
     $bank_name = $_POST['bank_name'];
     $branch_name = $_POST['branch_name'];

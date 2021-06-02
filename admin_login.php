@@ -9,7 +9,6 @@
     
     if(isset($_SESSION['error_message'])){
         $error_message = $_SESSION['error_message'];
-        // return;
     }
     // ログアウトメッセージ表示
     $flash_message = $_SESSION['flash_message'];

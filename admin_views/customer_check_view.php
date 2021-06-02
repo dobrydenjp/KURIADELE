@@ -10,20 +10,20 @@
     <body>
         <div class='container-fluid header fixed-top'>
             <div class='row'>
-                <span class='col-lg-3 col-xs-5'>
-                    <a href='admin_index.php' class='logo'>KURIADELE</a>
+                <span class='col-lg-2 col-md-2 col-auto'>
+                    <a href='admin_index.php'><h1>KURIADELE</h1></a>
                 </span>
-                <span class='col-lg-6 hidden-xs span_a'>
+                <span class='col-lg-7 col-md-5 d-none d-lg-block span_a'>
                     <a href='administrator.php' class='span_b'>管理ページへ</a>
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_b'>ログアウト</a>
                 </span>
-                <div class='col-lg-3 col-xs-7 span_c'>
+                <div class='col-lg-3 col-md-5 col-auto span_c'>
                     <form method='GET' action='admin_search.php'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
+                    <button type="button" class="btn btn-light dropdown-toggle d-none d-sm-block" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
@@ -31,25 +31,27 @@
                 </div>
             </div>
         </div>
-        <p class='customer'>お客様一覧</p>
+        <p class='body'>
+            <p class='customer'>お客様一覧</p>
             <div class='container-fluid  col-lg-10'>
                 <table class='table table-hover '>
                     <thead>
                         <tr>
-                            <th>会員番号</th>
-                            <th>お名前</th>
-                            <th>メールアドレス</th>
+                            <th class='top_c'>会員番号</th>
+                            <th class='top_c'>お名前</th>
+                            <th class='top_c'>メールアドレス</th>
                         </tr>
                     </thead>
                     <?php foreach($customers as $customer){ ?>
                         <tr>
-                            <th><a href='personal.php?id=<?= $customer->id ?>'><?= $customer->id ?></a></th>
-                            <td><?= $customer->name ?></td>
-                            <td><?= $customer->email_address ?></td>
+                            <th class='top_c'><a href='personal.php?id=<?= $customer->id ?>'><?= $customer->id ?></a></th>
+                            <td class='top_c'><?= $customer->name ?></td>
+                            <td class='top_c'><?= $customer->email_address ?></td>
                         </tr>
                     <?php } ?>
                 </table>
             </div>
+        </p>
         <div class='container-fluid footer'>
             <div class='row'>
             <ul><span class='col-lg-4'>KURIADELEについて</span><br>

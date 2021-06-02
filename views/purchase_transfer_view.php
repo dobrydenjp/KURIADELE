@@ -10,22 +10,22 @@
     <body>
         <div class='container-fluid header fixed-top'>
             <div class='row'>
-                <span class='col-lg-3 col-xs-5'>
-                    <a href='mypage.php' class='logo'>KURIADELE</a>
+                <span class='col-lg-2 col-md-2 col-auto'>
+                    <a href='mypage.php'><h1>KURIADELE</h1></a>
                 </span>
-                <span class='col-lg-6 hidden-xs span_a'>
+                <span class='col-lg-7 col-md-5 d-none d-lg-block span_a'>
                     <a href='login_contact.php' class='span_b'>お問い合わせ</a>
                     <a href='login_product.php' class='span_b'>商品一覧</a>
                     <a href='cart.php' class='span_b'>カート</a>
                     <a href='purchases.php' class='span_b'>購入履歴</a>
                     <a href='logout.php' class='span_b'>ログアウト</a>
                 </span>
-                <div class='col-lg-3 col-xs-7 span_c'>
+                <div class='col-lg-3 col-md-5 col-auto span_c'>
                     <form method='GET' action='login_search.php'>
-                        <input type='search' name='name'/>
+                        <input type='search' name='name' size='15'/>
                         <input type='submit' value='検索'/>
                     </form>
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
+                    <button type="button" class="btn btn-light dropdown-toggle d-none d-sm-block" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='login_company.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
@@ -34,38 +34,40 @@
                 </div>
             </div>
         </div>
-        <p class='customer'>ご購入手続き</p>
-        <p class='buy_1'>支払方法はお振込みのみです</p>
-        <p class='buy_1'>ご購入後、下記口座へお振込みをお願い致します。</p>
-        <P class='customer_1'>お振込み口座</P>
-        <table class='container-fluid table col-lg-4'>
-            <div class='row'>
-                <tbody>
-                    <tr>
-                        <th>銀行名<td class='table_td'><?= $get_bank->bank_name ?></td></th>
-                    </tr>
-                    <tr>
-                        <th>支店名<td class='table_td'><?= $get_bank->branch_name ?></td></th>
-                    </tr>
-                    <tr>
-                        <th>預金科目<td class='table_td'><?= $get_bank->account ?></td></th>
-                    </tr>
-                    <tr>
-                        <th>口座番号<td class='table_td'><?= $get_bank->NO ?></td></th>
-                    </tr>
-                    <tr>
-                        <th>口座名義人<td class='table_td'><?= $get_bank->kana_name ?></td></th>
-                    </tr>
-                </tbody>
+        <p class='body'>
+            <p class='customer'>ご購入手続き</p>
+            <p class='buy_1'>支払方法はお振込みのみです</p>
+            <p class='buy_1'>ご購入後、下記口座へお振込みをお願い致します。</p>
+            <P class='buy_1'>お振込み口座</P>
+            <table class='container-fluid table col-lg-4'>
+                <div class='row'>
+                    <tbody>
+                        <tr>
+                            <th class='top_c'>銀行名<td class='table_td'><?= $get_bank->bank_name ?></td></th>
+                        </tr>
+                        <tr>
+                            <th class='top_c'>支店名<td class='table_td'><?= $get_bank->branch_name ?></td></th>
+                        </tr>
+                        <tr>
+                            <th class='top_c'>預金科目<td class='table_td'><?= $get_bank->account ?></td></th>
+                        </tr>
+                        <tr>
+                            <th class='top_c'>口座番号<td class='table_td'><?= $get_bank->NO ?></td></th>
+                        </tr>
+                        <tr>
+                            <th class='top_c'>口座名義人<td class='table_td'><?= $get_bank->kana_name ?></td></th>
+                        </tr>
+                    </tbody>
+                </div>
+            </table>    
+            <div class='entry'>
+                <p class='purchase'><a href='cart.php' class='btn-gradient'>カートへ戻る</a></p>
+                <form action='check.php' method='GET' class='purchase'>
+                    
+                    <input type='submit' value='入力内容確認' class='btn-gradient'/>
+                </form>
             </div>
-        </table>    
-        <div class='top_c'>
-            <p class='purchase'><a href='cart.php' class='btn-gradient'>カートへ戻る</a></p>
-            <form action='check.php' method='GET' class='purchase'>
-                
-                <input type='submit' value='入力内容確認' class='btn-gradient'/>
-            </form>
-        </div>
+        </p>
         <div class='container-fluid footer'>
             <div class='row'>
                 <ul><span class='col-lg-4'>KURIADELEについて</span><br>

@@ -10,20 +10,20 @@
     <body>
         <div class='container-fluid header fixed-top'>
             <div class='row'>
-                <span class='col-lg-3 col-xs-5'>
-                    <a href='admin_index.php' class='logo'>KURIADELE</a>
+                <span class='col-lg-2 col-md-2 col-auto'>
+                    <a href='admin_index.php'><h1>KURIADELE</h1></a>
                 </span>
-                <span class='col-lg-6 hidden-xs span_a'>
+                <span class='col-lg-7 col-md-5 d-none d-lg-block span_a'>
                     <a href='administrator.php' class='span_b'>管理ページへ</a>
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_b'>ログアウト</a>
                 </span>
-                <div class='col-lg-3 col-xs-7 span_c'>
+                <div class='col-lg-3 col-md-5 col-auto span_c'>
                     <form method='GET' action='admin_search.php'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
+                    <button type="button" class="btn btn-light dropdown-toggle d-none d-sm-block" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
@@ -31,93 +31,95 @@
                 </div>
             </div>
         </div>
-        <p class=customer>商品情報登録</p>
-        <!--商品登録ができない場合のメッセージ表示-->
-        <?php if($error_message !== null): ?>
-            <?php foreach($error_message as $error): ?>
-                <p class='error_message'><?= $error ?></p>
-            <?php endforeach; ?>
-        <?php endif; ?>
-        <!--商品登録完了したメッセージ表示-->
-        <form method='POST' action='item_new.php' enctype="multipart/form-data">
-            <div class='customer_information form-group row '>
-                <label class='offset-lg-2 col-lg-2 col-form-label'>商品名</label>
-                    <div class="col-lg-4 col-12">
-                        <input type='text' name='name' class='form-control'/>
-                    </div>
-            </div>
-            <div class='customer_information form-group row '>
-                <label class='offset-lg-2 col-lg-2 col-form-label'>商品画像</label>
-                    <div class="col-lg-4 col-12">
-                        <input type='file' name='image'>
+        <p class='body'>
+            <p class=customer>商品情報登録</p>
+            <!--商品登録ができない場合のメッセージ表示-->
+            <?php if($error_message !== null): ?>
+                <?php foreach($error_message as $error): ?>
+                    <p class='error_message'><?= $error ?></p>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <!--商品登録完了したメッセージ表示-->
+            <form method='POST' action='item_new.php' enctype="multipart/form-data">
+                <div class='customer_information form-group row '>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>商品名</label>
+                        <div class="col-lg-4 col-12">
+                            <input type='text' name='name' class='form-control'/>
+                        </div>
+                </div>
+                <div class='customer_information form-group row '>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>商品画像</label>
+                        <div class="col-lg-4 col-12">
+                            <input type='file' name='image'>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class='customer_information form-group row '>
-                <label class='offset-lg-2 col-lg-2 col-form-label'>金額</label>
-                    <div class="col-lg-4 col-12">
-                        <input type='text' name='price' class='form-control'/>
-                    </div>
-            </div>
-            <div class='customer_information form-group row '>
-                <label class='offset-lg-2 col-lg-2 col-form-label'>在庫数</label>
-                    <div class="col-lg-4 col-12">
-                        <input type="text" name="stock" class='form-control'/>
-                    </div>
-            </div>
-            <div class='customer_information form-group row '>
-                <label class='offset-lg-2 col-lg-2 col-form-label'>商品説明</label>
-                    <div class="col-lg-4 col-12">
-                        <input type='text' name='description' class='form-control'/>
-                    </div>
-            </div>
-            <div class='entry'>
-                <input type='submit' value='登録'/>
-            </div>
-        </form>
-        <p class='customer'>登録内容確認</p>
-        <!--商品を公開・非公開にしたメッセージ表示-->
-        <p class='message'><?= $flash_message ?></p>
-        <table class='container-fluid table col-lg-6'>
-            <div class='row'>
-                <tbody>
-                    <?php foreach($items as $item): ?>
-                    <tr>
-                        <td class='table_td'>商品番号：&emsp;<?= $item->id ?></td>
-                        <td class='table_td'>
-                            <button>
-                                <a href='item_change.php?id=<?= $item->id ?>' >変更する</a>
-                            </button>
-                                
-                        </td>
-                        <td class='table_img'><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
-                        <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
-                        <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
-                        <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
-                        <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
-                        <td class='table_td'>
-                            <!--商品が表示されていない（0の）場合に実行-->
-                            <?php if((int)($item->flag) === 0): ?>
-                                <form method='POST' action='flag.php' class='select_td'>
-                                    <input type='submit' value='公開にする' class='button'/>
-                                    非公開中です。
-                                    <input type='hidden' name='flag' value='1'>
-                                    <input type='hidden' name='id' value='<?= $item->id ?>'>
-                                </form>
-                            <?php else: ?>
-                                <form method='POST' action='flag.php' class='select_td'>
-                                    <input type='submit' value='非公開にする' class='button'/>
-                                    公開中です。
-                                    <input type='hidden' name='flag' value='0'>
-                                    <input type='hidden' name='id' value='<?= $item->id ?>'>
-                                </form>
-                            <?php endif; ?>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </div>
-        </table>
+                <div class='customer_information form-group row '>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>金額</label>
+                        <div class="col-lg-4 col-12">
+                            <input type='text' name='price' class='form-control'/>
+                        </div>
+                </div>
+                <div class='customer_information form-group row '>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>在庫数</label>
+                        <div class="col-lg-4 col-12">
+                            <input type="text" name="stock" class='form-control'/>
+                        </div>
+                </div>
+                <div class='customer_information form-group row '>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>商品説明</label>
+                        <div class="col-lg-4 col-12">
+                            <input type='text' name='description' class='form-control'/>
+                        </div>
+                </div>
+                <div class='entry'>
+                    <input type='submit' value='登録'/>
+                </div>
+            </form>
+            <p class='customer'>登録内容確認</p>
+            <!--商品を公開・非公開にしたメッセージ表示-->
+            <p class='message'><?= $flash_message ?></p>
+            <table class='container-fluid table col-lg-6'>
+                <div class='row'>
+                    <tbody>
+                        <?php foreach($items as $item): ?>
+                        <tr>
+                            <td class='table_td'>商品番号：&emsp;<?= $item->id ?></td>
+                            <td class='table_td'>
+                                <button>
+                                    <a href='item_change.php?id=<?= $item->id ?>' >変更する</a>
+                                </button>
+                                    
+                            </td>
+                            <td class='table_img'><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
+                            <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
+                            <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
+                            <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
+                            <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
+                            <td class='table_td'>
+                                <!--商品が表示されていない（0の）場合に実行-->
+                                <?php if((int)($item->flag) === 0): ?>
+                                    <form method='POST' action='flag.php' class='select_td'>
+                                        <input type='submit' value='公開にする' class='button'/>
+                                        非公開中です。
+                                        <input type='hidden' name='flag' value='1'>
+                                        <input type='hidden' name='id' value='<?= $item->id ?>'>
+                                    </form>
+                                <?php else: ?>
+                                    <form method='POST' action='flag.php' class='select_td'>
+                                        <input type='submit' value='非公開にする' class='button'/>
+                                        公開中です。
+                                        <input type='hidden' name='flag' value='0'>
+                                        <input type='hidden' name='id' value='<?= $item->id ?>'>
+                                    </form>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </div>
+            </table>
+        </p>
         <div class='container-fluid footer'>
             <div class='row'>
             <ul><span class='col-lg-4'>KURIADELEについて</span><br>

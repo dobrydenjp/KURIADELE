@@ -8,22 +8,22 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='container-fluid header'>
+        <div class='container-fluid header fixed-top'>
             <div class='row'>
-                <span class='col-lg-3 col-xs-5'>
-                    <a href='admin_index.php' class='logo'>KURIADELE</a>
+                <span class='col-lg-2 col-md-2 col-auto'>
+                    <a href='admin_index.php'><h1>KURIADELE</h1></a>
                 </span>
-                <span class='col-lg-6 hidden-xs span_a'>
+                <span class='col-lg-7 col-md-5 d-none d-lg-block span_a'>
                     <a href='administrator.php' class='span_b'>管理ページへ</a>
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_b'>ログアウト</a>
                 </span>
-                <div class='col-lg-3 col-xs-7 span_c'>
+                <div class='col-lg-3 col-md-5 col-auto span_c'>
                     <form method='GET' action='admin_search.php'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
+                    <button type="button" class="btn btn-light dropdown-toggle d-none d-sm-block" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
@@ -31,35 +31,37 @@
                 </div>
             </div>
         </div>
-        <p class='customer'>KURIADELEnews 更新</p>
-        <!--ニュース更新できないエラーメッセージ表示-->
-        <?php if($error_message !== null): ?>
-            <?php foreach($error_message as $error): ?>
-                <p class='error_message'><?= $error ?></p>
-            <?php endforeach; ?>
-        <?php endif; ?>
-        <!--ニュース更新完了メッセージ表示-->
-        <?php if($flash_message !== null): ?>
-            <p class='message'><?= $flash_message ?></p>
-        <?php endif; ?>
-        <p class='login_2'>現在の登録状況を表示しています</p>
-        <form method='POST' action='news.php' enctype="multipart/form-data">
-            <div class='customer_information form-group row '>
-                <label class='offset-lg-2 col-lg-2 col-form-label'>日付</label>
-                    <div class="col-lg-4 col-12">
-                        <input type='date' name='days' class='form-control' value='<?= $news->days ?>'/>
-                    </div>
-            </div>
-            <div class='customer_information form-group row '>
-                <label class='offset-lg-2 col-lg-2 col-form-label'>news</label>
-                    <div class='col-lg-4 col-12'>
-                        <input type='text' name='news' class='form-control' value='<?= $news->news ?>'/>
-                    </div>
-            </div>
-            <div class='top_d'>
-                <input type='submit' value='登録' class='btn-gradient'/>
-            </div>
-        </form>
+        <p class='body'>
+            <p class='customer'>KURIADELEnews 更新</p>
+            <!--ニュース更新できないエラーメッセージ表示-->
+            <?php if($error_message !== null): ?>
+                <?php foreach($error_message as $error): ?>
+                    <p class='error_message'><?= $error ?></p>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <!--ニュース更新完了メッセージ表示-->
+            <?php if($flash_message !== null): ?>
+                <p class='message'><?= $flash_message ?></p>
+            <?php endif; ?>
+            <p class='login_2'>現在の登録状況を表示しています</p>
+            <form method='POST' action='news.php' enctype="multipart/form-data">
+                <div class='customer_information form-group row '>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>日付</label>
+                        <div class="col-lg-4 col-12">
+                            <input type='date' name='days' class='form-control' value='<?= $news->days ?>'/>
+                        </div>
+                </div>
+                <div class='customer_information form-group row '>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>news</label>
+                        <div class='col-lg-4 col-12'>
+                            <input type='text' name='news' class='form-control' value='<?= $news->news ?>'/>
+                        </div>
+                </div>
+                <div class='top_d'>
+                    <input type='submit' value='登録' class='btn-gradient'/>
+                </div>
+            </form>
+        </p>
         <div class='container-fluid footer'>
             <div class='row'>
             <ul><span class='col-lg-4'>KURIADELEについて</span><br>

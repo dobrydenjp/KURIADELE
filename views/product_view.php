@@ -10,52 +10,54 @@
     <body>
         <div class='container-fluid header fixed-top'>
             <div class='row'>
-                <span class='col-lg-3 col-xs-5'>
-                    <a href='index.php' class='logo'>KURIADELE</a>
+                <span class='col-lg-2 col-md-2 col-auto'>
+                    <a href='index.php'><h1>KURIADELE</h1></a>
                 </span>
-                <span class='col-lg-6 hidden-xs span_a'>
+                <span class='col-lg-7 col-md-5 d-none d-lg-block span_a'>
                     <a href='product.php 'class='span_b'>商品情報</a>
                     <a href='contact.php'class='span_b'>お問い合わせ</a>
                     <a href='login.php'class='span_b'>ログイン</a>
                 </span>
-                <div class='col-lg-3 col-xs-7 span_c'>
+                <div class='col-lg-3 col-md-5 col-auto span_c'>
                     <form method='GET' action='search.php'>
-                        <input type='search' name='name'/>
+                        <input type='search' name='name' size='15'/>
                         <input type='submit' value='検索'/>
                     </form>
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
-                        <div class="dropdown-menu">
-                            <a class='dropdown-item' href='#'><a href='company.php'>KURIADELEについて</a>
-                            <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
-                            <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>
-                        </div>
+                    <button type="button" class="btn btn-light dropdown-toggle d-none d-sm-block" data-toggle="dropdown"></button>
+                    <div class="dropdown-menu">
+                        <a class='dropdown-item' href='#'><a href='company.php'>KURIADELEについて</a>
+                        <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
+                        <a class='dropdown-item' href='#'><a href='contact.php'>サポート</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <p class='customer'>取り扱い商品一覧</p>
-        <!--キーワードに類似した商品を表示したメッセージ表示-->
-        <?php if($flash_message !== ''): ?>
-            <p class='message'><?= $flash_message ?></p>
-        <?php endif; ?>
-        <table class='container-fluid table col-lg-6'>
-            <div class='row'>
-                <tbody>
-                    <?php foreach($items as $item): ?>
-                    <tr>
-                        <td class='table_td'><?= $item->id ?></td>
-                        <td class='table_img'><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
-                        <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
-                        <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
-                        <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
-                        <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
-                        <form method='POST' action='item_new.php'>
-                            <td class='table_td'> <a href='buy.php?id=<?= $item->id ?>'>詳細ページへ</a></td>
-                        </form>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </div>
-        </table>
+        <p class='body'>
+            <p class='customer'>取り扱い商品一覧</p>
+            <!--キーワードに類似した商品を表示したメッセージ表示-->
+            <?php if($flash_message !== ''): ?>
+                <p class='message'><?= $flash_message ?></p>
+            <?php endif; ?>
+            <table class='container-fluid table col-lg-8'>
+                <div class='row'>
+                    <tbody>
+                        <?php foreach($items as $item): ?>
+                            <tr>
+                                <td class='table_td'><?= $item->id ?></td>
+                                <td class='table_img'><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
+                                <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
+                                <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
+                                <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
+                                <td class='table_td'>商品説明：&emsp;<?= $item->description ?></td>
+                                <form method='POST' action='item_new.php'>
+                                    <td class='table_td'> <a href='buy.php?id=<?= $item->id ?>'>詳細ページへ</a></td>
+                                </form>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </div>
+            </table>
+        </p>
         <div class='container-fluid footer'>
             <div class='row'>
                 <ul><span class='col-lg-4'>KURIADELEについて</span><br>

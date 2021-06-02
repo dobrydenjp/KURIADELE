@@ -10,9 +10,6 @@
     /*padding-top: 15px;*/
     
 }
-.logo {
-    font-size: 40px;
-}
 a.logo:hover {
     text-decoration: none;
 }
@@ -52,16 +49,20 @@ a.logo:hover {
 }
 
 .top_2 {
+    margin-top: 2%;
     height: 50%;
     border-bottom: 1px black solid;
 }
 .top_c {
     text-align: center;
+    font-size: 15px;
 }
+
 .img_top {
     width: 25%;
 }
 .top_3 {
+    margin-top: 2%;
     height: 8%;
 }
 
@@ -77,12 +78,15 @@ a.logo:hover {
 .info_1 {
     margin-top: 3%;
 }
-
+.body {
+    padding: 4%;
+}
 .customer {
     display: inline-block;
+    font-size: 25px;
     border: double;
-    margin-top: 4%;
     margin-left: 20%;
+    margin-bottom: 1%;
     text-align: center;
 }
 .customer_1{
@@ -94,7 +98,6 @@ a.logo:hover {
 }
 .customer_information {
     position: relative;
-    top: 45px;
     text-align: center;
     margin-top: 2%;
 }
@@ -108,7 +111,7 @@ a.logo:hover {
 }
 .error_message {
     text-align: center;
-    font-size: 10px;
+    font-size: 13px;
     color: #ec1c24;
 }
 .enroll_1 {
@@ -152,7 +155,7 @@ a.logo:hover {
 }
 .purchase_id {
     width: 6%;
-    font-size: 11px;
+    font-size: 13px;
     text-align: center;
     vertical-align: middle !important;
 }
@@ -161,7 +164,7 @@ a.logo:hover {
     width: 70%;
 }
 .purchase_td {
-    font-size: 11px;
+    font-size: 13px;
     
     font-family: sans-serif;
     width: 16%;
@@ -226,16 +229,15 @@ li {
     margin-right: 6%;
 }
 .corporation {
-    padding-top: 1%;
-    padding-bottom: 3%;
-    padding-left: 16%;
-    text-align: center;
-    margin-right: 68%;
+    padding-bottom: 1%;
+    padding-left: 28%;
     font-weight: bold;
 }
 .company {
-    margin-left: 22%;
-    margin-bottom: 2%;
+    margin-left: 35%;
+     margin-bottom: 2%; 
+    width: 100%;
+
 }
 /*.company_info {*/
 /*    vertical-align: middle;*/
@@ -294,18 +296,18 @@ li {
 }
 
 .img_td {
-    width: 76%;
+    width: 68%;
     margin-top: 4%;
 }
 .table_td {
     display: flex;
-    font-size: 11px;
     font-family: sans-serif;
-    width: 100%;
+    font-size: 13px
 }
 .table_img{
-    width: 45%;
+    width: 35%;
 }
+
 .product_4{
 
     margin-bottom: 7%;
@@ -368,11 +370,4 @@ li {
 }
 .greeting_text {
      width: 13%;
-}
-/*.customer_information.form-group.row {*/
-/*    margin-top: 2%;*/
-/*}*/
-.caution {
-    font-size: 9px;
-    text-align: center;
 }

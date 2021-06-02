@@ -13,9 +13,8 @@
     $update = CartDAO::update($id, $number);
     // 商品個数変更後の個数取得
     $_SESSION['number'] = $update;
-    var_dump($_SESSION['number']);
     // // 画面遷移
-    $_SESSION['flash_message'] = 'カート番号' . $id . '商品番号' . $item_id . 'の個数を' . $number . '個に変更しました';
+    $_SESSION['flash_message'] = 'カート番号　' . $id . '番　商品番号　' . $item_id . '番　の個数を　' . $number . '個　に変更しました。';
     // 画面遷移
     header('Location: cart.php');
     exit;

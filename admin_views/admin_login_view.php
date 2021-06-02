@@ -8,40 +8,43 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-         <div class='container-fluid header'>
+         <div class='container-fluid header fixed-top'>
             <div class='row'>
-                <span class='col-lg-3 col-xs-5'>
-                    <a href='admin_login.php' class='logo'>KURIADELE</a>
+                <span class='col-lg-2 col-md-2 col-auto'>
+                    <a href='admin_login.php'><h1>KURIADELE</h1></a>
                 </span>
-                <span class='col-lg-6 hidden-xs span_a'>
+                <span class='col-lg-7 col-md-5 d-none d-lg-block span_a'>
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_sign_up.php' class='span_b'>新規登録</a>
                 </span>    
             </div>
         </div>
-        <p class='customer'>管理者ページログイン</p>
-        <!--ログインエラーメッセージ-->
-        <?php if($error_message !== null): ?>
-            <p class='error_message'><?= $error_message ?></p>
-        <?php endif; ?>
-        <!--ログアウトメッセージ-->
-        <?php if($flash_message !== null): ?>
-            <p class='message'><?= $flash_message ?></p>
-        <?php endif; ?>
-        <form action='admin_new.php' method='POST'>
-            <div class='login_2'>
-                メールアドレス&emsp;<input type='text' name='email_address' /><br><br>
-                パスワード&emsp;&emsp;&emsp;<input type='password' name='password'/><br>
-                <p class='top_d'><input type='submit' value='login' class='btn-gradient'/></p>
-            </div>
-        </form>
+        <p class='body'>
+            <p class='customer'>管理者ページログイン</p>
+            <!--ログインエラーメッセージ-->
+            <?php if($error_message !== null): ?>
+                <p class='error_message'><?= $error_message ?></p>
+            <?php endif; ?>
+            <!--ログアウトメッセージ-->
+            <!--管理者会員登録したメッセージ表示-->
+            <?php if($flash_message !== null): ?>
+                <p class='message'><?= $flash_message ?></p>
+            <?php endif; ?>
+            <form action='admin_new.php' method='POST'>
+                <div class='login_2'>
+                    メールアドレス&emsp;<input type='text' name='email_address' /><br><br>
+                    パスワード&emsp;&emsp;&emsp;<input type='password' name='password'/><br>
+                    <p class='entry'><input type='submit' value='login' class='btn-gradient'/></p>
+                </div>
+            </form>
+        
         <div class='container-fluid footer'>
             <div class='row'>
                 <ul><span class='col-lg-4'>KURIADELEについて</span><br>
-                    <li><a href='admin_company.php'>企業紹介</a></li>
+                    <li><a href='admin_login.php'>企業紹介</a></li>
                 </ul>
                 <ul><span class='col-lg-4'>取扱商品</span>
-                    <li><a href='admin_product.php'>商品一覧</a></li>
+                    <li><a href='admin_login.php'>商品一覧</a></li>
                 </ul>
             </div>  
         </div>

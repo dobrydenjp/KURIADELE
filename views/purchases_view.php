@@ -10,22 +10,21 @@
     <body>
         <div class='container-fluid header fixed-top'>
             <div class='row'>
-                <span class='col-lg-3 col-xs-5'>
-                    <a href='mypage.php' class='logo'>KURIADELE</a>
+                <span class='col-lg-2 col-md-2 col-auto'>
+                    <a href='mypage.php'><h1>KURIADELE</h1></a>
                 </span>
-                <span class='col-lg-6 hidden-xs span_a'>
+                <span class='col-lg-7 col-md-5 d-none d-lg-block span_a'>
                     <a href='login_contact.php' class='span_b'>お問い合わせ</a>
                     <a href='login_product.php' class='span_b'>商品一覧</a>
                     <a href='cart.php' class='span_b'>カート</a>
-                    <a href='purchases.php' class='span_b'>購入履歴</a>
                     <a href='logout.php' class='span_b'>ログアウト</a>
                 </span>
-                <div class='col-lg-3 col-xs-7 span_c'>
+                <div class='col-lg-3 col-md-5 col-auto span_c'>
                     <form method='GET' action='login_search.php'>
-                        <input type='search' name='name'/>
+                        <input type='search' name='name' size='15'/>
                         <input type='submit' value='検索'/>
                     </form>
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
+                    <button type="button" class="btn btn-light dropdown-toggle d-none d-sm-block" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='login_company.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='login_product.php'>取扱商品</a>
@@ -34,35 +33,37 @@
                 </div>
             </div>
         </div>
-        <p class='customer'>購入履歴</p>
-        <table class='container-fluid table col-lg-11'>
-            <div class='row'>
-                <tbody>
-                    <tr>
-                        <td class='purchase_id'>購入番号</td>
-                        <td class='purchase_id'>商品番号</td>
-                        <td class='purchase_id'>購入写真</td>
-                        <td class='purchase_id'>商品名</td>
-                        <td class='purchase_id'>購入日時</td>
-                        <td class='purchase_id'>個数</td>
-                        <td class='purchase_id'>小計</td>
-                        <td class='purchase_id'>消費税込金額</td>
-                    </tr>
-                    <?php foreach($my_purchases as $cart): ?>
-                    <tr>
-                        <td class='purchase_id'><?= $cart->id ?></td>
-                        <td class='purchase_id'><?= $cart->get_item()->id ?></td>
-                        <td class='purchase_td'><img src='upload/items/<?= $cart->get_item()->image ?>' class='purchase_img'></img></td>
-                        <td class='purchase_td'><?= $cart->get_item()->name ?></td>
-                        <td class='purchase_td'><?= $cart->created_at ?></td>
-                        <td class='purchase_number'><?= $cart->number ?>&ensp;個</td>
-                        <td class='purchase_number'>￥<?= $cart->number * $cart->get_item()->price ?>円</td>
-                        <td class='purchase_td'>￥<?= CartDAO::get_total_price($my_purchases)* 1.08 ?>円</td>
-                    </tr>     
-                    <?php endforeach; ?>
-                </tbody>            
-            </div>
-        </table>
+        <p class='body'>
+            <p class='customer'>購入履歴</p>
+            <table class='container-fluid table col-lg-11'>
+                <div class='row'>
+                    <tbody>
+                        <tr>
+                            <th class='purchase_id'>購入番号</th>
+                            <th class='purchase_id'>商品番号</th>
+                            <th class='purchase_id'>購入写真</th>
+                            <th class='purchase_id'>商品名</th>
+                            <th class='purchase_id'>購入日時</th>
+                            <th class='purchase_id'>個数</th>
+                            <th class='purchase_id'>小計</th>
+                            <th class='purchase_id'>消費税込金額</th>
+                        </tr>
+                        <?php foreach($my_purchases as $cart): ?>
+                        <tr>
+                            <td class='purchase_id'><?= $cart->id ?></td>
+                            <td class='purchase_id'><?= $cart->get_item()->id ?></td>
+                            <td class='purchase_td'><img src='upload/items/<?= $cart->get_item()->image ?>' class='purchase_img'></img></td>
+                            <td class='purchase_td'><?= $cart->get_item()->name ?></td>
+                            <td class='purchase_td'><?= $cart->created_at ?></td>
+                            <td class='purchase_number'><?= $cart->number ?>&ensp;個</td>
+                            <td class='purchase_number'>￥<?= $cart->number * $cart->get_item()->price ?>円</td>
+                            <td class='purchase_td'>￥<?= CartDAO::get_total_price($my_purchases)* 1.08 ?>円</td>
+                        </tr>     
+                        <?php endforeach; ?>
+                    </tbody>            
+                </div>
+            </table>
+        </p>
         <div class='container-fluid footer'>
             <div class='row'>
                 <ul><span class='col-lg-4'>KURIADELEについて</span><br>

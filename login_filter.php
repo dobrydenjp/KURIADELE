@@ -10,5 +10,4 @@
         header('Location: index.php');
         exit;
     }
-    // $login_customer = null;
 ?>

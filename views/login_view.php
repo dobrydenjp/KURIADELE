@@ -8,22 +8,22 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <div class='container-fluid header'>
+        <div class='container-fluid header fixed-top'>
             <div class='row'>
-                <span class='col-lg-3 col-xs-5'>
-                    <a href='index.php' class='logo'>KURIADELE</a>
+                <span class='col-lg-2 col-md-2 col-auto'>
+                    <a href='index.php'><h1>KURIADELE</h1></a>
                 </span>
-                <span class='col-lg-6 hidden-xs span_a'>
+                <span class='col-lg-7 col-md-5 d-none d-lg-block span_a'>
                     <a href='product.php 'class='span_b'>商品情報</a>
                     <a href='contact.php'class='span_b'>お問い合わせ</a>
                     <a href='login.php'class='span_b'>ログイン</a>
                 </span>
-                <div class='col-lg-3 col-xs-7 span_c'>
+                <div class='col-lg-3 col-md-5 col-auto span_c'>
                     <form method='GET' action='search.php'>
-                        <input type='search' name='name'/>
+                        <input type='search' name='name' size='15'/>
                         <input type='submit' value='検索'/>
                     </form>
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
+                    <button type="button" class="btn btn-light dropdown-toggle d-none d-sm-block" data-toggle="dropdown"></button>
                         <div class="dropdown-menu">
                             <a class='dropdown-item' href='#'><a href='company.php'>KURIADELEについて</a>
                             <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
@@ -32,33 +32,35 @@
                 </div>
             </div>
         </div>
-        <div class='customer'>
-            <a href='sign_up.php'>新規会員登録の方はこちら</a>
-        </div>
-        <br>
-        <br>
-        <div class='login_1'>ＭＹページログイン</div>
-        <!--新規登録成功のメッセージ表示-->
-        <?php if($flash_message !== null): ?>
-            <p class='message'><?= $flash_message ?></p>
-        <?php endif; ?>
-        <!--入力したメールアドレスとパスワードが登録と違う場合のエラーメッセージ表示-->
-        <?php if($error_message !== null): ?>
-            <p class='error_message'><?= $error_message ?></p>
-        <?php endif; ?>
-        <!--入力していない場合やどちらかの入力の場合エラーメッセージ表示-->
-        <?php if($errors !== null): ?>
-            <?php foreach($errors as $error): ?>
-                <p class='error_message'><?= $error ?></p>
-            <?php endforeach; ?>
-        <?php endif; ?>
-        <form action='login_check.php' method='POST'>
-            <div class='login_2'>
-                メールアドレス&emsp;<input type='text' name='email_address' /><br><br>
-                パスワード&emsp;&emsp;&emsp;<input type='password' name='password'/><br>
-                <p class='top_d'><input type='submit' value='login' class='btn-gradient'/></p>
+        <p class='body'>
+            <div class='customer'>
+                <a href='sign_up.php'>新規会員登録の方はこちら</a>
             </div>
-        </form>             
+            <br>
+            <br>
+            <div class='login_1'>ＭＹページログイン</div>
+            <!--新規登録成功のメッセージ表示-->
+            <?php if($flash_message !== null): ?>
+                <p class='message'><?= $flash_message ?></p>
+            <?php endif; ?>
+            <!--入力したメールアドレスとパスワードが登録と違う場合のエラーメッセージ表示-->
+            <?php if($error_message !== null): ?>
+                <p class='error_message'><?= $error_message ?></p>
+            <?php endif; ?>
+            <!--入力していない場合やどちらかの入力の場合エラーメッセージ表示-->
+            <?php if($errors !== null): ?>
+                <?php foreach($errors as $error): ?>
+                    <p class='error_message'><?= $error ?></p>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <form action='login_check.php' method='POST'>
+                <div class='login_2'>
+                    メールアドレス&emsp;<input type='text' name='email_address' /><br><br>
+                    パスワード&emsp;&emsp;&emsp;<input type='password' name='password'/><br>
+                    <p class='top_d'><input type='submit' value='login' class='btn-gradient'/></p>
+                </div>
+            </form> 
+        </p>
         <div class='container-fluid footer'>
             <div class='row'>
                 <ul><span class='col-lg-4'>KURIADELEについて</span><br>

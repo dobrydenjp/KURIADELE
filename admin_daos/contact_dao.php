@@ -9,22 +9,22 @@
             $pdo = null;
             $stmp = null;
             try{
-                // print 'OK';
+
                 // データベースに接続する神様取得
                 $pdo = self::get_connection();
-                // print 'OK1';
+
                 // INSERT文を実行する準備（データはわざとあやふやにしておく）
                 $stmt = $pdo -> prepare("INSERT INTO contacts (name, subject, contact, email_address) VALUES(:name, :subject, :contact, :email_address)");
-                // print 'OK2';
+
                 // バインド処理（あやふやだった箇所実データで埋める）
                 $stmt->bindParam(':name', $contacts->name, PDO::PARAM_STR);
                 $stmt->bindParam(':subject', $contacts->subject, PDO::PARAM_STR);
                 $stmt->bindParam(':contact', $contacts->contact, PDO::PARAM_STR);
                 $stmt->bindParam(':email_address', $contacts->email_address, PDO::PARAM_STR);
-                // print 'OK3';
+
                 // INSERT文本番実行
                 $stmt->execute();
-                // print 'OK4';
+
                 return 'ご質問ありがとうございます。ご返信にはお時間を頂きます。よろしくお願い致します。';
             
             }catch(PDOException $e){
@@ -46,7 +46,6 @@
             // 名前入力していない場合のメッセージ
             if($contacts->name === ''){
                 $contact_error[] = 'お名前を入力してください';
-                // var_dump($contact_error);
             }
             // 件名入力していない場合のメッセージ
             if($contacts->subject === ''){

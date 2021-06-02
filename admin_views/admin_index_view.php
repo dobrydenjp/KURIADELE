@@ -10,20 +10,20 @@
     <body>
         <div class='container-fluid header fixed-top'>
             <div class='row'>
-                <span class='col-lg-3 col-xs-5'>
-                    <a href='admin_index.php' class='logo'>KURIADELE</a>
+                <span class='col-lg-2 col-md-2 col-auto'>
+                    <a href='admin_index.php'><h1>KURIADELE</h1></a>
                 </span>
-                <span class='col-lg-6 hidden-xs span_a'>
+                <span class='col-lg-7 col-md-5 d-none d-lg-block span_a'>
                     <a href='administrator.php' class='span_b'>管理ページへ</a>
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_b'>ログアウト</a>
                 </span>
-                <div class='col-lg-3 col-xs-7 span_c'>
+                <div class='col-lg-3 col-md-5 col-auto span_c'>
                     <form method='GET' action='admin_search.php'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
+                    <button type="button" class="btn btn-light dropdown-toggle d-none d-sm-block" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
@@ -31,10 +31,7 @@
                 </div>
             </div>
         </div>
-        <div>
-            <div class='top_a'>満足の極みへ</div>
-            <div><img src='sakura.jpg' alt='sakura'></img></div>
-        </div>
+        <div><img src='sakura.jpg' alt='sakura'></img></div>
         <?php if($admin_message !== null): ?>
             <p class='message'><?= $admin_message ?></p>
         <?php endif; ?>
@@ -49,12 +46,12 @@
         </div>
         <div class='container-fluid footer'>
             <div class='row'>
-            <ul><span class='col-lg-4'>KURIADELEについて</span><br>
+                <ul><span class='col-lg-4'>KURIADELEについて</span><br>
                 <li><a href='admin_company.php'>企業紹介</a></li>
-            </ul>
-            <ul><span class='col-lg-4'>取扱商品</span>
-                <li><a href='admin_product.php'>商品一覧</a></li>
-            </ul>
+                </ul>
+                <ul><span class='col-lg-4'>取扱商品</span>
+                    <li><a href='admin_product.php'>商品一覧</a></li>
+                </ul>
         </div>
     <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>
     <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous'></script>

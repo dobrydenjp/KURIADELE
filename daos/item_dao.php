@@ -173,9 +173,9 @@
                 $stmt->execute();
                 
                 if((int)($flag) === 0){
-                    return '商品番号が' . $id . 'の商品を非公開にしました。';
+                    return '商品番号　' . $id . '番　の商品を非公開にしました。';
                 }else{
-                    return '商品番号が' . $id . 'の商品を公開にしました。';
+                    return '商品番号　' . $id . '番　の商品を公開にしました。';
                 }
             }catch(PDOException $e){
 
@@ -255,7 +255,7 @@
                 // update本番実行
                 $stmt->execute();
                 
-                return '商品番号' . $id . 'の在庫を' . $stock . '個に変更しました。';
+                return '商品番号　' . $id . '番　の在庫を ' . $stock . '個 に変更しました。';
                 
             }catch(PDOException $e){
                 

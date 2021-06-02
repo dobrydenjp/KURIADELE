@@ -10,20 +10,20 @@
     <body>
         <div class='container-fluid header fixed-top'>
             <div class='row'>
-                <span class='col-lg-3 col-xs-5'>
-                    <a href='admin_index.php' class='logo'>KURIADELE</a>
+                <span class='col-lg-2 col-md-2 col-auto'>
+                    <a href='admin_index.php'><h1>KURIADELE</h1></a>
                 </span>
-                <span class='col-lg-6 hidden-xs span_a'>
+                <span class='col-lg-7 col-md-5 d-none d-lg-block span_a'>
                     <a href='administrator.php' class='span_b'>管理ページへ</a>
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_b'>ログアウト</a>
                 </span>
-                <div class='col-lg-3 col-xs-7 span_c'>
+                <div class='col-lg-3 col-md-5 col-auto span_c'>
                     <form method='GET' action='admin_search.php'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
+                    <button type="button" class="btn btn-light dropdown-toggle d-none d-sm-block" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
@@ -31,55 +31,57 @@
                 </div>
             </div>
         </div>
-        <p class='customer'>振込み先情報</p>
-        <!--$error_message がnullでないならば-->
-        <?php if($error_message !== null): ?>
-            <!--入力エラーメッセージ表示-->
-            <?php foreach($error_message as $errors): ?>
-                <p class='error_message'><?= $errors ?></p>
-            <?php endforeach; ?>
-        <?php endif; ?>
-        <!-- $flash_message がnullでないならば-->
-        <?php if($flash_message !== null): ?>
-        <!--銀行口座情報登録メッセージ表示-->
-            <p class='message'><?= $flash_message ?></p>
-        <?php endif; ?>
-        <p class='message'>※&emsp;現在の登録状況を表示しています&emsp;※</p> 
-        <form method='POST' action='registration_transfer.php' enctype="multipart/form-data">
-            <div class='customer_information form-group row '>
-                <label class='col-lg-4 col-form-label'>銀行名</label>
-                    <div class='col-lg-4 col-12'>
-                        <input type='text' name='bank_name' class='form-control' value='<?= $get_bank->bank_name ?>' />
-                    </div>
-            </div>
-            <div class='customer_information form-group row '>
-                <label class='col-lg-4 col-form-label'>支店名</label>
-                    <div class='col-lg-4 col-12'>
-                        <input type='text' name='branch_name' class='form-control' value='<?= $get_bank->branch_name ?>'/>
-                    </div>
-            </div>
-            <div class='customer_information form-group row '>
-                <label class='col-lg-4 col-form-label'>預金科目</label>
-                    <div class='col-lg-4 col-12'>
-                        <input type='text' name='account' class='form-control' value='<?= $get_bank->account ?>'/>
-                    </div>
-            </div>
-            <div class='customer_information form-group row '>
-                <label class='col-lg-4 col-form-label'>口座番号</label>
-                    <div class='col-lg-4 col-12'>
-                        <input type='text' name='NO' class='form-control' value='<?= $get_bank->NO ?>'/>
-                    </div>
-            </div>
-            <div class='customer_information form-group row '>
-                <label class='col-lg-4 col-form-label'>口座名義人(カナ)</label>
-                    <div class='col-lg-4 col-12'>
-                        <input type='text' name='kana_name' class='form-control' value='<?= $get_bank->kana_name ?>'/>
-                    </div>
-            </div>
-            <div class='top_d'>
-                <input type='submit' value='登録' class='btn-gradient'/>
-            </div>
-        </form>
+        <p class='body'>
+            <p class='customer'>振込み先情報</p>
+            <!--$error_message がnullでないならば-->
+            <?php if($error_message !== null): ?>
+                <!--入力エラーメッセージ表示-->
+                <?php foreach($error_message as $errors): ?>
+                    <p class='error_message'><?= $errors ?></p>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <!-- $flash_message がnullでないならば-->
+            <?php if($flash_message !== null): ?>
+            <!--銀行口座情報登録メッセージ表示-->
+                <p class='message'><?= $flash_message ?></p>
+            <?php endif; ?>
+            <p class='message'>※&emsp;現在の登録状況を表示しています&emsp;※</p> 
+            <form method='POST' action='registration_transfer.php' enctype="multipart/form-data">
+                <div class='customer_information form-group row '>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>銀行名</label>
+                        <div class='col-lg-4 col-12'>
+                            <input type='text' name='bank_name' class='form-control' value='<?= $get_bank->bank_name ?>' />
+                        </div>
+                </div>
+                <div class='customer_information form-group row '>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>支店名</label>
+                        <div class='col-lg-4 col-12'>
+                            <input type='text' name='branch_name' class='form-control' value='<?= $get_bank->branch_name ?>'/>
+                        </div>
+                </div>
+                <div class='customer_information form-group row '>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>預金科目</label>
+                        <div class='col-lg-4 col-12'>
+                            <input type='text' name='account' class='form-control' value='<?= $get_bank->account ?>'/>
+                        </div>
+                </div>
+                <div class='customer_information form-group row '>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>口座番号</label>
+                        <div class='col-lg-4 col-12'>
+                            <input type='text' name='NO' class='form-control' value='<?= $get_bank->NO ?>'/>
+                        </div>
+                </div>
+                <div class='customer_information form-group row '>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>口座名義人(カナ)</label>
+                        <div class='col-lg-4 col-12'>
+                            <input type='text' name='kana_name' class='form-control' value='<?= $get_bank->kana_name ?>'/>
+                        </div>
+                </div>
+                <div class='entry'>
+                    <input type='submit' value='登録' class='btn-gradient'/>
+                </div>
+            </form>
+        </p>
         <div class='container-fluid footer'>
             <div class='row'>
             <ul><span class='col-lg-4'>KURIADELEについて</span><br>

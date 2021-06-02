@@ -10,20 +10,20 @@
     <body>
         <div class='container-fluid header fixed-top'>
             <div class='row'>
-                <span class='col-lg-3 col-xs-5'>
-                    <a href='admin_index.php' class='logo'>KURIADELE</a>
+                <span class='col-lg-2 col-md-2 col-auto'>
+                    <a href='admin_index.php'><h1>KURIADELE</h1></a>
                 </span>
-                <span class='col-lg-6 hidden-xs span_a'>
+                <span class='col-lg-7 col-md-5 d-none d-lg-block span_a'>
                     <a href='administrator.php' class='span_b'>管理ページへ</a>
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_b'>ログアウト</a>
-                </span>    
-                <div class='col-lg-3 col-xs-7 span_c'>
+                </span>
+                <div class='col-lg-3 col-md-5 col-auto span_c'>
                     <form method='GET' action='admin_search.php'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
+                    <button type="button" class="btn btn-light dropdown-toggle d-none d-sm-block" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
@@ -31,21 +31,23 @@
                 </div>
             </div>
         </div>
-        <p class='customer'>商品情報</p>
-        <table class='container-fluid table col-lg-6'>
-            <div class='row'>
-                <tbody>
-                    <tr>
-                        <td class='table_td'><?= $item->id ?></td>
-                        <td class='table_img'><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
-                        <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
-                        <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
-                        <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
-                        <td class='table_td'>商品説明：<?= $item->description ?></td>
-                    </tr>
-                </tbody>
-            </div>
-        </table>
+        <p class='body'>
+            <p class='customer'>商品情報</p>
+            <table class='container-fluid table col-lg-6'>
+                <div class='row'>
+                    <tbody>
+                        <tr>
+                            <td class='table_td'><?= $item->id ?></td>
+                            <td class='table_img'><img src='upload/items/<?= $item->image ?>' class='img_td'></img></td>
+                            <td class='table_td'>商品名：&emsp;<?= $item->name ?></td>
+                            <td class='table_td'>在庫：&emsp;&emsp;<?= $item->stock ?>個</td>
+                            <td class='table_td'>金額：&emsp;&emsp;￥<?= $item->price ?></td>
+                            <td class='table_td'>商品説明：<?= $item->description ?></td>
+                        </tr>
+                    </tbody>
+                </div>
+            </table>
+        </p>
         <div class='container-fluid footer'>
             <div class='row'>
             <ul><span class='col-lg-4'>KURIADELEについて</span><br>

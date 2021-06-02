@@ -18,7 +18,7 @@
         // 管理者登録をしたメッセージを保存
         $_SESSION['flash_message'] = $name . 'さんの登録が完了しました。';
         // 画面遷移
-        header('Location: admin_sign_up.php');
+        header('Location: admin_login.php');
         exit;
     }else{ // 入力エラーが１つでもあるならば
         // 管理者登録をしたメッセージを保存

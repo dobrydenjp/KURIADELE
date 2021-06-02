@@ -10,20 +10,20 @@
     <body>
         <div class='container-fluid header fixed-top'>
             <div class='row'>
-                <span class='col-lg-3 col-xs-5'>
-                    <a href='admin_index.php' class='logo'>KURIADELE</a>
+                <span class='col-lg-2 col-md-2 col-auto'>
+                    <a href='admin_index.php'><h1>KURIADELE</h1></a>
                 </span>
-                <span class='col-lg-6 hidden-xs span_a'>
+                <span class='col-lg-7 col-md-5 d-none d-lg-block span_a'>
                     <a href='administrator.php' class='span_b'>管理ページへ</a>
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_b'>ログアウト</a>
                 </span>
-                <div class='col-lg-3 col-xs-7 span_c'>
+                <div class='col-lg-3 col-md-5 col-auto span_c'>
                     <form method='GET' action='admin_search.php'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
+                    <button type="button" class="btn btn-light dropdown-toggle d-none d-sm-block" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
@@ -31,25 +31,27 @@
                 </div>
             </div>
         </div>
-        <p class='customer'>お問い合わせ確認 詳細</p>
-        <table class='container-fluid list table col-lg-6'>
-            <tr>
-                <th>問い合わせ番号</th><td><?= $contact->id ?></td>
-            </tr>
-            <tr>
-                <th>お名前</th><td><?= $contact->name ?>&emsp;様</td>
-            </tr>
-            <tr>
-                <th>件名</th><td><?= $contact->subject ?></td>
-            </tr>
-            <tr>
-                <th>質問内容</th><td><?= $contact->contact ?></td>
-            </tr>
-            <tr>
-                <th>返信メールアドレス</th><td><?= $contact->email_address ?></td>
-            </tr>
-        </table>
-    <div class='container-fluid footer'>
+        <p class='body'>
+            <p class='customer'>お問い合わせ確認 詳細</p>
+            <table class='container-fluid list table col-lg-6'>
+                <tr>
+                    <th class='top_c'>問い合わせ番号</th><td><h6><?= $contact->id ?></h6></td>
+                </tr>
+                <tr>
+                    <th class='top_c'>お名前</th><td><h6><?= $contact->name ?>&emsp;様</h6></td>
+                </tr>
+                <tr>
+                    <th class='top_c'>件名</th><td><h6><?= $contact->subject ?></h6></td>
+                </tr>
+                <tr>
+                    <th class='top_c'>質問内容</th><td><h6><?= $contact->contact ?></h6></td>
+                </tr>
+                <tr>
+                    <th class='top_c'>返信メールアドレス</th><td><h6><?= $contact->email_address ?></h6></td>
+                </tr>
+            </table>
+        </p>
+        <div class='container-fluid footer'>
             <div class='row'>
             <ul><span class='col-lg-4'>KURIADELEについて</span><br>
                 <li><a href='admin_company.php'>企業紹介</a></li>

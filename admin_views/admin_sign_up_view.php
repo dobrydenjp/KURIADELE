@@ -10,49 +10,47 @@
     <body>
          <div class='container-fluid header fixed-top'>
             <div class='row'>
-                <span class='col-lg-3 col-xs-5'>
-                    <a href='admin_login.php' class='logo'>KURIADELE</a>
+                <span class='col-lg-2 col-md-2 col-auto'>
+                    <a href='admin_login.php'><h1>KURIADELE</h1></a>
                 </span>
-                <span class='col-lg-6 hidden-xs span_a'>
+                <span class='col-lg-7 col-md-5 d-none d-lg-block span_a'>
                     <a href='index.php' class='span_b'>顧客TOP</a>
-                    <a href='admin_login.php' class='span_b'>ログイン</a>
-                </span>   
+                    <a href='admin_sign_up.php' class='span_b'>新規登録</a>
+                </span>    
             </div>
         </div>
-        <p class='customer'>管理者会員登録</p>
-        <!--管理者会員登録したメッセージ表示-->
-        <?php if($flash_message !== null): ?>
-            <p class='message'><?= $flash_message ?></p>
-        <?php endif; ?>
-        <!--入力エラーメッセージ表示-->
-        <?php if($error_message !== null): ?>
-            <?php foreach($error_message as $error): ?>
-                <p class='error_message'><?= $error ?></p>
-            <?php endforeach; ?>
-        <?php endif; ?>
-        <form method='POST' action='admin_register_new.php'>
-            <div class='customer_information form-group row '>
-                <label class='col-lg-4 col-form-label'>お名前</label>
-                    <div class="col-lg-4 col-12">
-                        <input type='text' name='name' class='form-control'/>
-                    </div>
-            </div>
-            <div class='customer_information form-group row'>
-                 <label class='col-lg-4 col-form-label'>メールアドレス(ログインＩＤになります)</label>
-                    <div class="col-lg-4 col-12">
-                        <input type='text' name='email_address' class='form-control'/>
-                    </div>
+        <p class='body'>
+            <p class='customer'>管理者会員登録</p>
+            <!--入力エラーメッセージ表示-->
+            <?php if($error_message !== null): ?>
+                <?php foreach($error_message as $error): ?>
+                    <p class='error_message'><?= $error ?></p>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <form method='POST' action='admin_register_new.php'>
+                <div class='customer_information form-group row '>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>お名前</label>
+                        <div class="col-lg-4 col-12">
+                            <input type='text' name='name' class='form-control'/>
+                        </div>
                 </div>
-            <div class='customer_information form-group row'>
-                 <label class='col-lg-4 col-form-label'>ログインパスワード</label>
-                    <div class='col-lg-4 col-12'>
-                        <input type='password' name='password' class='form-control'/>
-                    </div>
-            </div> 
-            <div class='enroll_1'>
-                <input type='submit' value='登録'/>
-            </div>
-        </form>
+                <div class='customer_information form-group row '>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>メールアドレス<br>(ログインＩＤになります)</label>
+                        <div class="col-lg-4 col-12">
+                            <input type='text' name='email_address' class='form-control'/>
+                        </div>
+                </div>
+                <div class='customer_information form-group row '>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>ログインパスワード</label>
+                        <div class='col-lg-4 col-12'>
+                            <input type='password' name='password' class='form-control'/>
+                        </div>
+                </div> 
+                <div class='entry'>
+                    <input type='submit' value='登録'/>
+                </div>
+            </form>
+        </p>
         <div class='container-fluid footer'>
             <div class='row'>
                 <ul><span class='col-lg-4'>KURIADELEについて</span><br>

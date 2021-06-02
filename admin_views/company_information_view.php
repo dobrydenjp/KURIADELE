@@ -10,20 +10,20 @@
     <body>
         <div class='container-fluid header fixed-top'>
             <div class='row'>
-                <span class='col-lg-3 col-xs-5'>
-                    <a href='admin_index.php' class='logo'>KURIADELE</a>
+                <span class='col-lg-2 col-md-2 col-auto'>
+                    <a href='admin_index.php'><h1>KURIADELE</h1></a>
                 </span>
-                <span class='col-lg-6 hidden-xs span_a'>
+                <span class='col-lg-7 col-md-5 d-none d-lg-block span_a'>
                     <a href='administrator.php' class='span_b'>管理ページへ</a>
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_b'>ログアウト</a>
                 </span>
-                <div class='col-lg-3 col-xs-7 span_c'>
+                <div class='col-lg-3 col-md-5 col-auto span_c'>
                     <form method='GET' action='admin_search.php'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
+                    <button type="button" class="btn btn-light dropdown-toggle d-none d-sm-block" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
@@ -31,23 +31,25 @@
                 </div>
             </div>
         </div>
-        <p class='customer'>企業情報変更</p>
-        <!--企業情報入力エラーメッセージ表示-->
-        <?php if($error_message !== null): ?>
-            <?php foreach($error_message as $error): ?>
-                <p class='error_message'><?= $error ?></p>
-            <?php endforeach; ?>
-        <?php endif; ?>
-        <!--企業情報入力完了メッセージ表示-->
-        <?php if($flash_message !== null): ?>
-            <p class='message'><?= $flash_message ?></p>
-        <?php endif; ?>
-        <form method='POST' action='company_new.php'>
-            <div class='question_2'><p>KURIADELEとは</p><textarea name="description" cols="30" rows="5" placeholder='<?= $company->description ?>'></textarea></div>
-            <div class='greeting'>代表挨拶&ensp;&ensp;<input type="text" name="greeting" class='greeting_text' value='<?= $company->greeting ?>'/></div>
-            <div class='greeting'>事業計画&ensp;&ensp;<input type="text" name="plan" class='greeting_text' value='<?= $company->plan ?>'/></div>
-            <div class='top_d'><input type="submit" value="更新" class='btn-gradient'/></div>
-        </form>
+        <p class='body'>
+            <p class='customer'>企業情報変更</p>
+            <!--企業情報入力エラーメッセージ表示-->
+            <?php if($error_message !== null): ?>
+                <?php foreach($error_message as $error): ?>
+                    <p class='error_message'><?= $error ?></p>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <!--企業情報入力完了メッセージ表示-->
+            <?php if($flash_message !== null): ?>
+                <p class='message'><?= $flash_message ?></p>
+            <?php endif; ?>
+            <form method='POST' action='company_new.php'>
+                <div class='question_2'><p>KURIADELEとは</p><textarea name="description" cols="30" rows="5" placeholder='<?= $company->description ?>'></textarea></div>
+                <div class='greeting'>代表挨拶&ensp;&ensp;<input type="text" name="greeting" class='greeting_text' value='<?= $company->greeting ?>'/></div>
+                <div class='greeting'>事業計画&ensp;&ensp;<input type="text" name="plan" class='greeting_text' value='<?= $company->plan ?>'/></div>
+                <div class='top_d'><input type="submit" value="更新" class='btn-gradient'/></div>
+            </form>
+        </p>
         <div class='container-fluid footer'>
             <div class='row'>
             <ul><span class='col-lg-4'>KURIADELEについて</span><br>

@@ -10,20 +10,20 @@
     <body>
         <div class='container-fluid header fixed-top'>
             <div class='row'>
-                <span class='col-lg-3 col-xs-5'>
-                    <a href='index.php' class='logo'>KURIADELE</a>
+                <span class='col-lg-2 col-md-2 col-auto'>
+                    <a href='index.php'><h1>KURIADELE</h1></a>
                 </span>
-                <span class='col-lg-6 hidden-xs span_a'>
+                <span class='col-lg-7 col-md-5 d-none d-lg-block span_a'>
                     <a href='product.php 'class='span_b'>商品情報</a>
                     <a href='contact.php'class='span_b'>お問い合わせ</a>
                     <a href='login.php'class='span_b'>ログイン</a>
                 </span>
-                <div class='col-lg-3 col-xs-7 span_c'>
+                <div class='col-lg-3 col-md-5 col-auto span_c'>
                     <form method='GET' action='search.php'>
-                        <input type='search' name='name'/>
+                        <input type='search' name='name' size='15'/>
                         <input type='submit' value='検索'/>
                     </form>
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
+                    <button type="button" class="btn btn-light dropdown-toggle d-none d-sm-block" data-toggle="dropdown"></button>
                         <div class="dropdown-menu">
                             <a class='dropdown-item' href='#'><a href='company.php'>KURIADELEについて</a>
                             <a class='dropdown-item' href='#'><a href='product.php'>取扱商品</a>
@@ -32,62 +32,61 @@
                 </div>
             </div>
         </div>
-        <br>
-        <br>
-        <p class='customer'>新規会員登録</p>
-        <?php if($error_message !== null): ?>
-            <?php foreach($error_message as $error): ?>
-                <p class='error_message'><?= $error ?></p>
-            <?php endforeach; ?>
-        <?php endif; ?>
-        
-        <form method='POST' action='registration_new.php'>
-            <div class='customer_information form-group row '>
-                <label class='offset-lg-2 col-lg-2 col-form-label'>お名前</label>
-                    <div class="col-lg-4 col-12">
-                        <input type='text' name='name' class='form-control' placeholder='田中  太郎'/>
-                    </div>
-            </div>
-            <div class='customer_information form-group row'>
-                 <label class='offset-lg-2 col-lg-2 col-form-label'>フリガナ</label>
-                    <div class="col-lg-4 col-12">
-                        <input type='text' name='kana_name' class='form-control' placeholder='タナカ  タロウ'/>
-                    </div>
-            </div>
-            <div class='customer_information form-group row'>
-                <label class='offset-lg-2 col-lg-2 col-form-label'>郵便番号</label>
-                    <div class="col-lg-2 col-4">
-                        <input type='text' name='postal_code' class='form-control' placeholder='163-8001'/>
-                    </div>
-            </div>
-            <div class='customer_information form-group row'>
-                <label class='offset-lg-2 col-lg-2 col-form-label'>住所</label>
-                    <div class="col-lg-4 col-12">
-                        <input type="text" name="address" class='form-control' placeholder='東京都新宿区西新宿2-8-1'/>
-                    </div>
-            </div>
-            <div class='customer_information form-group row'>
-                 <label class='offset-lg-2 col-lg-2 col-form-label'>お電話番号</label>
-                    <div class="col-lg-4 col-12">
-                        <input type='text' name='tel' class='form-control' placeholder='000-000-0000'/>
-                    </div>
-            </div>
-            <div class='customer_information form-group row'>
-                 <label class='offset-lg-2 col-lg-2 col-form-label sign_up'>メールアドレス<br>(ログインＩＤになります)</label>
-                    <div class="col-lg-4 col-12">
-                        <input type='text' name='email_address' class='form-control' placeholder='tanaka-123@gmail.com'/>
-                    </div>
+        <p class='body'>
+            <p class='customer'>新規会員登録</p>
+            <?php if($error_message !== null): ?>
+                <?php foreach($error_message as $error): ?>
+                    <p class='error_message'><?= $error ?></p>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <form method='POST' action='registration_new.php'>
+                <div class='customer_information form-group row '>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>お名前</label>
+                        <div class="col-lg-4 col-12">
+                            <input type='text' name='name' class='form-control' placeholder='田中  太郎'/>
+                        </div>
                 </div>
-            <div class='customer_information form-group row'>
-                 <label class='offset-lg-2 col-lg-2 col-form-label sign_up'>ログインパスワード</label>
-                    <div class='col-lg-4 col-12'>
-                        <input type='password' name='password' class='form-control' placeholder='12345'/>
+                <div class='customer_information form-group row'>
+                     <label class='offset-lg-2 col-lg-2 col-form-label'>フリガナ</label>
+                        <div class="col-lg-4 col-12">
+                            <input type='text' name='kana_name' class='form-control' placeholder='タナカ  タロウ'/>
+                        </div>
+                </div>
+                <div class='customer_information form-group row'>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>郵便番号</label>
+                        <div class="col-lg-2 col-4">
+                            <input type='text' name='postal_code' class='form-control' placeholder='163-8001'/>
+                        </div>
+                </div>
+                <div class='customer_information form-group row'>
+                    <label class='offset-lg-2 col-lg-2 col-form-label'>住所</label>
+                        <div class="col-lg-4 col-12">
+                            <input type="text" name="address" class='form-control' placeholder='東京都新宿区西新宿2-8-1'/>
+                        </div>
+                </div>
+                <div class='customer_information form-group row'>
+                     <label class='offset-lg-2 col-lg-2 col-form-label'>お電話番号</label>
+                        <div class="col-lg-4 col-12">
+                            <input type='text' name='tel' class='form-control' placeholder='000-000-0000'/>
+                        </div>
+                </div>
+                <div class='customer_information form-group row'>
+                     <label class='offset-lg-2 col-lg-2 col-form-label sign_up'>メールアドレス<br>(ログインＩＤになります)</label>
+                        <div class="col-lg-4 col-12">
+                            <input type='text' name='email_address' class='form-control' placeholder='tanaka-123@gmail.com'/>
+                        </div>
                     </div>
-            </div> 
-            <div class='entry'>
-                <input type='submit' value='登録'/>
-            </div>
-        </form>
+                <div class='customer_information form-group row'>
+                     <label class='offset-lg-2 col-lg-2 col-form-label sign_up'>ログインパスワード</label>
+                        <div class='col-lg-4 col-12'>
+                            <input type='password' name='password' class='form-control' placeholder='12345'/>
+                        </div>
+                </div> 
+                <div class='entry'>
+                    <input type='submit' value='登録'/>
+                </div>
+            </form>
+        </p>
        <div class='container-fluid footer'>
             <div class='row'>
                 <ul><span class='col-lg-4'>KURIADELEについて</span><br>

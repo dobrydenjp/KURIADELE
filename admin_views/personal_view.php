@@ -10,20 +10,20 @@
     <body>
         <div class='container-fluid header fixed-top'>
             <div class='row'>
-                <span class='col-lg-3 col-xs-5'>
-                    <a href='admin_index.php' class='logo'>KURIADELE</a>
+                <span class='col-lg-2 col-md-2 col-auto'>
+                    <a href='admin_index.php'><h1>KURIADELE</h1></a>
                 </span>
-                <span class='col-lg-6 hidden-xs span_a'>
+                <span class='col-lg-7 col-md-5 d-none d-lg-block span_a'>
                     <a href='administrator.php' class='span_b'>管理ページへ</a>
                     <a href='index.php' class='span_b'>顧客TOP</a>
                     <a href='admin_logout.php' class='span_b'>ログアウト</a>
                 </span>
-                <div class='col-lg-3 col-xs-7 span_c'>
+                <div class='col-lg-3 col-md-5 col-auto span_c'>
                     <form method='GET' action='admin_search.php'>
                         <input type='search' name='name'/>
                         <input type='submit' value='検索'/>
                     </form>
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"></button>
+                    <button type="button" class="btn btn-light dropdown-toggle d-none d-sm-block" data-toggle="dropdown"></button>
                     <div class="dropdown-menu">
                         <a class='dropdown-item' href='#'><a href='admin_company.php'>KURIADELEについて</a>
                         <a class='dropdown-item' href='#'><a href='admin_product.php'>取扱商品</a>
@@ -31,46 +31,48 @@
                 </div>
             </div>
         </div>
-        <p class='customer'>お客様情報</p>
-        <table class='container-fluid list table col-lg-6 col-6'>
-            <div class='row'> 
-                <tbody>
-                    <tr>
-                        <th>お名前</th><td><?= $customer->name ?></td>
-                    </tr>
-                    <tr>
-                        <th>カタカナ</th><td><?= $customer->kana_name ?></td>
-                    </tr>
-                    <tr>
-                        <th>郵便番号</th><td><?= $customer->postal_code ?></td>
-                    </tr>
-                    <tr>
-                        <th>住所</th><td><?= $customer->address ?></td>
-                    </tr>
-                    <tr>
-                        <th>お電話番号</th><td><?= $customer->tel ?></td>
-                    </tr>
-                    <tr>
-                        <th>メールアドレス</th><td><?= $customer->email_address ?></td>
-                    </tr>
-                    <tr>
-                        <th>パスワード</th><td><?= $customer->password ?></td>
-                    </tr>
-                </tbody>
-            </div>
-        </table>
+        <p class='body'>
+            <p class='customer'>お客様情報</p>
+            <table class='container-fluid list table col-lg-6 col-6'>
+                <div class='row'> 
+                    <tbody>
+                        <tr>
+                            <th class='top_c'>お名前</th><td><h6><?= $customer->name ?></h6></td>
+                        </tr>
+                        <tr>
+                            <th class='top_c'>カタカナ</th><td><h6><?= $customer->kana_name ?></h6></td>
+                        </tr>
+                        <tr>
+                            <th class='top_c'>郵便番号</th><td><h6><?= $customer->postal_code ?></h6></td>
+                        </tr>
+                        <tr>
+                            <th class='top_c'>住所</th><td><h6><?= $customer->address ?></h6></td>
+                        </tr>
+                        <tr>
+                            <th class='top_c'>お電話番号</th><td><h6><?= $customer->tel ?></h6></td>
+                        </tr>
+                        <tr>
+                            <th class='top_c'>メールアドレス</th><td><h6><?= $customer->email_address ?></h6></td>
+                        </tr>
+                        <tr>
+                            <th class='top_c'>パスワード</th><td><h6><?= $customer->password ?></h6></td>
+                        </tr>
+                    </tbody>
+                </div>
+            </table>
+        </p>
         <div class='customer'>購入済み商品一覧</div>
         <table class='container-fluid list table col-lg-6'>
             <div class='row'>
                 <tbody>
                     <?php foreach($my_purchases as $cart): ?>
                         <tr>
+                            <td class='table_td'>商品番号：<?= $cart->get_item()->id ?></td>
                             <td class='table_img'><img src='upload/items/<?= $cart->get_item()->image ?>' class='img_td'></img></td>
                             <td class='table_td'>商品名：<?= $cart->get_item()->name ?></td>
-                            <td class='table_td'>商品番号：<?= $cart->get_item()->id ?></td>
                             <td class='table_td'>購入日時：<?= $cart->created_at ?></td>
-                            <td class='table_td'>購入個数: <?= $cart->number ?></td>
-                            <td class='table_td'>金額：<?= $cart->get_item()->price ?></td>
+                            <td class='table_td'>購入個数: <?= $cart->number ?>個</td>
+                            <td class='table_td'>金額：<?= $cart->get_item()->price ?>円</td>
                         </tr>
                     <?php endforeach; ?>
                </tbody>
