@@ -83,7 +83,7 @@
                 <div class='customer_information form-group row'>
                      <label class='offset-lg-2 col-lg-2 col-form-label sign_up'>ログインパスワード</label>
                         <div class='col-lg-4 col-12'>
-                            <input type='password' name='password' class='form-control'/>
+                            <input type='password' name='password' class='form-control' value='5文字以上でお願いします。'/>
                         </div>
                 </div> 
                 <div class='top_d'>

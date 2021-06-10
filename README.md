@@ -58,7 +58,6 @@ MVCの思想にのっとり、Model/Viewを自作し連携させています。
 会員 ログイン 商品ページ カート 購入![login_cart_pur](https://user-images.githubusercontent.com/70011422/118083762-715c4380-b3fa-11eb-94d5-6622864284ca.gif)
 
 
-
 管理者 商品登録![admin_product_set](https://user-images.githubusercontent.com/70011422/118083898-aff1fe00-b3fa-11eb-9534-4f808775a2c3.gif)
 
 
